@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+      <title>Module Pembelajaran</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
+      ></script>
+   </head>
+   <body>
+      <main class="h-screen w-full">
+         <div class="flex flex-col md:flex-row w-full h-full">
+            <div class="left flex-[2]">left</div>
+            <div class="right flex-[1] flex flex-col items-center justify-center h-full bg-blue-100">
+               <h1 class="">Login</h1>
+               <form class="input-validation-required">
+                  <sl-input name="name" label="Name" required></sl-input>
+                  <br />
+                  <sl-input name="password" label="Password" required type="password" password-toggle></sl-input>
+                  <br />
+                  <sl-button type="submit" variant="primary">Submit</sl-button>
+               </form>
+            </div>
+         </div>
+      </main>
+
+      <script type="module">
+         const form = document.querySelector(".input-validation-required");
+
+         // Wait for controls to be defined before attaching form listeners
+         await Promise.all([
+            customElements.whenDefined("sl-button"),
+            customElements.whenDefined("sl-checkbox"),
+            customElements.whenDefined("sl-input"),
+            customElements.whenDefined("sl-option"),
+            customElements.whenDefined("sl-select"),
+            customElements.whenDefined("sl-textarea"),
+         ]).then(() => {
+            form.addEventListener("submit", (event) => {
+               event.preventDefault();
+               alert("All fields are valid!");
+            });
+         });
+      </script>
+   </body>
+</html>
