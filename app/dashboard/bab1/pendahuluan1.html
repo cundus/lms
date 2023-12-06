@@ -22,7 +22,7 @@
     <header id="header-dashboard" class="py-1 z-10 bg-pink-300">
       <div class="">
         <div class="w-full px-4">
-          <div class="mx-auto mb-6 max-w-xl text-center">
+          <div class="mx-auto mb-1 max-w-xl text-center">
             <h2
               class="py-1"
               style="
@@ -49,6 +49,27 @@
             >
               Hello future greats with spirit of learning
             </p>
+          </div>
+          <div class="w-full flex justify-between">
+            <a
+              href="../../beranda.html"
+              class="text-md px-6 py-4 font-bold underline decoration-slice"
+              >Back to Beranda</a
+            >
+            <h3 class="px-6 py-4">
+              Anda saat ini berada pada tab:
+              <a
+                href="../dashboard.html"
+                class="font-bold underline decoration-solid"
+                >Dashboard Siswa
+              </a>
+              <span> > </span>
+              <a
+                href="./pendahuluan1.html"
+                class="font-bold underline decoration-solid"
+                >Pendahuluan Bab 1
+              </a>
+            </h3>
           </div>
         </div>
       </div>
@@ -108,37 +129,65 @@
           </sl-tree-item>
 
           <sl-tree-item>
-            <a href="../auth/login.html">Exit</a>
+            <a href="../../../auth/login.html">Exit</a>
           </sl-tree-item>
         </sl-tree>
       </aside>
       <div class="content px-1">
         <div class="main-content">
+          <h1 class="font-bold text-2xl px-4 py-2">Bilangan</h1>
+          <h3
+            class="font-semibold text-lg px-2 py-2 underline decoration-solid"
+          >
+            1. Ayo Membilang 1 Sampai Dengan 10
+          </h3>
           <sl-card
             id="info-media"
             class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <div slot="header">
-              <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-              Tujuan Pembelajaran
+              <h3 class="font-bold text-lg px-2 py-1">Tujuan Pembelajaran</h3>
             </div>
-            <ol class="black-number mx-4">
+
+            <!-- <div slot="header">Bilangan</div> -->
+            <p>
+              Setelah mempelajari materi ini, peserta didik diharapkan mampu :
+            </p>
+            <ul class="black-bullet">
               <li>
-                Peserta didik bisa mengidentifikasi bagian - bagian tubuh dari
-                tumbuhan
+                Peserta didik mampu menghitung banyak benda sampai dengan 10
               </li>
               <li>
-                Peserta didik memahami fungsi dari masing - masing bagian tubuh
-                tumbuhan
+                Peserta didik mampu membaca, mengenal, dan menuliskan serta
+                menunjukkan konsep lambang bilangan 0 sampai dengan 10
               </li>
-            </ol>
+              <li>
+                Peserta didik mampu menunjukkan konsep sama banyak, lebih
+                banyak, dan lebih sedikit dari dua kelompok benda menggunakan
+                benda konkret
+              </li>
+              <li>
+                Peserta didik mampu menghitung maju dan mundur sampai dengan 10
+              </li>
+              <li>
+                Peserta didik mampu menyusun bilangan dengan menggunakan model
+                konkret
+              </li>
+              <li>
+                Peserta didik mampu mengurai bilangan dengan menggunakan model
+                konkret
+              </li>
+            </ul>
           </sl-card>
-          <p class="text-content">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus
-            quasi veritatis laborum esse obcaecati harum? Architecto, natus et
-            deleniti ipsa possimus voluptatum officiis perspiciatis, asperiores
-            porro tempore soluta iure repudiandae!
-          </p>
+
+          <!-- Button Next Step to Materi-->
+          <div class="flex my-4 py-4 justify-center">
+            <a
+              href="./materi1.html"
+              class="border border-solid rounded-full text-white bg-red-500 text-md px-12 py-4 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out"
+              >Next to Materi</a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -161,11 +210,21 @@
         border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 0.5rem;
         margin: 0.5rem;
+        padding: 1rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(10px);
-        padding: 1rem;
         color: black;
+        width: 100%;
       }
+      /* Gaya CSS tambahan */
+      .black-bullet li::before {
+        content: "\2022"; /* Karakter Unicode untuk bullet hitam */
+        color: black;
+        margin-right: 0.5em;
+      }
+      /* .black-bullet li {
+        font-size: small;
+      } */
       ol {
         list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
       }
@@ -174,7 +233,6 @@
         background: whitesmoke;
         border: 1px dashed blue;
         border-radius: 0.5rem;
-        margin: 0.5rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(10px);
         padding: 1rem;

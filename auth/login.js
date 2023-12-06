@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const roleContainer = document.getElementById("roleLogin");
     const roleNavigate = document.createElement("a");
 
+    roleContainer.innerHTML = "atau masuk sebagai ";
     roleNavigate.href = `./login.html?role=guru`;
     roleNavigate.classList = "text-dark font-semibold";
     roleNavigate.innerText = "guru";
