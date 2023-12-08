@@ -39,8 +39,12 @@ btnPrev.addEventListener("click", previousQuestion);
 // listButtonQuiz.addEventListener("click", renderQuiz);
 
 function nextQuestion() {
-  numberQuiz++;
-  renderQuiz();
+  if (numberQuiz < 3) {
+    numberQuiz++;
+    renderQuiz();
+  } else {
+    alert("Content sudah habis");
+  }
 }
 
 function previousQuestion() {
