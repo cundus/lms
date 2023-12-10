@@ -1,0 +1,467 @@
+/**
+ * ! DOM for Show or Hidden
+ * & Function for Button Start DOM Show or Hide Question
+ */
+const btnStart = document.querySelector("#btn-start"); // ^ Button For Trigger Class Show or Hide Element this below
+const showQuiz = document.querySelector("#soal-kuis"); // ^ Default Hide Element
+const numbQuiz = document.querySelector("#nomor-soal"); // ^ Default Hide Element
+const rulesQuiz = document.querySelector("#petunjuk-kuis"); // ^ Default Show Element
+const dataStudent = document.querySelector("#data-siswa"); // ^ Default Show Element
+const btnPrev = document.querySelector("#btn-previous"); // ^ DOM Button Previous Question
+const listQuestionOne = document.querySelector("#btn-kuis1");
+const listQuestionTwo = document.querySelector("#btn-kuis2");
+const listQuestionThree = document.querySelector("#btn-kuis3");
+const listQuestionFour = document.querySelector("#btn-kuis4");
+const listQuestionFive = document.querySelector("#btn-kuis5");
+const listQuestionSix = document.querySelector("#btn-kuis6");
+const listQuestionSeven = document.querySelector("#btn-kuis7");
+const listQuestionEight = document.querySelector("#btn-kuis8");
+const listQuestionNine = document.querySelector("#btn-kuis9");
+const listQuestionTen = document.querySelector("#btn-kuis10");
+const btnNextQuestionTwo = document.getElementById("btn-next");
+const listButtonQuiz = document.getElementById("btn-kuis");
+
+let numberQuiz = 1;
+btnStart.addEventListener("click", () => {
+  rulesQuiz.classList.add("hidden");
+  dataStudent.classList.add("hidden");
+  showQuiz.classList.remove("hidden");
+  numbQuiz.classList.remove("hidden");
+  //   btnPrev.classList.add("hidden");
+  //   listQuestionOne.classList.add("bg-black", "text-white");
+
+  renderQuiz();
+  startCountdown();
+});
+// btnNextQuestionThree.addEventListener("click", questionThree);
+btnNextQuestionTwo.addEventListener("click", nextQuestion);
+btnPrev.addEventListener("click", previousQuestion);
+// listButtonQuiz.addEventListener("click", renderQuiz);
+
+function nextQuestion() {
+  if (numberQuiz < 10) {
+    numberQuiz++;
+    renderQuiz();
+  } else {
+    alert("Content sudah habis");
+  }
+}
+
+function previousQuestion() {
+  numberQuiz--;
+  renderQuiz();
+}
+
+function renderQuiz() {
+  let additionalHTML = "";
+  const numberQuestion = document.querySelector("#nomor-kuis");
+  const answerQuestion = document.getElementById("jawaban-kuis");
+
+  console.log("running quiz no ", numberQuiz);
+  switch (numberQuiz) {
+    case 1:
+      btnPrev.classList.add("hidden");
+      listQuestionOne.classList.add("bg-black", "text-white");
+      listQuestionTwo.classList.remove("bg-black", "text-white");
+      numberQuestion.innerText =
+        "1. Dibawah ini yang termasuk pengertian dari lambang bilangan dan nama bilangan adalah?";
+
+      answerQuestion.innerHTML = `
+            <input type="radio" id="a1" name="kuis1" value="jawabanA" />
+            <label for="a1">Simbol atau lambang yang di lambangkan melalui banyaknya benda.</label><br />
+            <input type="radio" id="b1" name="kuis1" value="JawabanB" />
+            <label for="b1">Simbol atau lambang yang di lambangkan melalui simbol >,< dan =.</label><br />
+            <input type="radio" id="c1" name="kuis1" value="JawabanC" />
+            <label for="c1">Simbol atau lambang suatu bilangan yang mewakili banyaknya benda yang di lambangkan melalui angka.</label><br />`;
+      break;
+    case 2:
+      numberQuestion.innerText =
+        "2. Di bawah ini yang termasuk dalam golongan lambang bilangan adalah?";
+      btnPrev.classList.remove("hidden");
+      listQuestionTwo.classList.add("bg-black", "text-white");
+      listQuestionOne.classList.remove("bg-black", "text-white");
+      listQuestionThree.classList.remove("bg-black", "text-white");
+
+      // Output kode HTML yang diberikan
+      answerQuestion.innerHTML = `
+            <input type="radio" id="a2" name="kuis1" value="jawabanA" />
+            <label for="a2">
+                <span class="font-bold text-gray-300 bg-pink-500 border border-solid rounded-lg p-2 my-2">1</span>
+                <span class="font-bold text-red-500 bg-gray-500 border border-solid rounded-full p-2 my-2">2</span>
+                <span class="font-bold text-yellow-600 bg-blue-400 border border-solid rounded-l-lg p-2 my-2">3</span>
+            </label><br />
+            <input type="radio" id="b2" name="kuis1" value="jawabanB" />
+            <label for="b2">
+                <span class="font-bold text-gray-300 bg-pink-500 border border-solid rounded-lg p-2 my-2">1</span>
+                <span class="font-bold">enam</span>
+                <span class="font-bold bg-pink-500 border border-solid rounded-lg px-4 py-2 my-2"></span>
+            </label><br />
+            <input type="radio" id="c2" name="kuis1" value="jawabanC" />
+            <label class="border border-solid rounded-full bg-black w-1/2 for="c2">
+                <span class="font-bold text-white">Lima</span>
+                <span class="font-bold text-white">Enam</span>
+                <span class="font-bold text-white">Tujuh</span>
+            </label><br />`;
+      break;
+    case 3:
+      numberQuestion.innerText =
+        "3. Di bawah ini yang termasuk dalam golongan nama bilangan adalah? ...";
+      listQuestionTwo.classList.remove("bg-black", "text-white");
+      listQuestionFour.classList.remove("bg-black", "text-white");
+      listQuestionThree.classList.add("bg-black", "text-white");
+
+      // Output kode HTML yang diberikan
+      answerQuestion.innerHTML = `
+          <input type="radio" id="a3" name="kuis1" value="jawabanA" />
+            <label for="a3">
+                <span class="font-bold text-gray-300 bg-pink-500 border border-solid rounded-lg p-2 my-2">1</span>
+                <span class="font-bold text-red-500 bg-gray-500 border border-solid rounded-full p-2 my-2">2</span>
+                <span class="font-bold text-yellow-600 bg-blue-400 border border-solid rounded-l-lg p-2 my-2">3</span>
+            </label><br />
+            <input type="radio" id="b3" name="kuis1" value="jawabanB" />
+            <label for="b3">
+                <span class="font-bold text-gray-300 bg-pink-500 border border-solid rounded-lg p-2 my-2">1</span>
+                <span class="font-bold">enam</span>
+                <span class="font-bold bg-pink-500 border border-solid rounded-lg px-4 py-2 my-2"></span>
+            </label><br />
+            <input type="radio" id="c3" name="kuis1" value="jawabanC" />
+            <label class="border border-solid rounded-full bg-black w-1/2 for="c3">
+                <span class="font-bold text-white">Lima</span>
+                <span class="font-bold text-white">Enam</span>
+                <span class="font-bold text-white">Tujuh</span>
+            </label><br />`;
+      break;
+    case 4:
+      numberQuestion.innerText =
+        "4. Apabila dituliskan nama bilangan 8 adalah? ...";
+      listQuestionOne.classList.remove("bg-black", "text-white");
+      listQuestionTwo.classList.remove("bg-black", "text-white");
+      listQuestionThree.classList.remove("bg-black", "text-white");
+      listQuestionFour.classList.add("bg-black", "text-white");
+      listQuestionFive.classList.remove("bg-black", "text-white");
+
+      // Output kode HTML yang diberikan
+      answerQuestion.innerHTML = `
+          <input type="radio" id="a4" name="kuis1" value="jawabanA" />
+          <label for="a4">Delapan (with icon sound)</label><br />
+          <input type="radio" id="b4" name="kuis1" value="jawabanB" />
+          <label for="b4">Lima</label><br />
+          <input type="radio" id="c4" name="kuis1" value="jawabanC" />
+          <label for="c4">Tiga</label><br />`;
+      break;
+    case 5:
+      numberQuestion.innerText =
+        "5. Beben mempunyai 10 Sepeda. Lambang bilangan dari sepuluh adalah?... (icon sound)";
+      listQuestionFour.classList.remove("bg-black", "text-white");
+      listQuestionFive.classList.add("bg-black", "text-white");
+      listQuestionSix.classList.remove("bg-black", "text-white");
+
+      // Output kode HTML yang diberikan
+      answerQuestion.innerHTML = `
+          <input type="radio" id="a4" name="kuis1" value="jawabanA" />
+          <label for="a4">10</label><br />
+          <input type="radio" id="b4" name="kuis1" value="jawabanB" />
+          <label for="b4">20</label><br />
+          <input type="radio" id="c4" name="kuis1" value="jawabanC" />
+          <label for="c4">9</label><br />`;
+      break;
+    case 6:
+      numberQuestion.innerText =
+        "6. Di bawah ini yang dimaksud pengertian dari membandingkan bilangan dalam benda adalah? (icon sound)";
+      listQuestionFive.classList.remove("bg-black", "text-white");
+      listQuestionSix.classList.add("bg-black", "text-white");
+      listQuestionSeven.classList.remove("bg-black", "text-white");
+
+      // Output kode HTML yang diberikan
+      answerQuestion.innerHTML = `
+          <input type="radio" id="a4" name="kuis1" value="jawabanA" />
+          <label for="a4">Suatu upaya untuk menentukan perbedaan atau persamaan jumlah antara satu buah bilangan, benda, dan lain sebagainya.</label><br />
+          <input type="radio" id="b4" name="kuis1" value="jawabanB" />
+          <label for="b4">Suatu upaya untuk menentukan perbedaan atau persamaan jumlah antara dua buah bilangan, benda, dan lain sebagainya.</label><br />
+          <input type="radio" id="c4" name="kuis1" value="jawabanC" />
+          <label for="c4">Suatu upaya untuk menentukan perbedaan atau persamaan jumlah antara tiga buah bilangan, benda, dan lain sebagainya.</label><br />`;
+      break;
+    case 7:
+      numberQuestion.innerText =
+        "7. Perhatikan gambar di bawah ini, tanda yang cocok untuk mengisi titik-titik diatas adalah?... (icon sound)";
+      listQuestionSix.classList.remove("bg-black", "text-white");
+      listQuestionSeven.classList.add("bg-black", "text-white");
+      listQuestionEight.classList.remove("bg-black", "text-white");
+
+      // Output kode HTML yang diberikan
+      answerQuestion.innerHTML = `
+          <input type="radio" id="a4" name="kuis1" value="jawabanA" />
+          <label for="a4">=</label><br />
+          <input type="radio" id="b4" name="kuis1" value="jawabanB" />
+          <label for="b4"><</label><br />
+          <input type="radio" id="c4" name="kuis1" value="jawabanC" />
+          <label for="c4">></label><br />`;
+      break;
+    case 8:
+      numberQuestion.innerText =
+        "8. Perhatikan gambar di bawah ini, manakah suatu bilangan dibawah ini yang berurut dari terkecil ke terbesar?... (icon sound)";
+      listQuestionSeven.classList.remove("bg-black", "text-white");
+      listQuestionEight.classList.add("bg-black", "text-white");
+      listQuestionNine.classList.remove("bg-black", "text-white");
+
+      // Output kode HTML yang diberikan
+      answerQuestion.innerHTML = `
+          <input type="radio" id="c3" name="kuis1" value="jawabanC" />
+            <label class="border border-solid rounded-full bg-black w-1/2 for="c3">
+                <span class="font-bold text-white">Lima</span>
+                <span class="font-bold text-white">Enam</span>
+                <span class="font-bold text-white">Tujuh</span>
+            </label><br />
+          <input type="radio" id="c3" name="kuis1" value="jawabanC" />
+            <label class="border border-solid rounded-full bg-black w-1/2 for="c3">
+                <span class="font-bold text-white">Lima</span>
+                <span class="font-bold text-white">Enam</span>
+                <span class="font-bold text-white">Tujuh</span>
+            </label><br />
+          <input type="radio" id="c3" name="kuis1" value="jawabanC" />
+            <label class="border border-solid rounded-full bg-black w-1/2 for="c3">
+                <span class="font-bold text-white">Lima</span>
+                <span class="font-bold text-white">Enam</span>
+                <span class="font-bold text-white">Tujuh</span>
+            </label><br />
+          `;
+      break;
+    case 9:
+      numberQuestion.innerText =
+        "9. Perhatikan gambar di bawah ini, manakah suatu bilangan dibawah ini yang berurut dari terbesar ke terkecil?... (icon sound)";
+      listQuestionEight.classList.remove("bg-black", "text-white");
+      listQuestionNine.classList.add("bg-black", "text-white");
+      listQuestionTen.classList.remove("bg-black", "text-white");
+
+      // Output kode HTML yang diberikan
+      answerQuestion.innerHTML = `
+          <input type="radio" id="c3" name="kuis1" value="jawabanC" />
+            <label class="border border-solid rounded-full bg-black w-1/2 for="c3">
+                <span class="font-bold text-white">Lima</span>
+                <span class="font-bold text-white">Enam</span>
+                <span class="font-bold text-white">Tujuh</span>
+            </label><br />
+          <input type="radio" id="c3" name="kuis1" value="jawabanC" />
+            <label class="border border-solid rounded-full bg-black w-1/2 for="c3">
+                <span class="font-bold text-white">Lima</span>
+                <span class="font-bold text-white">Enam</span>
+                <span class="font-bold text-white">Tujuh</span>
+            </label><br />
+          <input type="radio" id="c3" name="kuis1" value="jawabanC" />
+            <label class="border border-solid rounded-full bg-black w-1/2 for="c3">
+                <span class="font-bold text-white">Lima</span>
+                <span class="font-bold text-white">Enam</span>
+                <span class="font-bold text-white">Tujuh</span>
+            </label><br />
+          `;
+      break;
+    case 10:
+      numberQuestion.innerText =
+        "10. Di bawah ini yang dimaksud pengertian dari pasangkan bilangan adalah? (icon sound)";
+      listQuestionTen.classList.add("bg-black", "text-white");
+      listQuestionNine.classList.remove("bg-black", "text-white");
+
+      // Output kode HTML yang diberikan
+      answerQuestion.innerHTML = `
+          <input type="radio" id="a4" name="kuis1" value="jawabanA" />
+          <label for="a4">Suatu upaya untuk menentukan perbedaan atau persamaan jumlah antara satu buah bilangan, benda, dan lain sebagainya.</label><br />
+          <input type="radio" id="b4" name="kuis1" value="jawabanB" />
+          <label for="b4">Suatu upaya untuk menentukan perbedaan atau persamaan jumlah antara dua buah bilangan, benda, dan lain sebagainya.</label><br />
+          <input type="radio" id="c4" name="kuis1" value="jawabanC" />
+          <label for="c4">Suatu upaya untuk menentukan perbedaan atau persamaan jumlah antara tiga buah bilangan, benda, dan lain sebagainya.</label><br />`;
+      break;
+    default:
+      break;
+  }
+}
+
+/**
+ * & Function Question
+ */
+// ! Function Question One
+function questionOne() {
+  rulesQuiz.classList.add("hidden");
+  dataStudent.classList.add("hidden");
+  showQuiz.classList.remove("hidden");
+  numbQuiz.classList.remove("hidden");
+  btnPrev.classList.add("hidden");
+  listQuestionOne.classList.add("bg-black", "text-white");
+
+  // ^ Create Element
+  const numberQuestion = document.querySelector("#nomor-kuis");
+  const answerQuestion = document.getElementById("jawaban-kuis");
+
+  numberQuestion.innerText = "1. Apa yang dikenal oleh TypeScript?";
+
+  // Output kode HTML yang diberikan
+  const additionalHTML = `
+  <input type="radio" id="html1" name="kuis1" value="HTML" />
+  <label for="html1">HTML</label><br />
+  <input type="radio" id="css1" name="kuis1" value="CSS" />
+  <label for="css1">CSS</label><br />
+  <input type="radio" id="javascript1" name="kuis1" value="JavaScript" />
+  <label for="javascript1">JavaScript</label><br />
+  <input type="radio" id="python1" name="kuis1" value="python" />
+  <label for="python1">Python</label>`;
+
+  answerQuestion.innerHTML = additionalHTML;
+  document.getElementById("btn-next").addEventListener("click", questionTwo);
+}
+// ! End Function Question One
+
+// ! Function Question Two
+function questionTwo() {
+  btnPrev.classList.remove("hidden");
+  listQuestionOne.classList.remove("bg-black", "text-white");
+  listQuestionTwo.classList.add("bg-black", "text-white");
+  // ^ Create Element
+  const numberQuestion2 = document.querySelector("#nomor-kuis");
+  const answerQuestion2 = document.getElementById("jawaban-kuis");
+
+  numberQuestion2.innerText = "2. Apa yang dikenal oleh CSS?";
+
+  // Output kode HTML yang diberikan
+  const additionalHTML2 = `
+  <input type="radio" id="html2" name="fav_language2" value="HTML" />
+  <label for="html2">Style</label><br />
+  <input type="radio" id="css2" name="fav_language2" value="CSS" />
+  <label for="css2">CSS</label><br />
+  <input type="radio" id="javascript2" name="fav_language2" value="JavaScript" />
+  <label for="javascript2">Gaya</label><br />
+  <input type="radio" id="python2" name="fav_language2" value="python" />
+  <label for="python2">DLL</label>`;
+
+  answerQuestion2.innerHTML = additionalHTML2;
+
+  function btnBackToOne() {
+    rulesQuiz.classList.add("hidden");
+    dataStudent.classList.add("hidden");
+    showQuiz.classList.remove("hidden");
+    numbQuiz.classList.remove("hidden");
+    btnPrev.classList.add("hidden");
+    listQuestionOne.classList.add("bg-black", "text-white");
+    listQuestionTwo.classList.remove("bg-black", "text-white");
+
+    // ^ Create Element
+    const numberQuestion1 = document.querySelector("#nomor-kuis");
+    const answerQuestion1 = document.getElementById("jawaban-kuis");
+
+    numberQuestion1.innerText = "1. Apa yang dikenal oleh TypeScript?";
+
+    // Output kode HTML yang diberikan
+    const additionalHTML1 = `
+  <input type="radio" id="html1" name="fav_language1" value="HTML" />
+  <label for="html1">HTML</label><br />
+  <input type="radio" id="css1" name="fav_language1" value="CSS" />
+  <label for="css1">CSS</label><br />
+  <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
+  <label for="javascript1">JavaScript</label><br />
+  <input type="radio" id="python1" name="fav_language1" value="python" />
+  <label for="python1">Python</label>`;
+
+    answerQuestion1.innerHTML = additionalHTML1;
+  }
+  document
+    .getElementById("btn-previous")
+    .addEventListener("click", btnBackToOne);
+}
+// ! End Function Question Two
+
+// ! Function Question Three
+function questionThree() {
+  //   btnPrev.classList.remove("hidden");
+  listQuestionOne.classList.remove("bg-black", "text-white");
+  listQuestionTwo.classList.remove("bg-black", "text-white");
+  listQuestionThree.classList.add("bg-black", "text-white");
+  // ^ Create Element
+  const numberQuestion3 = document.querySelector("#nomor-kuis");
+  const answerQuestion3 = document.getElementById("jawaban-kuis");
+
+  numberQuestion3.innerText = "3. HTML adalah?";
+
+  // Output kode HTML yang diberikan
+  const additionalHTML3 = `
+  <input type="radio" id="html3" name="fav_language2" value="HTML" />
+  <label for="html2">Hyper Text Markup Language</label><br />
+  <input type="radio" id="css2" name="fav_language2" value="CSS" />
+  <label for="css2">HypertText Maksa Language</label><br />
+  <input type="radio" id="javascript2" name="fav_language2" value="JavaScript" />
+  <label for="javascript2">Height Thing Make Long</label><br />
+  <input type="radio" id="python2" name="fav_language2" value="python" />
+  <label for="python2">Bahasa Pemrograman</label>`;
+
+  answerQuestion3.innerHTML = additionalHTML3;
+
+  function backToQuestionTwo() {
+    // rulesQuiz.classList.add("hidden");
+    // dataStudent.classList.add("hidden");
+    // showQuiz.classList.remove("hidden");
+    // numbQuiz.classList.remove("hidden");
+    btnPrev.classList.remove("hidden");
+    listQuestionOne.classList.remove("bg-black", "text-white");
+    listQuestionTwo.classList.add("bg-black", "text-white");
+    listQuestionThree.classList.remove("bg-black", "text-white");
+
+    // ^ Create Element
+    const numberQuestion2 = document.querySelector("#nomor-kuis");
+    const answerQuestion2 = document.getElementById("jawaban-kuis");
+
+    numberQuestion2.innerText = "2. Apa yang dikenal oleh CSS?";
+
+    // Output kode HTML yang diberikan
+    const additionalHTML2 = `
+  <input type="radio" id="html2" name="fav_language2" value="HTML" />
+  <label for="html2">Style</label><br />
+  <input type="radio" id="css2" name="fav_language2" value="CSS" />
+  <label for="css2">CSS</label><br />
+  <input type="radio" id="javascript2" name="fav_language2" value="JavaScript" />
+  <label for="javascript2">Gaya</label><br />
+  <input type="radio" id="python2" name="fav_language2" value="python" />
+  <label for="python2">DLL</label>`;
+
+    answerQuestion2.innerHTML = additionalHTML2;
+  }
+  document
+    .getElementById("btn-previous")
+    .addEventListener("click", backToQuestionTwo);
+}
+// ! End Function Question Three
+
+// & End Function for Button Start DOM Show or Hide Question
+
+/**
+ * & Function to count down
+ */
+function startCountdown() {
+  let countdownElement = document.getElementById("countdown");
+  let countdownTime = 30 * 60; // 30 menit dalam detik
+
+  // * Start Count down
+  let countdownInterval = setInterval(function () {
+    let minutes = Math.floor(countdownTime / 60);
+    let seconds = countdownTime % 60;
+
+    // * Format waktu ke dalam jam:menit:detik
+    let formattedTime = `${String(minutes).padStart(2, "0")}:${String(
+      seconds
+    ).padStart(2, "0")}`;
+
+    // * Tampilkan waktu pada elemen countdown
+    countdownElement.innerText = formattedTime;
+
+    // * Kurangi waktu
+    countdownTime--;
+
+    // * Hentikan countdown jika waktu habis
+    if (countdownTime < 0) {
+      clearInterval(countdownInterval);
+      countdownElement.innerText = "Waktu Habis!";
+    }
+  }, 1000);
+}
+
+// * Tambahkan event listener untuk tombol Start
+document.getElementById("btn-start").addEventListener("click", startCountdown);
+/**
+ * & End Function to count down
+ */
