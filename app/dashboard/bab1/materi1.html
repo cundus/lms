@@ -17,6 +17,7 @@
     />
 
     <title>Dashboard</title>
+    <link rel="stylesheet" href="/style/style.css">
   </head>
   <body>
     <header id="header-dashboard" class="py-1 z-10 bg-pink-300">
@@ -76,63 +77,61 @@
     </header>
 
     <div class="w-full flex">
-      <aside class="sidebar sticky top-0 left-0 h-screen px-1">
-        <h2
-          class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
-          style="font-family: Inter; word-wrap: break-word"
-        >
-          Daftar Isi
-        </h2>
-        <sl-tree>
-          <sl-tree-item expanded>
-            Ayo Membilang Bilangan 1 sampai dengan 10
-            <sl-tree-item>
-              <a href="./pendahuluan1.html">Capaian Pembelajaran</a>
-            </sl-tree-item>
-            <sl-tree-item selected> Materi 1 </sl-tree-item>
-            <sl-tree-item>
-              <a href="./kuis1.html">Kuis BAB 1</a>
-            </sl-tree-item>
-          </sl-tree-item>
+      <aside class="sidebar min-h-screen px-1">
+            <div class="w-full flex flex-col justify-center items-center">
+               <img src="../../../assets/image/user.png" class="w-1/2 h-auto object-contain" />
+               <h3 class="px-6 py-4 font-semibold">Nama Siswa</h3>
+            </div>
+            <h2
+               class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
+               style="font-family: Inter; word-wrap: break-word"
+            >
+               Daftar Isi
+            </h2>
+            <sl-tree>
+               <sl-tree-item expanded>
+                  <p>
+                    Ayo Membilang Bilangan 1 sampai dengan 10
+                  </p>
+                  <sl-tree-item selected>
+                     <a href="./pendahuluan1.html">Pendahuluan</a>
+                  </sl-tree-item>
+                  <sl-tree-item>
+                     <p>
+                       Materi
+                     </p>
+                     <sl-tree-item>
+                        <a href="./materi1.html">Menghitung,Membaca dan Menulis Bilangan</a>
+                     </sl-tree-item>
+                     <sl-tree-item>
+                        <a href="./materi2.html">Membandingkan Banyak Benda</a>
+                     </sl-tree-item>
+                     <sl-tree-item>
+                        <a href="./materi3.html">Menghitung Maju dan Mundur</a>
+                     </sl-tree-item>
+                     <sl-tree-item>
+                        <a href="./materi4.html">Pasangan Bilangan</a>
+                     </sl-tree-item>
+                  </sl-tree-item>
+                  <sl-tree-item>
+                     <a href="./kuis1.html">Kuis BAB 1</a>
+                  </sl-tree-item>
+               </sl-tree-item>
 
-          <sl-tree-item>
-            BAB 2
-            <sl-tree-item>Pendahuluan</sl-tree-item>
-            <sl-tree-item>Materi 1</sl-tree-item>
-            <sl-tree-item>Materi 2</sl-tree-item>
-            <sl-tree-item>Materi 3</sl-tree-item>
-            <sl-tree-item>Kuis BAB 2</sl-tree-item>
-          </sl-tree-item>
+               <sl-tree-item>
+                  BAB 2
+                  <sl-tree-item>Pendahuluan</sl-tree-item>
+                  <sl-tree-item>Materi 1</sl-tree-item>
+                  <sl-tree-item>Materi 2</sl-tree-item>
+                  <sl-tree-item>Materi 3</sl-tree-item>
+                  <sl-tree-item>Kuis BAB 2</sl-tree-item>
+               </sl-tree-item>
 
-          <sl-tree-item>
-            BAB 3
-            <sl-tree-item>Materi 1</sl-tree-item>
-            <sl-tree-item>Materi 2</sl-tree-item>
-            <sl-tree-item>Materi 3</sl-tree-item>
-            <sl-tree-item>Kuis BAB 2</sl-tree-item>
-          </sl-tree-item>
-
-          <sl-tree-item>
-            BAB 4
-            <sl-tree-item>Materi 1</sl-tree-item>
-            <sl-tree-item>Materi 2</sl-tree-item>
-            <sl-tree-item>Materi 3</sl-tree-item>
-            <sl-tree-item>Kuis BAB 3</sl-tree-item>
-          </sl-tree-item>
-
-          <sl-tree-item>
-            BAB 3
-            <sl-tree-item>Materi 1</sl-tree-item>
-            <sl-tree-item>Materi 2</sl-tree-item>
-            <sl-tree-item>Materi 3</sl-tree-item>
-            <sl-tree-item>Kuis BAB 3</sl-tree-item>
-          </sl-tree-item>
-
-          <sl-tree-item>
-            <a href="../../../auth/login.html">Exit</a>
-          </sl-tree-item>
-        </sl-tree>
-      </aside>
+               <sl-tree-item>
+                  <a href="../../../auth/login.html">Exit</a>
+               </sl-tree-item>
+            </sl-tree>
+         </aside>
       <div class="content px-1">
         <div class="main-content">
           <div class="flex py-1 justify-center">
@@ -166,7 +165,7 @@
                 Bagaimana cara mengenal suatu lambang dan nama bilangan? Yuk
                 kita pelajari bersama!
                 <div class="flex my-2 py-1 justify-center">
-                  <video width="320" height="240" controls>
+                  <video width="640" height="480" controls>
                     <source
                       src="../../../assets/videos/video1.mp4"
                       type="video/mp4"
@@ -753,115 +752,7 @@
       </div>
     </div>
 
-    <style>
-      .sidebar {
-        background: rgba(255, 200, 246, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 0.5rem;
-        margin: 0.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        padding: 1rem;
-        width: 20%;
-        max-width: 40%;
-      }
 
-      .content {
-        background: rgba(255, 200, 246, 0.849);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 0.5rem;
-        margin: 0.5rem;
-        padding: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        color: black;
-        width: 100%;
-      }
-
-      .text-content {
-        background: whitesmoke;
-        border: 1px dashed blue;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        padding: 1rem;
-        color: black;
-      }
-      table,
-      th,
-      td {
-        border: 1px solid black;
-      }
-      tr {
-        text-align: center;
-      }
-
-      ol {
-        list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
-      }
-
-      .soal-berlatih li {
-        padding: 1rem;
-      }
-
-      sl-tree-item {
-        padding: 0.5rem;
-        width: 100%;
-        cursor: pointer;
-        background: rgba(255, 200, 246, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 0.5rem;
-        margin: 0.8rem;
-        box-sizing: border-box;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        padding: 0.5rem;
-        color: black;
-      }
-      sl-tree-item:hover {
-        background: rgba(255, 200, 246, 0.849);
-        color: blue;
-      }
-      /* Styling for sl-tab */
-      sl-tab {
-        width: 100%;
-        text-align: center;
-        font-weight: bold;
-        /* background: rgba(255, 200, 246, 0.5); */
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 0.5rem;
-        /* margin: 0.2rem; */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        /* padding: 0.1rem; */
-        color: black;
-      }
-
-      /* Styling for sl-tab-panel */
-      sl-tab-panel {
-        background: rgba(255, 200, 246, 0.849);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 0.5rem;
-        margin: 0.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        padding: 0.5rem;
-        color: black;
-      }
-
-      /* Additional styling for the container (optional) */
-      sl-tab-group {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        min-height: 100vh;
-        /* padding: 1rem; */
-        width: 100%;
-        /* background: linear-gradient(to right, #36d1dc, #5b86e5); */
-        /* border-radius: 1rem; */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      }
-    </style>
 
     <!-- Script for shoelace style -->
     <script
