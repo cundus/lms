@@ -1,414 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.min.css"
-    />
-    <title>Beranda</title>
-  </head>
-  <body class="">
-    <header id="header-beranda" class="py-4 mb-4" style="background: #fe8f8f">
-      <div class="">
-        <div class="w-full px-4">
-          <div class="mx-auto mb-8 max-w-xl text-center">
-            <h2
-              class="py-2"
-              style="
-                color: black;
-                font-size: 40px;
-                font-family: Inter;
-                font-weight: 600;
-                line-height: 48px;
-                word-wrap: break-word;
-              "
-            >
-              Bilangan
-            </h2>
-            <p
-              class="py-2"
-              style="
-                color: black;
-                font-size: 24px;
-                font-family: Inter;
-                font-weight: 600;
-                line-height: 32px;
-                word-wrap: break-word;
-              "
-            >
-              Jangan lupa ya kerjain PR-nya!
-            </p>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <section id="nav-beranda">
-      <div class="container">
-        <div class="w-full px-8">
-          <sl-tab-group>
-            <sl-tab slot="nav" panel="beranda">Beranda</sl-tab>
-            <sl-tab slot="nav" panel="kurikulum">Kurikulum</sl-tab>
-            <sl-tab slot="nav" panel="informasi">Informasi</sl-tab>
-            <sl-tab slot="nav" panel="keluar"
-              ><a href="../index.html">Keluar</a
-              ><sl-icon name="box-arrow-right"></sl-icon
-            ></sl-tab>
-
-            <!-- Tab Panel Beranda -->
-            <sl-tab-panel name="beranda">
-              <div class="">
-                <div class="w-full pt-14 px-4">
-                  <div class="mx-auto mb-8 max-w-3xl text-center">
-                    <h2
-                      class="py-2"
-                      style="
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.min.css"
+      />
+      <title>Beranda</title>
+   </head>
+   <body class="">
+      <header id="header-beranda" class="py-4 mb-4" style="background: #fe8f8f">
+         <div class="">
+            <div class="w-full px-4">
+               <div class="mx-auto mb-8 max-w-xl text-center">
+                  <h2
+                     class="py-2"
+                     style="
                         color: black;
                         font-size: 40px;
                         font-family: Inter;
                         font-weight: 600;
                         line-height: 48px;
                         word-wrap: break-word;
-                      "
-                    >
-                      Selamat Datang Akhi
-                    </h2>
-                    <p
-                      class="py-2 text-md"
-                      style="
+                     "
+                  >
+                     Bilangan
+                  </h2>
+                  <p
+                     class="py-2"
+                     style="
                         color: black;
+                        font-size: 24px;
                         font-family: Inter;
+                        font-weight: 600;
                         line-height: 32px;
                         word-wrap: break-word;
-                      "
-                    >
-                      Selamat Datang di Media Pembelajaran Interaktif Tumbuhan,
-                      Sumber kehidupan di bumi<br />Klik tombol
-                      <a href="#mulai">Mulai Belajar</a> untuk mulai belajar
-                    </p>
-                    <button
-                      id="mulai"
-                      class="text-white mt-5 px-4 py-2 rounded-md hover:bg-blue-600"
-                      style="background: #fe8f8f"
-                    >
-                      <a href="./dashboard/dashboard.html">Masuk</a>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </sl-tab-panel>
-            <!-- End Tab Panel Beranda -->
+                     "
+                  >
+                     Jangan lupa ya kerjain PR-nya!
+                  </p>
+               </div>
+            </div>
+         </div>
+      </header>
 
-            <!-- Tab Panel Kurikulum -->
-            <sl-tab-panel name="kurikulum">
-              <sl-card
-                id="info-media"
-                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <div slot="header">
-                  <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                  Info Media
-                </div>
-                Media Pembelajaran ini dibuat untuk memenuhi syarat dalam
-                menyelesaikan program strata-1 Pendidikan Komputer dengan judul
-                "Pengembangan Media Pembelajaran Interaktif Berbasis Web pada
-                materi Tumbuhan, sumber kehidupan di bumi untuk siswa SD Kelas
-                IV"
-              </sl-card>
-              <sl-card
-                id="tujuan-pembelajaran"
-                class="card-header w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <div slot="header">
-                  <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                  Tujuan Pembelajaran
-                </div>
-                <!-- List angka hitam -->
-                <ol class="black-number mx-4">
-                  <li>
-                    Mengidentifikasi bagian tubuh tumbuhan dan mendeskripsikan
-                    fungsinya
-                  </li>
-                  <li>
-                    Mendeskripsikan proses fotosintesis dan mengaitkan
-                    pentingnya proses ini bagi mahkluk hidup.
-                  </li>
-                  <li>
-                    Membuat simulasi menggunakan bagan atau alat bantu sederhana
-                    tentang siklus hidup tumbuhan.
-                  </li>
-                </ol>
-              </sl-card>
+      <section id="nav-beranda">
+         <div class="container">
+            <div class="w-full px-8">
+               <sl-tab-group>
+                  <sl-tab slot="nav" panel="beranda">Beranda</sl-tab>
+                  <sl-tab slot="nav" panel="kurikulum">Kurikulum</sl-tab>
+                  <sl-tab slot="nav" panel="informasi">Informasi</sl-tab>
+                  <sl-tab slot="nav" panel="keluar"
+                     ><a href="../index.html">Keluar</a><sl-icon name="box-arrow-right"></sl-icon
+                  ></sl-tab>
 
-              <sl-card
-                id="daftar-pustaka"
-                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <div slot="header">
-                  <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                  Daftar Pustaka
-                </div>
-                <!-- List dengan bullet hitam -->
-                <ul class="black-bullet">
-                  <li class="text-sm">
-                    Fitri, A., Rasa, A. A., Kusumawardhani, A., Nursya’bani, K.
-                    K., Fatimah, K., & Setianingsih, N. I. (2021). Alam dan
-                    Sosial.
-                  </li>
-                  <li>
-                    Manuarti, N. K. S. A. (2021). Pengembangan Media Puzzle
-                    Materi Struktur dan Fungsi Bagian-Bagian Tumbuhan Pada
-                    Muatan Pelajaran IPA Kelas IV Sekolah Dasar. Jurnal
-                    Penelitian Dan Pengembangan Pendidikan, 5(1), 129- 134.
-                  </li>
-                  <li>
-                    Karisma, I. K. E., Margunayasa, I. G., & Prasasti, P. A. T.
-                    (2020). Media Pop-Up Book pada Topik Perkembangbiakan
-                    Tumbuhan dan Hewan Kelas VI Sekolah Dasar. Jurnal Ilmiah
-                    Sekolah Dasar, 4(2), 121-130.
-                  </li>
-                  <li>
-                    Ningrum, Y. D., Ghofar, A., & Haeruddin, H. (2020).
-                    Efektivitas Eceng Gondok (Eichhornia crassipes (Mart.) Solm)
-                    sebagai Fitoremediator pada Limbah Cair Produksi Tahu
-                    Effectiveness of Eceng Gondok (Eichhornia crassipes (Mart.)
-                    Solm) as Phytoremediator for Tofu Production Liquid Waste.
-                    Management of Aquatic Resources Journal (MAQUARES), 9(2),
-                    97-106.
-                  </li>
-                  <li>
-                    Dwilestari, D., & Desstya, A. (2022). Analisis Miskonsepsi
-                    pada Materi Fotosintesis dengan Menggunakan Peta Konsep pada
-                    Siswa Sekolah Dasar. Jurnal Basicedu, 6(3), 3343-3350.
-                  </li>
-                  <li>
-                    Ayu, G., Budiwati, N., & Kriswiyanti, E. (2019). Teratai.
-                    The Crooked Kings of Ancient Greece, 1.
-                    https://doi.org/10.5040/9781472540935.ch-001
-                  </li>
-                </ul>
-              </sl-card>
+                  <!-- Tab Panel Beranda -->
+                  <sl-tab-panel name="beranda">
+                     <div class="">
+                        <div class="w-full pt-14 px-4">
+                           <div class="mx-auto mb-8 w-full text-center">
+                              <h2
+                                 class="py-2"
+                                 style="
+                                    color: black;
+                                    font-size: 40px;
+                                    font-family: Inter;
+                                    font-weight: 600;
+                                    line-height: 48px;
+                                    word-wrap: break-word;
+                                 "
+                              >
+                                 Selamat Datang Akhi
+                              </h2>
+                              <p
+                                 class="py-2 text-md"
+                                 style="color: black; font-family: Inter; line-height: 32px; word-wrap: break-word"
+                              >
+                                 Selamat Datang di Media Pembelajaran Interaktif Tumbuhan, Sumber kehidupan di bumi<br />Klik
+                                 tombol <a href="#mulai">Mulai Belajar</a> untuk mulai belajar
+                              </p>
+                              <button
+                                 id="mulai"
+                                 class="text-white mt-5 px-4 py-2 rounded-md hover:bg-blue-600"
+                                 style="background: #fe8f8f"
+                              >
+                                 <a href="./dashboard/dashboard.html">Masuk</a>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </sl-tab-panel>
+                  <!-- End Tab Panel Beranda -->
 
-              <style>
-                /* Gaya CSS tambahan */
-                .black-bullet li::before {
-                  content: "\2022"; /* Karakter Unicode untuk bullet hitam */
-                  color: black;
-                  margin-right: 0.5em;
-                }
-                .black-bullet li {
-                  font-size: small;
-                }
-                ol {
-                  list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
-                }
-                .card-header [slot="header"] {
-                  display: flex;
-                  align-items: center;
-                  /* justify-content: space-between; */
-                }
+                  <!-- Tab Panel Kurikulum -->
+                  <sl-tab-panel name="kurikulum">
+                     <sl-card
+                        id="info-media"
+                        class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                     >
+                        <div slot="header">
+                           <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+                           Info Media
+                        </div>
+                        Media Pembelajaran ini dibuat untuk memenuhi syarat dalam menyelesaikan program strata-1
+                        Pendidikan Komputer dengan judul "Pengembangan Media Pembelajaran Interaktif Berbasis Web pada
+                        materi Tumbuhan, sumber kehidupan di bumi untuk siswa SD Kelas IV"
+                     </sl-card>
+                     <sl-card
+                        id="tujuan-pembelajaran"
+                        class="card-header w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                     >
+                        <div slot="header">
+                           <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+                           Tujuan Pembelajaran
+                        </div>
+                        <!-- List angka hitam -->
+                        <ol class="black-number mx-4">
+                           <li>Mengidentifikasi bagian tubuh tumbuhan dan mendeskripsikan fungsinya</li>
+                           <li>
+                              Mendeskripsikan proses fotosintesis dan mengaitkan pentingnya proses ini bagi mahkluk
+                              hidup.
+                           </li>
+                           <li>
+                              Membuat simulasi menggunakan bagan atau alat bantu sederhana tentang siklus hidup
+                              tumbuhan.
+                           </li>
+                        </ol>
+                     </sl-card>
 
-                .card-header h3 {
-                  margin: 0;
-                }
+                     <sl-card
+                        id="daftar-pustaka"
+                        class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                     >
+                        <div slot="header">
+                           <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+                           Daftar Pustaka
+                        </div>
+                        <!-- List dengan bullet hitam -->
+                        <ul class="black-bullet">
+                           <li class="text-sm">
+                              Fitri, A., Rasa, A. A., Kusumawardhani, A., Nursya’bani, K. K., Fatimah, K., &
+                              Setianingsih, N. I. (2021). Alam dan Sosial.
+                           </li>
+                           <li>
+                              Manuarti, N. K. S. A. (2021). Pengembangan Media Puzzle Materi Struktur dan Fungsi
+                              Bagian-Bagian Tumbuhan Pada Muatan Pelajaran IPA Kelas IV Sekolah Dasar. Jurnal Penelitian
+                              Dan Pengembangan Pendidikan, 5(1), 129- 134.
+                           </li>
+                           <li>
+                              Karisma, I. K. E., Margunayasa, I. G., & Prasasti, P. A. T. (2020). Media Pop-Up Book pada
+                              Topik Perkembangbiakan Tumbuhan dan Hewan Kelas VI Sekolah Dasar. Jurnal Ilmiah Sekolah
+                              Dasar, 4(2), 121-130.
+                           </li>
+                           <li>
+                              Ningrum, Y. D., Ghofar, A., & Haeruddin, H. (2020). Efektivitas Eceng Gondok (Eichhornia
+                              crassipes (Mart.) Solm) sebagai Fitoremediator pada Limbah Cair Produksi Tahu
+                              Effectiveness of Eceng Gondok (Eichhornia crassipes (Mart.) Solm) as Phytoremediator for
+                              Tofu Production Liquid Waste. Management of Aquatic Resources Journal (MAQUARES), 9(2),
+                              97-106.
+                           </li>
+                           <li>
+                              Dwilestari, D., & Desstya, A. (2022). Analisis Miskonsepsi pada Materi Fotosintesis dengan
+                              Menggunakan Peta Konsep pada Siswa Sekolah Dasar. Jurnal Basicedu, 6(3), 3343-3350.
+                           </li>
+                           <li>
+                              Ayu, G., Budiwati, N., & Kriswiyanti, E. (2019). Teratai. The Crooked Kings of Ancient
+                              Greece, 1. https://doi.org/10.5040/9781472540935.ch-001
+                           </li>
+                        </ul>
+                     </sl-card>
 
-                .card-header sl-icon-button {
-                  font-size: var(--sl-font-size-medium);
-                }
-              </style>
-            </sl-tab-panel>
-            <!-- End Tab Panel Kurikulum -->
+                     <style>
+                        /* Gaya CSS tambahan */
+                        .black-bullet li::before {
+                           content: "\2022"; /* Karakter Unicode untuk bullet hitam */
+                           color: black;
+                           margin-right: 0.5em;
+                        }
+                        .black-bullet li {
+                           font-size: small;
+                        }
+                        ol {
+                           list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
+                        }
+                        .card-header [slot="header"] {
+                           display: flex;
+                           align-items: center;
+                           /* justify-content: space-between; */
+                        }
 
-            <!-- Tab Panel Informasi -->
-            <sl-tab-panel name="informasi">
-              <!-- Info Media -->
-              <sl-card
-                id="info-media"
-                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <div slot="header">
-                  <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                  Info Media
-                </div>
-                Media Pembelajaran ini dibuat untuk memenuhi syarat dalam
-                menyelesaikan program strata-1 Pendidikan Komputer dengan judul
-                "Pengembangan Media Pembelajaran Interaktif Berbasis Web pada
-                materi Tumbuhan, sumber kehidupan di bumi untuk siswa SD Kelas
-                IV"
-              </sl-card>
-              <!-- End Info Media -->
+                        .card-header h3 {
+                           margin: 0;
+                        }
 
-              <!-- Info Author -->
-              <sl-card
-                id="info-author"
-                class="card-header w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <div slot="header">
-                  <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                  Info Author
-                </div>
-                <!-- List angka hitam -->
-                <ul class="">
-                  <li>Nama: Rizky Ahmad</li>
-                  <li>NIM: 1910131310003</li>
-                  <li>
-                    Dosen Pembimbing Utama: Dr. Andi Ichsan Mahardika, M.Pd.
-                  </li>
-                  <li>
-                    Dosen Pembimbing Pendamping: Nuruddin Wiranda, S.Kom., M.Cs.
-                  </li>
-                  <li>
-                    Program Studi: Pendidikan KomputerFakultas: Keguruan dan
-                    Ilmu PendidikanInstansi: Universitas Lambung Mangkurat
-                  </li>
-                  <li>Email: 1910131310003@mhs.ulm.ac.id</li>
-                </ul>
-              </sl-card>
-              <!-- End Info Author -->
+                        .card-header sl-icon-button {
+                           font-size: var(--sl-font-size-medium);
+                        }
+                     </style>
+                  </sl-tab-panel>
+                  <!-- End Tab Panel Kurikulum -->
 
-              <!-- Info Petunjuk Aplikasi -->
-              <sl-card
-                id="petunjuk-aplikasi"
-                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <div slot="header">
-                  <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                  Petunjuk Aplikasi
-                </div>
+                  <!-- Tab Panel Informasi -->
+                  <sl-tab-panel name="informasi">
+                     <!-- Info Media -->
+                     <sl-card
+                        id="info-media"
+                        class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                     >
+                        <div slot="header">
+                           <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+                           Perihal
+                        </div>
+                        Media Pembelajaran ini dibuat untuk memenuhi persyaratan dalam menyelesaikan Program Strata-1
+                        Pendidikan Komputer dengan judul tugas akhir “Pengembangan Media Pembelajaran Interaktif
+                        Berbasis Web Pada Materi Bilangan Kelas I SD Dengan Pendekatan Saintif
+                     </sl-card>
+                     <!-- End Info Media -->
 
-                <!-- Card Petunjuk Aplikasi -->
-                <div class="flex w-full flex-wrap justify-center xl:mx-auto">
-                  <div class="mb-12 p-4 md:w-1/2">
-                    <div class="overflow-hidden my-4 rounded-md shadow-md">
-                      <img
-                        src="dist/img/portfolio/1.png"
-                        alt="Landing Page"
-                        width="w-full"
-                      />
-                    </div>
-                    <h3
-                      class="my-6 text-md font-semibold text-dark dark:text-white"
-                    >
-                      Keterangan
-                    </h3>
-                    <ul class="my-4">
-                      <li>
-                        Nomor 1 adalah tombol pilihan untuk melihat kurikulum
-                        dan daftar pustaka
-                      </li>
-                      <li>
-                        Nomor 2 adalah tempat untuk menampilkan kurikulum,
-                        capaian pembelajaran dan daftar pustaka
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="mb-12 p-4 md:w-1/2">
-                    <div class="overflow-hidden my-4 rounded-md shadow-md">
-                      <img
-                        src="dist/img/portfolio/1.png"
-                        alt="Landing Page"
-                        width="w-full"
-                      />
-                    </div>
-                    <h3
-                      class="my-6 text-md font-semibold text-dark dark:text-white"
-                    >
-                      Keterangan
-                    </h3>
-                    <ul class="my-4">
-                      <li>
-                        Nomor 1 adalah tombol home untuk kembali ke halaman awal
-                        (beranda).
-                      </li>
-                      <li>
-                        Nomor 2 adalah tab bar yang dapat digunakan untuk
-                        berpindah ke materi yang ingin dipelajari
-                      </li>
-                      <li>
-                        Nomor 3 adalah tab navigasi untuk berpindah pada
-                        kegiatan pembelajaran pendekatan santifik (5M)
-                      </li>
-                      <li>
-                        Nomor 4 adalah video mengenai materi pembelajaran.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- End Card Petunjuk Aplikasi -->
-              </sl-card>
-              <!-- End Info Petunjuk Aplikasi -->
+                     <!-- Info Author -->
+                     <sl-card
+                        id="info-author"
+                        class="card-header w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                     >
+                        <div slot="header">
+                           <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+                           Info Author
+                        </div>
+                        <!-- List angka hitam -->
+                        <ul class="">
+                           <li>Nama: Maria Manurung</li>
+                           <li>NIM: 1910131120004</li>
+                           <li>Dosen Pembimbing 1: Dr. R. Ati Sukmawati, M.Kom.</li>
+                           <li>Dosen Pembimbing 2: Delsika Pramata Sari, M.Pd.</li>
+                           <li>Program Studi: Pendidikan Komputer</li>
+                           <li>Fakultas: Keguruan dan Ilmu Pendidikan</li>
+                           <li>Universitas : Lambung Mangkurat</li>
+                           <li>Email: itsmariamanurung@gmail.com</li>
+                        </ul>
+                     </sl-card>
+                     <!-- End Info Author -->
 
-              <!-- Custom CSS -->
-              <style>
-                .card-image {
-                  max-width: 300px;
-                }
+                     <!-- Info Petunjuk Aplikasi -->
+                     <sl-card
+                        id="petunjuk-aplikasi"
+                        class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+                     >
+                        <div slot="header">
+                           <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+                           Petunjuk Aplikasi
+                        </div>
 
-                #info-author li {
-                  list-style: none;
-                  padding-bottom: 5px;
-                }
-                /* Gaya CSS tambahan */
-                .black-bullet li::before {
-                  content: "\2022"; /* Karakter Unicode untuk bullet hitam */
-                  color: black;
-                  margin-right: 0.5em;
-                }
-                .black-bullet li {
-                  font-size: small;
-                }
-                ol {
-                  list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
-                }
-                .card-header [slot="header"] {
-                  display: flex;
-                  align-items: center;
-                  /* justify-content: space-between; */
-                }
+                        <!-- Card Petunjuk Aplikasi -->
+                        <div class="flex w-full flex-wrap justify-center xl:mx-auto">
+                           <div class="mb-12 p-4 md:w-1/2">
+                              <div class="overflow-hidden my-4 rounded-md shadow-md">
+                                 <img src="dist/img/portfolio/1.png" alt="Landing Page" width="w-full" />
+                              </div>
+                              <h3 class="my-6 text-md font-semibold text-dark dark:text-white">Keterangan</h3>
+                              <ul class="my-4">
+                                 <li>Nomor 1 adalah tombol pilihan untuk melihat kurikulum dan daftar pustaka</li>
+                                 <li>
+                                    Nomor 2 adalah tempat untuk menampilkan kurikulum, capaian pembelajaran dan daftar
+                                    pustaka
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="mb-12 p-4 md:w-1/2">
+                              <div class="overflow-hidden my-4 rounded-md shadow-md">
+                                 <img src="dist/img/portfolio/1.png" alt="Landing Page" width="w-full" />
+                              </div>
+                              <h3 class="my-6 text-md font-semibold text-dark dark:text-white">Keterangan</h3>
+                              <ul class="my-4">
+                                 <li>Nomor 1 adalah tombol home untuk kembali ke halaman awal (beranda).</li>
+                                 <li>
+                                    Nomor 2 adalah tab bar yang dapat digunakan untuk berpindah ke materi yang ingin
+                                    dipelajari
+                                 </li>
+                                 <li>
+                                    Nomor 3 adalah tab navigasi untuk berpindah pada kegiatan pembelajaran pendekatan
+                                    santifik (5M)
+                                 </li>
+                                 <li>Nomor 4 adalah video mengenai materi pembelajaran.</li>
+                              </ul>
+                           </div>
+                        </div>
+                        <!-- End Card Petunjuk Aplikasi -->
+                     </sl-card>
+                     <!-- End Info Petunjuk Aplikasi -->
 
-                .card-header h3 {
-                  margin: 0;
-                }
+                     <!-- Custom CSS -->
+                     <style>
+                        .card-image {
+                           max-width: 300px;
+                        }
 
-                .card-header sl-icon-button {
-                  font-size: var(--sl-font-size-medium);
-                }
-              </style>
-              <!-- End Custom CSS -->
-            </sl-tab-panel>
-            <!-- End Tab Panel Informasi -->
-            <!-- <sl-tab-panel name="keluar">ini nanti keluar</sl-tab-panel> -->
-          </sl-tab-group>
-        </div>
-      </div>
-    </section>
+                        #info-author li {
+                           list-style: none;
+                           padding-bottom: 5px;
+                        }
+                        /* Gaya CSS tambahan */
+                        .black-bullet li::before {
+                           content: "\2022"; /* Karakter Unicode untuk bullet hitam */
+                           color: black;
+                           margin-right: 0.5em;
+                        }
+                        .black-bullet li {
+                           font-size: small;
+                        }
+                        ol {
+                           list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
+                        }
+                        .card-header [slot="header"] {
+                           display: flex;
+                           align-items: center;
+                           /* justify-content: space-between; */
+                        }
 
-    <!-- <script src="./beranda.js"></script> -->
+                        .card-header h3 {
+                           margin: 0;
+                        }
 
-    <!-- Script for shoelace style -->
-    <script
-      defer
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"
-    ></script>
-    <!-- End Script for Shoelace style -->
-  </body>
+                        .card-header sl-icon-button {
+                           font-size: var(--sl-font-size-medium);
+                        }
+                     </style>
+                     <!-- End Custom CSS -->
+                  </sl-tab-panel>
+                  <!-- End Tab Panel Informasi -->
+                  <!-- <sl-tab-panel name="keluar">ini nanti keluar</sl-tab-panel> -->
+               </sl-tab-group>
+            </div>
+         </div>
+      </section>
+
+      <!-- <script src="./beranda.js"></script> -->
+
+      <!-- Script for shoelace style -->
+      <script
+         defer
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
+      ></script>
+      <script
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"
+      ></script>
+      <script
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"
+      ></script>
+      <!-- End Script for Shoelace style -->
+   </body>
 </html>
