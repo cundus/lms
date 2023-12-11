@@ -23,27 +23,108 @@ const listButtonQuiz = document.getElementById("btn-kuis");
 
 let numberQuiz = 1;
 btnStart.addEventListener("click", () => {
-  rulesQuiz.classList.add("hidden");
-  dataStudent.classList.add("hidden");
-  showQuiz.classList.remove("hidden");
-  numbQuiz.classList.remove("hidden");
-  //   btnPrev.classList.add("hidden");
-  //   listQuestionOne.classList.add("bg-black", "text-white");
-
-  renderQuiz();
-  startCountdown();
+  startQuiz();
 });
-// btnNextQuestionThree.addEventListener("click", questionThree);
 btnNextQuestionTwo.addEventListener("click", nextQuestion);
 btnPrev.addEventListener("click", previousQuestion);
-// listButtonQuiz.addEventListener("click", renderQuiz);
+
+function startQuiz() {
+  Swal.fire({
+    title: "Apakah kamu yakin ingin memulai kuis ini?",
+    text: "Kamu tidak bisa keluar dan masuk kembali sebelum menekan tombol selesaikan kuis di akhir kuis ini, jika kamu keluar, maka nilai kamu 0!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Ya, Saya yakin ingin memulai kuis ini",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Akan tertutup otomatis",
+        html: "Proses menyiapkan kuis dalam waktu <b></b> milidetik.",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 5);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Selamat Mengerjakan",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          rulesQuiz.classList.add("hidden");
+          dataStudent.classList.add("hidden");
+          showQuiz.classList.remove("hidden");
+          numbQuiz.classList.remove("hidden");
+          startCountdown();
+          renderQuiz();
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+      });
+    }
+  });
+}
 
 function nextQuestion() {
   if (numberQuiz < 10) {
     numberQuiz++;
     renderQuiz();
   } else {
-    alert("Content sudah habis");
+    Swal.fire({
+      title: "Apakah kamu yakin ingin menyelesaikan kuis ini?",
+      text: "Kamu tidak bisa mengubahnya kembali!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, Saya yakin ingin menyelesaikan kuis ini",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Akan tertutup otomatis",
+          html: "Proses menyelesaikan dalam waktu <b></b> milidetik.",
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+            timerInterval = setInterval(() => {
+              timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
+          },
+          willClose: () => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Terima kasih telah mengerjakan kuis ini",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            clearInterval(timerInterval);
+            window.setTimeout(function () {
+              window.location.href = "./kuis1.html";
+            }, 1500);
+          },
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer");
+          }
+        });
+      }
+    });
   }
 }
 
@@ -57,12 +138,13 @@ function renderQuiz() {
   const numberQuestion = document.querySelector("#nomor-kuis");
   const answerQuestion = document.getElementById("jawaban-kuis");
 
-  console.log("running quiz no ", numberQuiz);
+  // console.log("running quiz no ", numberQuiz);
   switch (numberQuiz) {
     case 1:
       btnPrev.classList.add("hidden");
       listQuestionOne.classList.add("bg-black", "text-white");
       listQuestionTwo.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.innerText = "Selanjutnya";
       numberQuestion.innerText =
         "1. Dibawah ini yang termasuk pengertian dari lambang bilangan dan nama bilangan adalah?";
 
@@ -260,6 +342,8 @@ function renderQuiz() {
         "10. Di bawah ini yang dimaksud pengertian dari pasangkan bilangan adalah? (icon sound)";
       listQuestionTen.classList.add("bg-black", "text-white");
       listQuestionNine.classList.remove("bg-black", "text-white");
+      btnPrev.classList.add("hidden");
+      btnNextQuestionTwo.innerText = "Selesaikan Kuis";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -274,160 +358,6 @@ function renderQuiz() {
       break;
   }
 }
-
-/**
- * & Function Question
- */
-// ! Function Question One
-function questionOne() {
-  rulesQuiz.classList.add("hidden");
-  dataStudent.classList.add("hidden");
-  showQuiz.classList.remove("hidden");
-  numbQuiz.classList.remove("hidden");
-  btnPrev.classList.add("hidden");
-  listQuestionOne.classList.add("bg-black", "text-white");
-
-  // ^ Create Element
-  const numberQuestion = document.querySelector("#nomor-kuis");
-  const answerQuestion = document.getElementById("jawaban-kuis");
-
-  numberQuestion.innerText = "1. Apa yang dikenal oleh TypeScript?";
-
-  // Output kode HTML yang diberikan
-  const additionalHTML = `
-  <input type="radio" id="html1" name="kuis1" value="HTML" />
-  <label for="html1">HTML</label><br />
-  <input type="radio" id="css1" name="kuis1" value="CSS" />
-  <label for="css1">CSS</label><br />
-  <input type="radio" id="javascript1" name="kuis1" value="JavaScript" />
-  <label for="javascript1">JavaScript</label><br />
-  <input type="radio" id="python1" name="kuis1" value="python" />
-  <label for="python1">Python</label>`;
-
-  answerQuestion.innerHTML = additionalHTML;
-  document.getElementById("btn-next").addEventListener("click", questionTwo);
-}
-// ! End Function Question One
-
-// ! Function Question Two
-function questionTwo() {
-  btnPrev.classList.remove("hidden");
-  listQuestionOne.classList.remove("bg-black", "text-white");
-  listQuestionTwo.classList.add("bg-black", "text-white");
-  // ^ Create Element
-  const numberQuestion2 = document.querySelector("#nomor-kuis");
-  const answerQuestion2 = document.getElementById("jawaban-kuis");
-
-  numberQuestion2.innerText = "2. Apa yang dikenal oleh CSS?";
-
-  // Output kode HTML yang diberikan
-  const additionalHTML2 = `
-  <input type="radio" id="html2" name="fav_language2" value="HTML" />
-  <label for="html2">Style</label><br />
-  <input type="radio" id="css2" name="fav_language2" value="CSS" />
-  <label for="css2">CSS</label><br />
-  <input type="radio" id="javascript2" name="fav_language2" value="JavaScript" />
-  <label for="javascript2">Gaya</label><br />
-  <input type="radio" id="python2" name="fav_language2" value="python" />
-  <label for="python2">DLL</label>`;
-
-  answerQuestion2.innerHTML = additionalHTML2;
-
-  function btnBackToOne() {
-    rulesQuiz.classList.add("hidden");
-    dataStudent.classList.add("hidden");
-    showQuiz.classList.remove("hidden");
-    numbQuiz.classList.remove("hidden");
-    btnPrev.classList.add("hidden");
-    listQuestionOne.classList.add("bg-black", "text-white");
-    listQuestionTwo.classList.remove("bg-black", "text-white");
-
-    // ^ Create Element
-    const numberQuestion1 = document.querySelector("#nomor-kuis");
-    const answerQuestion1 = document.getElementById("jawaban-kuis");
-
-    numberQuestion1.innerText = "1. Apa yang dikenal oleh TypeScript?";
-
-    // Output kode HTML yang diberikan
-    const additionalHTML1 = `
-  <input type="radio" id="html1" name="fav_language1" value="HTML" />
-  <label for="html1">HTML</label><br />
-  <input type="radio" id="css1" name="fav_language1" value="CSS" />
-  <label for="css1">CSS</label><br />
-  <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
-  <label for="javascript1">JavaScript</label><br />
-  <input type="radio" id="python1" name="fav_language1" value="python" />
-  <label for="python1">Python</label>`;
-
-    answerQuestion1.innerHTML = additionalHTML1;
-  }
-  document
-    .getElementById("btn-previous")
-    .addEventListener("click", btnBackToOne);
-}
-// ! End Function Question Two
-
-// ! Function Question Three
-function questionThree() {
-  //   btnPrev.classList.remove("hidden");
-  listQuestionOne.classList.remove("bg-black", "text-white");
-  listQuestionTwo.classList.remove("bg-black", "text-white");
-  listQuestionThree.classList.add("bg-black", "text-white");
-  // ^ Create Element
-  const numberQuestion3 = document.querySelector("#nomor-kuis");
-  const answerQuestion3 = document.getElementById("jawaban-kuis");
-
-  numberQuestion3.innerText = "3. HTML adalah?";
-
-  // Output kode HTML yang diberikan
-  const additionalHTML3 = `
-  <input type="radio" id="html3" name="fav_language2" value="HTML" />
-  <label for="html2">Hyper Text Markup Language</label><br />
-  <input type="radio" id="css2" name="fav_language2" value="CSS" />
-  <label for="css2">HypertText Maksa Language</label><br />
-  <input type="radio" id="javascript2" name="fav_language2" value="JavaScript" />
-  <label for="javascript2">Height Thing Make Long</label><br />
-  <input type="radio" id="python2" name="fav_language2" value="python" />
-  <label for="python2">Bahasa Pemrograman</label>`;
-
-  answerQuestion3.innerHTML = additionalHTML3;
-
-  function backToQuestionTwo() {
-    // rulesQuiz.classList.add("hidden");
-    // dataStudent.classList.add("hidden");
-    // showQuiz.classList.remove("hidden");
-    // numbQuiz.classList.remove("hidden");
-    btnPrev.classList.remove("hidden");
-    listQuestionOne.classList.remove("bg-black", "text-white");
-    listQuestionTwo.classList.add("bg-black", "text-white");
-    listQuestionThree.classList.remove("bg-black", "text-white");
-
-    // ^ Create Element
-    const numberQuestion2 = document.querySelector("#nomor-kuis");
-    const answerQuestion2 = document.getElementById("jawaban-kuis");
-
-    numberQuestion2.innerText = "2. Apa yang dikenal oleh CSS?";
-
-    // Output kode HTML yang diberikan
-    const additionalHTML2 = `
-  <input type="radio" id="html2" name="fav_language2" value="HTML" />
-  <label for="html2">Style</label><br />
-  <input type="radio" id="css2" name="fav_language2" value="CSS" />
-  <label for="css2">CSS</label><br />
-  <input type="radio" id="javascript2" name="fav_language2" value="JavaScript" />
-  <label for="javascript2">Gaya</label><br />
-  <input type="radio" id="python2" name="fav_language2" value="python" />
-  <label for="python2">DLL</label>`;
-
-    answerQuestion2.innerHTML = additionalHTML2;
-  }
-  document
-    .getElementById("btn-previous")
-    .addEventListener("click", backToQuestionTwo);
-}
-// ! End Function Question Three
-
-// & End Function for Button Start DOM Show or Hide Question
 
 /**
  * & Function to count down
@@ -461,7 +391,8 @@ function startCountdown() {
 }
 
 // * Tambahkan event listener untuk tombol Start
-document.getElementById("btn-start").addEventListener("click", startCountdown);
+// document.getElementById("btn-start").addEventListener("click", startCountdown);
+document.getElementById("btn-start").addEventListener("click", startQuiz);
 /**
  * & End Function to count down
  */
