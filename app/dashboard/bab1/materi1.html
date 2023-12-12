@@ -19,6 +19,15 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/style/style.css">
     <script type="module" src="/util/js/getUserName.js"></script>
+    <style>
+      .sub_1_ayo_mengamati {
+
+      }
+
+      .sub_1_ayo_mengamati > tr > td > * {
+        margin: 0 auto;
+      }
+    </style>
   </head>
   <body>
     <header id="header-dashboard" class="py-1 z-10 bg-pink-300">
@@ -185,20 +194,28 @@
                 <span class="text-green-700 font-bold">hijau</span>, sedangkan
                 jika jawabanmu salah maka kotak jawaban akan perubahan berwarna
                 <span class="text-red-700 font-bold">merah</span>.<br />
-                <table style="width: 100%">
+                <table style="width: 100%" id="sub_1_ayo_mengamati">
                   <tr>
-                    <th>Item</th>
-                    <th>Angka</th>
-                    <th>Nama Bilangan</th>
-                    <th>Benar</th>
-                    <th>Salah</th>
+                    <th >Item</th>
+                    <th >Angka</th>
+                    <th >Nama Bilangan</th>
+                    <th >Benar</th>
+                    <th >Salah</th>
                   </tr>
                   <tr>
-                    <td>Donat</td>
-                    <td>7</td>
-                    <td>Tujuh</td>
-                    <td>Checkbox Benar Warna Hijau</td>
-                    <td>Checkbox Salah Warna Merah</td>
+                    <td>
+                      <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Donat.png" class="w-28 object-contain h-auto mx-auto" />
+                    </td>
+                    <td>
+                      <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 7.png" class="w-28 object-contain h-auto mx-auto" />
+                    </td>
+                    <td>
+                      <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 7.png" class="w-full object-contain h-1/2 mx-auto" />
+                    </td>
+                    <td>
+                      <input type="checkbox" id="sub_1_ayo_mengamati_7_benar" />
+                    </td>
+                    <td><input type="checkbox" id="sub_1_ayo_mengamati_7_salah" /></td>
                   </tr>
                   <tr>
                     <td>Payung</td>
