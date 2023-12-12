@@ -52,10 +52,10 @@
             <div class="w-full px-8">
                <sl-tab-group>
                   <sl-tab slot="nav" panel="beranda">Beranda</sl-tab>
-                  <sl-tab slot="nav" panel="kurikulum">Kurikulum</sl-tab>
                   <sl-tab slot="nav" panel="informasi">Informasi</sl-tab>
                   <sl-tab slot="nav" panel="keluar"
-                     ><a href="../index.html">Keluar</a><sl-icon name="box-arrow-right"></sl-icon
+                     ><a href="/auth/login.html?role=siswa" id="signOut">Keluar</a
+                     ><sl-icon name="box-arrow-right"></sl-icon
                   ></sl-tab>
 
                   <!-- Tab Panel Beranda -->
@@ -73,9 +73,8 @@
                                     line-height: 48px;
                                     word-wrap: break-word;
                                  "
-                              >
-                                 Selamat Datang Akhi
-                              </h2>
+                                 id="title-beranda"
+                              ></h2>
                               <p
                                  class="py-2 text-md"
                                  style="color: black; font-family: Inter; line-height: 32px; word-wrap: break-word"
@@ -88,121 +87,13 @@
                                  class="text-white mt-5 px-4 py-2 rounded-md hover:bg-blue-600"
                                  style="background: #fe8f8f"
                               >
-                                 <a href="./dashboard/dashboard.html">Masuk</a>
+                                 <a href="/app/dashboard/dashboard.html">Masuk</a>
                               </button>
                            </div>
                         </div>
                      </div>
                   </sl-tab-panel>
                   <!-- End Tab Panel Beranda -->
-
-                  <!-- Tab Panel Kurikulum -->
-                  <sl-tab-panel name="kurikulum">
-                     <sl-card
-                        id="info-media"
-                        class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                     >
-                        <div slot="header">
-                           <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                           Info Media
-                        </div>
-                        Media Pembelajaran ini dibuat untuk memenuhi syarat dalam menyelesaikan program strata-1
-                        Pendidikan Komputer dengan judul "Pengembangan Media Pembelajaran Interaktif Berbasis Web pada
-                        materi Tumbuhan, sumber kehidupan di bumi untuk siswa SD Kelas IV"
-                     </sl-card>
-                     <sl-card
-                        id="tujuan-pembelajaran"
-                        class="card-header w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                     >
-                        <div slot="header">
-                           <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                           Tujuan Pembelajaran
-                        </div>
-                        <!-- List angka hitam -->
-                        <ol class="black-number mx-4">
-                           <li>Mengidentifikasi bagian tubuh tumbuhan dan mendeskripsikan fungsinya</li>
-                           <li>
-                              Mendeskripsikan proses fotosintesis dan mengaitkan pentingnya proses ini bagi mahkluk
-                              hidup.
-                           </li>
-                           <li>
-                              Membuat simulasi menggunakan bagan atau alat bantu sederhana tentang siklus hidup
-                              tumbuhan.
-                           </li>
-                        </ol>
-                     </sl-card>
-
-                     <sl-card
-                        id="daftar-pustaka"
-                        class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                     >
-                        <div slot="header">
-                           <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                           Daftar Pustaka
-                        </div>
-                        <!-- List dengan bullet hitam -->
-                        <ul class="black-bullet">
-                           <li class="text-sm">
-                              Fitri, A., Rasa, A. A., Kusumawardhani, A., Nursya’bani, K. K., Fatimah, K., &
-                              Setianingsih, N. I. (2021). Alam dan Sosial.
-                           </li>
-                           <li>
-                              Manuarti, N. K. S. A. (2021). Pengembangan Media Puzzle Materi Struktur dan Fungsi
-                              Bagian-Bagian Tumbuhan Pada Muatan Pelajaran IPA Kelas IV Sekolah Dasar. Jurnal Penelitian
-                              Dan Pengembangan Pendidikan, 5(1), 129- 134.
-                           </li>
-                           <li>
-                              Karisma, I. K. E., Margunayasa, I. G., & Prasasti, P. A. T. (2020). Media Pop-Up Book pada
-                              Topik Perkembangbiakan Tumbuhan dan Hewan Kelas VI Sekolah Dasar. Jurnal Ilmiah Sekolah
-                              Dasar, 4(2), 121-130.
-                           </li>
-                           <li>
-                              Ningrum, Y. D., Ghofar, A., & Haeruddin, H. (2020). Efektivitas Eceng Gondok (Eichhornia
-                              crassipes (Mart.) Solm) sebagai Fitoremediator pada Limbah Cair Produksi Tahu
-                              Effectiveness of Eceng Gondok (Eichhornia crassipes (Mart.) Solm) as Phytoremediator for
-                              Tofu Production Liquid Waste. Management of Aquatic Resources Journal (MAQUARES), 9(2),
-                              97-106.
-                           </li>
-                           <li>
-                              Dwilestari, D., & Desstya, A. (2022). Analisis Miskonsepsi pada Materi Fotosintesis dengan
-                              Menggunakan Peta Konsep pada Siswa Sekolah Dasar. Jurnal Basicedu, 6(3), 3343-3350.
-                           </li>
-                           <li>
-                              Ayu, G., Budiwati, N., & Kriswiyanti, E. (2019). Teratai. The Crooked Kings of Ancient
-                              Greece, 1. https://doi.org/10.5040/9781472540935.ch-001
-                           </li>
-                        </ul>
-                     </sl-card>
-
-                     <style>
-                        /* Gaya CSS tambahan */
-                        .black-bullet li::before {
-                           content: "\2022"; /* Karakter Unicode untuk bullet hitam */
-                           color: black;
-                           margin-right: 0.5em;
-                        }
-                        .black-bullet li {
-                           font-size: small;
-                        }
-                        ol {
-                           list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
-                        }
-                        .card-header [slot="header"] {
-                           display: flex;
-                           align-items: center;
-                           /* justify-content: space-between; */
-                        }
-
-                        .card-header h3 {
-                           margin: 0;
-                        }
-
-                        .card-header sl-icon-button {
-                           font-size: var(--sl-font-size-medium);
-                        }
-                     </style>
-                  </sl-tab-panel>
-                  <!-- End Tab Panel Kurikulum -->
 
                   <!-- Tab Panel Informasi -->
                   <sl-tab-panel name="informasi">
@@ -337,7 +228,7 @@
          </div>
       </section>
 
-      <!-- <script src="./beranda.js"></script> -->
+      <script src="./beranda.js"></script>
 
       <!-- Script for shoelace style -->
       <script

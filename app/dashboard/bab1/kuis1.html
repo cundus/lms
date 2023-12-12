@@ -11,6 +11,7 @@
       />
 
       <title>Kuis BAB 1</title>
+      <script type="module" src="/util/js/getUserName.js"></script>
       <link rel="stylesheet" href="/style/style.css" />
    </head>
    <body>
@@ -53,7 +54,7 @@
          <aside class="sidebar min-h-screen px-1">
             <div class="w-full flex flex-col justify-center items-center">
                <img src="../../../assets/image/user.png" class="w-1/2 h-auto object-contain" />
-               <h3 class="px-6 py-4 font-semibold">Nama Siswa</h3>
+               <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
             </div>
             <h2
                class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
@@ -149,12 +150,7 @@
                         <sl-icon-button name="gear" label="Settings"></sl-icon-button>
                         Data Siswa
                      </div>
-                     <ul class="py-4 mx-4">
-                        <li>Nama : Aku Sopo</li>
-                        <li>NISN : 12345678</li>
-                        <li>Kelas : Eksekutif</li>
-                        <li>Sekolah : Dumbways</li>
-                     </ul>
+                     <ul class="py-4 mx-4" id="list-data-siswa"></ul>
                      <div class="w-full flex justify-center">
                         <button
                            type="button"
@@ -199,23 +195,22 @@
                      <div id="jawaban-kuis" class="jawaban-kuis p-2"></div>
                   </div>
 
-
-            <!-- * Button Next and Previous -->
-            <div class="w-full flex justify-between">
-              <button
-                id="btn-previous"
-                type="button"
-                class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
-              >
-                Sebelumnya
-              </button>
-              <button
-                id="btn-next"
-                type="button"
-                class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
-              ></button>
-            </div>
-            <!-- * End Button Next and Previous -->
+                  <!-- * Button Next and Previous -->
+                  <div class="w-full flex justify-between">
+                     <button
+                        id="btn-previous"
+                        type="button"
+                        class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
+                     >
+                        Sebelumnya
+                     </button>
+                     <button
+                        id="btn-next"
+                        type="button"
+                        class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
+                     ></button>
+                  </div>
+                  <!-- * End Button Next and Previous -->
 
                   <!-- * End Body Question -->
                </div>
@@ -336,34 +331,34 @@
          }
       </style>
 
-    <!-- Script for shoelace style -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"
-    ></script>
-    <script
-      defer
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/button/button.js"
-    ></script>
-    <script
-      type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/radio-group/radio-group.js"
-    ></script>
-    <script src="./kuis1.js"></script>
-    <!-- End Script for Shoelace style -->
-  </body>
+      <!-- Script for shoelace style -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <script
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"
+      ></script>
+      <script
+         defer
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
+      ></script>
+      <script
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"
+      ></script>
+      <script
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"
+      ></script>
+      <script
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/button/button.js"
+      ></script>
+      <script
+         type="module"
+         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/radio-group/radio-group.js"
+      ></script>
+      <script src="./kuis1.js"></script>
+      <!-- End Script for Shoelace style -->
+   </body>
 </html>

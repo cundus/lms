@@ -11,6 +11,7 @@
       />
 
       <title>Dashboard</title>
+      <script type="module" src="/util/js/getUserName.js"></script>
       <link rel="stylesheet" href="/style/style.css" />
    </head>
    <body>
@@ -64,7 +65,7 @@
          <aside class="sidebar min-h-screen px-1">
             <div class="w-full flex flex-col justify-center items-center">
                <img src="../../../assets/image/user.png" class="w-1/2 h-auto object-contain" />
-               <h3 class="px-6 py-4 font-semibold">Nama Siswa</h3>
+               <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
             </div>
             <h2
                class="py-4 text-lg text-center font-bold leading-tight text-slate-950"

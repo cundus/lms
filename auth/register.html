@@ -14,30 +14,6 @@
       ></script>
    </head>
    <body class="bg-gradient-to-r from-blue-500 to-purple-500">
-      <!-- Navbar -->
-      <nav class="bg-blue-500 p-4">
-         <div class="container mx-auto flex items-center justify-between">
-            <!-- Left Side -->
-            <div class="text-white text-lg font-bold">
-               <a href="../index.html" class="text-white hover:text-gray-300">MyClass</a>
-            </div>
-
-            <!-- Right Side -->
-            <ul class="flex space-x-4">
-               <li>
-                  <a href="../index.html" class="text-white hover:text-gray-300">Home</a>
-               </li>
-               <li>
-                  <a href="./app/beranda.html" class="text-white hover:text-gray-300">Modul</a>
-               </li>
-               <li>
-                  <a href="./auth/login.html" class="text-white hover:text-gray-300">Login</a>
-               </li>
-            </ul>
-         </div>
-      </nav>
-      <!-- End Navbar -->
-
       <section id="register" class="h-screen flex items-center justify-center">
          <div class="bg-white bg-opacity-30 p-8 rounded-md shadow-md backdrop-filter backdrop-blur-lg">
             <h2 id="textTitle" class="text-3xl font-bold text-white mb-4">Register</h2>
@@ -118,6 +94,8 @@
          </div>
       </section>
 
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <script type="module" src="/util/js/db.js"></script>
       <script type="module" src="./register.js"></script>
    </body>
 </html>

@@ -18,6 +18,7 @@
 
     <title>Dashboard</title>
     <link rel="stylesheet" href="/style/style.css">
+    <script type="module" src="/util/js/getUserName.js"></script>
   </head>
   <body>
     <header id="header-dashboard" class="py-1 z-10 bg-pink-300">
@@ -79,8 +80,8 @@
     <div class="w-full flex">
       <aside class="sidebar min-h-screen px-1">
             <div class="w-full flex flex-col justify-center items-center">
-               <img src="../../../assets/image/user.png" class="w-1/2 h-auto object-contain" />
-               <h3 class="px-6 py-4 font-semibold">Nama Siswa</h3>
+               <img src="/assets/image/user.png" class="w-1/2 h-auto object-contain" />
+               <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
             </div>
             <h2
                class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
@@ -93,14 +94,14 @@
                   <p>
                     Ayo Membilang Bilangan 1 sampai dengan 10
                   </p>
-                  <sl-tree-item selected>
+                  <sl-tree-item >
                      <a href="./pendahuluan1.html">Pendahuluan</a>
                   </sl-tree-item>
-                  <sl-tree-item>
+                  <sl-tree-item expanded>
                      <p>
                        Materi
                      </p>
-                     <sl-tree-item>
+                     <sl-tree-item selected>
                         <a href="./materi1.html">Menghitung,Membaca dan Menulis Bilangan</a>
                      </sl-tree-item>
                      <sl-tree-item>
@@ -152,8 +153,7 @@
             <sl-tab slot="nav" panel="menanya">Ayo Menanya</sl-tab>
             <sl-tab slot="nav" panel="mencoba">Ayo Mencoba</sl-tab>
             <sl-tab slot="nav" panel="menalar">Ayo Menalar</sl-tab>
-            <sl-tab slot="nav" panel="menalar">Ayo Menalar</sl-tab>
-            <sl-tab slot="nav" panel="menalar">Ayo Menalar</sl-tab>
+          
 
             <!-- * Tab Panel Ayo Mengamati -->
             <sl-tab-panel name="mengamati">

@@ -1,138 +1,118 @@
-/**
- * Function for login user with firebase config
- */
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-import {
-  getDatabase,
-  get,
-  ref,
-  child,
-} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+import { loginUserGuru, loginUserSiswa } from "../util/js/db.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDqc1dPg6B4qACoe8lJ7RUzHLT3rcOeqh4",
-  authDomain: "lmsweb-4acb4.firebaseapp.com",
-  projectId: "lmsweb-4acb4",
-  storageBucket: "lmsweb-4acb4.appspot.com",
-  messagingSenderId: "203175399654",
-  appId: "1:203175399654:web:861a93c0b302194a26ab27",
-};
+const isLoggedIn = localStorage.getItem("user");
+console.log(isLoggedIn);
+if (isLoggedIn) {
+   window.location.href = "/app/beranda.html";
+}
 
-const app = initializeApp(firebaseConfig);
-const db = getDatabase();
-const auth = getAuth(app);
-const dbRef = ref(db);
-
-let emailInput = document.getElementById("email-signIn");
 let passwordInput = document.getElementById("password-signIn");
 let signInForm = document.getElementById("loginForm");
 
-let LoginUser = (e) => {
-  e.preventDefault();
+let LoginUser = async (e) => {
+   e.preventDefault();
+   const urlParams = new URLSearchParams(window.location.search);
+   const role = urlParams.get("role");
 
-  signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value)
-    .then((credentials) => {
-      console.log(credentials);
-      get(child(dbRef, "UserAuthList/" + credentials.user.uid)).then(
-        (snapshot) => {
-          if (snapshot.exists) {
-            sessionStorage.setItem(
-              "user-info",
-              JSON.stringify({
-                name: snapshot.val().name,
-                email: snapshot.val().email,
-              })
-            );
-            sessionStorage.setItem(
-              "user-credential",
-              JSON.stringify(credentials.user)
-            );
-            window.location.href = "../app/beranda.html";
-          }
-        }
-      );
-      console.log(credentials);
-      alert(`You are logged in as: ${credentials.user.email}`);
-    })
-    .catch((error) => {
-      alert(error.message);
-      console.error(error.code);
-      console.error(error.message);
-    });
+   let loginUser = null;
+   if (role === "guru") {
+      const user = {
+         nip: document.getElementById("nip-signIn").value,
+         password: passwordInput.value,
+      };
+      loginUser = await loginUserGuru(user);
+   } else if (role === "siswa") {
+      const user = {
+         nisn: document.getElementById("nisn-signIn").value,
+         password: passwordInput.value,
+      };
+      loginUser = await loginUserSiswa(user);
+   }
+
+   if (loginUser === null || loginUser.password !== passwordInput.value) {
+      return Swal.fire({
+         icon: "error",
+         title: "Gagal!",
+         text: "NIP / NISN / Password salah!",
+      });
+   }
+
+   // simpan user login untuk penggunaan selanjutnya
+   localStorage.setItem("user", JSON.stringify(loginUser));
+
+   Swal.fire({
+      icon: "success",
+      text: `Login Berhasil`,
+   }).then(() => {
+      window.location.href = "/app/beranda.html";
+   });
 };
 signInForm.addEventListener("submit", LoginUser);
 
 /**
  * Function and Script for DOM Event
  */
-document.addEventListener("DOMContentLoaded", function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const role = urlParams.get("role");
+// ambil role dari url
+const urlParams = new URLSearchParams(window.location.search);
+const role = urlParams.get("role");
 
-  if (role === "guru") {
-    const textTitle = document.getElementById("textTitle");
-    textTitle.innerHTML = "Login sebagai Guru";
+if (role === "guru") {
+   const textTitle = document.getElementById("textTitle");
+   textTitle.innerHTML = "Login sebagai Guru";
 
-    const roleContainer = document.getElementById("roleLogin");
-    const roleNavigate = document.createElement("a");
+   const roleContainer = document.getElementById("roleLogin");
+   const roleNavigate = document.createElement("a");
 
-    roleNavigate.href = `./login.html?role=siswa`;
-    roleNavigate.classList = "text-dark font-semibold";
-    roleNavigate.innerText = "siswa";
-    roleContainer.appendChild(roleNavigate);
+   roleNavigate.href = `./login.html?role=siswa`;
+   roleNavigate.classList = "text-dark font-semibold";
+   roleNavigate.innerText = "siswa";
+   roleContainer.appendChild(roleNavigate);
 
-    // if role as guru, add field input for nisn
-    const nomorInduk = document.getElementById("nomorInduk");
-    const nomorIndukLabel = document.createElement("label");
-    const nomorIndukInput = document.createElement("input");
+   // if role as guru, add field input for nisn
+   const nomorInduk = document.getElementById("nomorInduk");
+   const nomorIndukLabel = document.createElement("label");
+   const nomorIndukInput = document.createElement("input");
 
-    nomorIndukLabel.for = "nip";
-    nomorIndukLabel.innerText = "NIP:";
-    nomorIndukLabel.className = "text-white";
+   nomorIndukLabel.for = "nip";
+   nomorIndukLabel.innerText = "NIP:";
+   nomorIndukLabel.className = "text-white";
 
-    nomorIndukInput.type = "text";
-    nomorIndukInput.id = "nip-signIn";
-    nomorIndukInput.name = "nip";
-    nomorIndukInput.required;
-    nomorIndukInput.className =
-      "bg-white bg-opacity-70 px-4 py-2 rounded-md w-full";
+   nomorIndukInput.type = "text";
+   nomorIndukInput.id = "nip-signIn";
+   nomorIndukInput.name = "nip";
+   nomorIndukInput.required;
+   nomorIndukInput.className = "bg-white bg-opacity-70 px-4 py-2 rounded-md w-full";
 
-    nomorInduk.appendChild(nomorIndukLabel);
-    nomorInduk.appendChild(nomorIndukInput);
-  } else if (role === "siswa") {
-    const textTitle = document.getElementById("textTitle");
-    textTitle.innerHTML = "Login sebagai Siswa";
+   nomorInduk.appendChild(nomorIndukLabel);
+   nomorInduk.appendChild(nomorIndukInput);
+} else if (role === "siswa") {
+   const textTitle = document.getElementById("textTitle");
+   textTitle.innerHTML = "Login sebagai Siswa";
 
-    const roleContainer = document.getElementById("roleLogin");
-    const roleNavigate = document.createElement("a");
+   const roleContainer = document.getElementById("roleLogin");
+   const roleNavigate = document.createElement("a");
 
-    roleContainer.innerHTML = "atau masuk sebagai ";
-    roleNavigate.href = `./login.html?role=guru`;
-    roleNavigate.classList = "text-dark font-semibold";
-    roleNavigate.innerText = "guru";
-    roleContainer.appendChild(roleNavigate);
+   roleContainer.innerHTML = "atau masuk sebagai ";
+   roleNavigate.href = `./login.html?role=guru`;
+   roleNavigate.classList = "text-dark font-semibold";
+   roleNavigate.innerText = "guru";
+   roleContainer.appendChild(roleNavigate);
 
-    // if role as guru, add field input for nisn
-    const nomorInduk = document.getElementById("nomorInduk");
-    const nomorIndukLabel = document.createElement("label");
-    const nomorIndukInput = document.createElement("input");
+   // if role as guru, add field input for nisn
+   const nomorInduk = document.getElementById("nomorInduk");
+   const nomorIndukLabel = document.createElement("label");
+   const nomorIndukInput = document.createElement("input");
 
-    nomorIndukLabel.for = "nisn";
-    nomorIndukLabel.innerText = "NISN:";
-    nomorIndukLabel.className = "text-white";
+   nomorIndukLabel.for = "nisn";
+   nomorIndukLabel.innerText = "NISN:";
+   nomorIndukLabel.className = "text-white";
 
-    nomorIndukInput.type = "text";
-    nomorIndukInput.id = "nisn-signIn";
-    nomorIndukInput.name = "nisn";
-    nomorIndukInput.required;
-    nomorIndukInput.className =
-      "bg-white bg-opacity-70 px-4 py-2 rounded-md w-full";
+   nomorIndukInput.type = "text";
+   nomorIndukInput.id = "nisn-signIn";
+   nomorIndukInput.name = "nisn";
+   nomorIndukInput.required;
+   nomorIndukInput.className = "bg-white bg-opacity-70 px-4 py-2 rounded-md w-full";
 
-    nomorInduk.appendChild(nomorIndukLabel);
-    nomorInduk.appendChild(nomorIndukInput);
-  }
-});
+   nomorInduk.appendChild(nomorIndukLabel);
+   nomorInduk.appendChild(nomorIndukInput);
+}
