@@ -28,6 +28,7 @@ let registerUser = async (e) => {
       name: nameInput.value,
       sekolah: sekolahInput.value,
       kelas: kelasInput.value,
+      role: "siswa",
    };
    const creatingUser = await createUser(user);
 
@@ -35,8 +36,7 @@ let registerUser = async (e) => {
       icon: "success",
       title: "Berhasil",
       text: `Pendaftaran berhasil`,
-   })
-   .then((confirm) => {
+   }).then((confirm) => {
       if (confirm) {
          signUpForm.reset();
          window.location.href = "./login.html";

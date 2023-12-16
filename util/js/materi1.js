@@ -66,7 +66,9 @@ window.addEventListener("DOMContentLoaded", () => {
       bodyTable.appendChild(tr);
    }
 
-   const dropdownsPlaceholders = document.querySelectorAll("[id^=image-dropdown]");
+   const dropdownsPlaceholders = document.querySelectorAll(
+      "[id^=image-dropdown]"
+   );
    dropdownsPlaceholders.forEach((dropdownPlaceholder, id) => {
       dropdownPlaceholder.innerHTML = `
          <div class="relative inline-block text-left">
@@ -235,21 +237,31 @@ function selectOption(optionText, buttonId, menuId) {
    dropdownMenu.classList.add("hidden");
 }
 
-document.addEventListener("click", function (event) {
+const mencobaContainer = document.getElementById("table-mencoba");
+
+console.log(mencobaContainer);
+
+mencobaContainer.addEventListener("click", function (event) {
    event.preventDefault();
+   console.log(event);
    var dropdownMenus = document.querySelectorAll('[id^="dropdownMenu"]');
    var dropdownButtons = document.querySelectorAll('[id^="dropdownButton"]');
 
    for (let index = 0; index < dropdownButtons.length; index++) {
-      document.getElementById("dropdownButton" + index).addEventListener("click", function (e) {
-         e.preventDefault();
-         var dropdownMenu = document.getElementById("dropdownMenu" + index);
-         dropdownMenu.classList.toggle("hidden");
-      });
+      document
+         .getElementById("dropdownButton" + index)
+         .addEventListener("click", function (e) {
+            e.preventDefault();
+            var dropdownMenu = document.getElementById("dropdownMenu" + index);
+            dropdownMenu.classList.toggle("hidden");
+         });
    }
 
    for (var i = 0; i < dropdownMenus.length; i++) {
-      if (!dropdownMenus[i].contains(event.target) && event.target !== dropdownButtons[i]) {
+      if (
+         !dropdownMenus[i].contains(event.target) &&
+         event.target !== dropdownButtons[i]
+      ) {
          dropdownMenus[i].classList.add("hidden");
       }
    }
