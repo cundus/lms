@@ -44,7 +44,11 @@ let LoginUser = async (e) => {
       icon: "success",
       text: `Login Berhasil`,
    }).then(() => {
-      window.location.href = "/app/beranda.html";
+      if (role === "siswa") {
+         window.location.href = "/app/beranda.html";
+      } else if (role === "guru") {
+         window.location.href = "/app/guru/dashboard.html";
+      }
    });
 };
 signInForm.addEventListener("submit", LoginUser);
