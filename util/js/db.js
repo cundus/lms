@@ -36,6 +36,28 @@ export const getUser = async (id) => {
    }
 };
 
+export const getAllUsers = async () => {
+   try {
+      const snapshot = await get(child(db, `users/`));
+
+      if (snapshot.exists()) {
+         const allUsers = snapshot.val()
+         const siswaUsers = Object.values(allUsers).filter(user => user.role === "siswa")
+         return siswaUsers; 
+      }
+
+      return null;
+   } catch (error) {
+      console.log(error);
+
+      Swal.fire({
+         icon: "error",
+         message: "Error",
+         text: error.message,
+      });
+   }
+};
+
 export const createUser = async (data) => {
    await set(child(db, `users/` + data.nisn), data);
 };
@@ -58,4 +80,64 @@ export const loginUserSiswa = async (data) => {
    }
 
    return null;
+};
+
+export const getAllQuestion = async () => {
+   try {
+      const snapshot = await get(child(db, `question/`));
+
+      if (snapshot.exists()) {
+         return Object.values(snapshot.val()); 
+      }
+
+      return null;
+   } catch (error) {
+      console.log(error);
+
+      Swal.fire({
+         icon: "error",
+         message: "Error",
+         text: error.message,
+      });
+   }
+};
+
+export const getAllCommunication = async () => {
+   try {
+      const snapshot = await get(child(db, `communication/`));
+
+      if (snapshot.exists()) {
+         return Object.values(snapshot.val()); 
+      }
+
+      return null;
+   } catch (error) {
+      console.log(error);
+
+      Swal.fire({
+         icon: "error",
+         message: "Error",
+         text: error.message,
+      });
+   }
+};
+
+export const getAllKKM = async () => {
+   try {
+      const snapshot = await get(child(db, `kkm/`));
+
+      if (snapshot.exists()) {
+         return Object.values(snapshot.val()); 
+      }
+
+      return null;
+   } catch (error) {
+      console.log(error);
+
+      Swal.fire({
+         icon: "error",
+         message: "Error",
+         text: error.message,
+      });
+   }
 };

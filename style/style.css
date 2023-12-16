@@ -110,3 +110,43 @@ sl-tab-group {
    /* border-radius: 1rem; */
    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+.tab-guru {
+   width: 100%;
+}
+
+.main-content {
+   margin: 20px; /* Adjust margin as needed */
+}
+
+.data_siswa {
+   border-collapse: collapse;
+   width: 100%;
+}
+
+.data_siswa th, .data_siswa td {
+   border: 1px solid #dddddd;
+   text-align: left;
+   padding: 8px;
+}
+
+.data_siswa th {
+   background-color: #f2f2f2;
+}
+
+#pagination {
+   list-style-type: none;
+   display: flex;
+   padding: 0;
+}
+
+#pagination li {
+   margin: 0 5px;
+   cursor: pointer;
+}
+
+#prevPage, #nextPage {
+   margin-top: 10px;
+   padding: 5px;
+   cursor: pointer;
+}
