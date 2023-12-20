@@ -249,7 +249,7 @@ function renderQuiz() {
          break;
       case 5:
          numberQuestion.innerText =
-            "5. Beben mempunyai 10 Sepeda. Lambang bilangan dari sepuluh adalah?... (icon sound)";
+            "5. Beben mempunyai 10 Sepeda. Lambang bilangan dari sepuluh adalah?...";
          listQuestionFour.classList.remove("bg-black", "text-white");
          listQuestionFive.classList.add("bg-black", "text-white");
          listQuestionSix.classList.remove("bg-black", "text-white");
@@ -277,7 +277,7 @@ function renderQuiz() {
          break;
       case 6:
          numberQuestion.innerText =
-            "6. Di bawah ini yang dimaksud pengertian dari membandingkan bilangan dalam benda adalah? (icon sound)";
+            "6. Di bawah ini yang dimaksud pengertian dari membandingkan bilangan dalam benda adalah?";
          listQuestionFive.classList.remove("bg-black", "text-white");
          listQuestionSix.classList.add("bg-black", "text-white");
          listQuestionSeven.classList.remove("bg-black", "text-white");
@@ -296,7 +296,7 @@ function renderQuiz() {
          break;
       case 7:
          numberQuestion.innerText =
-            "7. Perhatikan gambar di bawah ini, tanda yang cocok untuk mengisi titik-titik diatas adalah?... (icon sound)";
+            "7. Perhatikan gambar di bawah ini, tanda yang cocok untuk mengisi titik-titik diatas adalah?...";
          listQuestionSix.classList.remove("bg-black", "text-white");
          listQuestionSeven.classList.add("bg-black", "text-white");
          listQuestionEight.classList.remove("bg-black", "text-white");
@@ -325,7 +325,7 @@ function renderQuiz() {
          break;
       case 8:
          numberQuestion.innerText =
-            "8. Perhatikan gambar di bawah ini, manakah suatu bilangan dibawah ini yang berurut dari terkecil ke terbesar?... (icon sound)";
+            "8. Perhatikan gambar di bawah ini, manakah suatu bilangan dibawah ini yang berurut dari terkecil ke terbesar?...";
          listQuestionSeven.classList.remove("bg-black", "text-white");
          listQuestionEight.classList.add("bg-black", "text-white");
          listQuestionNine.classList.remove("bg-black", "text-white");
@@ -352,7 +352,7 @@ function renderQuiz() {
          break;
       case 9:
          numberQuestion.innerText =
-            "9. Perhatikan gambar di bawah ini, manakah suatu bilangan dibawah ini yang berurut dari terbesar ke terkecil?... (icon sound)";
+            "9. Perhatikan gambar di bawah ini, manakah suatu bilangan dibawah ini yang berurut dari terbesar ke terkecil?...";
          listQuestionEight.classList.remove("bg-black", "text-white");
          listQuestionNine.classList.add("bg-black", "text-white");
          listQuestionTen.classList.remove("bg-black", "text-white");
@@ -379,7 +379,7 @@ function renderQuiz() {
          break;
       case 10:
          numberQuestion.innerText =
-            "10. Di bawah ini yang dimaksud pengertian dari pasangkan bilangan adalah? (icon sound)";
+            "10. Di bawah ini yang dimaksud pengertian dari pasangkan bilangan adalah?";
          listQuestionTen.classList.add("bg-black", "text-white");
          listQuestionNine.classList.remove("bg-black", "text-white");
          btnPrev.classList.add("hidden");

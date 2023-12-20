@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.min.css" />
+
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <script type="module" src="/util/js/getUserName.js"></script>
+    <script src="/util/js/playAudio.js"></script>
+    <style>
+        /* .sub_1_ayo_mengamati {} */
+
+        .sub_1_ayo_mengamati>tr>td>* {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header-dashboard" class="py-1 z-10 bg-pink-300">
+        <div class="">
+            <div class="w-full px-4">
+                <div class="mx-auto mb-1 max-w-xl text-center">
+                    <h2 class="py-1" style="
+                color: black;
+                font-size: 30px;
+                font-family: Inter;
+                font-weight: 600;
+                line-height: 48px;
+                word-wrap: break-word;
+              ">
+                        Welcome
+                    </h2>
+                    <p class="py-1" style="
+                color: black;
+                font-size: 20px;
+                font-family: Inter;
+                font-weight: 600;
+                line-height: 32px;
+                word-wrap: break-word;
+              ">
+                        Hello future greats with spirit of learning
+                    </p>
+                </div>
+                <div class="w-full flex justify-between">
+                    <a href="../../beranda.html" class="text-md px-6 py-4 font-bold underline decoration-slice">Back to
+                        Beranda</a>
+                    <h3 class="px-6 py-4">
+                        Anda saat ini berada pada tab:
+                        <a href="../dashboard.html" class="font-bold underline decoration-solid">Dashboard Siswa
+                        </a>
+                        <span> > </span>
+                        <a href="./materi1.html" class="font-bold underline decoration-solid">Materi Bab 1
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="w-full flex">
+        <aside class="sidebar min-h-screen px-1">
+            <div class="w-full flex flex-col justify-center items-center">
+                <img src="/assets/image/user.png" class="w-1/2 h-auto object-contain" />
+                <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
+            </div>
+            <h2 class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
+                style="font-family: Inter; word-wrap: break-word">
+                Daftar Isi
+            </h2>
+            <sl-tree>
+                <sl-tree-item>
+                    <p>
+                        Ayo Membilang Bilangan 1 sampai dengan 10
+                    </p>
+                    <sl-tree-item>
+                        <a href="../../dashboard/bab1/pendahuluan1.html">Pendahuluan</a>
+                    </sl-tree-item>
+                    <sl-tree-item>
+                        <p>
+                            Materi
+                        </p>
+                        <sl-tree-item>
+                            <a href="../../dashboard/bab1/materi1.html">Menghitung,Membaca dan Menulis Bilangan</a>
+                        </sl-tree-item>
+                        <sl-tree-item>
+                            <a href="../../dashboard/bab1/materi2.html">Membandingkan Banyak Bilangan dalam Benda</a>
+                        </sl-tree-item>
+                        <sl-tree-item>
+                            <a href="../../dashboard/bab1/materi3.html">Menghitung Maju dan Mundur</a>
+                        </sl-tree-item>
+                        <sl-tree-item>
+                            <a href="../../dashboard/bab1/materi4.html">Pasangan Bilangan</a>
+                        </sl-tree-item>
+                    </sl-tree-item>
+                    <sl-tree-item>
+                        <a href="../../dashboard/bab1/kuis1.html">Kuis BAB 1</a>
+                    </sl-tree-item>
+                </sl-tree-item>
+
+                <sl-tree-item expanded>
+                    <p>PENJUMLAHAN BILANGAN DAN PENGURANGAN
+                        BILANGAN 1 SAMPAI DENGAN 10</p>
+                    <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
+                    <sl-tree-item expanded>
+                        <p>Materi</p>
+                        <sl-tree-item>
+                            <a href="../../dashboard/bab2/materi1.html">Mengenal Simbol +, - atau =</a>
+                        </sl-tree-item>
+                        <sl-tree-item>
+                            <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a>
+                        </sl-tree-item>
+                        <sl-tree-item selected>
+                            <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d
+                                10</a>
+                        </sl-tree-item>
+                        <sl-tree-item>
+                            <a href="../../dashboard/bab2/materi4.html">
+                                Hubungan Penjumlahan dan Pengurangan
+                            </a>
+                        </sl-tree-item>
+                    </sl-tree-item>
+                    <sl-tree-item>
+                        <a href="../../dashboard/bab2/kuis2.html">
+                            Kuis Bab 2
+                        </a>
+                    </sl-tree-item>
+                </sl-tree-item>
+
+                <sl-tree-item>
+                    <a href="../../dashboard/evaluasi.html">Evaluasi</a>
+                </sl-tree-item>
+
+                <sl-tree-item>
+                    <a href="../../../auth/login.html">Exit</a>
+                </sl-tree-item>
+            </sl-tree>
+        </aside>
+        <div class="content px-1">
+            <div class="main-content">
+                <div class="flex py-1 justify-center">
+                    <p
+                        class="border border-solid rounded-full text-white bg-red-500 text-md px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
+                        Bilangan
+                    </p>
+                </div>
+                <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
+                    C. Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d 10
+                </h3>
+                <sl-tab-group>
+                    <sl-tab slot="nav" panel="diingat">Ayo Diingat</sl-tab>
+                    <sl-tab slot="nav" panel="mengamati">Ayo Mengamati</sl-tab>
+                    <sl-tab slot="nav" panel="berlatih">Ayo Berlatih</sl-tab>
+
+                    <!-- * Tab Panel Ayo bercerita1 -->
+                    <sl-tab-panel name="diingat">
+                        <div class="text-content m-4">
+                            <p>Ada dua cara melakukan penjumlahan dan pengurangan 1 s/d 10 dengan salah
+                                satunya dengan mempasangkan bilangan dan menghitung maju dan mundur.
+                            </p>
+                            <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Diingat/Ayo Diingat.m4a')"><img
+                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
+                        </div>
+                    </sl-tab-panel>
+                    <!-- * End Tab Panel Ayo bercerita1 -->
+
+                    <sl-tab-panel name="mengamati">
+                        <div class="text-content m-4">
+                            <p class="font-bold">
+                                Penjumlahan dan Pengurangan
+                            </p>
+                            <ol class="m-4">
+                                <li> Pasangkan Bilangan
+                                    <span
+                                        onclick="play('/assets/sounds/bab_2/sub_3/Ayo Mengamati/Ayo Mengamati.m4a')"><img
+                                            src="/assets/image/sound.png"
+                                            class="w-6 h-6 cursor-pointer select-none" /></span>
+                                    <br />
+                                    <p>Kita sudah membahas mengenai memasangkan bilangan di materi
+                                        sebelumnya bahwa. Pasangkan bilangan atau memasangkan bilangan suatu dua angka
+                                        yang di pasangkan yang apabila dijumlahkan akan menghasilkan angka baru
+                                        atau mengurangkan angka baru. Bisa di lihat contoh di bawah ini
+                                    </p> <br>
+                                    <div>
+                                        <p class="font-bold">- Memasangkan bilangan dalam penjumlahan.</p>
+                                        <span
+                                            onclick="play('/assets/sounds/bab_2/sub_3/Ayo Mengamati/Memasangkan Penjumlahan.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span>
+                                        <br />
+                                        <p>Ibu memiliki 5 buah paprika. <br>
+                                            3 paprika berwarna merah. <br>
+                                            2 paprika bewarna kuning</p>
+                                        <div class="flex">
+                                            <img src="/assets/image/bab_2/sub_3/Ayo Mengamati/Pasangkan Penjumlahan (1).png"
+                                                alt="">
+                                            <img width="75%"
+                                                src="/assets/image/bab_2/sub_3/Ayo Mengamati/Pasangkan Penjumlahan (2).png"
+                                                alt="">
+                                        </div>
+                                        <div class="border-4">
+                                            <p class="p-3">Maka operasi penjumlahannya adalah <br>
+                                                3 + 2 = 5 <br>
+                                                Atau bisa seperti ini <br>
+                                                2 + 3 = 5</p>
+                                        </div>
+                                    </div> <br>
+                                    <div>
+                                        <p class="font-bold">- Memasangkan bilangan dalam pengurangan.</p>
+                                        <span
+                                            onclick="play('/assets/sounds/bab_2/sub_3/Ayo Mengamati/Memasangkan Pengurangan.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span>
+                                        <br />
+                                        <p>Kakak membeli telur di pasar sebanyak 6 telur. <br>
+                                            Kemudian saat sampai di rumah 2 telur pecah. <br>
+                                            Maka sisa telur yang masih utuh ada 4 telur</p>
+                                        <div class="flex">
+                                            <img width="75%"
+                                                src="/assets/image/bab_2/sub_3/Ayo Mengamati/Pasangkan Pengurangan (2).png"
+                                                alt="">
+                                            <img src="/assets/image/bab_2/sub_3/Ayo Mengamati/Pasangkan Pengurangan (1).png"
+                                                alt="">
+                                        </div>
+                                        <div class="border-4">
+                                            <p class="p-3">Maka operasi penguranganya adalah <br>
+                                                6 + 4 = 2 <br>
+                                                Atau bisa seperti ini <br>
+                                                4 + 2 = 2</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li> Menghitung Maju
+                                    <span
+                                        onclick="play('/assets/sounds/bab_2/sub_3/Ayo Mengamati/Menghitung maju.m4a')"><img
+                                            src="/assets/image/sound.png"
+                                            class="w-6 h-6 cursor-pointer select-none" /></span>
+                                    <br>
+                                    <p>Mula-mula Bayu di angka 5. Kemudian Bayu melompat tiga langkah ke
+                                        depan. Maka di angka berapakah sekarang ini Bayu ?</p>
+                                    <div>
+                                        <div class="flex">
+                                            <img width="50%"
+                                                src="/assets/image/bab_2/sub_3/Ayo Mengamati/Menghitung Maju (2).png"
+                                                alt="">
+                                            <img width="50%"
+                                                src="/assets/image/bab_2/sub_3/Ayo Mengamati/Menghitung Maju (3).png"
+                                                alt="">
+                                        </div>
+
+                                        <p>Maka operasi penjumlahannya adalah : <br>
+                                            5 + 3 = 8 </p>
+                                        <img width="50%"
+                                            src="/assets/image/bab_2/sub_3/Ayo Mengamati/Menghitung Maju (1).png"
+                                            alt="">
+
+                                    </div>
+                                </li>
+
+                                <li> Menghitung Mundur
+                                    <span
+                                        onclick="play('/assets/sounds/bab_2/sub_3/Ayo Mengamati/Menghitung mundur.m4a')"><img
+                                            src="/assets/image/sound.png"
+                                            class="w-6 h-6 cursor-pointer select-none" /></span>
+                                    <br>
+                                    <p>Mula-mula Ziva di angka 3. Kemudian Ziva melompat dua langkah ke
+                                        belakang. Maka di angka berapakah sekarang ini Ziva ?</p>
+                                    <div>
+                                        <div class="flex">
+                                            <img width="50%"
+                                                src="/assets/image/bab_2/sub_3/Ayo Mengamati/Menghitung Mundur (1).png"
+                                                alt="">
+                                            <img width="50%"
+                                                src="/assets/image/bab_2/sub_3/Ayo Mengamati/Menghitung Mundur (2).png"
+                                                alt="">
+                                        </div>
+                                        <p>Maka operasi penguranganya adalah : <br>
+                                            3 + 2 = 1 </p>
+                                        <img width="50%"
+                                            src="/assets/image/bab_2/sub_3/Ayo Mengamati/Menghitung Mundur (3).png"
+                                            alt="">
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </sl-tab-panel>
+
+                    <sl-tab-panel name="berlatih">
+                        <div class="text-content mx-auto">
+                            <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
+                                Petunjuk Pengerjaan :
+                            </h3>
+                            <ol class="black-number mx-4">
+                                <li>
+                                    Untuk memahami materi di atas, silahkan jawab pertanyaan di
+                                    bawah ini!
+                                </li>
+                                <li>
+                                    Jawablah pertanyaan dengan mengklik salah satu jawaban yang
+                                    dianggap benar!
+                                </li>
+                                <li class="py-4">
+                                    Klik tombol
+                                    <span
+                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
+                                        Jawaban</span>
+                                    untuk mengetahui jawaban benar atau salah!
+                                </li>
+                                <li>
+                                    Jika jawabanmu benar, muncul keterangan
+                                    <span class="font-bold text-green-600">"Jawaban Benar"</span>
+                                </li>
+                                <li>
+                                    Jika jawabanmu salah, muncul keterangan
+                                    <span class="font-bold text-red-600">"Jawaban Salah"</span>
+                                </li>
+                                <li class="py-4">
+                                    Klik tombol
+                                    <span
+                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
+                                        Lagi</span>
+                                    untuk mencoba kembali
+                                    <span
+                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/Ayo Berlatih Petunjuk.m4a')"><img
+                                            src="/assets/image/sound.png"
+                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                </li>
+                            </ol>
+                        </div>
+                        <sl-card id="info-media"
+                            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <div slot="header">
+                                <h3 class="text-lg decoration-solid px-2 py-1">
+                                    Kerjakan soal di bawah ini, isilah jawaban dengan tepat!
+                                </h3>
+                            </div>
+
+                            <ol class="soal-berlatih mx-4">
+                                <!-- *Soal berlatih Nomor 1 -->
+                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut !
+                                    <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S1.m4a')"><img
+                                            src="/assets/image/sound.png"
+                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 1.png" alt="">
+                                    <p>Shela mengoleksi berbagai jenis warna pita salah satu. <br>
+                                        Pita berwarna biru 5. <br>
+                                        Pita berwarna merah 2. <br>
+                                        Maka berapakah jumlah pita kedua warna biru dan merah tersebut ?
+                                    </p>
+                                    <p>5 + 2 =
+                                        <select name="" id="">
+                                            <option value="">....</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </p>
+                                </li>
+                                <!-- *End Soal berlatih Nomor 1 -->
+
+                                <!-- *Soal berlatih Nomor 2 -->
+                                <li> Hitunglah operasi penjumlahan berikut!
+                                    <div>
+                                        a. Aku mula-mula di angka 3, kemudian melompat dua langkah kedepan.
+                                        Maka di angka berapakah sekarang aku?
+                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S2 a.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex items-center">
+                                            <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 2a.png"
+                                                alt="">
+                                            <p>3 + 2 =
+                                                <select name="" id="">
+                                                    <option value="">....</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                </select>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        b. Aku mula-mula di angka 4, kemudian melompat tiga langkah kedepan.
+                                        Maka di angka berapakah sekarang aku?
+                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S2 b.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex items-center">
+                                            <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 2b.png"
+                                                alt="">
+                                            <p>4 + 3 =
+                                                <select name="" id="">
+                                                    <option value="">....</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                </select>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        c. Aku mula-mula di angka , kemudian melompat tiga langkah kedepan.
+                                        Maka di angka berapakah sekarang aku?
+                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S2 c.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex items-center">
+                                            <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 2c.png"
+                                                alt="">
+                                            <p>3 + 3 =
+                                                <select name="" id="">
+                                                    <option value="">....</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                </select>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- *End Soal berlatih Nomor 2 -->
+
+                                <!-- *Soal berlatih Nomor 3 -->
+                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.!
+                                    <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S3.m4a')"><img
+                                            src="/assets/image/sound.png"
+                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 3.png" alt="">
+                                    <p>Ada sekumpulan burung pipit hinggap di ranting pohon sebanyak 6 ekor. <br>
+                                        Akan tetapi 2 burung pipit terbang ke ranting pohon lainnya. <br>
+                                        Maka sisa berapakah burung pipit yang ada di ranting pohon sekarang.
+                                    </p>
+                                    <p>6 – 2 =
+                                        <select name="" id="">
+                                            <option value="">....</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </p>
+                                </li>
+                                <!-- *End Soal berlatih Nomor 3 -->
+
+                                <!-- *Soal berlatih Nomor 4 -->
+                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.!
+                                    <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S4.m4a')"><img
+                                            src="/assets/image/sound.png"
+                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 4.png" alt="">
+                                    <p>Di parkiran di sekolah ada 6 sepeda yang di parkir di sana. <br>
+                                        Saat jam bel pulang sekolah Dina pulang mennggunakan sepeda. <br>
+                                        Maka sisa berapa sepeda yang ada di parkirann sekolah sekarang.
+                                    </p>
+                                    <p>6 – 1 =
+                                        <select name="" id="">
+                                            <option value="">....</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </p>
+                                </li>
+                                <!-- *End Soal berlatih Nomor 4-->
+
+                                <!-- *Soal berlatih Nomor 5 -->
+                                <li> Hitunglah operasi penjumlahan berikut!
+                                    <p>Aku di angka 6, kemudian melompat 4 langkah ke belakang.
+                                        Maka angka berapakah sekarang aku?</p>
+                                    <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S55.m4a')"><img
+                                            src="/assets/image/sound.png"
+                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    <div class="flex items-center">
+                                        <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 5.png" alt="">
+                                        <p>6 - 4 =
+                                            <select name="" id="">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </p>
+                                    </div>
+                                </li>
+                                <!-- *End Soal berlatih Nomor 5 -->
+                            </ol>
+                        </sl-card>
+                        <div class="w-full flex justify-center">
+                            <p
+                                class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
+                                Cek Jawaban
+                            </p>
+                            <p
+                                class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
+                                Coba Lagi
+                            </p>
+                        </div>
+                    </sl-tab-panel>
+                </sl-tab-group>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Script for shoelace style -->
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"></script>
+    <script defer type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"></script>
+    <!-- End Script for Shoelace style -->
+</body>
+
+</html> /

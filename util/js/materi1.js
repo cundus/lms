@@ -5,7 +5,6 @@ const assets = [
    },
    {
       image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Kursi.png",
-
       sound: "",
    },
    {
@@ -266,3 +265,82 @@ mencobaContainer.addEventListener("click", function (event) {
       }
    }
 });
+
+
+ // Data for each question including the correct answer and sound
+ var questions = [
+   { correctOption: '1', options: ['1', '2', '3'], soundPaths: ['/assets/sounds/bab_1/sub_1/ayo_menalar/1.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/2.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/3.m4a'] },
+   { correctOption: '2', options: ['1', '2', '3'], soundPaths: ['/assets/sounds/bab_1/sub_1/ayo_menalar/1.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/2.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/3.m4a'] },
+   { correctOption: '1', options: ['1', '2', '3'], soundPaths: ['/assets/sounds/bab_1/sub_1/ayo_menalar/1.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/2.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/3.m4a'] },
+   { correctOption: '2', options: ['1', '2', '3'], soundPaths: ['/assets/sounds/bab_1/sub_1/ayo_menalar/1.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/2.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/3.m4a'] },
+   { correctOption: '2', options: ['1', '2', '3'], soundPaths: ['/assets/sounds/bab_1/sub_1/ayo_menalar/1.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/2.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/3.m4a'] },
+   { correctOption: '1', options: ['1', '2', '3'], soundPaths: ['/assets/sounds/bab_1/sub_1/ayo_menalar/1.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/2.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/3.m4a'] },
+   { correctOption: '10', options: ['10', '9', '8'], soundPaths: ['/assets/sounds/bab_1/sub_1/ayo_menalar/10.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/9.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/8.m4a'] },
+   { correctOption: '10', options: ['10', '9', '8'], soundPaths: ['/assets/sounds/bab_1/sub_1/ayo_menalar/10.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/9.m4a', '/assets/sounds/bab_1/sub_1/ayo_menalar/8.m4a'] },
+   // Add more questions as needed
+ ];
+
+ // Function to generate options for a given row
+ function generateOptions(row, question) {
+   var optionsContainer = document.getElementById("options" + row);
+
+   question.options.forEach(function (option, index) {
+     var optionElement = document.createElement('span');
+     optionElement.className = 'option';
+     optionElement.textContent = option;
+     optionElement.setAttribute('data-correct', option === question.correctOption); // Add data attribute for correct option
+     optionElement.onclick = function() {
+       selectOption(row, index);
+     };
+
+     // Create sound button using innerHTML
+     var soundButton = document.createElement('span');
+     soundButton.className = 'audio-button';
+     soundButton.innerHTML = `<img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" onclick="play('${question.soundPaths[index]}')">`;
+
+     // Append both option and sound button to the container
+     optionsContainer.appendChild(optionElement);
+     optionsContainer.appendChild(soundButton);
+   });
+ }
+
+ // Function to handle option selection
+ function selectOption(row, index) {
+   var optionsContainer = document.getElementById("options" + row);
+   var options = optionsContainer.getElementsByClassName("option");
+
+   // Remove the click event listener from all options to prevent further clicks
+   for (var i = 0; i < options.length; i++) {
+     options[i].removeAttribute("onclick");
+   }
+
+   // Reset the background color of all options
+   for (var i = 0; i < options.length; i++) {
+     options[i].style.backgroundColor = "";
+   }
+
+   // Highlight the selected option
+   options[index].style.backgroundColor = "#e0e0e0";
+
+   // Get the check span element for this row
+   var checkSpan = document.getElementById("check" + row);
+
+   // Check if the selected option is correct
+   if (options[index].getAttribute('data-correct') === 'true') {
+     checkSpan.textContent = "Kamu Benar!";
+     checkSpan.style.color = "green";
+   } else {
+     checkSpan.textContent = "Kamu Salah!";
+     checkSpan.style.color = "red";
+   }
+
+   // Add click event listeners back to options for the next attempt
+   for (var i = 0; i < options.length; i++) {
+     options[i].setAttribute("onclick", "selectOption(" + row + ", " + i + ")");
+   }
+ }
+
+ // Dynamically generate options for each question
+ for (var i = 0; i < questions.length; i++) {
+   generateOptions(i + 1, questions[i]);
+ }
