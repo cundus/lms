@@ -431,9 +431,9 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub1_1_1", total);
+    
   } else if (type === "berlatih") {
     const berlatihSets = [
-      "berlatih1",
       "berlatih1",
       "berlatih2",
       "berlatih3",
@@ -459,6 +459,10 @@ function taskResult(type) {
   } else {
     return null;
   }
+  Swal.fire({
+    icon: "success",
+    text: `Silahkan lanjut ke berikutnya!`,
+  })
   totalPerSub()
 }
 

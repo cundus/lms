@@ -380,7 +380,10 @@ function taskResult(type) {
   } else {
     return null;
   }
-  
+  Swal.fire({
+    icon: "success",
+    text: `Silahkan lanjut ke berikutnya!`,
+  })
   totalPerSub();
 }
 

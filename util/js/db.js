@@ -171,7 +171,7 @@ export const getMateri = async () => {
     const snapshot = await get(child(db, `materi/`));
 
     if (snapshot.exists()) {
-      return snapshot.val();
+      return Object.values(snapshot.val());
     }
 
     return null;
@@ -190,7 +190,7 @@ export const getKuis = async () => {
     const snapshot = await get(child(db, `kuis/`));
 
     if (snapshot.exists()) {
-      return snapshot.val();
+      return Object.values(snapshot.val());
     }
 
     return null;
@@ -209,7 +209,7 @@ export const getEvaluasi = async () => {
     const snapshot = await get(child(db, `evaluasi/`));
 
     if (snapshot.exists()) {
-      return snapshot.val();
+      return Object.values(snapshot.val());
     }
 
     return null;

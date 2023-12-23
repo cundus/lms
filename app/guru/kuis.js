@@ -110,6 +110,7 @@ const prevPage = () => {
 // Call the function to fetch all users and set up pagination
 const initializePagination = async () => {
   allData = await getKuis();
+  console.log(allData);
   if (allData) {
     totalPages = Math.ceil(allData.length / itemsPerPage);
     generatePaginationLinks();

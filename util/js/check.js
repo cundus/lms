@@ -115,7 +115,7 @@ async function insertEvaluasi() {
         name: siswa.name,
         kelas: siswa.kelas,
         evaluasi: "Evaluasi 1",
-        nilai: kuis1,
+        nilai: evaluasi1,
         sekolah: siswa.sekolah,
         waktu: new Date(),
       };

@@ -61,6 +61,10 @@ function taskResult(type) {
   } else {
     return null;
   }
+  Swal.fire({
+    icon: "success",
+    text: `Silahkan lanjut ke berikutnya!`,
+  });
   totalPerSub();
 }
 
@@ -80,7 +84,7 @@ function totalPerSub() {
 
 function getCheckedValue(elements) {
   for (let i = 0; i < elements.length; i++) {
-      return elements[i].value;
+    return elements[i].value;
   }
   return undefined; // Return undefined if no radio button is checked
 }
