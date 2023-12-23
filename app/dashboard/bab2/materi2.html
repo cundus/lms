@@ -105,8 +105,8 @@
                 </sl-tree-item>
 
                 <sl-tree-item expanded>
-                    <p>PENJUMLAHAN BILANGAN DAN PENGURANGAN
-                        BILANGAN 1 SAMPAI DENGAN 10</p>
+                    <p>Penjumlahan Bilangan dan Pengurangan
+                        Bilangan 1 sampai dengan 10</p>
                     <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
                     <sl-tree-item expanded>
                         <p>Materi</p>
@@ -114,10 +114,12 @@
                             <a href="../../dashboard/bab2/materi1.html">Mengenal Simbol +, - atau =</a>
                         </sl-tree-item>
                         <sl-tree-item selected>
-                            <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a>
+                            <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1
+                                s/d 10</a>
                         </sl-tree-item>
                         <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d
+                            <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan
+                                Pengurangan 1 s/d
                                 10</a>
                         </sl-tree-item>
                         <sl-tree-item>
@@ -243,418 +245,499 @@
                     <!-- * End Tab Panel Ayo bercerita1 -->
 
                     <sl-tab-panel name="berlatih1">
-                        <div class="text-content mx-auto">
-                            <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
-                                Petunjuk Pengerjaan :
-                            </h3>
-                            <ol class="black-number mx-4">
-                                <li>
-                                    Untuk memahami materi di atas, silahkan jawab pertanyaan di
-                                    bawah ini!
-                                </li>
-                                <li>
-                                    Jawablah pertanyaan dengan mengklik salah satu jawaban yang
-                                    dianggap benar!
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
-                                        Jawaban</span>
-                                    untuk mengetahui jawaban benar atau salah!
-                                </li>
-                                <li>
-                                    Jika jawabanmu benar, muncul keterangan
-                                    <span class="font-bold text-green-600">"Jawaban Benar"</span>
-                                </li>
-                                <li>
-                                    Jika jawabanmu salah, muncul keterangan
-                                    <span class="font-bold text-red-600">"Jawaban Salah"</span>
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
-                                        Lagi</span>
-                                    untuk mencoba kembali
-                                    <span
-                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Ayo Berlatih.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                </li>
-                            </ol>
-                        </div>
-                        <sl-card id="info-media"
-                            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div slot="header">
-                                <h3 class="text-lg decoration-solid px-2 py-1">
-                                    Kerjakan soal di bawah ini, isilah jawaban dengan tepat!
+                        <form onsubmit="taskResult(`berlatih1`)">
+                            <div class="text-content mx-auto">
+                                <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
+                                    Petunjuk Pengerjaan :
                                 </h3>
-                                <span
-                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/Kerjakan soal dibawah ini.m4a')"><img
-                                        src="/assets/image/sound.png"
-                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                <ol class="black-number mx-4">
+                                    <li>
+                                        Untuk memahami materi di atas, silahkan jawab pertanyaan di
+                                        bawah ini!
+                                    </li>
+                                    <li>
+                                        Jawablah pertanyaan dengan mengklik salah satu jawaban yang
+                                        dianggap benar!
+                                    </li>
+                                    <li class="py-4">
+                                        Klik tombol
+                                        <span
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
+                                            Jawaban</span>
+                                        untuk mengetahui jawaban benar atau salah!
+                                    </li>
+                                    <li>
+                                        Jika jawabanmu benar, muncul keterangan
+                                        <span class="font-bold text-green-600">"Jawaban Benar"</span>
+                                    </li>
+                                    <li>
+                                        Jika jawabanmu salah, muncul keterangan
+                                        <span class="font-bold text-red-600">"Jawaban Salah"</span>
+                                    </li>
+                                    <li class="py-4">
+                                        Klik tombol
+                                        <span
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
+                                            Lagi</span>
+                                        untuk mencoba kembali
+                                        <span
+                                            onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Ayo Berlatih.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    </li>
+                                </ol>
                             </div>
-
-                            <ol class="soal-berlatih mx-4">
-                                <!-- *Soal berlatih Nomor 1 -->
-                                <li>Perhatikan gambar di bawah ini. <br>
-                                    Lengkapilah jawaban berikut.
+                            <sl-card id="info-media"
+                                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <div slot="header">
+                                    <h3 class="text-lg decoration-solid px-2 py-1">
+                                        Kerjakan soal di bawah ini, isilah jawaban dengan tepat!
+                                    </h3>
                                     <span
-                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S1.m4a')"><img
+                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/Kerjakan soal dibawah ini.m4a')"><img
                                             src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex items-center">
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Penjumlahan (2).png"
-                                            class="object-contain" width="25%" />
+                                            class="w-6 h-6 cursor-pointer select-none" /></span>
+                                </div>
 
-                                        <p> + </p>
+                                <ol class="soal-berlatih mx-4">
+                                    <!-- *Soal berlatih Nomor 1 -->
+                                    <li>Perhatikan gambar di bawah ini. <br>
+                                        Lengkapilah jawaban berikut.
+                                        <span
+                                            onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S1.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex items-center">
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Penjumlahan (2).png"
+                                                class="object-contain" width="25%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Penjumlahan (3).png"
-                                            class="object-contain" width="25%" />
+                                            <p> + </p>
 
-                                        <p> = </p>
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Penjumlahan (3).png"
+                                                class="object-contain" width="25%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Penjumlahan (1).png"
-                                            class="object-contain" width="25%" />
-                                    </div>
-                                    <p>Terdapat ada berapakah jumlah mobil berwarna merah
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
-                                    <p>Terdapat ada berapakah jumlah mobil berwarna biru
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
-                                    <p>Maka berapakah jumlah semua mobil merah dan biru
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 1 -->
+                                            <p> = </p>
 
-                                <!-- *Soal berlatih Nomor 2 -->
-                                <li>Perhatikan gambar di bawah ini. <br>
-                                    Lengkapilah jawaban berikut.
-                                    <span
-                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S2.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex items-center">
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Penjumlahan (2).png"
-                                            class="object-contain" width="25%" />
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Penjumlahan (1).png"
+                                                class="object-contain" width="25%" />
+                                        </div>
+                                        <p>Terdapat ada berapakah jumlah mobil berwarna merah
+                                            <select name="berlatih1_1" id="berlatih1_1">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
+                                        </p>
+                                        <p>Terdapat ada berapakah jumlah mobil berwarna biru
+                                            <select name="berlatih1_2" id="berlatih1_2">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
+                                        </p>
+                                        <p>Maka berapakah jumlah semua mobil merah dan biru
+                                            <select name="berlatih1_3" id="berlatih1_3">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
+                                        </p>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 1 -->
 
-                                        <p> + </p>
+                                    <!-- *Soal berlatih Nomor 2 -->
+                                    <li>Perhatikan gambar di bawah ini. <br>
+                                        Lengkapilah jawaban berikut.
+                                        <span
+                                            onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S2.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex items-center">
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Penjumlahan (2).png"
+                                                class="object-contain" width="25%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Penjumlahan (3).png"
-                                            class="object-contain" width="25%" />
+                                            <p> + </p>
 
-                                        <p> = </p>
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Penjumlahan (3).png"
+                                                class="object-contain" width="25%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Penjumlahan (1).png"
-                                            class="object-contain" width="25%" />
-                                    </div>
-                                    <p>Terdapat ada berapakah jumlah buah jeruk
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
-                                    <p>Terdapat ada berapakah jumlah tomat
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
-                                    <p>Maka ada berapakah jumlah buah jeruk dan tomat dalam keranjang semua
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 2 -->
+                                            <p> = </p>
 
-                                <!-- *Soal berlatih Nomor 3 -->
-                                <li>
-                                    <p>Perhatikan gambar di bawah ini. Tuliskan operasi penjumlahannya</p>
-                                    <span
-                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S3.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex items-center">
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Penjumlahan (2).png"
-                                            class="object-contain" width="30%" />
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Penjumlahan (1).png"
+                                                class="object-contain" width="25%" />
+                                        </div>
+                                        <p>Terdapat ada berapakah jumlah buah jeruk
+                                            <select name="berlatih1_4" id="berlatih1_4">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
+                                        </p>
+                                        <p>Terdapat ada berapakah jumlah tomat
+                                            <select name="berlatih1_5" id="berlatih1_5">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
+                                        </p>
+                                        <p>Maka ada berapakah jumlah buah jeruk dan tomat dalam keranjang semua
+                                            <select name="berlatih1_6" id="berlatih1_6">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
+                                        </p>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 2 -->
 
-                                        <p> + </p>
+                                    <!-- *Soal berlatih Nomor 3 -->
+                                    <li>
+                                        <p>Perhatikan gambar di bawah ini. Tuliskan operasi penjumlahannya</p>
+                                        <span
+                                            onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S3.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex items-center">
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Penjumlahan (2).png"
+                                                class="object-contain" width="30%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Penjumlahan (1).png"
-                                            class="object-contain" width="30%" />
+                                            <p> + </p>
 
-                                        <p> = </p>
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Penjumlahan (1).png"
+                                                class="object-contain" width="30%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Penjumlahan (3).png"
-                                            class="object-contain" width="30%" />
-                                    </div>
+                                            <p> = </p>
 
-                                    <div class="flex items-center">
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Penjumlahan (3).png"
+                                                class="object-contain" width="30%" />
+                                        </div>
 
-                                        <p> + </p>
+                                        <div class="flex items-center">
+                                            <select name="berlatih1_7" id="berlatih1_7">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
 
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
+                                            <p> + </p>
 
-                                        <p> = </p>
+                                            <select name="berlatih1_8" id="berlatih1_8">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
 
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
+                                            <p> = </p>
 
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 3 -->
+                                            <select name="berlatih1_9" id="berlatih1_9">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
 
-                                <!-- *Soal berlatih Nomor 4 -->
-                                <li>
-                                    <p>Perhatikan gambar di bawah ini. Tuliskan operasi penjumlahannya</p>
-                                    <span
-                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S4.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex items-center">
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Penjumlahan (3).png"
-                                            class="object-contain" width="30%" />
+                                        </div>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 3 -->
 
-                                        <p> + </p>
+                                    <!-- *Soal berlatih Nomor 4 -->
+                                    <li>
+                                        <p>Perhatikan gambar di bawah ini. Tuliskan operasi penjumlahannya</p>
+                                        <span
+                                            onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S4.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex items-center">
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Penjumlahan (3).png"
+                                                class="object-contain" width="30%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Penjumlahan (3).png"
-                                            class="object-contain" width="30%" />
+                                            <p> + </p>
 
-                                        <p> = </p>
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Penjumlahan (3).png"
+                                                class="object-contain" width="30%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Penjumlahan (1).png"
-                                            class="object-contain" width="30%" />
-                                    </div>
+                                            <p> = </p>
 
-                                    <div class="flex items-center">
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Penjumlahan (1).png"
+                                                class="object-contain" width="30%" />
+                                        </div>
 
-                                        <p> + </p>
+                                        <div class="flex items-center">
+                                            <select name="berlatih1_10" id="berlatih1_10">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
 
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
+                                            <p> + </p>
 
-                                        <p> = </p>
+                                            <select name="berlatih1_11" id="berlatih1_11">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
 
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
+                                            <p> = </p>
 
-                                </li>
-                                <!-- *End Soal berlatih Nomor 4-->
+                                            <select name="berlatih1_12" id="berlatih1_12">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
 
-                                <!-- *Soal berlatih Nomor 5 -->
-                                <li>
-                                    <p>Perhatikan gambar di bawah ini. Tuliskan operasi penjumlahannya</p>
-                                    <span
-                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S5.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex items-center">
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Penjumlahan (2).png"
-                                            class="object-contain" width="30%" />
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 4-->
 
-                                        <p> + </p>
+                                    <!-- *Soal berlatih Nomor 5 -->
+                                    <li>
+                                        <p>Perhatikan gambar di bawah ini. Tuliskan operasi penjumlahannya</p>
+                                        <span
+                                            onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Penjumlahan/S5.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex items-center">
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Penjumlahan (2).png"
+                                                class="object-contain" width="30%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Penjumlahan (3).png"
-                                            class="object-contain" width="30%" />
+                                            <p> + </p>
 
-                                        <p> = </p>
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Penjumlahan (3).png"
+                                                class="object-contain" width="30%" />
 
-                                        <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Penjumlahan (1).png"
-                                            class="object-contain" width="30%" />
-                                    </div>
+                                            <p> = </p>
 
-                                    <div class="flex items-center">
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Penjumlahan (1).png"
+                                                class="object-contain" width="30%" />
+                                        </div>
 
-                                        <p> + </p>
+                                        <div class="flex items-center">
+                                            <select name="berlatih1_13" id="berlatih1_13">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
 
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
+                                            <p> + </p>
 
-                                        <p> = </p>
+                                            <select name="berlatih1_14" id="berlatih1_14">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
 
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 5 -->
-                            </ol>
-                        </sl-card>
+                                            <p> = </p>
+
+                                            <select name="berlatih1_15" id="berlatih1_15">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                            </select>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 5 -->
+                                </ol>
+                                <p class="text-right">
+                                    <button type="submit" class="m-4 p-2 px-4 bg-blue-400 rounded-xl">Kirim</button>
+                                </p>
+                            </sl-card>
+                        </form>
                     </sl-tab-panel>
 
                     <sl-tab-panel name="bercerita2">
+
                         <div class="text-content mx-auto ">
                             <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
                                 Perhatikan cerita di bawah ini !
@@ -730,349 +813,355 @@
                                 </div>
                             </div>
                         </div>
+
                     </sl-tab-panel>
 
                     <sl-tab-panel name="berlatih2">
-                        <div class="text-content mx-auto">
-                            <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
-                                Petunjuk Pengerjaan :
-                            </h3>
-                            <ol class="black-number mx-4">
-                                <li>
-                                    Untuk memahami materi di atas, silahkan jawab pertanyaan di
-                                    bawah ini!
-                                </li>
-                                <li>
-                                    Jawablah pertanyaan dengan mengklik salah satu jawaban yang
-                                    dianggap benar!
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
-                                        Jawaban</span>
-                                    untuk mengetahui jawaban benar atau salah!
-                                </li>
-                                <li>
-                                    Jika jawabanmu benar, muncul keterangan
-                                    <span class="font-bold text-green-600">"Jawaban Benar"</span>
-                                </li>
-                                <li>
-                                    Jika jawabanmu salah, muncul keterangan
-                                    <span class="font-bold text-red-600">"Jawaban Salah"</span>
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
-                                        Lagi</span>
-                                    untuk mencoba kembali
-                                    <span
-                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/Ayo Berlatih Petunjuk.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                </li>
-                            </ol>
-                        </div>
-                        <sl-card id="info-media"
-                            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div slot="header">
-                                <h3 class="text-lg decoration-solid px-2 py-1">
-                                    Kerjakan soal di bawah ini, isilah jawaban dengan tepat!
+                        <form onsubmit="taskResult(`berlatih2`)">
+                            <div class="text-content mx-auto">
+                                <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
+                                    Petunjuk Pengerjaan :
                                 </h3>
+                                <ol class="black-number mx-4">
+                                    <li>
+                                        Untuk memahami materi di atas, silahkan jawab pertanyaan di
+                                        bawah ini!
+                                    </li>
+                                    <li>
+                                        Jawablah pertanyaan dengan mengklik salah satu jawaban yang
+                                        dianggap benar!
+                                    </li>
+                                    <li class="py-4">
+                                        Klik tombol
+                                        <span
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
+                                            Jawaban</span>
+                                        untuk mengetahui jawaban benar atau salah!
+                                    </li>
+                                    <li>
+                                        Jika jawabanmu benar, muncul keterangan
+                                        <span class="font-bold text-green-600">"Jawaban Benar"</span>
+                                    </li>
+                                    <li>
+                                        Jika jawabanmu salah, muncul keterangan
+                                        <span class="font-bold text-red-600">"Jawaban Salah"</span>
+                                    </li>
+                                    <li class="py-4">
+                                        Klik tombol
+                                        <span
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
+                                            Lagi</span>
+                                        untuk mencoba kembali
+                                        <span
+                                            onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/Ayo Berlatih Petunjuk.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    </li>
+                                </ol>
                             </div>
+                            <sl-card id="info-media"
+                                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <div slot="header">
+                                    <h3 class="text-lg decoration-solid px-2 py-1">
+                                        Kerjakan soal di bawah ini, isilah jawaban dengan tepat!
+                                    </h3>
+                                </div>
 
-                            <ol class="soal-berlatih mx-4">
-                                <!-- *Soal berlatih Nomor 1 -->
-                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
-                                    <div class="flex">
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Pengurangan (3).png"
-                                                alt="">
-                                            <p>Budi mula-mula memiliki 7 kelereng.</p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S1 part 1.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
+                                <ol class="soal-berlatih mx-4">
+                                    <!-- *Soal berlatih Nomor 1 -->
+                                    <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
+                                        <div class="flex">
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Pengurangan (3).png"
+                                                    alt="">
+                                                <p>Budi mula-mula memiliki 7 kelereng.</p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S1 part 1.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Pengurangan (2).png"
+                                                    alt="">
+                                                <p>Akan tetapi Halim mengajaknya
+                                                    bermain kelereng, maka Budi
+                                                    mengambil 2 kelerengnya akan
+                                                    tetapi Budi kalah dalam bermain
+                                                    kelereng bersama Halim</p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S1 part 2.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Pengurangan (1).png"
+                                                    alt="">
+                                                <p>Maka sisa berapakah
+                                                    kelereng Budi yang dia
+                                                    miliki sekarang.
+                                                    <select name="berlatih2_1" id="berlatih2_1">
+                                                        <option value="">....</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S1 part 3.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Pengurangan (2).png"
-                                                alt="">
-                                            <p>Akan tetapi Halim mengajaknya
-                                                bermain kelereng, maka Budi
-                                                mengambil 2 kelerengnya akan
-                                                tetapi Budi kalah dalam bermain
-                                                kelereng bersama Halim</p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S1 part 2.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Pengurangan (1).png"
-                                                alt="">
-                                            <p>Maka sisa berapakah
-                                                kelereng Budi yang dia
-                                                miliki sekarang.
-                                                <select name="" id="">
-                                                    <option value="">....</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S1 part 3.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 1 -->
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 1 -->
 
-                                <!-- *Soal berlatih Nomor 2 -->
-                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
-                                    <div class="flex">
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Pengurangan (2).png"
-                                                alt="">
-                                            <p>Ada sekumpulan kumbang
-                                                yang hinggap di daun
-                                                sebanyak 10 kumbang.</p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S2 part 1.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
+                                    <!-- *Soal berlatih Nomor 2 -->
+                                    <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
+                                        <div class="flex">
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Pengurangan (2).png"
+                                                    alt="">
+                                                <p>Ada sekumpulan kumbang
+                                                    yang hinggap di daun
+                                                    sebanyak 10 kumbang.</p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S2 part 1.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Pengurangan (1).png"
+                                                    alt="">
+                                                <p>Akan tetapi 2 kumbang
+                                                    terbang ke kembang
+                                                    lainnya. </p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S2 part 2.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Pengurangan (2).png"
+                                                    alt="">
+                                                <p>Maka sisa berapakah
+                                                    kumbang yang dia ada
+                                                    di daun sekarang.
+                                                    <select name="berlatih2_2" id="berlatih2_2">
+                                                        <option value="">....</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S2 part 3.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Pengurangan (1).png"
-                                                alt="">
-                                            <p>Akan tetapi 2 kumbang
-                                                terbang ke kembang
-                                                lainnya. </p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S2 part 2.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Pengurangan (2).png"
-                                                alt="">
-                                            <p>Maka sisa berapakah
-                                                kumbang yang dia ada
-                                                di daun sekarang.
-                                                <select name="" id="">
-                                                    <option value="">....</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S2 part 3.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 2 -->
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 2 -->
 
-                                <!-- *Soal berlatih Nomor 3 -->
-                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
-                                    <div class="flex">
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Pengurangan (2).png"
-                                                alt="">
-                                            <p>Terdapat 6 anak yang
-                                                memakai baju berwarna
-                                                biru dan putih.</p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S3 part 1.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
+                                    <!-- *Soal berlatih Nomor 3 -->
+                                    <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
+                                        <div class="flex">
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Pengurangan (2).png"
+                                                    alt="">
+                                                <p>Terdapat 6 anak yang
+                                                    memakai baju berwarna
+                                                    biru dan putih.</p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S3 part 1.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Pengurangan (3).png"
+                                                    alt="">
+                                                <p>Akan tetapi ada 4 anak
+                                                    yang memakai baju
+                                                    biru.
+                                                </p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S3 part 2.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Pengurangan (1).png"
+                                                    alt="">
+                                                <p>Maka sisa berapakah
+                                                    anak yang tidak baju
+                                                    biru
+                                                    <select name="berlatih2_3" id="berlatih2_3">
+                                                        <option value="">....</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S3 part 3.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Pengurangan (3).png"
-                                                alt="">
-                                            <p>Akan tetapi ada 4 anak
-                                                yang memakai baju
-                                                biru.
-                                            </p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S3 part 2.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Pengurangan (1).png"
-                                                alt="">
-                                            <p>Maka sisa berapakah
-                                                anak yang tidak baju
-                                                biru
-                                                <select name="" id="">
-                                                    <option value="">....</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S3 part 3.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 3 -->
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 3 -->
 
-                                <!-- *Soal berlatih Nomor 4 -->
-                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
-                                    <div class="flex">
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Pengurangan (1).png"
-                                                alt="">
-                                            <p>Ibu membeli telur di pasar
-                                                sebanyak 9 butir.</p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S4 part 1.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
+                                    <!-- *Soal berlatih Nomor 4 -->
+                                    <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
+                                        <div class="flex">
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Pengurangan (1).png"
+                                                    alt="">
+                                                <p>Ibu membeli telur di pasar
+                                                    sebanyak 9 butir.</p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S4 part 1.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Pengurangan (2).png"
+                                                    alt="">
+                                                <p>Akan tetapi ketika di
+                                                    jalan ingin pulang 9
+                                                    telur ibu 4 pecah di
+                                                    jalan.
+                                                </p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S4 part 2.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Pengurangan (3).png"
+                                                    alt="">
+                                                <p>Maka sisa berapakah
+                                                    telur ibu saat sampai di
+                                                    rumah
+                                                    <select name="berlatih2_4" id="berlatih2_4">
+                                                        <option value="">....</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S4 part 3.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Pengurangan (2).png"
-                                                alt="">
-                                            <p>Akan tetapi ketika di
-                                                jalan ingin pulang 9
-                                                telur ibu 4 pecah di
-                                                jalan.
-                                            </p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S4 part 2.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Pengurangan (3).png"
-                                                alt="">
-                                            <p>Maka sisa berapakah
-                                                telur ibu saat sampai di
-                                                rumah
-                                                <select name="" id="">
-                                                    <option value="">....</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S4 part 3.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 4-->
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 4-->
 
-                                <!-- *Soal berlatih Nomor 5 -->
-                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
-                                    <div class="flex">
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Pengurangan (1).png"
-                                                alt="">
-                                            <p>Santi memiliki kesukaan
-                                                dalam mengoleksi barang,
-                                                salah satunya santi
-                                                mengoleksi 3 payung.</p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S5 part 1.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
+                                    <!-- *Soal berlatih Nomor 5 -->
+                                    <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.
+                                        <div class="flex">
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Pengurangan (1).png"
+                                                    alt="">
+                                                <p>Santi memiliki kesukaan
+                                                    dalam mengoleksi barang,
+                                                    salah satunya santi
+                                                    mengoleksi 3 payung.</p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S5 part 1.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Pengurangan (2).png"
+                                                    alt="">
+                                                <p>Ketika Santi ingin membuka
+                                                    ketiga payungnya akan tetapi
+                                                    1 koleksi payu Santi rusak.
+                                                </p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S5 part 2.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
+                                            <div>
+                                                <img width=""
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Pengurangan (3).png"
+                                                    alt="">
+                                                <p>Maka sisa berapakah
+                                                    koleksi payu Santi
+                                                    sekarang di miliki
+                                                    <select name="berlatih2_5" id="berlatih2_5">
+                                                        <option value="">....</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </p>
+                                                <span
+                                                    onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S5 part 3.m4a')"><img
+                                                        src="/assets/image/sound.png"
+                                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Pengurangan (2).png"
-                                                alt="">
-                                            <p>Ketika Santi ingin membuka
-                                                ketiga payungnya akan tetapi
-                                                1 koleksi payu Santi rusak.
-                                            </p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S5 part 2.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                        <div>
-                                            <img width=""
-                                                src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Pengurangan (3).png"
-                                                alt="">
-                                            <p>Maka sisa berapakah
-                                                koleksi payu Santi
-                                                sekarang di miliki
-                                                <select name="" id="">
-                                                    <option value="">....</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </p>
-                                            <span
-                                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/S5 part 3.m4a')"><img
-                                                    src="/assets/image/sound.png"
-                                                    class="w-6 h-6 cursor-pointer select-none" /></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 5 -->
-                            </ol>
-                        </sl-card>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 5 -->
+                                </ol>
+                            </sl-card>
+                            <p class="text-right">
+                                <button type="submit" class="m-4 p-2 px-4 bg-blue-400 rounded-xl">Kirim</button>
+                            </p>
+                        </form>
                     </sl-tab-panel>
 
                     <sl-tab-panel name="komunikasikan">
@@ -1146,7 +1235,7 @@
 
 
     <!-- Script for shoelace style -->
-    <script src="./materi1.js"></script>
+    <script src="./materi2.js"></script>
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"></script>
     <script defer type="module"
@@ -1156,6 +1245,8 @@
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"></script>
     <!-- End Script for Shoelace style -->
+    <script type="module" src="/util/js/db.js"></script>
+    <script type="module" src="/util/js/check.js"></script>
 </body>
 
 </html>

@@ -1,50 +1,7 @@
-import { getAllCommunication } from "../../util/js/db.js";
+import { getMateri } from "../../util/js/db.js";
 
 // Assuming you have a reference to the table element
-let allData = [
-  {
-    name: "communication1",
-    jawaban: "communication2",
-    nilai: "communication3",
-    hari: "communication4",
-    waktu: "communication5",
-  },
-  {
-    name: "communication1",
-    jawaban: "communication2",
-    nilai: "communication3",
-    hari: "communication4",
-    waktu: "communication5",
-  },
-  {
-    name: "communication1",
-    jawaban: "communication2",
-    nilai: "communication3",
-    hari: "communication4",
-    waktu: "communication5",
-  },
-  {
-    name: "communication1",
-    jawaban: "communication2",
-    nilai: "communication3",
-    hari: "communication4",
-    waktu: "communication5",
-  },
-  {
-    name: "communication1",
-    jawaban: "communication2",
-    nilai: "communication3",
-    hari: "communication4",
-    waktu: "communication5",
-  },
-  {
-    name: "communication1",
-    jawaban: "communication2",
-    nilai: "communication3",
-    hari: "communication4",
-    waktu: "communication5",
-  },
-];
+let allData = [];
 
 // Items per page
 const itemsPerPage = 5;
@@ -56,7 +13,7 @@ let totalPages = 0;
 let currentPage = 1;
 
 // Reference to the table element
-const table = document.querySelector(".data_siswa");
+const table = document.querySelector(".data_materi");
 
 // Function to populate the table with user data for the current page
 const populateTable = () => {
@@ -66,7 +23,7 @@ const populateTable = () => {
   // Add header row
   const headerRow = table.createTHead().insertRow();
   headerRow.innerHTML =
-    "<th>No</th><th>Nama</th><th>Jawaban</th><th>Nilai</th><th>Hari</th><th>Waktu</th><th>Aksi</th>";
+    "<th>No</th><th>Nama</th><th>NISN</th><th>Materi</th><th>Nilai</th><th>Kelas</th><th>Sekolah</th><th>Aksi</th>";
 
   // Add data rows
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -76,11 +33,19 @@ const populateTable = () => {
   const tbody = table.createTBody();
   currentPageData.forEach((data, index) => {
     const row = tbody.insertRow();
-    row.innerHTML = `<td>${startIndex + index + 1}</td><td>${
-      data.name
-    }</td><td>${data.jawaban}</td><td>${data.nilai}</td><td>${
-      data.hari
-    }</td><td>${data.waktu}</td><td><button class="p-2"><img src="../../assets/image/delete.png" width="20em"></button></td>`;
+    row.innerHTML = `<td>${startIndex + index + 1}</td>
+        <td>${data.name}</td>
+        <td>${data.nisn}</td>
+        <td>${data.materi}</td>
+        <td>${data.nilai}</td>
+        <td>${data.kelas}</td>
+        <td>${data.sekolah}</td>
+        <td>
+            <button class="p-2" onclick="deleteMateri(${
+              data.nisn
+            })"><img src="../../assets/image/delete.png" width="20em">
+            </button>
+        </td>`;
   });
 };
 
@@ -144,7 +109,7 @@ const prevPage = () => {
 
 // Call the function to fetch all users and set up pagination
 const initializePagination = async () => {
-  //   allData = await getAllCommunication();
+  allData = await getMateri();
   if (allData) {
     totalPages = Math.ceil(allData.length / itemsPerPage);
     generatePaginationLinks();

@@ -1,394 +1,331 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-      <link
-         rel="stylesheet"
-         href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.min.css"
-      />
 
-      <title>Kuis BAB 1</title>
-      <script type="module" src="/util/js/getUserName.js"></script>
-      <link rel="stylesheet" href="/style/style.css" />
-      <script src="/util/js/playAudio.js"></script>
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+   <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.min.css" />
 
-   </head>
-   <body>
-      <header id="header-dashboard" class="py-1 z-10 bg-pink-300">
-         <div class="">
-            <div class="w-full px-4">
-               <div class="mx-auto mb-6 max-w-xl text-center">
-                  <h2
-                     class="py-1"
-                     style="
+   <title>Kuis BAB 1</title>
+   <script type="module" src="/util/js/getUserName.js"></script>
+   <link rel="stylesheet" href="/style/style.css" />
+   <script src="/util/js/playAudio.js"></script>
+
+</head>
+
+<body>
+   <header id="header-dashboard" class="py-1 z-10 bg-pink-300">
+      <div class="">
+         <div class="w-full px-4">
+            <div class="mx-auto mb-6 max-w-xl text-center">
+               <h2 class="py-1" style="
                         color: black;
                         font-size: 30px;
                         font-family: Inter;
                         font-weight: 600;
                         line-height: 48px;
                         word-wrap: break-word;
-                     "
-                  >
-                     Welcome
-                  </h2>
-                  <p
-                     class="py-1"
-                     style="
+                     ">
+                  Welcome
+               </h2>
+               <p class="py-1" style="
                         color: black;
                         font-size: 20px;
                         font-family: Inter;
                         font-weight: 600;
                         line-height: 32px;
                         word-wrap: break-word;
-                     "
-                  >
-                     Hello future greats with spirit of learning
-                  </p>
-               </div>
-            </div>
-         </div>
-      </header>
-
-      <div class="w-full flex">
-         <aside class="sidebar min-h-screen px-1">
-            <div class="w-full flex flex-col justify-center items-center">
-               <img src="../../../assets/image/user.png" class="w-1/2 h-auto object-contain" />
-               <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
-            </div>
-            <h2
-               class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
-               style="font-family: Inter; word-wrap: break-word"
-            >
-               Daftar Isi
-            </h2>
-            <sl-tree>
-               <sl-tree-item>
-                   <p>
-                       Ayo Membilang Bilangan 1 sampai dengan 10
-                   </p>
-                   <sl-tree-item>
-                       <a href="../../dashboard/bab1/pendahuluan1.html">Pendahuluan</a>
-                   </sl-tree-item>
-                   <sl-tree-item>
-                       <p>
-                           Materi
-                       </p>
-                       <sl-tree-item>
-                           <a href="../../dashboard/bab1/materi1.html">Menghitung,Membaca dan Menulis Bilangan</a>
-                       </sl-tree-item>
-                       <sl-tree-item>
-                           <a href="../../dashboard/bab1/materi2.html">Membandingkan Banyak Bilangan dalam Benda</a>
-                       </sl-tree-item>
-                       <sl-tree-item>
-                           <a href="../../dashboard/bab1/materi3.html">Menghitung Maju dan Mundur</a>
-                       </sl-tree-item>
-                       <sl-tree-item>
-                           <a href="../../dashboard/bab1/materi4.html">Pasangan Bilangan</a>
-                       </sl-tree-item>
-                   </sl-tree-item>
-                   <sl-tree-item>
-                       <a href="../../dashboard/bab1/kuis1.html">Kuis BAB 1</a>
-                   </sl-tree-item>
-               </sl-tree-item>
-
-               <sl-tree-item expanded>
-                   <p>PENJUMLAHAN BILANGAN DAN PENGURANGAN
-                       BILANGAN 1 SAMPAI DENGAN 10</p>
-                   <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
-                   <sl-tree-item>
-                       <p>Materi</p>
-                       <sl-tree-item>
-                           <a href="../../dashboard/bab2/materi1.html">Mengenal Simbol +, - atau =</a>
-                       </sl-tree-item>
-                       <sl-tree-item>
-                           <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a>
-                       </sl-tree-item>
-                       <sl-tree-item>
-                           <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d
-                               10</a>
-                       </sl-tree-item>
-                       <sl-tree-item>
-                           <a href="../../dashboard/bab2/materi4.html">
-                               Hubungan Penjumlahan dan Pengurangan
-                           </a>
-                       </sl-tree-item>
-                   </sl-tree-item>
-                   <sl-tree-item selected>
-                       <a href="../../dashboard/bab2/kuis2.html">
-                           Kuis Bab 2
-                       </a>
-                   </sl-tree-item>
-               </sl-tree-item>
-
-               <sl-tree-item>
-                   <a href="../../dashboard/evaluasi.html">Evaluasi</a>
-               </sl-tree-item>
-
-               <sl-tree-item>
-                   <a href="../../../auth/login.html">Exit</a>
-               </sl-tree-item>
-           </sl-tree>
-         </aside>
-         <div class="content w-full px-1">
-            <div class="main-content flex flex-wrap">
-               <!-- * Preparation Before Start Quiz -->
-
-               <!-- * Left Side Preparation Before Start Question -->
-               <div
-                  id="
-          petunjuk-kuis"
-                  class="petunjuk-kuis w-1/2 mx-auto px-1"
-               >
-                  <sl-card
-                     id="petunjuk-kuis"
-                     class="card-header my-4 w-full border border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                  >
-                     <div slot="header">
-                        <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                        Petunjuk Kuis
-                     </div>
-                     <ol class="black-number h-3/4 mx-4">
-                        <li>Kuis ini terdiri dari 10 soal.</li>
-                        <li>Setiap soal memiliki 10 poin.</li>
-                        <li>Tekan "Mulai Kuis" jika data diri anda sudah benar.</li>
-                        <li>Bacalah soal dengan teliti dan pilih salah satu jawaban yang kamu anggap benar.</li>
-                        <li>Setelah seluruh soal selesai dijawab, klik "Selesai" untuk menyelesaikan kuis.</li>
-                        <li>
-                           Ketika kamu memulai kuis, kamu tidak dapat meninggalkan halaman ini sampai kamu klik tombol
-                           selesai. jika keluar sebelum tombol selesai di klik maka tidak akan mendapatkan nilai.
-                        </li>
-                        <li>
-                           Harap kerjakan dengan sejujur-jujurnya, agar kamu mengetahui kemampuanmu sudah sampai sejauh
-                           mana.
-                        </li>
-                        <li>Selamat Mengerjakan, Goodluck!</li>
-                     </ol>
-                  </sl-card>
-               </div>
-               <!-- * End Left Side Preparation Before Start Question -->
-
-               <!-- * Right Side Preparation Before Start Question -->
-               <div id="data-siswa" class="data-siswa w-1/2 mx-auto px-1">
-                  <sl-card
-                     id="data-siswa"
-                     class="card-header my-4 w-full border border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                  >
-                     <div slot="header">
-                        <sl-icon-button name="gear" label="Settings"></sl-icon-button>
-                        Data Siswa
-                     </div>
-                     <ul class="py-4 mx-4" id="list-data-siswa"></ul>
-                     <div class="w-full flex justify-center">
-                        <button
-                           type="button"
-                           class="w-1/3 rounded-full bg-red-600 py-3 px-2 mx-1 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
-                        >
-                           <a href="./materi1.html">Kembali ke Materi</a>
-                        </button>
-                        <button
-                           id="btn-start"
-                           type="button"
-                           class="w-1/3 rounded-full bg-blue-600 py-3 px-2 mx-1 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
-                        >
-                           Mulai Kuis
-                        </button>
-                     </div>
-                  </sl-card>
-               </div>
-               <!-- * End Right Side Preparation Before Start Question -->
-
-               <!-- * End Preparation Before Start Quiz -->
-
-               <!-- * Soal Kuis -->
-               <div
-                  id="soal-kuis"
-                  class="left-side hidden w-2/3 mx-auto px-1 border-solid border rounded-md border-gray-400"
-               >
-                  <!-- * Header Question -->
-                  <div class="header-kuis px-6 flex flex-row justify-between">
-                     <h3 class="list-kuis p-4">Pertanyaan 1 dari 10</h3>
-                     <p class="p-4 text-black">
-                        Sisa Waktu :
-                        <span id="countdown" class="font-bold text-black"></span>
-                     </p>
-                  </div>
-                  <!-- * End Header Question -->
-
-                  <!-- * Body Question -->
-                  <div
-                     class="body-kuis card-header p-6 my-4 w-full border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-                  >
-                     <h5 id="nomor-kuis" class="nomor-kuis p-2"></h5>
-                     <div id="jawaban-kuis" class="jawaban-kuis p-2"></div>
-                  </div>
-
-                  <!-- * Button Next and Previous -->
-                  <div class="w-full flex justify-between">
-                     <button
-                        id="btn-previous"
-                        type="button"
-                        class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
-                     >
-                        Sebelumnya
-                     </button>
-                     <button
-                        id="btn-next"
-                        type="button"
-                        class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
-                     ></button>
-                  </div>
-                  <!-- * End Button Next and Previous -->
-
-                  <!-- * End Body Question -->
-               </div>
-
-               <!-- * Button List Question Number -->
-               <div
-                  id="nomor-soal"
-                  class="right-side hidden w-1/3 mx-auto px-1 border-solid border rounded-md border-gray-400"
-               >
-                  <h4 class="text-center p-2">Nomor Soal</h4>
-                  <div
-                     class="btn-list-soal border-solid border-2 rounded-lg border-black w-full flex flex-col justify-center text-center items-center py-6 px-4"
-                  >
-                     <!-- Button Top List Quiz -->
-                     <div class="py-1 my-1 flex">
-                        <button
-                           type="button"
-                           id="btn-kuis1"
-                           class="btn-kuis1 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           1
-                        </button>
-                        <button
-                           type="button"
-                           id="btn-kuis2"
-                           class="btn-kuis2 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           2
-                        </button>
-                        <button
-                           type="button"
-                           id="btn-kuis3"
-                           class="btn-kuis3 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           3
-                        </button>
-                        <button
-                           id="btn-kuis4"
-                           class="btn-kuis4 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           4
-                        </button>
-                        <button
-                           id="btn-kuis5"
-                           class="btn-kuis5 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           5
-                        </button>
-                     </div>
-                     <!-- End Button Top List Quiz -->
-
-                     <!-- Button Bottom List Quiz -->
-                     <div class="pt-1 pb-4 my-1 flex">
-                        <button
-                           id="btn-kuis6"
-                           class="btn-kuis6 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           6
-                        </button>
-                        <button
-                           id="btn-kuis7"
-                           class="btn-kuis7 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           7
-                        </button>
-                        <button
-                           id="btn-kuis8"
-                           class="btn-kuis8 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           8
-                        </button>
-                        <button
-                           id="btn-kuis9"
-                           class="btn-kuis9 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           9
-                        </button>
-                        <button
-                           id="btn-kuis10"
-                           class="btn-kuis10 p-4 mx-2 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg"
-                        >
-                           10
-                        </button>
-                     </div>
-                     <!-- Button Bottom List Quiz -->
-
-                     <button
-                        type="button"
-                        class="w-1/2 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
-                     >
-                        <a href="./materi1.html">Kembali ke Materi</a>
-                     </button>
-                  </div>
-               </div>
-               <!-- * Button List Question Number -->
-
-               <!-- * End Soal Kuis -->
+                     ">
+                  Hello future greats with spirit of learning
+               </p>
             </div>
          </div>
       </div>
+   </header>
 
-      <style>
-         #soal-kuis,
-         #nomor-soal {
-            min-height: 75vh;
-         }
-         ol {
-            list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
-         }
+   <div class="w-full flex">
+      <aside class="sidebar min-h-screen px-1">
+         <div class="w-full flex flex-col justify-center items-center">
+            <img src="../../../assets/image/user.png" class="w-1/2 h-auto object-contain" />
+            <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
+         </div>
+         <h2 class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
+            style="font-family: Inter; word-wrap: break-word">
+            Daftar Isi
+         </h2>
+         <sl-tree>
+            <sl-tree-item>
+               <p>
+                  Ayo Membilang Bilangan 1 sampai dengan 10
+               </p>
+               <sl-tree-item>
+                  <a href="../../dashboard/bab1/pendahuluan1.html">Pendahuluan</a>
+               </sl-tree-item>
+               <sl-tree-item>
+                  <p>
+                     Materi
+                  </p>
+                  <sl-tree-item>
+                     <a href="../../dashboard/bab1/materi1.html">Menghitung,Membaca dan Menulis Bilangan</a>
+                  </sl-tree-item>
+                  <sl-tree-item>
+                     <a href="../../dashboard/bab1/materi2.html">Membandingkan Banyak Bilangan dalam Benda</a>
+                  </sl-tree-item>
+                  <sl-tree-item>
+                     <a href="../../dashboard/bab1/materi3.html">Menghitung Maju dan Mundur</a>
+                  </sl-tree-item>
+                  <sl-tree-item>
+                     <a href="../../dashboard/bab1/materi4.html">Pasangan Bilangan</a>
+                  </sl-tree-item>
+               </sl-tree-item>
+               <sl-tree-item>
+                  <a href="../../dashboard/bab1/kuis1.html">Kuis BAB 1</a>
+               </sl-tree-item>
+            </sl-tree-item>
 
-         .card-header::part(base) {
-            min-height: 55vh;
-         }
+            <sl-tree-item expanded>
+               <p>Penjumlahan Bilangan dan Pengurangan
+                  Bilangan 1 sampai dengan 10</p>
+               <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
+               <sl-tree-item>
+                  <p>Materi</p>
+                  <sl-tree-item>
+                     <a href="../../dashboard/bab2/materi1.html">Mengenal Simbol +, - atau =</a>
+                  </sl-tree-item>
+                  <sl-tree-item>
+                     <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d
+                        10</a>
+                  </sl-tree-item>
+                  <sl-tree-item>
+                     <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1
+                        s/d
+                        10</a>
+                  </sl-tree-item>
+                  <sl-tree-item>
+                     <a href="../../dashboard/bab2/materi4.html">
+                        Hubungan Penjumlahan dan Pengurangan
+                     </a>
+                  </sl-tree-item>
+               </sl-tree-item>
+               <sl-tree-item selected>
+                  <a href="../../dashboard/bab2/kuis2.html">
+                     Kuis Bab 2
+                  </a>
+               </sl-tree-item>
+            </sl-tree-item>
 
-         #aturan-kuis::part(base) {
-            background-color: transparent;
-            border: none !important;
-         }
-      </style>
+            <sl-tree-item>
+               <a href="../../dashboard/evaluasi.html">Evaluasi</a>
+            </sl-tree-item>
 
-      <!-- Script for shoelace style -->
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-      <script
-         type="module"
-         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"
-      ></script>
-      <script
-         defer
-         type="module"
-         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
-      ></script>
-      <script
-         type="module"
-         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"
-      ></script>
-      <script
-         type="module"
-         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"
-      ></script>
-      <script
-         type="module"
-         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/button/button.js"
-      ></script>
-      <script
-         type="module"
-         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/radio-group/radio-group.js"
-      ></script>
-      <script src="./kuis2.js"></script>
-      <!-- End Script for Shoelace style -->
-   </body>
+            <sl-tree-item>
+               <a href="../../../auth/login.html">Exit</a>
+            </sl-tree-item>
+         </sl-tree>
+      </aside>
+      <div class="content w-full px-1">
+         <div class="main-content flex flex-wrap">
+            <!-- * Preparation Before Start Quiz -->
+
+            <!-- * Left Side Preparation Before Start Question -->
+            <div id="
+          petunjuk-kuis" class="petunjuk-kuis w-1/2 mx-auto px-1">
+               <sl-card id="petunjuk-kuis"
+                  class="card-header my-4 w-full border border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                  <div slot="header">
+                     <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+                     Petunjuk Kuis
+                  </div>
+                  <ol class="black-number h-3/4 mx-4">
+                     <li>Kuis ini terdiri dari 10 soal.</li>
+                     <li>Setiap soal memiliki 10 poin.</li>
+                     <li>Tekan "Mulai Kuis" jika data diri anda sudah benar.</li>
+                     <li>Bacalah soal dengan teliti dan pilih salah satu jawaban yang kamu anggap benar.</li>
+                     <li>Setelah seluruh soal selesai dijawab, klik "Selesai" untuk menyelesaikan kuis.</li>
+                     <li>
+                        Ketika kamu memulai kuis, kamu tidak dapat meninggalkan halaman ini sampai kamu klik tombol
+                        selesai. jika keluar sebelum tombol selesai di klik maka tidak akan mendapatkan nilai.
+                     </li>
+                     <li>
+                        Harap kerjakan dengan sejujur-jujurnya, agar kamu mengetahui kemampuanmu sudah sampai sejauh
+                        mana.
+                     </li>
+                     <li>Selamat Mengerjakan, Goodluck!</li>
+                  </ol>
+               </sl-card>
+            </div>
+            <!-- * End Left Side Preparation Before Start Question -->
+
+            <!-- * Right Side Preparation Before Start Question -->
+            <div id="data-siswa" class="data-siswa w-1/2 mx-auto px-1">
+               <sl-card id="data-siswa"
+                  class="card-header my-4 w-full border border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                  <div slot="header">
+                     <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+                     Data Siswa
+                  </div>
+                  <ul class="py-4 mx-4" id="list-data-siswa"></ul>
+                  <div class="w-full flex justify-center">
+                     <button type="button"
+                        class="w-1/3 rounded-full bg-red-600 py-3 px-2 mx-1 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg">
+                        <a href="./materi1.html">Kembali ke Materi</a>
+                     </button>
+                     <button id="btn-start" type="button"
+                        class="w-1/3 rounded-full bg-blue-600 py-3 px-2 mx-1 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg">
+                        Mulai Kuis
+                     </button>
+                  </div>
+               </sl-card>
+            </div>
+            <!-- * End Right Side Preparation Before Start Question -->
+
+            <!-- * End Preparation Before Start Quiz -->
+
+            <!-- * Soal Kuis -->
+            <div id="soal-kuis"
+               class="left-side hidden w-2/3 mx-auto px-1 border-solid border rounded-md border-gray-400">
+               <!-- * Header Question -->
+               <div class="header-kuis px-6 flex flex-row justify-between">
+                  <h3 class="list-kuis p-4">Pertanyaan 1 dari 10</h3>
+                  <p class="p-4 text-black">
+                     Sisa Waktu :
+                     <span id="countdown" class="font-bold text-black"></span>
+                  </p>
+               </div>
+               <!-- * End Header Question -->
+
+               <!-- * Body Question -->
+               <div
+                  class="body-kuis card-header p-6 my-4 w-full border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                  <h5 id="nomor-kuis" class="nomor-kuis p-2"></h5>
+                  <div id="jawaban-kuis" class="jawaban-kuis p-2"></div>
+               </div>
+
+               <!-- * Button Next and Previous -->
+               <div class="w-full flex justify-between">
+                  <button id="btn-previous" type="button"
+                     class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg">
+                     Sebelumnya
+                  </button>
+                  <button id="btn-next" type="button"
+                     class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"></button>
+               </div>
+               <!-- * End Button Next and Previous -->
+
+               <!-- * End Body Question -->
+            </div>
+
+            <!-- * Button List Question Number -->
+            <div id="nomor-soal"
+               class="right-side hidden w-1/3 mx-auto px-1 border-solid border rounded-md border-gray-400">
+               <h4 class="text-center p-2">Nomor Soal</h4>
+               <div
+                  class="btn-list-soal border-solid border-2 rounded-lg border-black w-full flex flex-col justify-center text-center items-center py-6 px-4">
+                  <!-- Button Top List Quiz -->
+                  <div class="py-1 my-1 flex">
+                     <button type="button" id="btn-kuis1" style="width: 50px; height: 50px;"
+                        class="btn-kuis1 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        1
+                     </button>
+                     <button type="button" id="btn-kuis2" style="width: 50px; height: 50px;"
+                        class="btn-kuis2 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        2
+                     </button>
+                     <button type="button" id="btn-kuis3" style="width: 50px; height: 50px;"
+                        class="btn-kuis3 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        3
+                     </button>
+                     <button id="btn-kuis4" style="width: 50px; height: 50px;"
+                        class="btn-kuis4 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        4
+                     </button>
+                     <button id="btn-kuis5" style="width: 50px; height: 50px;"
+                        class="btn-kuis5 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        5
+                     </button>
+                  </div>
+                  <!-- End Button Top List Quiz -->
+
+                  <!-- Button Bottom List Quiz -->
+                  <div class="pt-1 pb-4 my-1 flex">
+                     <button id="btn-kuis6" style="width: 50px; height: 50px;"
+                        class="btn-kuis6 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        6
+                     </button>
+                     <button id="btn-kuis7" style="width: 50px; height: 50px;"
+                        class="btn-kuis7 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        7
+                     </button>
+                     <button id="btn-kuis8" style="width: 50px; height: 50px;"
+                        class="btn-kuis8 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        8
+                     </button>
+                     <button id="btn-kuis9" style="width: 50px; height: 50px;"
+                        class="btn-kuis9 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        9
+                     </button>
+                     <button id="btn-kuis10" style="width: 50px; height: 50px;"
+                        class="btn-kuis10 mx-1 rounded-lg border-solid border-2 border-black text-base font-bold transition duration-500 hover:bg-black hover:text-white hover:shadow-lg">
+                        10
+                     </button>
+                  </div>
+                  <!-- Button Bottom List Quiz -->
+
+                  <button type="button"
+                     class="w-1/2 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg">
+                     <a href="./materi1.html">Kembali ke Materi</a>
+                  </button>
+               </div>
+            </div>
+            <!-- * Button List Question Number -->
+
+            <!-- * End Soal Kuis -->
+         </div>
+      </div>
+   </div>
+
+   <style>
+      #soal-kuis,
+      #nomor-soal {
+         min-height: 75vh;
+      }
+
+      ol {
+         list-style-type: decimal;
+         /* Pilih jenis angka yang diinginkan */
+      }
+
+      .card-header::part(base) {
+         min-height: 55vh;
+      }
+
+      #aturan-kuis::part(base) {
+         background-color: transparent;
+         border: none !important;
+      }
+   </style>
+
+   <!-- Script for shoelace style -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+   <script type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"></script>
+   <script defer type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
+   <script type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"></script>
+   <script type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"></script>
+   <script type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/button/button.js"></script>
+   <script type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/radio-group/radio-group.js"></script>
+   <script src="./kuis2.js"></script>
+   <!-- End Script for Shoelace style -->
+   <script type="module" src="/util/js/db.js"></script>
+   <script type="module" src="/util/js/check.js"></script>
+</body>
+
 </html>

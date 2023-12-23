@@ -36,15 +36,15 @@ const assetsMenalar = [
 ];
 
 window.addEventListener("DOMContentLoaded", () => {
-    // Mencoba Tab
-    const bodyTable = document.getElementById("body-table");
-  
-    for (let index = 0; index < assets.length; index++) {
-      const tr = document.createElement("tr");
-      const td1 = document.createElement("td");
-      const td2 = document.createElement("td");
-  
-      td1.innerHTML = `
+  // Mencoba Tab
+  const bodyTable = document.getElementById("body-table");
+
+  for (let index = 0; index < assets.length; index++) {
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td");
+    const td2 = document.createElement("td");
+
+    td1.innerHTML = `
        <img
            src="${assets[index].image}"
            alt="Image 1"
@@ -52,21 +52,21 @@ window.addEventListener("DOMContentLoaded", () => {
        /> <span
        onclick="play('${assets[index].sound}')"><img
          src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />`;
-  
-      td2.innerHTML = `
+
+    td2.innerHTML = `
        <div id="image-dropdown-${index}"></div>
        `;
-      tr.appendChild(td1);
-      tr.appendChild(td2);
-  
-      bodyTable.appendChild(tr);
-    }
-  
-    const dropdownsPlaceholders = document.querySelectorAll(
-      "[id^=image-dropdown]"
-    );
-    dropdownsPlaceholders.forEach((dropdownPlaceholder, id) => {
-      dropdownPlaceholder.innerHTML = `
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+
+    bodyTable.appendChild(tr);
+  }
+
+  const dropdownsPlaceholders = document.querySelectorAll(
+    "[id^=image-dropdown]"
+  );
+  dropdownsPlaceholders.forEach((dropdownPlaceholder, id) => {
+    dropdownPlaceholder.innerHTML = `
             <div class="relative inline-block text-left">
                                              <div>
                                                 <button
@@ -137,45 +137,45 @@ window.addEventListener("DOMContentLoaded", () => {
                                              </div>
                                           </div>
            `;
-    });
-  
-    // Menalar Tab
-    const bodyTableMenalar = document.getElementById("body-table-menalar");
-  
-    for (let index = 0; index < assetsMenalar.length; index++) {
-      const tr = document.createElement("tr");
-      const td1 = document.createElement("td");
-      const td2 = document.createElement("td");
-      const td3 = document.createElement("td");
-  
-      td1.innerHTML = `
+  });
+
+  // Menalar Tab
+  const bodyTableMenalar = document.getElementById("body-table-menalar");
+
+  for (let index = 0; index < assetsMenalar.length; index++) {
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td");
+    const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
+
+    td1.innerHTML = `
         <img src="${assetsMenalar[index].image1}" alt="Image 1" class="w-max h-max" />
         
         <span onclick="play('${assetsMenalar[index].sound}')">
           <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
         </span><br />`;
-  
-      td2.innerHTML = `
+
+    td2.innerHTML = `
         <div id="image-dropdown-menalar-${index}"></div>
       `;
-      td3.innerHTML = `
+    td3.innerHTML = `
         <img src="${assetsMenalar[index].image2}" alt="Image 2" class="w-max h-max" />
         <span onclick="play('${assetsMenalar[index].sound}')">
           <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
         </span><br />
       `;
-      tr.appendChild(td1);
-      tr.appendChild(td2);
-      tr.appendChild(td3);
-  
-      bodyTableMenalar.appendChild(tr);
-    }
-  
-    const dropdownsPlaceholdersMenalar = document.querySelectorAll(
-      "[id^=image-dropdown-menalar]"
-    );
-    dropdownsPlaceholdersMenalar.forEach((dropdownPlaceholder, id) => {
-      dropdownPlaceholder.innerHTML = `
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+
+    bodyTableMenalar.appendChild(tr);
+  }
+
+  const dropdownsPlaceholdersMenalar = document.querySelectorAll(
+    "[id^=image-dropdown-menalar]"
+  );
+  dropdownsPlaceholdersMenalar.forEach((dropdownPlaceholder, id) => {
+    dropdownPlaceholder.innerHTML = `
         <div class="relative inline-block text-left">
           <div>
             <button
@@ -246,84 +246,184 @@ window.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `;
-    });
   });
-  
-  function selectOption(optionText, buttonId, menuId) {
-    var dropdownButton = document.getElementById(buttonId);
-    dropdownButton.innerHTML = `
+});
+
+function selectOption(optionText, buttonId, menuId) {
+  var dropdownButton = document.getElementById(buttonId);
+  dropdownButton.innerHTML = `
                 <img src="${optionText}" alt="Image 1" class="w-12 h-12 mr-2 " />`;
-  
-    var dropdownMenu = document.getElementById(menuId);
-    dropdownMenu.classList.add("hidden");
-  }
-  
-  // Separate function for Menalar dropdown selection
-  function selectOptionMenalar(optionText, buttonId, menuId) {
-    var dropdownButton = document.getElementById(buttonId);
-    dropdownButton.innerHTML = `
+
+  var dropdownMenu = document.getElementById(menuId);
+  dropdownMenu.classList.add("hidden");
+}
+
+// Separate function for Menalar dropdown selection
+function selectOptionMenalar(optionText, buttonId, menuId) {
+  var dropdownButton = document.getElementById(buttonId);
+  dropdownButton.innerHTML = `
       <img src="${optionText}" alt="Image 1" class="w-12 h-12 mr-2 " />`;
-  
-    var dropdownMenu = document.getElementById(menuId);
-    dropdownMenu.classList.add("hidden");
+
+  var dropdownMenu = document.getElementById(menuId);
+  dropdownMenu.classList.add("hidden");
+}
+
+// Mencoba Tab event listener
+const mencobaContainer = document.getElementById("table-mencoba");
+
+console.log(mencobaContainer);
+
+mencobaContainer.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log(event);
+  var dropdownMenus = document.querySelectorAll('[id^="dropdownMenu"]');
+  var dropdownButtons = document.querySelectorAll('[id^="dropdownButton"]');
+
+  for (let index = 0; index < dropdownButtons.length; index++) {
+    document
+      .getElementById("dropdownButton" + index)
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        var dropdownMenu = document.getElementById("dropdownMenu" + index);
+        dropdownMenu.classList.toggle("hidden");
+      });
+  }
+
+  for (var i = 0; i < dropdownMenus.length; i++) {
+    if (
+      !dropdownMenus[i].contains(event.target) &&
+      event.target !== dropdownButtons[i]
+    ) {
+      dropdownMenus[i].classList.add("hidden");
+    }
+  }
+});
+
+// Menalar Tab event listener
+const menalarContainer = document.getElementById("table-menalar");
+
+menalarContainer.addEventListener("click", function (event) {
+  event.preventDefault();
+  var dropdownMenusMenalar = document.querySelectorAll(
+    '[id^="dropdownMenuMenalar"]'
+  );
+  var dropdownButtonsMenalar = document.querySelectorAll(
+    '[id^="dropdownButtonMenalar"]'
+  );
+
+  for (let index = 0; index < dropdownButtonsMenalar.length; index++) {
+    document
+      .getElementById("dropdownButtonMenalar" + index)
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        var dropdownMenuMenalar = document.getElementById(
+          "dropdownMenuMenalar" + index
+        );
+        dropdownMenuMenalar.classList.toggle("hidden");
+      });
+  }
+
+  for (var i = 0; i < dropdownMenusMenalar.length; i++) {
+    if (
+      !dropdownMenusMenalar[i].contains(event.target) &&
+      event.target !== dropdownButtonsMenalar[i]
+    ) {
+      dropdownMenusMenalar[i].classList.add("hidden");
+    }
+  }
+});
+
+function taskResult(type) {
+  event.preventDefault();
+
+  if (type === "mengamati") {
+    const mengamatiSets = ["mengamati1", "mengamati2", "mengamati3", "mengamati4"];
+    let mengamati_array = [];
+
+    mengamatiSets.forEach((setName) => {
+      let setElements = document.getElementsByName(setName);
+      let setValue = getCheckedValue(setElements);
+      mengamati_array.push(setValue);
+    });
+
+    const average = 4; //total soal
+
+    const jawaban = ["benar", "benar", "benar", "salah"]; // jawaban per soal + harus urut
+    const resultArray = matchAdjacentElements(jawaban, mengamati_array);
+    const resultCount = resultArray.length;
+    const total = (resultCount / average) * 100;
+    localStorage.setItem("sub1_2_1", total);
+  } else if (type === "berlatih") {
+    const berlatihSets = [
+      "berlatih1",
+      "berlatih2",
+      "berlatih3",
+      "berlatih4",
+      "berlatih5",
+    ];
+    let berlatih_array = [];
+
+    berlatihSets.forEach((setName) => {
+      let setElements = document.getElementsByName(setName);
+      let setValue = getCheckedValue(setElements);
+      berlatih_array.push(setValue);
+    });
+
+    const average = 5; //total soal
+
+    const jawaban = ["b", "c", "a", "a", "c"]; // jawaban per soal + harus urut
+
+    const resultArray = matchAdjacentElements(jawaban, berlatih_array);
+    const resultCount = resultArray.length;
+    const total = (resultCount / average) * 100;
+    localStorage.setItem("sub1_2_2", total);
+  } else {
+    return null;
   }
   
-  // Mencoba Tab event listener
-  const mencobaContainer = document.getElementById("table-mencoba");
-  
-  console.log(mencobaContainer);
-  
-  mencobaContainer.addEventListener("click", function (event) {
-    event.preventDefault();
-    console.log(event);
-    var dropdownMenus = document.querySelectorAll('[id^="dropdownMenu"]');
-    var dropdownButtons = document.querySelectorAll('[id^="dropdownButton"]');
-  
-    for (let index = 0; index < dropdownButtons.length; index++) {
-      document
-        .getElementById("dropdownButton" + index)
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          var dropdownMenu = document.getElementById("dropdownMenu" + index);
-          dropdownMenu.classList.toggle("hidden");
-        });
+  totalPerSub();
+}
+
+function totalPerSub() {
+  if (localStorage.getItem("sub1_2_1") && localStorage.getItem("sub1_2_2")) {
+    const mengamati = parseInt(localStorage.getItem("sub1_2_1"));
+    const berlatih = parseInt(localStorage.getItem("sub1_2_2"));
+    const rata = (mengamati + berlatih) / 2;
+
+    localStorage.setItem("sub1_2", rata);
+    setInterval(() => {
+      localStorage.removeItem("sub1_2_1");
+      localStorage.removeItem("sub1_2_2");
+    }, 1000);
+  }
+}
+
+function getCheckedValue(elements) {
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i].checked) {
+      return elements[i].value;
     }
-  
-    for (var i = 0; i < dropdownMenus.length; i++) {
-      if (
-        !dropdownMenus[i].contains(event.target) &&
-        event.target !== dropdownButtons[i]
-      ) {
-        dropdownMenus[i].classList.add("hidden");
-      }
+  }
+  return undefined; // Return undefined if no radio button is checked
+}
+
+function matchAdjacentElements(arr1, arr2) {
+  // Check the length of arrays to ensure they are of the same length
+  if (arr1.length !== arr2.length) {
+    throw new Error("Arrays must have the same length");
+  }
+
+  // Array to store matching values
+  const result = [];
+
+  // Iterate through the arrays
+  for (let i = 0; i < arr1.length; i++) {
+    // Compare values at the current index
+    if (arr1[i] === arr2[i]) {
+      // If they match, add to the result array
+      result.push(arr1[i]);
     }
-  });
-  
-  // Menalar Tab event listener
-  const menalarContainer = document.getElementById("table-menalar");
-  
-  menalarContainer.addEventListener("click", function (event) {
-    event.preventDefault();
-    var dropdownMenusMenalar = document.querySelectorAll('[id^="dropdownMenuMenalar"]');
-    var dropdownButtonsMenalar = document.querySelectorAll('[id^="dropdownButtonMenalar"]');
-  
-    for (let index = 0; index < dropdownButtonsMenalar.length; index++) {
-      document
-        .getElementById("dropdownButtonMenalar" + index)
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          var dropdownMenuMenalar = document.getElementById("dropdownMenuMenalar" + index);
-          dropdownMenuMenalar.classList.toggle("hidden");
-        });
-    }
-  
-    for (var i = 0; i < dropdownMenusMenalar.length; i++) {
-      if (
-        !dropdownMenusMenalar[i].contains(event.target) &&
-        event.target !== dropdownButtonsMenalar[i]
-      ) {
-        dropdownMenusMenalar[i].classList.add("hidden");
-      }
-    }
-  });
-  
+  }
+
+  return result;
+}
