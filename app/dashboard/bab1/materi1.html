@@ -14,24 +14,43 @@
    <script type="module" src="/util/js/getUserName.js"></script>
    <script src="/util/js/playAudio.js"></script>
    <style>
-      /* .sub_1_ayo_mengamati {
-         } */
       .options {
          display: flex;
-         gap: 10px;
+         flex-direction: row;
+         align-items: center;
+         justify-content: center;
+         /* width: max-content; */
+         height: 220px;
       }
-
+   
       .option {
          cursor: pointer;
-         padding: 5px;
+         padding: 15px;
+         padding-left: 22px;
+         padding-right: 22px;
          border: 1px solid #ccc;
          border-radius: 5px;
+         margin-bottom: 10px; /* Add margin between each optionContainer */
+         text-align: center; /* Center text within the option */
       }
-
+   
       .option:hover {
          background-color: #f0f0f0;
       }
-
+   
+      .audio-button {
+         display: flex;
+         margin-top: 20px;
+         justify-content: center;
+         align-items: center;
+      }
+   
+      .audio-button img {
+         margin: 20px;
+         object-fit: cover;
+         cursor: pointer;
+      }
+   
       td>img {
          width: 12rem;
          height: 12rem;
@@ -39,6 +58,7 @@
          margin: 0 auto;
       }
    </style>
+   
 </head>
 
 <body>
@@ -124,8 +144,8 @@
             </sl-tree-item>
 
             <sl-tree-item>
-               <p>PENJUMLAHAN BILANGAN DAN PENGURANGAN
-                  BILANGAN 1 SAMPAI DENGAN 10</p>
+               <p>Penjumlahan Bilangan dan Pengurangan
+                  Bilangan 1 sampai dengan 10</p>
                <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
                <sl-tree-item>
                   <p>Materi</p>
@@ -225,281 +245,303 @@
                            src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
 
                      <br />
-                     <table style="width: 100%" class="sub_1_ayo_mengamati">
-                        <tr>
-                           <th>Item</th>
-                           <th>Angka</th>
-                           <th>Nama Bilangan</th>
-                           <th>Benar</th>
-                           <th>Salah</th>
-                        </tr>
-                        <!-- * 7 -->
-                        <tr>
-                           <td>
-                              <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Donat.png" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/item 7 donat.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                           <td>
-                              <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 7.png" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambil 7.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                           <td>
-                              <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 7.png" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/nambil 7.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                           <td>
-                              <input type="checkbox" id="sub_1_ayo_mengamati_7" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                           <td>
-                              <input type="checkbox" id="sub_1_ayo_mengamati_7" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                        </tr>
-                        <!-- * 4 -->
-                        <tr>
-                           <td>
-                              <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Payung.png" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/item 4 payung.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                           <td>
-                              <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 4.png" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambil 4.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                           <td>
-                              <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 4.png" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/nambil 4.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                           <td>
-                              <input type="checkbox" id="sub_1_ayo_mengamati_4" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                           <td>
-                              <input type="checkbox" id="sub_1_ayo_mengamati_4" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                        </tr>
-                        <!-- *  -->
-                        <tr>
-                           <td>
-                              <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Sendok.png" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/item 5 sendok.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                           </td>
-                           <td>
-                              <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 8.png" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambil 8.m4a')">
-                                 <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                              </span>
-                           </td>
-                           <td>
-                              <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 6.png" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/nambil 6.m4a')">
-                                 <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                              </span>
-                           </td>
-                           <td>
-                              <input type="checkbox" id="sub_1_ayo_mengamati_4" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')">
-                                 <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                              </span>
-                           </td>
-                           <td>
-                              <input type="checkbox" id="sub_1_ayo_mengamati_4" />
-                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')">
-                                 <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                              </span>
-                           </td>
-                        </tr>
-                     </table>
+                     <form onsubmit="taskResult(`mengamati`)">
+                        <table style="width: 100%" class="sub_1_ayo_mengamati">
+                           <tr>
+                              <th>Item</th>
+                              <th>Angka</th>
+                              <th>Nama Bilangan</th>
+                              <th>Benar</th>
+                              <th>Salah</th>
+                              <th>Respon</th>
+                           </tr>
+                           <!-- * 7 -->
+                           <tr>
+                              <td>
+                                 <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Donat.png" />
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/item 7 donat.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td>
+                                 <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 7.png" />
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambil 7.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td>
+                                 <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 7.png" />
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/nambil 7.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td>
+                                 <input value="benar" name="mengamati1" type="radio" id="sub_1_ayo_mengamati_7" onclick="handleRadioButtonClick(1, 'benar')"/>
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td>
+                                 <input value="salah" name="mengamati1" type="radio" id="sub_1_ayo_mengamati_7" onclick="handleRadioButtonClick(1, 'salah')"/>
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td id="resultMessage1"></td>
+                           </tr>
+                           <!-- * 4 -->
+                           <tr>
+                              <td>
+                                 <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Payung.png" />
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/item 4 payung.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td>
+                                 <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 4.png" />
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambil 4.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td>
+                                 <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 4.png" />
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/nambil 4.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td>
+                                 <input value="benar" name="mengamati2" type="radio" id="sub_1_ayo_mengamati_4" onclick="handleRadioButtonClick(2, 'benar')"/>
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td>
+                                 <input value="salah" name="mengamati2" type="radio" id="sub_1_ayo_mengamati_4" onclick="handleRadioButtonClick(2, 'salah')"/>
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                               <td id="resultMessage2"></td>
+                           </tr>
+                           <!-- *  -->
+                           <tr>
+                              <td>
+                                 <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Sendok.png" />
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/item 5 sendok.m4a')"><img
+                                       src="/assets/image/sound.png"
+                                       class="w-6 h-6 cursor-pointer select-none" /></span>
+                              </td>
+                              <td>
+                                 <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 8.png" />
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambil 8.m4a')">
+                                    <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                                 </span>
+                              </td>
+                              <td>
+                                 <img src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 6.png" />
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/nambil 6.m4a')">
+                                    <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                                 </span>
+                              </td>
+                              <td>
+                                 <input value="benar" name="mengamati3" type="radio" id="sub_1_ayo_mengamati_4" onclick="handleRadioButtonClick(3, 'salah')"/>
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')">
+                                    <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                                 </span>
+                              </td>
+                              <td>
+                                 <input value="salah" name="mengamati3" type="radio" id="sub_1_ayo_mengamati_4" onclick="handleRadioButtonClick(3, 'benar')"/>
+                                 <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')">
+                                    <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                                 </span>
+                              </td>
+                              <td id="resultMessage3"></td>
+                           </tr>
+                        </table>
+                        <p class="text-right">
+                           <button type="submit" class="m-4 p-2 px-4 bg-blue-400 rounded-xl">Kirim</button>
+                        </p>
+                     </form>
                   </div>
                </sl-tab-panel>
                <!-- * End Tab Panel Ayo Mengamati -->
 
                <!-- * Tab Panel Ayo Berlatih -->
                <sl-tab-panel name="berlatih">
-                  <div class="text-content mx-auto">
-                     <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
-                        Petunjuk Pengerjaan :
-                     </h3>
-                     <ol class="black-number mx-4">
-                        <li>
-                           Untuk memahami materi di atas, silahkan jawab
-                           pertanyaan di bawah ini!
-                        </li>
-                        <li>
-                           Jawablah pertanyaan dengan mengklik salah satu
-                           jawaban yang dianggap benar!
-                        </li>
-                        <li class="py-4">
-                           Klik tombol
-                           <span
-                              class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
-                              Jawaban</span>
-                           untuk mengetahui jawaban benar atau salah!
-                        </li>
-                        <li>
-                           Jika jawabanmu benar, muncul keterangan
-                           <span class="font-bold text-green-600">"Jawaban Benar"</span>
-                        </li>
-                        <li>
-                           Jika jawabanmu salah, muncul keterangan
-                           <span class="font-bold text-red-600">"Jawaban Salah"</span>
-                        </li>
-                        <li class="py-4">
-                           Klik tombol
-                           <span
-                              class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
-                              Lagi</span>
-                           untuk mencoba kembali
-                        </li>
-                     </ol>
-                     <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/petunjuk pengerjaan.m4a')">
-                        <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                     </span>
-                  </div>
-                  <sl-card id="info-media"
-                     class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                     <div slot="header">
-                        <h3 class="font-bold text-lg underline decoration-solid px-2 py-1">
-                           Pilihlah Jawaban dibawah ini dengan benar !
+                  <form onsubmit="taskResult(`berlatih`)">
+                     <div class="text-content mx-auto">
+                        <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
+                           Petunjuk Pengerjaan :
                         </h3>
+                        <ol class="black-number mx-4">
+                           <li>
+                              Untuk memahami materi di atas, silahkan jawab
+                              pertanyaan di bawah ini!
+                           </li>
+                           <li>
+                              Jawablah pertanyaan dengan mengklik salah satu
+                              jawaban yang dianggap benar!
+                           </li>
+                           <li class="py-4">
+                              Klik tombol
+                              <span
+                                 class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
+                                 Jawaban</span>
+                              untuk mengetahui jawaban benar atau salah!
+                           </li>
+                           <li>
+                              Jika jawabanmu benar, muncul keterangan
+                              <span class="font-bold text-green-600">"Jawaban Benar"</span>
+                           </li>
+                           <li>
+                              Jika jawabanmu salah, muncul keterangan
+                              <span class="font-bold text-red-600">"Jawaban Salah"</span>
+                           </li>
+                           <li class="py-4">
+                              Klik tombol
+                              <span
+                                 class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
+                                 Lagi</span>
+                              untuk mencoba kembali
+                           </li>
+                        </ol>
+                        <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/petunjuk pengerjaan.m4a')">
+                           <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                        </span>
                      </div>
+                     <sl-card id="info-media"
+                        class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div slot="header">
+                           <h3 class="font-bold text-lg underline decoration-solid px-2 py-1">
+                              Pilihlah Jawaban dibawah ini dengan benar !
+                           </h3>
+                        </div>
 
-                     <!-- <div slot="header">Bilangan</div> -->
-                     <ol class="soal-berlatih mx-4">
-                        <!-- *Soal berlatih Nomor 1 -->
-                        <li>
-                           Dayu memelihara ikan. Ikan Dayu berjumlah sepuluh
-                           ekor.<br />
-                           Lambang bilangan dari sepuluh adalah...
-                           <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 1.m4a')">
-                              <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                           </span>
-                           <input type="radio" id="html1" name="fav_language1" value="HTML" />
-                           <label class="mr-10" for="html1">a.
-                              <span class="font-bold text-2xl text-orange-600">5</span></label>
-                           <input type="radio" id="css1" name="fav_language1" value="CSS" />
-                           <label class="mr-10" for="css1">b.
-                              <span class="font-bold text-2xl text-purple-800">10</span></label>
-                           <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
-                           <label class="mr-10" for="javascript1">c.
-                              <span class="font-bold text-2xl text-red-700">7</span></label>
-                        </li>
-                        <!-- *End Soal berlatih Nomor 1 -->
+                        <!-- <div slot="header">Bilangan</div> -->
+                        <ol class="soal-berlatih mx-4">
+                           <!-- *Soal berlatih Nomor 1 -->
+                           <li>
+                              Dayu memelihara ikan. Ikan Dayu berjumlah sepuluh
+                              ekor.<br />
+                              Lambang bilangan dari sepuluh adalah...
+                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 1.m4a')">
+                                 <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                              </span>
+                              <input type="radio" id="html1" name="berlatih1" value="a" />
+                              <label class="mr-10" for="html1">a.
+                                 <span class="font-bold text-2xl text-orange-600">5</span></label>
+                              <input type="radio" id="css1" name="berlatih1" value="b" />
+                              <label class="mr-10" for="css1">b.
+                                 <span class="font-bold text-2xl text-purple-800">10</span></label>
+                              <input type="radio" id="javascript1" name="berlatih1" value="c" />
+                              <label class="mr-10" for="javascript1">c.
+                                 <span class="font-bold text-2xl text-red-700">7</span></label>
+                           </li>
+                           <!-- *End Soal berlatih Nomor 1 -->
 
-                        <!-- *Soal berlatih Nomor 2 -->
-                        <li>
-                           Apabila dituliskan nama bilangan
-                           <span class="font-bold text-2xl text-purple-700">8</span>
-                           adalah
-                           <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 2.m4a')">
-                              <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                           </span>
-                           <div class="flex items-center gap-7">
-                              <div class="flex items-center gap-1">
-                                 <input type="radio" id="2a" name="fav_language1" value="HTML" />
-                                 <label class="mr-2" for="2a">a. Enam</label>
-                                 <img src="/assets/image/sound.png"
-                                    class="w-4 h-4 cursor-pointer object-cover select-none"
-                                    onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/2a.m4a')" />
+                           <!-- *Soal berlatih Nomor 2 -->
+                           <li>
+                              Apabila dituliskan nama bilangan
+                              <span class="font-bold text-2xl text-purple-700">8</span>
+                              adalah
+                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 2.m4a')">
+                                 <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                              </span>
+                              <div class="flex items-center gap-7">
+                                 <div class="flex items-center gap-1">
+                                    <input type="radio" id="2a" name="berlatih2" value="a" />
+                                    <label class="mr-2" for="2a">a. Enam</label>
+                                    <img src="/assets/image/sound.png"
+                                       class="w-4 h-4 cursor-pointer object-cover select-none"
+                                       onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/2a.m4a')" />
+                                 </div>
+                                 <div class="flex items-center gap-1">
+                                    <input type="radio" id="2b" name="berlatih2" value="b" />
+                                    <label class="mr-2" for="2b">b. Tujuh</label>
+                                    <img src="/assets/image/sound.png"
+                                       class="w-4 h-4 cursor-pointer object-cover select-none"
+                                       onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/2b.m4a')" />
+                                 </div>
+                                 <div class="flex items-center gap-1">
+                                    <input type="radio" id="2c" name="berlatih2" value="c" />
+                                    <label class="mr-2" for="2c">c. Delapan</label>
+                                    <img src="/assets/image/sound.png"
+                                       class="w-4 h-4 cursor-pointer object-cover select-none"
+                                       onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/2c.m4a')" />
+                                 </div>
                               </div>
-                              <div class="flex items-center gap-1">
-                                 <input type="radio" id="2b" name="fav_language1" value="HTML" />
-                                 <label class="mr-2" for="2b">b. Tujuh</label>
-                                 <img src="/assets/image/sound.png"
-                                    class="w-4 h-4 cursor-pointer object-cover select-none"
-                                    onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/2b.m4a')" />
-                              </div>
-                              <div class="flex items-center gap-1">
-                                 <input type="radio" id="2c" name="fav_language1" value="HTML" />
-                                 <label class="mr-2" for="2c">c. Delapan</label>
-                                 <img src="/assets/image/sound.png"
-                                    class="w-4 h-4 cursor-pointer object-cover select-none"
-                                    onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/2c.m4a')" />
-                              </div>
-                           </div>
-                        </li>
-                        <!-- *End Soal berlatih Nomor 2 -->
+                           </li>
+                           <!-- *End Soal berlatih Nomor 2 -->
 
-                        <!-- *Soal berlatih Nomor 3 -->
-                        <li>
-                           Lambang bilangan satu adalah...
-                           <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 3.m4a')">
-                              <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                           </span>
-                           <br />
-                           <input type="radio" id="html1" name="fav_language1" value="HTML" />
-                           <label class="mr-10" for="html1">a.
-                              <span class="font-bold text-2xl text-orange-600">1</span></label>
-                           <input type="radio" id="css1" name="fav_language1" value="CSS" />
-                           <label class="mr-10" for="css1">b.
-                              <span class="font-bold text-2xl text-red-600">2</span></label>
-                           <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
-                           <label class="mr-10" for="javascript1">c.
-                              <span class="font-bold text-2xl text-yellow-600">9</span></label>
-                        </li>
-                        <!-- *End Soal berlatih Nomor 3 -->
+                           <!-- *Soal berlatih Nomor 3 -->
+                           <li>
+                              Lambang bilangan satu adalah...
+                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 3.m4a')">
+                                 <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                              </span>
+                              <br />
+                              <input type="radio" id="html1" name="berlatih3" value="a" />
+                              <label class="mr-10" for="html1">a.
+                                 <span class="font-bold text-2xl text-orange-600">1</span></label>
+                              <input type="radio" id="css1" name="berlatih3" value="b" />
+                              <label class="mr-10" for="css1">b.
+                                 <span class="font-bold text-2xl text-red-600">2</span></label>
+                              <input type="radio" id="javascript1" name="berlatih3" value="c" />
+                              <label class="mr-10" for="javascript1">c.
+                                 <span class="font-bold text-2xl text-yellow-600">9</span></label>
+                           </li>
+                           <!-- *End Soal berlatih Nomor 3 -->
 
-                        <!-- *Soal berlatih Nomor 4 -->
-                        <li>
-                           Ayu mempunyai 6 donat.<br />
-                           Lambang bilangan dari enam adalah...
-                           <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 4.m4a')">
-                              <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                           </span><br />
-                           <input type="radio" id="html1" name="fav_language1" value="HTML" />
-                           <label class="mr-10" for="html1">a.
-                              <span class="font-bold text-2xl text-purple-600">4</span></label>
-                           <input type="radio" id="css1" name="fav_language1" value="CSS" />
-                           <label class="mr-10" for="css1">b.
-                              <span class="font-bold text-2xl text-purple-800">6</span></label>
-                           <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
-                           <label class="mr-10" for="javascript1">c.
-                              <span class="font-bold text-2xl text-purple-900">8</span></label>
-                        </li>
-                        <!-- *End Soal berlatih Nomor 4 -->
+                           <!-- *Soal berlatih Nomor 4 -->
+                           <li>
+                              Ayu mempunyai 6 donat.<br />
+                              Lambang bilangan dari enam adalah...
+                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 4.m4a')">
+                                 <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                              </span><br />
+                              <input type="radio" id="html1" name="berlatih4" value="a" />
+                              <label class="mr-10" for="html1">a.
+                                 <span class="font-bold text-2xl text-purple-600">4</span></label>
+                              <input type="radio" id="css1" name="berlatih4" value="b" />
+                              <label class="mr-10" for="css1">b.
+                                 <span class="font-bold text-2xl text-purple-800">6</span></label>
+                              <input type="radio" id="javascript1" name="berlatih4" value="c" />
+                              <label class="mr-10" for="javascript1">c.
+                                 <span class="font-bold text-2xl text-purple-900">8</span></label>
+                           </li>
+                           <!-- *End Soal berlatih Nomor 4 -->
 
-                        <!-- *Soal berlatih Nomor 5 -->
-                        <li>
-                           Lambang bilangan empat adalah...
-                           <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 5.m4a')">
-                              <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                           </span>
-                           <br />
-                           <input type="radio" id="html1" name="fav_language1" value="HTML" />
-                           <label class="mr-10" for="html1">a.
-                              <span class="font-bold text-2xl text-blue-600">4</span></label>
-                           <input type="radio" id="css1" name="fav_language1" value="CSS" />
-                           <label class="mr-10" for="css1">b.
-                              <span class="font-bold text-2xl text-red-600">2</span></label>
-                           <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
-                           <label class="mr-10" for="javascript1">c.
-                              <span class="font-bold text-2xl text-purple-800">10</span></label>
-                        </li>
-                        <!-- *End Soal berlatih Nomor 5 -->
-                     </ol>
-                  </sl-card>
-                  <div class="w-full flex justify-center">
-                     <p
-                        class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                        Cek Jawaban
-                     </p>
-                     <p
-                        class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                        Coba Lagi
-                     </p>
-                  </div>
+                           <!-- *Soal berlatih Nomor 5 -->
+                           <li>
+                              Lambang bilangan empat adalah...
+                              <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/No 5.m4a')">
+                                 <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+                              </span>
+                              <br />
+                              <input type="radio" id="html1" name="berlatih5" value="a" />
+                              <label class="mr-10" for="html1">a.
+                                 <span class="font-bold text-2xl text-blue-600">4</span></label>
+                              <input type="radio" id="css1" name="berlatih5" value="b" />
+                              <label class="mr-10" for="css1">b.
+                                 <span class="font-bold text-2xl text-red-600">2</span></label>
+                              <input type="radio" id="javascript1" name="berlatih5" value="c" />
+                              <label class="mr-10" for="javascript1">c.
+                                 <span class="font-bold text-2xl text-purple-800">10</span></label>
+                           </li>
+                           <!-- *End Soal berlatih Nomor 5 -->
+                        </ol>
+                     </sl-card>
+                     <div class="w-full flex justify-center">
+                        <p
+                           class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out cursor-pointer">
+                           <button type="submit">Cek Jawaban</button>
+                        </p>
+                        <p
+                           class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
+                           Coba Lagi
+                        </p>
+                     </div>
+                  </form>
                </sl-tab-panel>
                <!-- * End Tab Panel Ayo Berlatih -->
 
@@ -876,60 +918,64 @@
                <sl-tab-panel name="komunikasikan">
                   <div class="text-content mx-auto">
                      <p>
-                       Pada akhir materi ini, siswa diminta memilih kesimpulan terkait materi yang sudah
-                       dipelajari !
-                     </p><span onclick="play('/assets/sounds/bab_1/sub_1/Ayo Mengkomunikasikan/Ayo Mengkomunikasikan.m4a')"><img
-                         src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                   </div>
-       
-                   <sl-card id="info-media"
+                        Pada akhir materi ini, siswa diminta memilih kesimpulan terkait materi yang sudah
+                        dipelajari !
+                     </p><span
+                        onclick="play('/assets/sounds/bab_1/sub_1/Ayo Mengkomunikasikan/Ayo Mengkomunikasikan.m4a')"><img
+                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
+                  </div>
+
+                  <sl-card id="info-media"
                      class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                      <div>
-                       <form>
-       
-                         <table>
-                           <tbody>
-                             <tr>
-                               <td>
-                                 <input type="radio">
-                                 <span
-                                   onclick="play('/assets/sounds/bab_1/sub_1/Ayo Mengkomunikasikan/□.m4a')"><img
-                                     src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                               </td>
-                               <td>Simbl atau lambang yang di lambangkan
-                                 melalui banyaknya benda.
-                                 </td>
-                             </tr>
-                             <tr>
-                               <td>
-                                 <input type="radio">
-                                 <span
-                                   onclick="play('/assets/sounds/bab_1/sub_1/Ayo Mengkomunikasikan/□□.m4a')"><img
-                                     src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                               </td>
-                               <td>Simbol atau lambang yang di lambangkan
-                                 melalui simbol >, < dan =</td>
-                             </tr>
-                             <tr>
-                               <td>
-                                 <input type="radio">
-                                 <span
-                                   onclick="play('/assets/sounds/bab_1/sub_1/Ayo Mengkomunikasikan/□□□.m4a')"><img
-                                     src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                               </td>
-                               <td>Simbol atau lambang suatu bilangan yang
-                                 mewakili banyaknya benda yang di lambangkan
-                                 melalui angka. sedangkan nama bilangan itu
-                                 adalah sebutan untuk suatu angka.</td>
-                             </tr>
-                           </tbody>
-                         </table>
-                         <div>
-                           <p class="p-3 text-right">Kirim</p>
-                         </div>
-                       </form>
+                        <form>
+
+                           <table>
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                       <input type="radio">
+                                       <span
+                                          onclick="play('/assets/sounds/bab_1/sub_1/Ayo Mengkomunikasikan/□.m4a')"><img
+                                             src="/assets/image/sound.png"
+                                             class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    </td>
+                                    <td>Simbl atau lambang yang di lambangkan
+                                       melalui banyaknya benda.
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <input type="radio">
+                                       <span
+                                          onclick="play('/assets/sounds/bab_1/sub_1/Ayo Mengkomunikasikan/□□.m4a')"><img
+                                             src="/assets/image/sound.png"
+                                             class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    </td>
+                                    <td>Simbol atau lambang yang di lambangkan
+                                       melalui simbol >, < dan=</td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                       <input type="radio">
+                                       <span
+                                          onclick="play('/assets/sounds/bab_1/sub_1/Ayo Mengkomunikasikan/□□□.m4a')"><img
+                                             src="/assets/image/sound.png"
+                                             class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    </td>
+                                    <td>Simbol atau lambang suatu bilangan yang
+                                       mewakili banyaknya benda yang di lambangkan
+                                       melalui angka. sedangkan nama bilangan itu
+                                       adalah sebutan untuk suatu angka.</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <div>
+                              <p class="p-3 text-right">Kirim</p>
+                           </div>
+                        </form>
                      </div>
-                   </sl-card>
+                  </sl-card>
                </sl-tab-panel>
             </sl-tab-group>
          </div>
@@ -939,6 +985,7 @@
    <script src="/util/js/materi1.js">
       // JavaScript code to toggle dropdown visibility and update selected option
    </script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
    <!-- Script for shoelace style -->
    <script type="module"
       src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"></script>
@@ -949,6 +996,8 @@
    <script type="module"
       src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"></script>
    <!-- End Script for Shoelace style -->
+   <script type="module" src="/util/js/db.js"></script>
+   <script type="module" src="/util/js/check.js"></script>
 </body>
 
 </html>

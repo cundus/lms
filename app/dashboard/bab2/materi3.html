@@ -105,8 +105,8 @@
                 </sl-tree-item>
 
                 <sl-tree-item expanded>
-                    <p>PENJUMLAHAN BILANGAN DAN PENGURANGAN
-                        BILANGAN 1 SAMPAI DENGAN 10</p>
+                    <p>Penjumlahan Bilangan dan Pengurangan
+                        Bilangan 1 sampai dengan 10</p>
                     <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
                     <sl-tree-item expanded>
                         <p>Materi</p>
@@ -114,10 +114,12 @@
                             <a href="../../dashboard/bab2/materi1.html">Mengenal Simbol +, - atau =</a>
                         </sl-tree-item>
                         <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a>
+                            <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1
+                                s/d 10</a>
                         </sl-tree-item>
                         <sl-tree-item selected>
-                            <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d
+                            <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan
+                                Pengurangan 1 s/d
                                 10</a>
                         </sl-tree-item>
                         <sl-tree-item>
@@ -293,235 +295,70 @@
                     </sl-tab-panel>
 
                     <sl-tab-panel name="berlatih">
-                        <div class="text-content mx-auto">
-                            <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
-                                Petunjuk Pengerjaan :
-                            </h3>
-                            <ol class="black-number mx-4">
-                                <li>
-                                    Untuk memahami materi di atas, silahkan jawab pertanyaan di
-                                    bawah ini!
-                                </li>
-                                <li>
-                                    Jawablah pertanyaan dengan mengklik salah satu jawaban yang
-                                    dianggap benar!
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
-                                        Jawaban</span>
-                                    untuk mengetahui jawaban benar atau salah!
-                                </li>
-                                <li>
-                                    Jika jawabanmu benar, muncul keterangan
-                                    <span class="font-bold text-green-600">"Jawaban Benar"</span>
-                                </li>
-                                <li>
-                                    Jika jawabanmu salah, muncul keterangan
-                                    <span class="font-bold text-red-600">"Jawaban Salah"</span>
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
-                                        Lagi</span>
-                                    untuk mencoba kembali
-                                    <span
-                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/Ayo Berlatih Petunjuk.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                </li>
-                            </ol>
-                        </div>
-                        <sl-card id="info-media"
-                            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div slot="header">
-                                <h3 class="text-lg decoration-solid px-2 py-1">
-                                    Kerjakan soal di bawah ini, isilah jawaban dengan tepat!
+                        <form onsubmit="taskResult()">
+                            <div class="text-content mx-auto">
+                                <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
+                                    Petunjuk Pengerjaan :
                                 </h3>
+                                <ol class="black-number mx-4">
+                                    <li>
+                                        Untuk memahami materi di atas, silahkan jawab pertanyaan di
+                                        bawah ini!
+                                    </li>
+                                    <li>
+                                        Jawablah pertanyaan dengan mengklik salah satu jawaban yang
+                                        dianggap benar!
+                                    </li>
+                                    <li class="py-4">
+                                        Klik tombol
+                                        <span
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
+                                            Jawaban</span>
+                                        untuk mengetahui jawaban benar atau salah!
+                                    </li>
+                                    <li>
+                                        Jika jawabanmu benar, muncul keterangan
+                                        <span class="font-bold text-green-600">"Jawaban Benar"</span>
+                                    </li>
+                                    <li>
+                                        Jika jawabanmu salah, muncul keterangan
+                                        <span class="font-bold text-red-600">"Jawaban Salah"</span>
+                                    </li>
+                                    <li class="py-4">
+                                        Klik tombol
+                                        <span
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
+                                            Lagi</span>
+                                        untuk mencoba kembali
+                                        <span
+                                            onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/Ayo Berlatih Petunjuk.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    </li>
+                                </ol>
                             </div>
+                            <sl-card id="info-media"
+                                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <div slot="header">
+                                    <h3 class="text-lg decoration-solid px-2 py-1">
+                                        Kerjakan soal di bawah ini, isilah jawaban dengan tepat!
+                                    </h3>
+                                </div>
 
-                            <ol class="soal-berlatih mx-4">
-                                <!-- *Soal berlatih Nomor 1 -->
-                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut !
-                                    <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S1.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 1.png" alt="">
-                                    <p>Shela mengoleksi berbagai jenis warna pita salah satu. <br>
-                                        Pita berwarna biru 5. <br>
-                                        Pita berwarna merah 2. <br>
-                                        Maka berapakah jumlah pita kedua warna biru dan merah tersebut ?
-                                    </p>
-                                    <p>5 + 2 =
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 1 -->
-
-                                <!-- *Soal berlatih Nomor 2 -->
-                                <li> Hitunglah operasi penjumlahan berikut!
-                                    <div>
-                                        a. Aku mula-mula di angka 3, kemudian melompat dua langkah kedepan.
-                                        Maka di angka berapakah sekarang aku?
-                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S2 a.m4a')"><img
+                                <ol class="soal-berlatih mx-4">
+                                    <!-- *Soal berlatih Nomor 1 -->
+                                    <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut !
+                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S1.m4a')"><img
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                        <div class="flex items-center">
-                                            <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 2a.png"
-                                                alt="">
-                                            <p>3 + 2 =
-                                                <select name="" id="">
-                                                    <option value="">....</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        b. Aku mula-mula di angka 4, kemudian melompat tiga langkah kedepan.
-                                        Maka di angka berapakah sekarang aku?
-                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S2 b.m4a')"><img
-                                                src="/assets/image/sound.png"
-                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                        <div class="flex items-center">
-                                            <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 2b.png"
-                                                alt="">
-                                            <p>4 + 3 =
-                                                <select name="" id="">
-                                                    <option value="">....</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        c. Aku mula-mula di angka , kemudian melompat tiga langkah kedepan.
-                                        Maka di angka berapakah sekarang aku?
-                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S2 c.m4a')"><img
-                                                src="/assets/image/sound.png"
-                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                        <div class="flex items-center">
-                                            <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 2c.png"
-                                                alt="">
-                                            <p>3 + 3 =
-                                                <select name="" id="">
-                                                    <option value="">....</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 2 -->
-
-                                <!-- *Soal berlatih Nomor 3 -->
-                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.!
-                                    <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S3.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 3.png" alt="">
-                                    <p>Ada sekumpulan burung pipit hinggap di ranting pohon sebanyak 6 ekor. <br>
-                                        Akan tetapi 2 burung pipit terbang ke ranting pohon lainnya. <br>
-                                        Maka sisa berapakah burung pipit yang ada di ranting pohon sekarang.
-                                    </p>
-                                    <p>6 – 2 =
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 3 -->
-
-                                <!-- *Soal berlatih Nomor 4 -->
-                                <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.!
-                                    <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S4.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 4.png" alt="">
-                                    <p>Di parkiran di sekolah ada 6 sepeda yang di parkir di sana. <br>
-                                        Saat jam bel pulang sekolah Dina pulang mennggunakan sepeda. <br>
-                                        Maka sisa berapa sepeda yang ada di parkirann sekolah sekarang.
-                                    </p>
-                                    <p>6 – 1 =
-                                        <select name="" id="">
-                                            <option value="">....</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                    </p>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 4-->
-
-                                <!-- *Soal berlatih Nomor 5 -->
-                                <li> Hitunglah operasi penjumlahan berikut!
-                                    <p>Aku di angka 6, kemudian melompat 4 langkah ke belakang.
-                                        Maka angka berapakah sekarang aku?</p>
-                                    <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S55.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex items-center">
-                                        <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 5.png" alt="">
-                                        <p>6 - 4 =
-                                            <select name="" id="">
+                                        <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 1.png" alt="">
+                                        <p>Shela mengoleksi berbagai jenis warna pita salah satu. <br>
+                                            Pita berwarna biru 5. <br>
+                                            Pita berwarna merah 2. <br>
+                                            Maka berapakah jumlah pita kedua warna biru dan merah tersebut ?
+                                        </p>
+                                        <p>5 + 2 =
+                                            <select name="berlatih1" id="berlatih1">
                                                 <option value="">....</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -535,28 +372,201 @@
                                                 <option value="10">10</option>
                                             </select>
                                         </p>
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 5 -->
-                            </ol>
-                        </sl-card>
-                        <div class="w-full flex justify-center">
-                            <p
-                                class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                                Cek Jawaban
-                            </p>
-                            <p
-                                class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                                Coba Lagi
-                            </p>
-                        </div>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 1 -->
+
+                                    <!-- *Soal berlatih Nomor 2 -->
+                                    <li> Hitunglah operasi penjumlahan berikut!
+                                        <div>
+                                            a. Aku mula-mula di angka 3, kemudian melompat dua langkah kedepan.
+                                            Maka di angka berapakah sekarang aku?
+                                            <span
+                                                onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S2 a.m4a')"><img
+                                                    src="/assets/image/sound.png"
+                                                    class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                            <div class="flex items-center">
+                                                <img width="50%"
+                                                    src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 2a.png" alt="">
+                                                <p>3 + 2 =
+                                                    <select name="berlatih2" id="berlatih2">
+                                                        <option value="">....</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            b. Aku mula-mula di angka 4, kemudian melompat tiga langkah kedepan.
+                                            Maka di angka berapakah sekarang aku?
+                                            <span
+                                                onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S2 b.m4a')"><img
+                                                    src="/assets/image/sound.png"
+                                                    class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                            <div class="flex items-center">
+                                                <img width="50%"
+                                                    src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 2b.png" alt="">
+                                                <p>4 + 3 =
+                                                    <select name="berlatih3" id="berlatih3">
+                                                        <option value="">....</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            c. Aku mula-mula di angka , kemudian melompat tiga langkah kedepan.
+                                            Maka di angka berapakah sekarang aku?
+                                            <span
+                                                onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S2 c.m4a')"><img
+                                                    src="/assets/image/sound.png"
+                                                    class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                            <div class="flex items-center">
+                                                <img width="50%"
+                                                    src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 2c.png" alt="">
+                                                <p>3 + 3 =
+                                                    <select name="berlatih4" id="berlatih4">
+                                                        <option value="">....</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 2 -->
+
+                                    <!-- *Soal berlatih Nomor 3 -->
+                                    <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.!
+                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S3.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 3.png" alt="">
+                                        <p>Ada sekumpulan burung pipit hinggap di ranting pohon sebanyak 6 ekor. <br>
+                                            Akan tetapi 2 burung pipit terbang ke ranting pohon lainnya. <br>
+                                            Maka sisa berapakah burung pipit yang ada di ranting pohon sekarang.
+                                        </p>
+                                        <p>6 – 2 =
+                                            <select name="berlatih5" id="berlatih5">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </p>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 3 -->
+
+                                    <!-- *Soal berlatih Nomor 4 -->
+                                    <li> Perhatikan gambar di bawah ini. Lengkapilah jawaban berikut.!
+                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S4.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 4.png" alt="">
+                                        <p>Di parkiran di sekolah ada 6 sepeda yang di parkir di sana. <br>
+                                            Saat jam bel pulang sekolah Dina pulang mennggunakan sepeda. <br>
+                                            Maka sisa berapa sepeda yang ada di parkirann sekolah sekarang.
+                                        </p>
+                                        <p>6 – 1 =
+                                            <select name="berlatih6" id="berlatih6">
+                                                <option value="">....</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </p>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 4-->
+
+                                    <!-- *Soal berlatih Nomor 5 -->
+                                    <li> Hitunglah operasi penjumlahan berikut!
+                                        <p>Aku di angka 6, kemudian melompat 4 langkah ke belakang.
+                                            Maka angka berapakah sekarang aku?</p>
+                                        <span onclick="play('/assets/sounds/bab_2/sub_3/Ayo Berlatih/S55.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex items-center">
+                                            <img width="50%" src="/assets/image/bab_2/sub_3/Ayo Berlatih/Soal 5.png"
+                                                alt="">
+                                            <p>6 - 4 =
+                                                <select name="berlatih7" id="berlatih7">
+                                                    <option value="">....</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                </select>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 5 -->
+                                </ol>
+                            </sl-card>
+                            <div class="w-full flex justify-center">
+                                <p
+                                    class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
+                                    <button type="submit">Cek Jawaban</button>
+                                </p>
+                                <p
+                                    class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
+                                    Coba Lagi
+                                </p>
+                            </div>
+                        </form>
                     </sl-tab-panel>
                 </sl-tab-group>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+    <script src="./materi3.js"></script>
 
     <!-- Script for shoelace style -->
     <script type="module"
@@ -568,6 +578,8 @@
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"></script>
     <!-- End Script for Shoelace style -->
+    <script type="module" src="/util/js/db.js"></script>
+    <script type="module" src="/util/js/check.js"></script>
 </body>
 
-</html> /
+</html>

@@ -39,7 +39,7 @@ let registerUser = async (e) => {
    }).then((confirm) => {
       if (confirm) {
          signUpForm.reset();
-         window.location.href = "./login.html";
+         window.location.href = "./login.html?role=siswa";
       }
    });
 };

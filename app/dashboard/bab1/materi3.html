@@ -14,23 +14,51 @@
     <script type="module" src="/util/js/getUserName.js"></script>
     <script src="/util/js/playAudio.js"></script>
     <style>
-        /* .sub_1_ayo_mengamati {} */
-
         .options {
-         display: flex;
-         gap: 10px;
-      }
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            /* width: max-content; */
+            height: 220px;
+        }
 
-      .option {
-         cursor: pointer;
-         padding: 5px;
-         border: 1px solid #ccc;
-         border-radius: 5px;
-      }
+        .option {
+            cursor: pointer;
+            padding: 15px;
+            padding-left: 22px;
+            padding-right: 22px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            /* Add margin between each optionContainer */
+            text-align: center;
+            /* Center text within the option */
+        }
 
-      .option:hover {
-         background-color: #f0f0f0;
-      }
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .audio-button {
+            display: flex;
+            margin-top: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .audio-button img {
+            margin: 20px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        td>img {
+            width: 12rem;
+            height: 12rem;
+            object-fit: cover;
+            margin: 0 auto;
+        }
 
         .sub_1_ayo_mengamati>tr>td>* {
             margin: 0 auto;
@@ -121,8 +149,8 @@
                 </sl-tree-item>
 
                 <sl-tree-item>
-                    <p>PENJUMLAHAN BILANGAN DAN PENGURANGAN
-                        BILANGAN 1 SAMPAI DENGAN 10</p>
+                    <p>Penjumlahan Bilangan dan Pengurangan
+                        Bilangan 1 sampai dengan 10</p>
                     <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
                     <sl-tree-item>
                         <p>Materi</p>
@@ -197,12 +225,12 @@
                             </p>
                             <br />
                             <div class="flex my-2 py-1 justify-center">
-                                <video width="640" height="480" controls>
+                                <!-- <video width="640" height="480" controls>
                                     <source
                                         src="/assets/sounds/bab_1/sub_3/Video Ayo Mengamati/Menghitung Maju dan Mundur Bilangan.mp4"
                                         type="video/mp4" />
                                     Your browser does not support the video tag.
-                                </video>
+                                </video> -->
                             </div>
                             <span class="flex justify-center text-center items-center italic text-xs py-2">Gambar 2
                                 Video Pembelajaran
@@ -219,15 +247,20 @@
                                     src="/assets/image/sound.png"
                                     class="w-6 h-6 cursor-pointer select-none" /></span><br />
                             <div>
-                                <table class="w-full" id="table-mencoba">
-                                    <thead>
-                                        <tr>
-                                            <th>Benda</th>
-                                            <th>Bilangan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="body-table"></tbody>
-                                </table>
+                                <form onsubmit="taskResult(`mengamati`)">
+                                    <table class="w-full" id="table-mencoba">
+                                        <thead>
+                                            <tr>
+                                                <th>Benda</th>
+                                                <th>Bilangan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="body-table"></tbody>
+                                    </table>
+                                    <p class="text-right">
+                                        <button type="submit" class="m-4 p-2 px-4 bg-blue-400 rounded-xl">Kirim</button>
+                                    </p>
+                                </form>
                             </div>
                         </div>
                     </sl-tab-panel>
@@ -235,166 +268,162 @@
 
                     <!-- * Tab Panel Ayo Berlatih -->
                     <sl-tab-panel name="berlatih">
-                        <div class="text-content mx-auto">
-                            <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
-                                Petunjuk Pengerjaan :
-                            </h3>
-                            <ol class="black-number mx-4">
-                                <li>
-                                    Untuk memahami materi di atas, silahkan jawab pertanyaan di
-                                    bawah ini!
-                                </li>
-                                <li>
-                                    Jawablah pertanyaan dengan mengklik salah satu jawaban yang
-                                    dianggap benar!
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
-                                        Jawaban</span>
-                                    untuk mengetahui jawaban benar atau salah!
-                                </li>
-                                <li>
-                                    Jika jawabanmu benar, muncul keterangan
-                                    <span class="font-bold text-green-600">"Jawaban Benar"</span>
-                                </li>
-                                <li>
-                                    Jika jawabanmu salah, muncul keterangan
-                                    <span class="font-bold text-red-600">"Jawaban Salah"</span>
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
-                                        Lagi</span>
-                                    untuk mencoba kembali
-                                    <span
-                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Ayo Berlatih.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                </li>
-                            </ol>
-                        </div>
-                        <sl-card id="info-media"
-                            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div slot="header">
-                                <h3 class="font-bold text-lg underline decoration-solid px-2 py-1">
-                                    Isilah titik-titik bawah ini dengan benar !
+                        <form onsubmit="taskResult(`berlatih`)">
+                            <div class="text-content mx-auto">
+                                <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
+                                    Petunjuk Pengerjaan :
                                 </h3>
-                                <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/isilah.m4a')"><img
-                                        src="/assets/image/sound.png"
-                                        class="w-6 h-6 cursor-pointer select-none" /></span>
+                                <ol class="black-number mx-4">
+                                    <li>
+                                        Untuk memahami materi di atas, silahkan jawab pertanyaan di
+                                        bawah ini!
+                                    </li>
+                                    <li>
+                                        Jawablah pertanyaan dengan mengklik salah satu jawaban yang
+                                        dianggap benar!
+                                    </li>
+                                    <li class="py-4">
+                                        Klik tombol
+                                        <span
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
+                                            Jawaban</span>
+                                        untuk mengetahui jawaban benar atau salah!
+                                    </li>
+                                    <li>
+                                        Jika jawabanmu benar, muncul keterangan
+                                        <span class="font-bold text-green-600">"Jawaban Benar"</span>
+                                    </li>
+                                    <li>
+                                        Jika jawabanmu salah, muncul keterangan
+                                        <span class="font-bold text-red-600">"Jawaban Salah"</span>
+                                    </li>
+                                    <li class="py-4">
+                                        Klik tombol
+                                        <span
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
+                                            Lagi</span>
+                                        untuk mencoba kembali
+                                        <span
+                                            onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Ayo Berlatih.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                    </li>
+                                </ol>
                             </div>
-
-                            <ol class="soal-berlatih mx-4">
-                                <!-- *Soal berlatih Nomor 1 -->
-                                <li>Perhatikan gambar di bawah ini. <br>
-                                    Lengkapilah isi titik-titik urutan bilangan berikut ini ! . . .
-                                    <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 1.m4a')"><img
+                            <sl-card id="info-media"
+                                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <div slot="header">
+                                    <h3 class="font-bold text-lg underline decoration-solid px-2 py-1">
+                                        Isilah titik-titik bawah ini dengan benar !
+                                    </h3>
+                                    <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/isilah.m4a')"><img
                                             src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/1.png"
-                                        class="w-1/2 h-auto object-contain" />
-                                </li>
-                                <!-- *End Soal berlatih Nomor 1 -->
+                                            class="w-6 h-6 cursor-pointer select-none" /></span>
+                                </div>
 
-                                <!-- *Soal berlatih Nomor 2 -->
-                                <li>Perhatikan gambar di bawah ini. <br>
-                                    Isilah titik-titik pada urutan bilangan ini di mulai dari 1 sampai 10 . . .
-                                    <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 2.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/2.png"
-                                        class="w-1/2 h-auto object-contain" />
-                                </li>
-                                <!-- *End Soal berlatih Nomor 2 -->
-
-                                <!-- *Soal berlatih Nomor 3 -->
-                                <li>Perhatikan gambar di bawah ini! <br>
-                                    Isilah titik-titik pada urutan bilangan ini di mulai dari 10 sampai 1 . . .
-                                    <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 3.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/3.png"
-                                        class="w-1/2 h-auto object-contain" />
-                                </li>
-                                <!-- *End Soal berlatih Nomor 3 -->
-
-                                <!-- *Soal berlatih Nomor 4 -->
-                                <li>Di bawah ini yang merupakan urutan bilangan yang benar dari terkecil ke
-                                    terbesar adalah . . .
-                                    <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 4.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex">
-                                        <div>
-                                            <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/4.png"
-                                                class="w-1/2 h-auto object-contain" />
-                                            <input type="radio" id="html1" name="fav_language1" value="HTML" />
-                                            <label class="mr-10" for="html1">a.</label>
+                                <ol class="soal-berlatih mx-4">
+                                    <!-- *Soal berlatih Nomor 1 -->
+                                    <li>Perhatikan gambar di bawah ini. <br>
+                                        Lengkapilah isi titik-titik urutan bilangan berikut ini ! . . .
+                                        <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 1.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <!-- <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/1.png"
+                                        class="w-1/2 h-auto object-contain" /> -->
+                                        <div class="grid grid-cols-4">
+                                            <div id="box1" class="grid grid-cols-4"></div>
                                         </div>
-                                        <div>
-                                            <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/5.png"
-                                                class="w-1/2 h-auto object-contain" />
-                                            <input type="radio" id="css1" name="fav_language1" value="CSS" />
-                                            <label class="mr-10" for="css1">b.</label>
-                                        </div>
-                                    </div>
 
-                                </li>
-                                <!-- *End Soal berlatih Nomor 4 -->
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 1 -->
 
-                                <!-- *Soal berlatih Nomor 5 -->
-                                <li>Di bawah ini yang merupakan urutan bilangan yang benar dari terbesar ke
-                                    terkecil adalah . . .
-                                    <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 5.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex">
-                                        <div>
-                                            <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/5.png"
-                                                class="w-1/2 h-auto object-contain" />
-                                            <input type="radio" id="html1" name="fav_language1" value="HTML" />
-                                            <label class="mr-10" for="html1">a.</label>
+                                    <!-- *Soal berlatih Nomor 2 -->
+                                    <li>Perhatikan gambar di bawah ini. <br>
+                                        Isilah titik-titik pada urutan bilangan ini di mulai dari 1 sampai 10 . . .
+                                        <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 2.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <!-- <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/2.png"
+                                        class="w-1/2 h-auto object-contain" /> -->
+                                        <div class="grid grid-cols-2">
+                                            <div id="box2" class="grid grid-cols-5 gap-3"></div>
                                         </div>
-                                        <div>
-                                            <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/4.png"
-                                                class="w-1/2 h-auto object-contain" />
-                                            <input type="radio" id="css1" name="fav_language1" value="CSS" />
-                                            <label class="mr-10" for="css1">b.</label>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 2 -->
+
+                                    <!-- *Soal berlatih Nomor 3 -->
+                                    <li>Perhatikan gambar di bawah ini! <br>
+                                        Isilah titik-titik pada urutan bilangan ini di mulai dari 10 sampai 1 . . .
+                                        <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 3.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <!-- <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/3.png"
+                                        class="w-1/2 h-auto object-contain" /> -->
+                                        <div class="grid grid-cols-2">
+                                            <div id="box3" class="grid grid-cols-5 gap-3"></div>
                                         </div>
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 5 -->
-                            </ol>
-                        </sl-card>
-                        <div class="w-full flex justify-center">
-                            <p
-                                class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                                Cek Jawaban
-                            </p>
-                            <p
-                                class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                                Coba Lagi
-                            </p>
-                        </div>
-                        <sl-card id="info-media"
-                            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div slot="header">
-                                <h3 class="font-bold text-lg underline decoration-solid px-2 py-1">
-                                    Kunci Jawaban
-                                </h3>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 3 -->
+
+                                    <!-- *Soal berlatih Nomor 4 -->
+                                    <li>Di bawah ini yang merupakan urutan bilangan yang benar dari terkecil ke
+                                        terbesar adalah . . .
+                                        <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 4.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex">
+                                            <div>
+                                                <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/4.png"
+                                                    class="w-1/2 h-auto object-contain" />
+                                                <input type="radio" id="html1" name="berlatih4" value="a" />
+                                                <label class="mr-10" for="html1">a.</label>
+                                            </div>
+                                            <div>
+                                                <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/5.png"
+                                                    class="w-1/2 h-auto object-contain" />
+                                                <input type="radio" id="css1" name="berlatih4" value="b" />
+                                                <label class="mr-10" for="css1">b.</label>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 4 -->
+
+                                    <!-- *Soal berlatih Nomor 5 -->
+                                    <li>Di bawah ini yang merupakan urutan bilangan yang benar dari terbesar ke
+                                        terkecil adalah . . .
+                                        <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Soal 5.m4a')"><img
+                                                src="/assets/image/sound.png"
+                                                class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                        <div class="flex">
+                                            <div>
+                                                <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/5.png"
+                                                    class="w-1/2 h-auto object-contain" />
+                                                <input type="radio" id="html1" name="berlatih5" value="a" />
+                                                <label class="mr-10" for="html1">a.</label>
+                                            </div>
+                                            <div>
+                                                <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/4.png"
+                                                    class="w-1/2 h-auto object-contain" />
+                                                <input type="radio" id="css1" name="berlatih5" value="b" />
+                                                <label class="mr-10" for="css1">b.</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- *End Soal berlatih Nomor 5 -->
+                                </ol>
+                            </sl-card>
+                            <div class="w-full flex justify-center">
+                                <p
+                                    class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
+                                    <button type="submit">Cek Jawaban</button>
+                                </p>
+                                <p
+                                    class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
+                                    Coba Lagi
+                                </p>
                             </div>
-
-                            <ol class="black-number mx-4">
-                                <li>1, 2, 3, 4, 5, 6, 7, 8, 9, 10 </li>
-                                <li>1, 2, 3, 4, 5, 6, 7, 8, 9, 10</li>
-                                <li>10, 9, 8, 7, 6, 5, 4, 3, 2, 1 </li>
-                                <li>b.</li>
-                                <li>a.</li>
-                            </ol>
-                        </sl-card>
+                        </form>
                     </sl-tab-panel>
                     <!-- * End Tab Panel Ayo Berlatih -->
 
@@ -582,136 +611,156 @@
                                     src="/assets/image/sound.png"
                                     class="w-6 h-6 cursor-pointer select-none" /></span><br />
 
-                                    <div class="my-2 bg-white p-3 rounded-md min-h-screen">
-                                        <div>
-                                           <table class="w-full" id="quizTable">
-                                              <thead>
-                                                 <tr>
-                                                    <th>No</th>
-                                                    <th>Nama Bilangan</th>
-                                                    <th>Lambang Bilangan</th>
-                                                    <th>Jumlah</th>
-                                                    <th>Keterangan</th>
-                                                 </tr>
-                                              </thead>
-                                              <tbody>
-                                                 <tr>
-                                                    <td>1</td>
-                   
-                                                    <td>Satu <br>
-                                                        Dua <br>
-                                                        Tiga
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S1.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td>
-                                                       <img src="/assets/image/bab_1/sub_3/Ayo Menalar/1.png" alt="">
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S1.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td class="options" id="options1"></td>
-                   
-                                                    <td><span id="check1"></span></td>
-                                                 </tr>
-                                                 <tr>
-                                                    <td>2</td>
-                   
-                                                    <td>Delapan <br>
-                                                        Sembilan <br>
-                                                        Sepuluh
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S2.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td>
-                                                       <img src="/assets/image/bab_1/sub_3/Ayo Menalar/2.png" alt="">
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S2.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td class="options" id="options2"></td>
-                   
-                                                    <td><span id="check2"></span></td>
-                                                 </tr>
-                                                 <tr>
-                                                    <td>3</td>
-                   
-                                                    <td>Lima <br>
-                                                        Empat <br>
-                                                        Tiga
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S3.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td>
-                                                       <img src="/assets/image/bab_1/sub_3/Ayo Menalar/3.png" alt="">
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S3.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td class="options" id="options3"></td>
-                   
-                                                    <td><span id="check3"></span></td>
-                                                 </tr>
-                                                 <tr>
-                                                    <td>4</td>
-                   
-                                                    <td>Tujuh <br>
-                                                        Delapan
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S4.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td>
-                                                       <img src="/assets/image/bab_1/sub_3/Ayo Menalar/4.png" alt="">
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S4.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td class="options" id="options4"></td>
-                   
-                                                    <td><span id="check4"></span></td>
-                                                 </tr>
-                                                 <tr>
-                                                    <td>5</td>
-                   
-                                                    <td>Tiga <br>
-                                                        Dua
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S5.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td>
-                                                       <img src="/assets/image/bab_1/sub_3/Ayo Menalar/5.png" alt="">
-                                                       <span onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S5.m4a')">
-                                                          <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
-                                                       </span>
-                                                    </td>
-                   
-                                                    <td class="options" id="options5"></td>
-                   
-                                                    <td><span id="check5"></span></td>
-                                                 </tr>
-                                                 
-                                              </tbody>
-                                           </table>
-                                        </div>
-                                     </div>
-                                    
+                            <div class="my-2 bg-white p-3 rounded-md min-h-screen">
+                                <div>
+                                    <table class="w-full" id="quizTable">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Bilangan</th>
+                                                <th>Lambang Bilangan</th>
+                                                <th>Jumlah</th>
+                                                <th>Keterangan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+
+                                                <td>Satu <br>
+                                                    Dua <br>
+                                                    Tiga
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S1.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <img src="/assets/image/bab_1/sub_3/Ayo Menalar/1.png" alt="">
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S1.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td class="options" id="options1"></td>
+
+                                                <td><span id="check1"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+
+                                                <td>Delapan <br>
+                                                    Sembilan <br>
+                                                    Sepuluh
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S2.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <img src="/assets/image/bab_1/sub_3/Ayo Menalar/2.png" alt="">
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S2.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td class="options" id="options2"></td>
+
+                                                <td><span id="check2"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+
+                                                <td>Lima <br>
+                                                    Empat <br>
+                                                    Tiga
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S3.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <img src="/assets/image/bab_1/sub_3/Ayo Menalar/3.png" alt="">
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S3.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td class="options" id="options3"></td>
+
+                                                <td><span id="check3"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+
+                                                <td>Tujuh <br>
+                                                    Delapan
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S4.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <img src="/assets/image/bab_1/sub_3/Ayo Menalar/4.png" alt="">
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S4.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td class="options" id="options4"></td>
+
+                                                <td><span id="check4"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+
+                                                <td>Tiga <br>
+                                                    Dua
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S5.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <img src="/assets/image/bab_1/sub_3/Ayo Menalar/5.png" alt="">
+                                                    <span
+                                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menalar/S5.m4a')">
+                                                        <img src="/assets/image/sound.png"
+                                                            class="w-6 h-6 cursor-pointer select-none" />
+                                                    </span>
+                                                </td>
+
+                                                <td class="options" id="options5"></td>
+
+                                                <td><span id="check5"></span></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
                         </sl-card>
 
-                        
+
                     </sl-tab-panel>
 
                     <sl-tab-panel name="komunikasikan">
@@ -785,7 +834,7 @@
         </div>
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Script for shoelace style -->
     <script src="/util/js/materi3.js"></script>
@@ -798,6 +847,8 @@
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"></script>
     <!-- End Script for Shoelace style -->
+    <script type="module" src="/util/js/db.js"></script>
+    <script type="module" src="/util/js/check.js"></script>
 </body>
 
 </html>

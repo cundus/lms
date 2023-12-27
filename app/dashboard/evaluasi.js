@@ -31,6 +31,8 @@ const listQuestionTwenty = document.querySelector("#btn-kuis20");
 const btnNextQuestionTwo = document.getElementById("btn-next");
 const listButtonQuiz = document.getElementById("btn-kuis");
 const dataSiswa = document.getElementById("list-data-siswa");
+const nilaiEvaluasi = document.getElementById("nilai-evaluasi1");
+
 // add data siswa ke dom
 const user = JSON.parse(localStorage.getItem("user"));
 dataSiswa.innerHTML = Object.keys(user)
@@ -49,12 +51,17 @@ dataSiswa.innerHTML = Object.keys(user)
   })
   .join("\n");
 
+const nilai = parseInt(localStorage.getItem("evaluasi1"));
+nilaiEvaluasi.innerHTML = `<p>Nilai Evaluasi : ${nilai ? nilai : 0}</p>`;
+
 let numberQuiz = 1;
 btnStart.addEventListener("click", () => {
   startQuiz();
 });
 btnNextQuestionTwo.addEventListener("click", nextQuestion);
 btnPrev.addEventListener("click", previousQuestion);
+
+const selectedAnswers = Array.from({ length: 10 }, () => undefined); // To store selected answers for each question
 
 function startQuiz() {
   Swal.fire({
@@ -107,6 +114,13 @@ function startQuiz() {
 
 function nextQuestion() {
   if (numberQuiz < 20) {
+    const selectedOption = document.querySelector(
+      `input[name="evaluasi1_${numberQuiz}"]:checked`
+    );
+    if (selectedOption) {
+      selectedAnswers[numberQuiz - 1] = selectedOption.value;
+    }
+
     numberQuiz++;
     renderQuiz();
   } else {
@@ -120,6 +134,7 @@ function nextQuestion() {
       confirmButtonText: "Ya, Saya yakin ingin menyelesaikan kuis ini",
     }).then((result) => {
       if (result.isConfirmed) {
+        taskResult(`evaluasi`);
         Swal.fire({
           title: "Akan tertutup otomatis",
           html: "Proses menyelesaikan dalam waktu <b></b> milidetik.",
@@ -157,6 +172,13 @@ function nextQuestion() {
 }
 
 function previousQuestion() {
+  const selectedOption = document.querySelector(
+    `input[name="evaluasi1_${numberQuiz}"]:checked`
+  );
+  if (selectedOption) {
+    selectedAnswers[numberQuiz - 1] = selectedOption.value;
+  }
+
   numberQuiz--;
   renderQuiz();
 }
@@ -165,6 +187,14 @@ function renderQuiz() {
   let additionalHTML = "";
   const numberQuestion = document.querySelector("#nomor-kuis");
   const answerQuestion = document.getElementById("jawaban-kuis");
+
+  const selectedAnswer = selectedAnswers[numberQuiz - 1];
+  if (selectedAnswer) {
+    const selectedOption = document.getElementById(selectedAnswer);
+    if (selectedOption) {
+      selectedOption.checked = true;
+    }
+  }
 
   // console.log("running quiz no ", numberQuiz);
   switch (numberQuiz) {
@@ -180,11 +210,11 @@ function renderQuiz() {
          <span onclick="play('/assets/sounds/evaluasi/E1.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span><br />
-            <input type="radio" id="a1" name="kuis1" value="jawabanA" />
+            <input type="radio" id="a1" name="evaluasi1_1" value="a" />
             <label for="a1">a. Lambang Bilangan.</label><br />
-            <input type="radio" id="b1" name="kuis1" value="JawabanB" />
+            <input type="radio" id="b1" name="evaluasi1_1" value="b" />
             <label for="b1">b. Nama Bilangan.</label><br />
-            <input type="radio" id="c1" name="kuis1" value="JawabanC" />
+            <input type="radio" id="c1" name="evaluasi1_1" value="c" />
             <label for="c1">c. Membandingkan Bilangan.</label><br />
             `;
       break;
@@ -201,11 +231,11 @@ function renderQuiz() {
          <span onclick="play('/assets/sounds/evaluasi/E2.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a2" name="kuis1" value="jawabanA" />
+            <input type="radio" id="a2" name="evaluasi1_2" value="a" />
             <label for="a2">a. Lambang Bilangan.</label><br />
-            <input type="radio" id="b2" name="kuis1" value="JawabanB" />
+            <input type="radio" id="b2" name="evaluasi1_2" value="b" />
             <label for="b2">b. Nama Bilangan.</label><br />
-            <input type="radio" id="c2" name="kuis1" value="JawabanC" />
+            <input type="radio" id="c2" name="evaluasi1_2" value="c" />
             <label for="c2">c. Membandingkan Bilangan.</label><br />
             `;
       break;
@@ -221,11 +251,11 @@ function renderQuiz() {
          <span onclick="play('/assets/sounds/evaluasi/E3.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-         <input type="radio" id="a3" name="kuis1" value="jawabanA" />
+         <input type="radio" id="a3" name="evaluasi1_3" value="a" />
          <label for="a3">a. 2</label><br />
-         <input type="radio" id="b3" name="kuis1" value="JawabanB" />
+         <input type="radio" id="b3" name="evaluasi1_3" value="b" />
          <label for="b3">b. 3</label><br />
-         <input type="radio" id="c3" name="kuis1" value="JawabanC" />
+         <input type="radio" id="c3" name="evaluasi1_3" value="c" />
          <label for="c3">c. 4</label><br />
             `;
       break;
@@ -243,11 +273,11 @@ function renderQuiz() {
          <span onclick="play('/assets/sounds/evaluasi/E4.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-         <input type="radio" id="a4" name="kuis1" value="jawabanA" />
+         <input type="radio" id="a4" name="evaluasi1_4" value="a" />
          <label for="a4">a. Empat </label><br />
-         <input type="radio" id="b4" name="kuis1" value="JawabanB" />
+         <input type="radio" id="b4" name="evaluasi1_4" value="b" />
          <label for="b4">b. Tiga</label><br />
-         <input type="radio" id="c4" name="kuis1" value="JawabanC" />
+         <input type="radio" id="c4" name="evaluasi1_4" value="c" />
          <label for="c4">c. Dua</label><br />
           `;
       break;
@@ -262,11 +292,11 @@ function renderQuiz() {
          <span onclick="play('/assets/sounds/evaluasi/E5.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-         <input type="radio" id="a5" name="kuis1" value="jawabanA" />
+         <input type="radio" id="a5" name="evaluasi1_5" value="a" />
          <label for="a5">a. 6</label><br />
-         <input type="radio" id="b5" name="kuis1" value="JawabanB" />
+         <input type="radio" id="b5" name="evaluasi1_5" value="b" />
          <label for="b5">b. 8</label><br />
-         <input type="radio" id="c5" name="kuis1" value="JawabanC" />
+         <input type="radio" id="c5" name="evaluasi1_5" value="c" />
          <label for="c5">c. 7</label><br />
           `;
       break;
@@ -282,11 +312,11 @@ function renderQuiz() {
          <span onclick="play('/assets/sounds/evaluasi/E6.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-          <input type="radio" id="a6" name="kuis1" value="jawabanA" />
+          <input type="radio" id="a6" name="evaluasi1_6" value="a" />
           <label for="a6">a. Lambang Bilangan.</label><br />
-          <input type="radio" id="b6" name="kuis1" value="jawabanB" />
+          <input type="radio" id="b6" name="evaluasi1_6" value="b" />
           <label for="b6">b. Nama Bilangan.</label><br />
-          <input type="radio" id="c6" name="kuis1" value="jawabanC" />
+          <input type="radio" id="c6" name="evaluasi1_6" value="c" />
           <label for="c6">c. Membandingkan Bilangan.</label><br />`;
       break;
     case 7:
@@ -303,11 +333,11 @@ function renderQuiz() {
          class="w-6 h-6 cursor-pointer select-none" /></span> 
          <img class="w-auto" src="/assets/image/evaluasi/Soal 7.png" /><br />
          <p>Tanda yang cocok untuk mengisi titik-titik di atas adalah . . .</p>
-          <input type="radio" id="a7" name="kuis1" value="jawabanA" />
+          <input type="radio" id="a7" name="evaluasi1_7" value="a" />
           <label for="a7">a. ></label><br />
-          <input type="radio" id="b7" name="kuis1" value="jawabanB" />
+          <input type="radio" id="b7" name="evaluasi1_7" value="b" />
           <label for="b7">b. =</label><br />
-          <input type="radio" id="c7" name="kuis1" value="jawabanC" />
+          <input type="radio" id="c7" name="evaluasi1_7" value="c" />
           <label for="c7">c. <</label><br />
           `;
       break;
@@ -326,11 +356,11 @@ function renderQuiz() {
          <img class="w-auto" src="/assets/image/evaluasi/Soal 8.png" />
          <br />
          <p>Tanda yang cocok untuk mengisi titik-titik di atas adalah . . .</p>
-          <input type="radio" id="a8" name="kuis1" value="jawabanA" />
+          <input type="radio" id="a8" name="evaluasi1_8" value="a" />
           <label for="a8">a. =</label><br />
-          <input type="radio" id="b8" name="kuis1" value="jawabanB" />
+          <input type="radio" id="b8" name="evaluasi1_8" value="b" />
           <label for="b8">b. <</label><br />
-          <input type="radio" id="c8" name="kuis1" value="jawabanC" />
+          <input type="radio" id="c8" name="evaluasi1_8" value="c" />
           <label for="c8">c. ></label><br />
           `;
       break;
@@ -349,11 +379,11 @@ function renderQuiz() {
          <img class="w-auto" src="/assets/image/evaluasi/Soal 9.png" />
           <br />
           <p>Tanda yang cocok untuk mengisi titik-titik di atas adalah . . .</p>
-         <input type="radio" id="a9" name="kuis1" value="jawabanA" />
+         <input type="radio" id="a9" name="evaluasi1_9" value="a" />
           <label for="a9">a. ></label><br />
-          <input type="radio" id="b9" name="kuis1" value="jawabanB" />
+          <input type="radio" id="b9" name="evaluasi1_9" value="b" />
           <label for="b9">b. <</label><br />
-          <input type="radio" id="c9" name="kuis1" value="jawabanC" />
+          <input type="radio" id="c9" name="evaluasi1_9" value="c" />
           <label for="c9">c. =</label><br />
           `;
       break;
@@ -370,11 +400,11 @@ function renderQuiz() {
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <br/>
-         <input type="radio" id="a10" name="kuis1" value="jawabanA" />
+         <input type="radio" id="a10" name="evaluasi1_10" value="a" />
           <label for="a10">a. Membandingkan Bilangan.</label><br />
-          <input type="radio" id="b10" name="kuis1" value="jawabanB" />
+          <input type="radio" id="b10" name="evaluasi1_10" value="b" />
           <label for="b10">b. Nama Bilangan. </label><br />
-          <input type="radio" id="c10" name="kuis1" value="jawabanC" />
+          <input type="radio" id="c10" name="evaluasi1_10" value="c" />
           <label for="c10">c. Mengurutkan Bilangan.</label><br />   
           `;
       break;
@@ -390,11 +420,11 @@ function renderQuiz() {
         <span onclick="play('/assets/sounds/evaluasi/E11.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a11" name="kuis1" value="jawabanA" />
+            <input type="radio" id="a11" name="evaluasi1_11" value="a" />
             <label for="a11">a. <img w="50%" src="/assets/image/evaluasi/Soal 11a.png" /> </label><br />
-            <input type="radio" id="b11" name="kuis1" value="jawabanB" />
+            <input type="radio" id="b11" name="evaluasi1_11" value="b" />
             <label for="b11">b. <img w="50%" src="/assets/image/evaluasi/Soal 11b.png" /></label><br />
-            <input type="radio" id="c11" name="kuis1" value="jawabanC" />
+            <input type="radio" id="c11" name="evaluasi1_11" value="c" />
             <label for="c11">c. <img w="50%" src="/assets/image/evaluasi/Soal 11c.png" /></label><br />
         `;
       break;
@@ -410,11 +440,11 @@ function renderQuiz() {
         <span onclick="play('/assets/sounds/evaluasi/12.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a12" name="kuis1" value="jawabanA" />
+            <input type="radio" id="a12" name="evaluasi1_12" value="a" />
             <label for="a12">a. <img width="50%" src="/assets/image/evaluasi/Soal 12a.png" /></label><br />
-            <input type="radio" id="b12" name="kuis1" value="jawabanB" />
+            <input type="radio" id="b12" name="evaluasi1_12" value="b" />
             <label for="b12">b. <img width="50%" src="/assets/image/evaluasi/Soal 12b.png" /></label><br />
-            <input type="radio" id="c12" name="kuis1" value="jawabanC" />
+            <input type="radio" id="c12" name="evaluasi1_12" value="c" />
             <label for="c12">c. <img width="50%" src="/assets/image/evaluasi/Soal 12c.png" /></label><br />
         `;
       break;
@@ -430,11 +460,11 @@ function renderQuiz() {
         <span onclick="play('/assets/sounds/evaluasi/E13.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a13" name="kuis1" value="jawabanA" />
+            <input type="radio" id="a13" name="evaluasi1_13" value="a" />
             <label for="a13">a. Membandingkan Bilangan.</label><br />
-            <input type="radio" id="b13" name="kuis1" value="jawabanB" />
+            <input type="radio" id="b13" name="evaluasi1_13" value="b" />
             <label for="b13">b. Pasangkan Bilangan.</label><br />
-            <input type="radio" id="c13" name="kuis1" value="jawabanC" />
+            <input type="radio" id="c13" name="evaluasi1_13" value="c" />
             <label for="c13">c. Mengurutkan Bilangan.</label><br />
         `;
       break;
@@ -450,11 +480,11 @@ function renderQuiz() {
         <span onclick="play('/assets/sounds/evaluasi/E14.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a14" name="kuis1" value="jawabanA" />
+            <input type="radio" id="a14" name="evaluasi1_14" value="a" />
             <label for="a14">a. <img width="50%" src="/assets/image/evaluasi/Soal 14a.png" /></label><br />
-            <input type="radio" id="b14" name="kuis1" value="jawabanB" />
+            <input type="radio" id="b14" name="evaluasi1_14" value="b" />
             <label for="b14">b. <img width="50%" src="/assets/image/evaluasi/Soal 14b.png" /></label><br />
-            <input type="radio" id="c14" name="kuis1" value="jawabanC" />
+            <input type="radio" id="c14" name="evaluasi1_14" value="c" />
             <label for="c14">c. <img width="50%" src="/assets/image/evaluasi/Soal 14c.png" /></label><br />
         `;
       break;
@@ -470,11 +500,11 @@ function renderQuiz() {
         <span onclick="play('/assets/sounds/evaluasi/E15.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a15" name="kuis1" value="jawabanA" />
+            <input type="radio" id="a15" name="evaluasi1_15" value="a" />
             <label for="a15">a. <img width="50%" src="/assets/image/evaluasi/Soal 15a.png" /></label><br />
-            <input type="radio" id="b15" name="kuis1" value="jawabanB" />
+            <input type="radio" id="b15" name="evaluasi1_15" value="b" />
             <label for="b15">b. <img width="50%" src="/assets/image/evaluasi/Soal 15b.png" /></label><br />
-            <input type="radio" id="c15" name="kuis1" value="jawabanC" />
+            <input type="radio" id="c15" name="evaluasi1_15" value="c" />
             <label for="c15">c. <img width="50%" src="/assets/image/evaluasi/Soal 15c.png" /></label><br />
         `;
       break;
@@ -494,17 +524,16 @@ function renderQuiz() {
         <p>Kemudian ibu membeli lagi 2 meja makan di pasar</p>
         <p>Maka berapakah jumlah semua meja makan yang ibu miliki ? . . .</p> <br />
         <p>Jawaban yang tepat untuk cerita penjumlahan di atas adalah . . .</p>
-            <input type="radio" id="a16" name="kuis1" value="jawabanA" />
+            <input type="radio" id="a16" name="evaluasi1_16" value="a" />
             <label for="a16">a. 4 + 2 = 6</label><br />
-            <input type="radio" id="b16" name="kuis1" value="jawabanB" />
+            <input type="radio" id="b16" name="evaluasi1_16" value="b" />
             <label for="b16">b. 2 + 6 = 8</label><br />
-            <input type="radio" id="c16" name="kuis1" value="jawabanC" />
+            <input type="radio" id="c16" name="evaluasi1_16" value="c" />
             <label for="c16">c. 8 + 2 = 10</label><br />
         `;
       break;
     case 17:
-      numberQuestion.innerText =
-        "17. Ayo perhatikan cerita di bawah ini!";
+      numberQuestion.innerText = "17. Ayo perhatikan cerita di bawah ini!";
       listQuestionSixteen.classList.remove("bg-black", "text-white");
       listQuestionSeventeen.classList.add("bg-black", "text-white");
       listQuestionEightteen.classList.remove("bg-black", "text-white");
@@ -519,11 +548,11 @@ function renderQuiz() {
       <p>Kemudian ibu memakan 1 potong semangka tersebut.</p>
       <p>Maka sisa berapakah semangka potong ibu? . . .</p> <br />
       <p>Jawaban yang tepat untuk cerita pengurangan di atas adalah . . .</p>
-          <input type="radio" id="a17" name="kuis1" value="jawabanA" />
+          <input type="radio" id="a17" name="evaluasi1_17" value="a" />
           <label for="a17">a. 2 - 1 = 1</label><br />
-          <input type="radio" id="b17" name="kuis1" value="jawabanB" />
+          <input type="radio" id="b17" name="evaluasi1_17" value="b" />
           <label for="b17">b. 1 - 1 = 0</label><br />
-          <input type="radio" id="c17" name="kuis1" value="jawabanC" />
+          <input type="radio" id="c17" name="evaluasi1_17" value="c" />
           <label for="c17">c. 1 + 1 = 2</label><br />
       `;
       break;
@@ -539,11 +568,11 @@ function renderQuiz() {
       <span onclick="play('/assets/sounds/evaluasi/E18.m4a')"><img
       src="/assets/image/sound.png"
       class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-          <input type="radio" id="a18" name="kuis1" value="jawabanA" />
+          <input type="radio" id="a18" name="evaluasi1_18" value="a" />
           <label for="a18">a. 10 – 2 = 8</label><br />
-          <input type="radio" id="b18" name="kuis1" value="jawabanB" />
+          <input type="radio" id="b18" name="evaluasi1_18" value="b" />
           <label for="b18">b. 6 – 3 = 3</label><br />
-          <input type="radio" id="c18" name="kuis1" value="jawabanC" />
+          <input type="radio" id="c18" name="evaluasi1_18" value="c" />
           <label for="c18">c. 3 – 3 = 0</label><br />
       `;
       break;
@@ -559,11 +588,11 @@ function renderQuiz() {
         <span onclick="play('/assets/sounds/evaluasi/E19.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-        <input type="radio" id="a19" name="kuis1" value="jawabanA" />
+        <input type="radio" id="a19" name="evaluasi1_19" value="a" />
         <label for="a19">a. 6 + 1 = 7</label><br />
-        <input type="radio" id="b19" name="kuis1" value="jawabanB" />
+        <input type="radio" id="b19" name="evaluasi1_19" value="b" />
         <label for="b19">b. 6 + 2 = 8 </label><br />
-        <input type="radio" id="c19" name="kuis1" value="jawabanC" />
+        <input type="radio" id="c19" name="evaluasi1_19" value="c" />
         <label for="c19">c. 6 + 3 = 9</label><br />
         `;
       break;
@@ -581,11 +610,11 @@ function renderQuiz() {
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <br/>
-         <input type="radio" id="a20" name="kuis1" value="jawabanA" />
+         <input type="radio" id="a20" name="evaluasi1_20" value="a" />
           <label for="a20">a. 9 – 3 = 6</label><br />
-          <input type="radio" id="b20" name="kuis1" value="jawabanB" />
+          <input type="radio" id="b20" name="evaluasi1_20" value="b" />
           <label for="b20">b. 6 – 3 = 3</label><br />
-          <input type="radio" id="c20" name="kuis1" value="jawabanC" />
+          <input type="radio" id="c20" name="evaluasi1_20" value="c" />
           <label for="c20">c. 3 – 3 = 0</label><br />   
           `;
       break;
@@ -631,3 +660,92 @@ document.getElementById("btn-start").addEventListener("click", startQuiz);
 /**
  * & End Function to count down
  */
+
+function taskResult(type) {
+  event.preventDefault();
+
+  if (type === "evaluasi") {
+    const kuisSets = "evaluasi1_20";
+    let kuis_array = selectedAnswers;
+
+    let setElements = document.getElementsByName(kuisSets);
+    let setValue = getCheckedValue(setElements);
+    console.log(setValue);
+    kuis_array.splice(19, 1, setValue);
+    console.log(kuis_array);
+
+    const average = 20; //total soal
+
+    const jawaban = [
+      "a",
+      "b",
+      "c",
+      "a",
+      "b",
+      "c",
+      "c",
+      "c",
+      "c",
+      "c",
+      "b",
+      "b",
+      "b",
+      "b",
+      "b",
+      "a",
+      "a",
+      "a",
+      "a",
+      "a",
+    ]; // jawaban per soal + harus urut
+
+    const resultArray = matchAdjacentElements(jawaban, kuis_array);
+    const resultCount = resultArray.length;
+    const total = (resultCount / average) * 100;
+    localStorage.setItem("evaluasi1_1", total);
+  } else {
+    return null;
+  }
+  totalPerSub();
+}
+
+function totalPerSub() {
+  if (localStorage.getItem("evaluasi1_1")) {
+    const evaluasi = parseInt(localStorage.getItem("evaluasi1_1"));
+
+    localStorage.setItem("evaluasi1", evaluasi);
+    setInterval(() => {
+      localStorage.removeItem("evaluasi1_1");
+    }, 1000);
+  }
+}
+
+function getCheckedValue(elements) {
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i].checked) {
+      return elements[i].value;
+    }
+  }
+  return undefined; // Return undefined if no radio button is checked
+}
+
+function matchAdjacentElements(arr1, arr2) {
+  // Check the length of arrays to ensure they are of the same length
+  if (arr1.length !== arr2.length) {
+    throw new Error("Arrays must have the same length");
+  }
+
+  // Array to store matching values
+  const result = [];
+
+  // Iterate through the arrays
+  for (let i = 0; i < arr1.length; i++) {
+    // Compare values at the current index
+    if (arr1[i] === arr2[i]) {
+      // If they match, add to the result array
+      result.push(arr1[i]);
+    }
+  }
+
+  return result;
+}

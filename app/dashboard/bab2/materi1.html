@@ -105,8 +105,8 @@
                 </sl-tree-item>
 
                 <sl-tree-item expanded>
-                    <p>PENJUMLAHAN BILANGAN DAN PENGURANGAN
-                        BILANGAN 1 SAMPAI DENGAN 10</p>
+                    <p>Penjumlahan Bilangan dan Pengurangan
+                        Bilangan 1 sampai dengan 10</p>
                     <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
                     <sl-tree-item expanded>
                         <p>Materi</p>
@@ -114,10 +114,12 @@
                             <a href="../../dashboard/bab2/materi1.html">Mengenal Simbol +, - atau =</a>
                         </sl-tree-item>
                         <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a>
+                            <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1
+                                s/d 10</a>
                         </sl-tree-item>
                         <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d
+                            <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan
+                                Pengurangan 1 s/d
                                 10</a>
                         </sl-tree-item>
                         <sl-tree-item>
@@ -732,7 +734,7 @@
                         <div class="w-full flex justify-center">
                             <p
                                 class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                                Cek Jawaban
+                                <button onclick="taskResult(`berlatih`)">Cek Jawaban</button>
                             </p>
                             <p
                                 class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
@@ -746,7 +748,7 @@
         </div>
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Script for shoelace style -->
     <script src="./materi1.js"></script>
@@ -759,6 +761,8 @@
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"></script>
     <!-- End Script for Shoelace style -->
+    <script type="module" src="/util/js/db.js"></script>
+    <script type="module" src="/util/js/check.js"></script>
 </body>
 
 </html>

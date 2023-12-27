@@ -1,152 +1,166 @@
 .sidebar {
-   /* background: rgba(255, 200, 246, 0.5); */
-   border: 1px solid rgba(255, 255, 255, 0.18);
-   border-radius: 0.5rem;
-   margin: 0.5rem;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(10px);
-   padding: 1rem;
-   width: 20%;
-   max-width: 40%;
+  /* background: rgba(255, 200, 246, 0.5); */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  width: 20%;
+  max-width: 40%;
 }
 
 .content {
-   background: rgba(255, 200, 246, 0.849);
-   border: 1px solid rgba(255, 255, 255, 0.18);
-   border-radius: 0.5rem;
-   margin: 0.5rem;
-   padding: 1rem;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(10px);
-   color: black;
-   width: 100%;
+  background: rgba(255, 200, 246, 0.849);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  color: black;
+  width: 100%;
 }
 
 .text-content {
-   background: whitesmoke;
-   border: 1px dashed blue;
-   border-radius: 0.5rem;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(10px);
-   padding: 1rem;
-   color: black;
+  background: whitesmoke;
+  border: 1px dashed blue;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  color: black;
 }
 table,
 th,
 td {
-   border: 1px solid black;
+  border: 1px solid black;
 }
 tr {
-   text-align: center;
+  text-align: center;
 }
 
 ol {
-   list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
+  list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
 }
 
 .soal-berlatih li {
-   padding: 1rem;
+  padding: 1rem;
 }
 
 sl-tree-item > * {
-   cursor: pointer;
-   backdrop-filter: blur(10px);
-   color: black;
-   margin: 3px 0;
-   font-weight: "bold";
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  color: black;
+  margin: 3px 0;
+  font-weight: "bold";
 }
 
 sl-tree-item:hover > * {
-   color: rgb(222, 121, 205);
-   font-weight: 600;
+  color: rgb(222, 121, 205);
+  font-weight: 600;
 }
 
 sl-tree-item[selected] > * {
-   color: rgb(222, 121, 205);
-   font-weight: 600;
+  color: rgb(222, 121, 205);
+  font-weight: 600;
 }
 
 sl-tree-item[expanded] > * {
-   font-weight: 600 !important;
-   color: black;
+  font-weight: 600 !important;
+  color: black;
 }
 
 /* Styling for sl-tab */
 sl-tab {
-   width: 100%;
-   text-align: center;
-   font-weight: bold;
-   /* background: rgba(255, 200, 246, 0.5); */
-   border: 1px solid rgba(255, 255, 255, 0.18);
-   border-radius: 0.5rem;
-   /* margin: 0.2rem; */
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(10px);
-   /* padding: 0.1rem; */
-   color: black;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  /* background: rgba(255, 200, 246, 0.5); */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.5rem;
+  /* margin: 0.2rem; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  /* padding: 0.1rem; */
+  color: black;
 }
 
 /* Styling for sl-tab-panel */
 sl-tab-panel {
-   background: rgba(255, 200, 246, 0.849);
-   border: 1px solid rgba(255, 255, 255, 0.18);
-   border-radius: 0.5rem;
-   margin: 0.5rem;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(10px);
-   padding: 0.5rem;
-   color: black;
+  background: rgba(255, 200, 246, 0.849);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem;
+  color: black;
 }
 
 /* Additional styling for the container (optional) */
 sl-tab-group {
-   display: flex;
-   flex-direction: column;
-   gap: 1rem;
-   min-height: 100vh;
-   /* padding: 1rem; */
-   width: 100%;
-   /* background: linear-gradient(to right, #36d1dc, #5b86e5); */
-   /* border-radius: 1rem; */
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 100vh;
+  /* padding: 1rem; */
+  width: 100%;
+  /* background: linear-gradient(to right, #36d1dc, #5b86e5); */
+  /* border-radius: 1rem; */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .tab-guru {
-   width: 100%;
+  width: 100%;
 }
 
 .main-content {
-   margin: 20px; /* Adjust margin as needed */
+  margin: 20px; /* Adjust margin as needed */
 }
 
-.data_siswa {
-   border-collapse: collapse;
-   width: 100%;
+.data_siswa,
+.data_materi,
+.data_kuis,
+.data_evaluasi {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.data_siswa th, .data_siswa td {
-   border: 1px solid #dddddd;
-   text-align: left;
-   padding: 8px;
+.data_siswa th,
+.data_siswa td,
+.data_materi th,
+.data_materi td,
+.data_kuis th,
+.data_kuis td,
+.data_evaluasi th,
+.data_evaluasi td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
-.data_siswa th {
-   background-color: #f2f2f2;
+.data_siswa th,
+.data_materi th,
+.data_kuis th,
+.data_evaluasi th {
+  background-color: #f2f2f2;
 }
 
 #pagination {
-   list-style-type: none;
-   display: flex;
-   padding: 0;
+  list-style-type: none;
+  display: flex;
+  padding: 0;
 }
 
 #pagination li {
-   margin: 0 5px;
-   cursor: pointer;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
-#prevPage, #nextPage {
-   margin-top: 10px;
-   padding: 5px;
-   cursor: pointer;
+#prevPage,
+#nextPage {
+  margin-top: 10px;
+  padding: 5px;
+  cursor: pointer;
 }
