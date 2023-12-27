@@ -333,6 +333,9 @@
                                         <div class="grid grid-cols-4">
                                             <div id="box1" class="grid grid-cols-4"></div>
                                         </div>
+                                        <p class="response" id="response-box1-0"></p>
+                                        <p class="response" id="response-box1-1"></p>
+                                        <p class="response" id="response-box1-2"></p>
 
                                     </li>
                                     <!-- *End Soal berlatih Nomor 1 -->
@@ -348,6 +351,10 @@
                                         <div class="grid grid-cols-2">
                                             <div id="box2" class="grid grid-cols-5 gap-3"></div>
                                         </div>
+                                        <p class="response" id="response-box2-0"></p>
+                                        <p class="response" id="response-box2-1"></p>
+                                        <p class="response" id="response-box2-2"></p>
+                                        <p class="response" id="response-box2-3"></p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 2 -->
 
@@ -362,6 +369,10 @@
                                         <div class="grid grid-cols-2">
                                             <div id="box3" class="grid grid-cols-5 gap-3"></div>
                                         </div>
+                                        <p class="response" id="response-box3-0"></p>
+                                        <p class="response" id="response-box3-1"></p>
+                                        <p class="response" id="response-box3-2"></p>
+                                        <p class="response" id="response-box3-3"></p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 3 -->
 
@@ -375,16 +386,17 @@
                                             <div>
                                                 <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/4.png"
                                                     class="w-1/2 h-auto object-contain" />
-                                                <input type="radio" id="html1" name="berlatih4" value="a" />
+                                                <input type="radio" id="html1" name="berlatih4" value="a" onclick="handleRadioButtonClick(1, 'benar')"/>
                                                 <label class="mr-10" for="html1">a.</label>
                                             </div>
                                             <div>
                                                 <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/5.png"
                                                     class="w-1/2 h-auto object-contain" />
-                                                <input type="radio" id="css1" name="berlatih4" value="b" />
+                                                <input type="radio" id="css1" name="berlatih4" value="b" onclick="handleRadioButtonClick(1, 'salah')"/>
                                                 <label class="mr-10" for="css1">b.</label>
                                             </div>
                                         </div>
+                                        <p id="resultMessage1"></p>
 
                                     </li>
                                     <!-- *End Soal berlatih Nomor 4 -->
@@ -399,16 +411,17 @@
                                             <div>
                                                 <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/5.png"
                                                     class="w-1/2 h-auto object-contain" />
-                                                <input type="radio" id="html1" name="berlatih5" value="a" />
+                                                <input type="radio" id="html1" name="berlatih5" value="a" onclick="handleRadioButtonClick(2, 'benar')"/>
                                                 <label class="mr-10" for="html1">a.</label>
                                             </div>
                                             <div>
                                                 <img src="/assets/image/bab_1/sub_3/Ayo Berlatih/4.png"
                                                     class="w-1/2 h-auto object-contain" />
-                                                <input type="radio" id="css1" name="berlatih5" value="b" />
+                                                <input type="radio" id="css1" name="berlatih5" value="b" onclick="handleRadioButtonClick(2, 'salah')"/>
                                                 <label class="mr-10" for="css1">b.</label>
                                             </div>
                                         </div>
+                                        <p id="resultMessage2"></p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 5 -->
                                 </ol>
@@ -469,27 +482,28 @@
                                         onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/1.m4a')"><img
                                             src="/assets/image/sound.png"
                                             class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <input type="radio" id="html1" name="fav_language1" value="HTML" />
+                                    <input type="radio" id="html1" name="fav_language1" value="HTML" onclick="handleRadioButtonClick(3, 'benar')"/>
                                     <label class="mr-10" for="html1">a. Suatu upaya untuk menentukan suatu bilangan
                                         dalam mengurutkan
                                         dua bilangan dari terbesar ke terkecil.</label><span
                                         onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/1□.m4a')"><img
                                             src="/assets/image/sound.png"
                                             class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <input type="radio" id="css1" name="fav_language1" value="CSS" />
+                                    <input type="radio" id="css1" name="fav_language1" value="CSS" onclick="handleRadioButtonClick(3, 'salah')"/>
                                     <label class="mr-10" for="css1">b. Suatu upaya untuk menentukan suatu bilangan dalam
                                         mengurutkan
                                         dua bilangan dalam bilangan yang sama angkanya.</label><span
                                         onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/1□□.m4a')"><img
                                             src="/assets/image/sound.png"
                                             class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
+                                    <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" onclick="handleRadioButtonClick(3, 'salah')"/>
                                     <label class="mr-10" for="javascript1">c. Suatu upaya untuk menentukan suatu
                                         bilangan dalam mengurutkan
                                         dua bilangan dalam bilangan yang acak.</label><span
                                         onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/1□□□.m4a')"><img
                                             src="/assets/image/sound.png"
                                             class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                            <p id="resultMessage3"></p>
                                 </li>
                                 <!-- *End Soal berlatih Nomor 1 -->
 
@@ -503,14 +517,14 @@
                                     <div class="">
                                         <div>
                                             <img src="/assets/image/bab_1/sub_3/Ayo Menanya/43.png" alt="">
-                                            <input type="radio" id="html1" name="fav_language1" value="HTML" /><span
+                                            <input type="radio" id="html1" name="fav_language1" value="HTML" onclick="handleRadioButtonClick(4, 'benar')"/><span
                                                 onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/2durian.m4a')"><img
                                                     src="/assets/image/sound.png"
                                                     class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         </div>
                                         <div>
                                             <img src="/assets/image/bab_1/sub_3/Ayo Menanya/44.png" alt="">
-                                            <input type="radio" id="css1" name="fav_language1" value="CSS" /><span
+                                            <input type="radio" id="css1" name="fav_language1" value="CSS" onclick="handleRadioButtonClick(4, 'salah')"/><span
                                                 onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/2tomat.m4a')"><img
                                                     src="/assets/image/sound.png"
                                                     class="w-6 h-6 cursor-pointer select-none" /></span><br />
@@ -518,12 +532,13 @@
                                         <div>
                                             <img src="/assets/image/bab_1/sub_3/Ayo Menanya/45.png" alt="">
                                             <input type="radio" id="javascript1" name="fav_language1"
-                                                value="JavaScript" /><span
+                                                value="JavaScript" onclick="handleRadioButtonClick(4, 'salah')"/><span
                                                 onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/2kol.m4a')"><img
                                                     src="/assets/image/sound.png"
                                                     class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         </div>
                                     </div>
+                                    <p id="resultMessage4"></p>
                                 </li>
                                 <!-- *End Soal berlatih Nomor 2 -->
 
@@ -536,21 +551,22 @@
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         <img src="/assets/image/bab_1/sub_3/Ayo Menanya/46.png" alt="">
-                                        <input type="radio" id="html1" name="fav_language1" value="HTML" /><span
+                                        <input type="radio" id="html1" name="fav_language1" value="HTML" onclick="handleRadioButtonClick(5, 'salah')"/><span
                                             onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/2kol.m4a')"><img
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         <img src="/assets/image/bab_1/sub_3/Ayo Menanya/47.png" alt="">
-                                        <input type="radio" id="css1" name="fav_language1" value="CSS" /><span
+                                        <input type="radio" id="css1" name="fav_language1" value="CSS" onclick="handleRadioButtonClick(5, 'benar')"/><span
                                             onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/2durian.m4a')"><img
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         <img src="/assets/image/bab_1/sub_3/Ayo Menanya/48.png" alt="">
                                         <input type="radio" id="javascript1" name="fav_language1"
-                                            value="JavaScript" /><span
+                                            value="JavaScript" onclick="handleRadioButtonClick(5, 'salah')"/><span
                                             onclick="play('/assets/sounds/bab_1/sub_3/Ayo Menanya/2tomat.m4a')"><img
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                                                <p id="resultMessage5"></p>
                                 </li>
                                 <!-- *End Soal berlatih Nomor 3 -->
                             </ol>
@@ -818,7 +834,7 @@
                                         </tbody>
                                     </table>
                                     <div>
-                                        <p class="p-3 text-right">Kirim</p>
+                                        <p class="p-3 text-right cursor-pointer" onclick="komunikasi()">Kirim</p>
                                         <span
                                             onclick="play('/assets/sounds/bab_1/sub_3/Ayo Mengkomunikasikan/Kirim.m4a')"><img
                                                 src="/assets/image/sound.png"

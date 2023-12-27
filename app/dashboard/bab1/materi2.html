@@ -377,17 +377,18 @@
                       Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 1.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                      <input type="radio" id="html1" name="berlatih1" value="a" />
+                      <input type="radio" id="html1" name="berlatih1" value="a" onclick="handleRadioButtonClick(5, 'salah')"/>
                       <label class="mr-10" for="html1">a.
                         <span class="font-bold text-6xl text-orange-600">=</span></label>
-                      <input type="radio" id="css1" name="berlatih1" value="b" />
+                      <input type="radio" id="css1" name="berlatih1" value="b" onclick="handleRadioButtonClick(5, 'benar')"/>
                       <label class="mr-10" for="css1">b.
                         <span class="font-bold text-6xl text-purple-800">></span></label>
-                      <input type="radio" id="javascript1" name="berlatih1" value="c" />
+                      <input type="radio" id="javascript1" name="berlatih1" value="c" onclick="handleRadioButtonClick(5, 'salah')"/>
                       <label class="mr-10" for="javascript1">c.
                         <span class="font-bold text-6xl text-red-700">
                           <</span>
                       </label>
+                      <p id="resultMessage5"></p>
                   </li>
                   <!-- *End Soal berlatih Nomor 1 -->
 
@@ -401,16 +402,17 @@
                       Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 2.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                      <input type="radio" id="html1" name="berlatih2" value="a" />
+                      <input type="radio" id="html1" name="berlatih2" value="a" onclick="handleRadioButtonClick(6, 'salah')"/>
                       <label class="mr-10" for="html1">a.
                         <span class="font-bold text-6xl text-orange-600">=</span></label>
-                      <input type="radio" id="css1" name="berlatih2" value="b" />
+                      <input type="radio" id="css1" name="berlatih2" value="b" onclick="handleRadioButtonClick(6, 'salah')"/>
                       <label class="mr-10" for="css1">b.
                         <span class="font-bold text-6xl text-purple-800">
                           <</span></label>
-                      <input type="radio" id="javascript1" name="berlatih2" value="c" />
+                      <input type="radio" id="javascript1" name="berlatih2" value="c" onclick="handleRadioButtonClick(6, 'benar')"/>
                       <label class="mr-10" for="javascript1">c.
                         <span class="font-bold text-6xl text-red-700">></span></label>
+                        <p id="resultMessage6"></p>
                   </li>
                   <!-- *End Soal berlatih Nomor 2 -->
 
@@ -424,16 +426,17 @@
                       Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 3.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                      <input type="radio" id="html1" name="berlatih3" value="a" />
+                      <input type="radio" id="html1" name="berlatih3" value="a" onclick="handleRadioButtonClick(7, 'benar')"/>
                       <label class="mr-10" for="html1">a.
                         <span class="font-bold text-6xl text-orange-600">=</span></label>
-                      <input type="radio" id="css1" name="berlatih3" value="b" />
+                      <input type="radio" id="css1" name="berlatih3" value="b" onclick="handleRadioButtonClick(7, 'salah')"/>
                       <label class="mr-10" for="css1">b.
                         <span class="font-bold text-6xl text-purple-800">></span></label>
-                      <input type="radio" id="javascript1" name="berlatih3" value="c" />
+                      <input type="radio" id="javascript1" name="berlatih3" value="c" onclick="handleRadioButtonClick(7, 'salah')"/>
                       <label class="mr-10" for="javascript1">c.
                         <span class="font-bold text-6xl text-red-700">
                           <</span></label>
+                          <p id="resultMessage7"></p>
                   </li>
                   <!-- *End Soal berlatih Nomor 3 -->
 
@@ -447,17 +450,18 @@
                       Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 4.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                      <input type="radio" id="html1" name="berlatih4" value="a" />
+                      <input type="radio" id="html1" name="berlatih4" value="a" onclick="handleRadioButtonClick(8, 'benar')"/>
                       <label class="mr-10" for="html1">a.
                         <span class="text-6xl text-orange-600">
                           <</span>
                       </label>
-                      <input type="radio" id="css1" name="berlatih4" value="b" />
+                      <input type="radio" id="css1" name="berlatih4" value="b" onclick="handleRadioButtonClick(8, 'salah')"/>
                       <label class="mr-10" for="css1">b.
                         <span class="font-bold text-6xl text-purple-800">></span></label>
-                      <input type="radio" id="javascript1" name="berlatih4" value="c" />
+                      <input type="radio" id="javascript1" name="berlatih4" value="c" onclick="handleRadioButtonClick(8, 'salah')"/>
                       <label class="mr-10" for="javascript1">c.
                         <span class="font-bold text-6xl text-red-700">=</span></label>
+                        <p id="resultMessage8"></p>
                   </li>
                   <!-- *End Soal berlatih Nomor 4 -->
 
@@ -471,16 +475,17 @@
                       Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 5.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                      <input type="radio" id="html1" name="berlatih5" value="a" />
+                      <input type="radio" id="html1" name="berlatih5" value="a" onclick="handleRadioButtonClick(9, 'salah')"/>
                       <label class="mr-10" for="html1">a.
                         <span class="font-bold text-6xl text-orange-600">=</span></label>
-                      <input type="radio" id="css1" name="berlatih5" value="b" />
+                      <input type="radio" id="css1" name="berlatih5" value="b" onclick="handleRadioButtonClick(9, 'salah')"/>
                       <label class="mr-10" for="css1">b.
                         <span class="font-bold text-6xl text-purple-800">></span></label>
-                      <input type="radio" id="javascript1" name="berlatih5" value="c" />
+                      <input type="radio" id="javascript1" name="berlatih5" value="c" onclick="handleRadioButtonClick(9, 'benar')"/>
                       <label class="mr-10" for="javascript1">c.
                         <span class="font-bold text-6xl text-red-700">
                           <</span></label>
+                          <p id="resultMessage9"></p>
                   </li>
                   <!-- *End Soal berlatih Nomor 5 -->
                 </ol>
@@ -495,22 +500,7 @@
                   Coba Lagi
                 </p>
               </div>
-              <sl-card id="info-media"
-                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <div slot="header">
-                  <h3 class="font-bold text-lg underline decoration-solid px-2 py-1">
-                    Kunci Jawaban
-                  </h3>
-                </div>
-
-                <ol class="black-number mx-4">
-                  <li>B</li>
-                  <li>C</li>
-                  <li>A</li>
-                  <li>A</li>
-                  <li>C</li>
-                </ol>
-              </sl-card>
+              
             </form>
           </sl-tab-panel>
           <!-- * End Tab Panel Ayo Berlatih -->
@@ -555,21 +545,22 @@
                   Apa yang di maksud dengan membandingkan bilangan?<br /><span
                     onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/1.m4a')"><img src="/assets/image/sound.png"
                       class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                  <input type="radio" id="html1" name="fav_language1" value="HTML" />
+                  <input type="radio" id="html1" name="fav_language1" value="HTML" onclick="handleRadioButtonClick(10, 'salah')"/>
                   <label class="mr-10" for="html1">a. Suatu upaya untuk menentukan perbedaan atau persamaan jumlah
                     antara satu buah bilangan, benda, dan lain sebagainya.</label><span
                     onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/1□.m4a')"><img src="/assets/image/sound.png"
                       class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                  <input type="radio" id="css1" name="fav_language1" value="CSS" />
+                  <input type="radio" id="css1" name="fav_language1" value="CSS" onclick="handleRadioButtonClick(10, 'benar')"/>
                   <label class="mr-10" for="css1">b. Suatu upaya untuk menentukan perbedaan atau persamaan jumlah
                     antara dua buah bilangan, benda, dan lain sebagainya.</label><span
                     onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/1□□.m4a')"><img src="/assets/image/sound.png"
                       class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                  <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
+                  <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" onclick="handleRadioButtonClick(10, 'salah')"/>
                   <label class="mr-10" for="javascript1">c. Suatu upaya untuk menentukan perbedaan atau persamaan jumlah
                     antara tiga buah bilangan, benda, dan lain sebagainya.</label><span
                     onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/1□□□.m4a')"><img src="/assets/image/sound.png"
                       class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                      <p id="resultMessage10"></p>
                 </li>
                 <!-- *End Soal berlatih Nomor 1 -->
 
@@ -580,20 +571,21 @@
                       onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/2.m4a')"><img src="/assets/image/sound.png"
                         class="w-6 h-6 cursor-pointer select-none" /></span><br />
                     <img src="/assets/image/bab_1/sub_2/Ayo Menanya/2_1.png" alt="">
-                    <input type="radio" id="html1" name="fav_language1" value="HTML" />
+                    <input type="radio" id="html1" name="fav_language1" value="HTML" onclick="handleRadioButtonClick(11, 'benar')"/>
                     <label class="mr-10" for="html1">a. 8 durian lebih dari 5 semangka</label><span
                       onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/2durian.m4a')"><img
                         src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
                     <img src="/assets/image/bab_1/sub_2/Ayo Menanya/2_2.png" alt="">
-                    <input type="radio" id="css1" name="fav_language1" value="CSS" />
+                    <input type="radio" id="css1" name="fav_language1" value="CSS" onclick="handleRadioButtonClick(11, 'salah')"/>
                     <label class="mr-10" for="css1">b. 5 tomat lebih dari 5 brokoli</label><span
                       onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/2tomat.m4a')"><img
                         src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
                     <img src="/assets/image/bab_1/sub_2/Ayo Menanya/2_3.png" alt="">
-                    <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
+                    <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" onclick="handleRadioButtonClick(11, 'salah')"/>
                     <label class="mr-10" for="javascript1">c. 2 kol kurang dari dari 2 timun</label><span
                       onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/2kol.m4a')"><img
                         src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                        <p id="resultMessage11"></p>
                 </li>
                 <!-- *End Soal berlatih Nomor 2 -->
 
@@ -605,23 +597,24 @@
                       onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/3.m4a')"><img src="/assets/image/sound.png"
                         class="w-6 h-6 cursor-pointer select-none" /></span><br />
                     <img src="/assets/image/bab_1/sub_2/Ayo Menanya/3_1.png" alt="">
-                    <input type="radio" id="html1" name="fav_language1" value="HTML" />
+                    <input type="radio" id="html1" name="fav_language1" value="HTML" onclick="handleRadioButtonClick(12, 'salah')"/>
                     <label class="mr-10" for="html1">a.
                       2 kol sama dengan 2 timun</label><span
                       onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/2kol.m4a')"><img
                         src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
                     <img src="/assets/image/bab_1/sub_2/Ayo Menanya/3_2.png" alt="">
-                    <input type="radio" id="css1" name="fav_language1" value="CSS" />
+                    <input type="radio" id="css1" name="fav_language1" value="CSS" onclick="handleRadioButtonClick(12, 'salah')"/>
                     <label class="mr-10" for="css1">b.
                       8 durian lebih dari 5 semangka</label><span
                       onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/2durian.m4a')"><img
                         src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
                     <img src="/assets/image/bab_1/sub_2/Ayo Menanya/3_3.png" alt="">
-                    <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" />
+                    <input type="radio" id="javascript1" name="fav_language1" value="JavaScript" onclick="handleRadioButtonClick(12, 'benar')"/>
                     <label class="mr-10" for="javascript1">c.
                       5 tomat kurang dari dari 5 brokoli</label><span
                       onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menanya/2tomat.m4a')"><img
                         src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span><br />
+                        <p id="resultMessage12"></p>
                 </li>
                 <!-- *End Soal berlatih Nomor 3 -->
               </ol>
@@ -799,7 +792,7 @@
                     </tbody>
                   </table>
                   <div>
-                    <p class="p-3 text-right">Kirim</p>
+                    <p class="p-3 text-right cursor-pointer" onclick="komunikasi()">Kirim</p>
                   </div>
                 </form>
               </div>

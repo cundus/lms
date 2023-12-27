@@ -270,7 +270,7 @@
                                             <img src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" />
                                         </span>
-                                        <input type="radio" id="html1" name="berlatih1" value="a" />
+                                        <input type="radio" id="html1" name="berlatih1" value="a" onclick="handleRadioButtonClick(1, 'benar')"/>
                                         <label class="mr-10" for="html1">a.
                                             Memasangkan bilangan adalah upaya untuk menentukan suatu
                                             bilangan dalam mengurutkan dua bilangan dalam bilangan yang sama
@@ -280,7 +280,7 @@
                                                 class="w-6 h-6 cursor-pointer select-none" />
                                         </span>
                                         <br>
-                                        <input type="radio" id="css1" name="berlatih1" value="b" />
+                                        <input type="radio" id="css1" name="berlatih1" value="b" onclick="handleRadioButtonClick(1, 'salah')"/>
                                         <label class="mr-10" for="css1">b.
                                             Suatu upaya untuk menentukan suatu bilangan dalam mengurutkan
                                             dua bilangan dalam bilangan yang acak.
@@ -290,7 +290,7 @@
                                                 class="w-6 h-6 cursor-pointer select-none" />
                                         </span>
                                         <br>
-                                        <input type="radio" id="javascript1" name="berlatih1" value="c" />
+                                        <input type="radio" id="javascript1" name="berlatih1" value="c" onclick="handleRadioButtonClick(1, 'salah')"/>
                                         <label class="mr-10" for="javascript1">c.
                                             Dua angka yang di pasangkan yang apabila dijumlahkan akan
                                             menghasilkan angka baru.</label>
@@ -298,6 +298,7 @@
                                             <img src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" />
                                         </span>
+                                        <p id="resultMessage1"></p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 1 -->
 
@@ -311,27 +312,28 @@
                                         </span>
                                         <div class="flex items-center gap-7">
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2a" name="berlatih2" value="a" />
+                                                <input type="radio" id="2a" name="berlatih2" value="a" onclick="handleRadioButtonClick(2, 'benar')"/>
                                                 <label class="mr-2" for="2a">a.
                                                     <img width="50%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/6.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2b" name="berlatih2" value="b" />
+                                                <input type="radio" id="2b" name="berlatih2" value="b" onclick="handleRadioButtonClick(2, 'salah')"/>
                                                 <label class="mr-2" for="2b">b.
                                                     <img width="50%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/7.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2c" name="berlatih2" value="c" />
+                                                <input type="radio" id="2c" name="berlatih2" value="c" onclick="handleRadioButtonClick(2, 'salah')"/>
                                                 <label class="mr-2" for="2c">c.
                                                     <img width="50%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/8.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                         </div>
+                                        <p id="resultMessage2"></p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 2 -->
 
@@ -348,27 +350,28 @@
                                         <br />
                                         <div class="flex items-center gap-7">
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2a" name="berlatih3" value="a" />
+                                                <input type="radio" id="2a" name="berlatih3" value="a" onclick="handleRadioButtonClick(3, 'salah')"/>
                                                 <label class="mr-2" for="2a">a.
                                                     <img width="50%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/6.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2b" name="berlatih3" value="b" />
+                                                <input type="radio" id="2b" name="berlatih3" value="b" onclick="handleRadioButtonClick(3, 'salah')"/>
                                                 <label class="mr-2" for="2b">b.
                                                     <img width="50%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/9.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2c" name="berlatih3" value="c" />
+                                                <input type="radio" id="2c" name="berlatih3" value="c" onclick="handleRadioButtonClick(3, 'benar')"/>
                                                 <label class="mr-2" for="2c">c.
                                                     <img width="50%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/8.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                         </div>
+                                        <p id="resultMessage3"></p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 3 -->
 
@@ -380,27 +383,28 @@
                                         </span><br />
                                         <div class="flex items-center gap-7">
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2a" name="berlatih4" value="a" />
+                                                <input type="radio" id="2a" name="berlatih4" value="a" onclick="handleRadioButtonClick(4, 'benar')"/>
                                                 <label class="mr-2" for="2a">a.
                                                     <img width="75%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/1.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2b" name="berlatih4" value="b" />
+                                                <input type="radio" id="2b" name="berlatih4" value="b" onclick="handleRadioButtonClick(4, 'salah')"/>
                                                 <label class="mr-2" for="2b">b.
                                                     <img width="75%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/2.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2c" name="berlatih4" value="c" />
+                                                <input type="radio" id="2c" name="berlatih4" value="c" onclick="handleRadioButtonClick(4, 'salah')"/>
                                                 <label class="mr-2" for="2c">c.
                                                     <img width="75%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/4.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                         </div>
+                                        <p id="resultMessage4"></p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 4 -->
 
@@ -413,27 +417,28 @@
                                         <br />
                                         <div class="flex items-center gap-7">
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2a" name="berlatih5" value="a" />
+                                                <input type="radio" id="2a" name="berlatih5" value="a" onclick="handleRadioButtonClick(5, 'salah')"/>
                                                 <label class="mr-2" for="2a">a.
                                                     <img width="75%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/1.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2b" name="berlatih5" value="b" />
+                                                <input type="radio" id="2b" name="berlatih5" value="b" onclick="handleRadioButtonClick(5, 'salah')"/>
                                                 <label class="mr-2" for="2b">b.
                                                     <img width="75%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/5.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                             <div class="flex items-center gap-1">
-                                                <input type="radio" id="2c" name="berlatih5" value="c" />
+                                                <input type="radio" id="2c" name="berlatih5" value="c" onclick="handleRadioButtonClick(5, 'benar')"/>
                                                 <label class="mr-2" for="2c">c.
                                                     <img width="75%" src="/assets/image/bab_1/sub_4/Ayo Berlatih/4.png"
                                                         alt="">
                                                 </label>
                                             </div>
                                         </div>
+                                        <p id="resultMessage5"></p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 5 -->
                             </ol>
@@ -480,7 +485,7 @@
 
                             </h1>
                             <div>
-                                <table class="w-full">
+                                <!-- <table class="w-full">
                                     <thead>
                                         <tr>
                                             <th>Kotak Cerita</th>
@@ -516,7 +521,16 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                </table> -->
+                                <table class="w-full" id="table-mencoba">
+                                    <thead>
+                                       <tr>
+                                          <th>Kotak Cerita</th>
+                                          <th>Kotak Bilangan</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody id="body-table"></tbody>
+                                 </table>
                             </div>
                         </div>
                     </sl-tab-panel>
@@ -579,7 +593,7 @@
                                         </tbody>
                                     </table>
                                     <div>
-                                        <p class="p-3 text-right">Kirim</p>
+                                        <p class="p-3 text-right cursor-pointer" onclick="komunikasi()">Kirim</p>
                                     </div>
                                 </form>
                             </div>
