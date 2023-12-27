@@ -348,6 +348,10 @@ function generateOptions(row, question) {
   var optionsContainer = document.getElementById("options" + row);
 
   question.options.forEach(function (option, index) {
+    // Create a new div for each option and sound button pair
+    var optionContainer = document.createElement("div");
+
+    // Create the option element
     var optionElement = document.createElement("span");
     optionElement.className = "option";
     optionElement.textContent = option;
@@ -359,16 +363,25 @@ function generateOptions(row, question) {
       selectOption(row, index);
     };
 
-    // Create sound button using innerHTML
+    // Create the sound button using innerHTML
     var soundButton = document.createElement("span");
     soundButton.className = "audio-button";
     soundButton.innerHTML = `<img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" onclick="play('${question.soundPaths[index]}')">`;
 
-    // Append both option and sound button to the container
-    optionsContainer.appendChild(optionElement);
-    optionsContainer.appendChild(soundButton);
+    // Add classes for styling
+    optionContainer.className = "option-container";
+    optionElement.className = "option";
+    soundButton.className = "audio-button";
+
+    // Append both option and sound button to the optionContainer
+    optionContainer.appendChild(optionElement);
+    optionContainer.appendChild(soundButton);
+
+    // Append the optionContainer to the optionsContainer
+    optionsContainer.appendChild(optionContainer);
   });
 }
+
 
 // Function to handle option selection
 function selectOption(row, index) {
@@ -508,4 +521,15 @@ function matchAdjacentElements(arr1, arr2) {
   }
 
   return result;
+}
+
+function handleRadioButtonClick(rowNumber, result) {
+  var messageElement = document.getElementById('resultMessage' + rowNumber);
+  if (result === 'benar') {
+      messageElement.textContent = 'Kamu Benar!';
+      messageElement.style.color = "green";
+    } else if (result === 'salah') {
+      messageElement.textContent = 'Kamu Salah!';
+      messageElement.style.color = "red";
+  }
 }

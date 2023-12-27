@@ -201,6 +201,7 @@
                     <th>Item</th>
                     <th>Benar</th>
                     <th>Salah</th>
+                    <th>Respon</th>
                   </tr>
                   <!-- * Row Tabel 1 -->
                   <tr>
@@ -208,15 +209,16 @@
                       <img src="/assets/image/bab_1/sub_2/ayo_mengamati/mengamati1_2.1.png" class="w-3/4 h-48" />
                     </td>
                     <td>
-                      <input type="radio" id="sub_2_ayo_mengamati_1_benar" name="mengamati1" value="benar" />
+                      <input type="radio" id="sub_2_ayo_mengamati_1_benar" name="mengamati1" value="benar" onclick="handleRadioButtonClick(1, 'benar')"/>
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo_Mengamati/benar.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
                     <td>
-                      <input type="radio" id="sub_2_ayo_mengamati_1_salah" name="mengamati1" value="salah" />
+                      <input type="radio" id="sub_2_ayo_mengamati_1_salah" name="mengamati1" value="salah" onclick="handleRadioButtonClick(1, 'salah')"/>
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo_Mengamati/salah.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
+                    <td id="resultMessage1"></td>
                   </tr>
                   <tr>
                     <td class="w-3/4">
@@ -233,15 +235,16 @@
                       <img src="/assets/image/bab_1/sub_2/ayo_mengamati/mengamati1_2.2.png" class="w-3/4 h-48" />
                     </td>
                     <td>
-                      <input type="radio" id="sub_2_ayo_mengamati_1_benar" name="mengamati2" value="benar" />
+                      <input type="radio" id="sub_2_ayo_mengamati_1_benar" name="mengamati2" value="benar" onclick="handleRadioButtonClick(2, 'benar')"/>
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo_Mengamati/benar.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
                     <td>
-                      <input type="radio" id="sub_2_ayo_mengamati_1_salah" name="mengamati2" value="salah" />
+                      <input type="radio" id="sub_2_ayo_mengamati_1_salah" name="mengamati2" value="salah" onclick="handleRadioButtonClick(2, 'salah')"/>
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo_Mengamati/salah.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
+                    <td id="resultMessage2"></td>
                   </tr>
                   <tr>
                     <td class="w-3/4">
@@ -258,15 +261,16 @@
                       <img src="/assets/image/bab_1/sub_2/ayo_mengamati/mengamati1_2.3.png" class="w-3/4 h-48" />
                     </td>
                     <td>
-                      <input type="radio" id="sub_2_ayo_mengamati_1_benar" name="mengamati3" value="benar" />
+                      <input type="radio" id="sub_2_ayo_mengamati_1_benar" name="mengamati3" value="benar" onclick="handleRadioButtonClick(3, 'benar')"/>
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo_Mengamati/benar.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
                     <td>
-                      <input type="radio" id="sub_2_ayo_mengamati_1_salah" name="mengamati3" value="salah" />
+                      <input type="radio" id="sub_2_ayo_mengamati_1_salah" name="mengamati3" value="salah" onclick="handleRadioButtonClick(3, 'salah')"/>
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo_Mengamati/salah.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
+                    <td id="resultMessage3"></td>
                   </tr>
                   <tr>
                     <td class="w-3/4">
@@ -283,15 +287,16 @@
                       <img src="/assets/image/bab_1/sub_2/ayo_mengamati/mengamati1_2.4.png" class="w-3/4 h-48" />
                     </td>
                     <td>
-                      <input type="radio" id="sub_2_ayo_mengamati_1_benar" name="mengamati4" value="benar" />
+                      <input type="radio" id="sub_2_ayo_mengamati_1_benar" name="mengamati4" value="benar" onclick="handleRadioButtonClick(4, 'salah')"/>
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo_Mengamati/benar.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
                     <td>
-                      <input type="radio" id="sub_2_ayo_mengamati_1_salah" name="mengamati4" value="salah" />
+                      <input type="radio" id="sub_2_ayo_mengamati_1_salah" name="mengamati4" value="salah" onclick="handleRadioButtonClick(4, 'benar')"/>
                       <span onclick="play('/assets/sounds/bab_1/sub_2/Ayo_Mengamati/salah.m4a')"><img
                           src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
+                    <td id="resultMessage4"></td>
                   </tr>
                   <tr>
                     <td class="w-3/4">

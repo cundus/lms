@@ -64,8 +64,9 @@ window.addEventListener("DOMContentLoaded", () => {
    `;
 
     td2.innerHTML = `
-<div id="image-dropdown-${index}"></div>
-`;
+      <div id="image-dropdown-${index}"></div>
+      <div id="result-container-${index}" class="mt-2"></div>
+    `;
     tr.appendChild(td1);
     tr.appendChild(td2);
 
@@ -216,7 +217,7 @@ const selectedValues = [];
 function selectOption(optionText, buttonId, menuId, selectedValue, index) {
   var dropdownButton = document.getElementById(buttonId);
   dropdownButton.innerHTML = `
-            <img src="${optionText}" alt="Image 1" class="mr-2 " />`;
+    <img src="${optionText}" alt="Image 1" class="mr-2 " />`;
 
   // Store the selected value in a data attribute
   dropdownButton.setAttribute("data-selected-value", selectedValue);
@@ -224,9 +225,36 @@ function selectOption(optionText, buttonId, menuId, selectedValue, index) {
   // Add or update the selected value in the array based on the index
   selectedValues[index] = selectedValue;
 
+  // Check if the selected value is correct
+  const isCorrect = checkCorrectness(selectedValues[index], index);
+
+  // Display "Kamu Benar" or "Kamu Salah" in the next row's cell
+  displayResult(isCorrect, index);
+
   var dropdownMenu = document.getElementById(menuId);
   dropdownMenu.classList.add("hidden");
 }
+
+function checkCorrectness(selectedValue, index) {
+  // Assuming the correct answers are stored in an array
+  const correctAnswers = ['f', 'f', 'd', 'h', 'c', 'e', 'a'];
+
+  // Compare the selected value with the correct answer
+  return selectedValue === correctAnswers[index];
+}
+
+function displayResult(isCorrect, index) {
+  const resultContainer = document.getElementById(`result-container-${index}`);
+
+  if (isCorrect) {
+    resultContainer.innerHTML = 'Kamu Benar';
+    resultContainer.style.color = 'green';
+  } else {
+    resultContainer.innerHTML = 'Kamu Salah';
+    resultContainer.style.color = 'red';
+  }
+}
+
 
 const mencobaContainer = document.getElementById("table-mencoba");
 
@@ -258,6 +286,8 @@ mencobaContainer.addEventListener("click", function (event) {
     }
   }
 });
+
+
 
 function taskResult(type) {
   event.preventDefault();
@@ -325,7 +355,7 @@ function taskResult(type) {
   Swal.fire({
     icon: "success",
     text: `Silahkan lanjut ke berikutnya!`,
-  })
+  });
   totalPerSub();
 }
 
@@ -429,6 +459,10 @@ function generateOptions(row, question) {
   var optionsContainer = document.getElementById("options" + row);
 
   question.options.forEach(function (option, index) {
+    // Create a new div for each option and sound button pair
+    var optionContainer = document.createElement("div");
+
+    // Create the option element
     var optionElement = document.createElement("span");
     optionElement.className = "option";
     optionElement.textContent = option;
@@ -440,14 +474,22 @@ function generateOptions(row, question) {
       selectOption2(row, index);
     };
 
-    // Create sound button using innerHTML
+    // Create the sound button using innerHTML
     var soundButton = document.createElement("span");
     soundButton.className = "audio-button";
     soundButton.innerHTML = `<img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" onclick="play('${question.soundPaths[index]}')">`;
 
-    // Append both option and sound button to the container
-    optionsContainer.appendChild(optionElement);
-    optionsContainer.appendChild(soundButton);
+    // Add classes for styling
+    optionContainer.className = "option-container";
+    optionElement.className = "option";
+    soundButton.className = "audio-button";
+
+    // Append both option and sound button to the optionContainer
+    optionContainer.appendChild(optionElement);
+    optionContainer.appendChild(soundButton);
+
+    // Append the optionContainer to the optionsContainer
+    optionsContainer.appendChild(optionContainer);
   });
 }
 
@@ -483,7 +525,7 @@ function selectOption2(row, index) {
 
   // Add click event listeners back to options for the next attempt
   for (var i = 0; i < options.length; i++) {
-    options[i].setAttribute("onclick", "selectOption(" + row + ", " + i + ")");
+    options[i].setAttribute("onclick", "selectOption2(" + row + ", " + i + ")");
   }
 }
 
@@ -630,5 +672,16 @@ for (i = 0; i < box3data.length; i++) {
           <p class="text-center">${box3data[i]}</p>
        </div>
    `;
+  }
+}
+
+function handleRadioButtonClick(rowNumber, result) {
+  var messageElement = document.getElementById("resultMessage" + rowNumber);
+  if (result === "benar") {
+    messageElement.textContent = "Kamu Benar!";
+    messageElement.style.color = "green";
+  } else if (result === "salah") {
+    messageElement.textContent = "Kamu Salah!";
+    messageElement.style.color = "red";
   }
 }

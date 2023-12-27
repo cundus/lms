@@ -41,9 +41,8 @@ const populateTable = () => {
         <td>${data.kelas}</td>
         <td>${data.sekolah}</td>
         <td>
-            <button class="p-2" onclick="deleteMateri(${
-              data.nisn
-            })"><img src="../../assets/image/delete.png" width="20em">
+            <button class="p-2" onclick="deleteMateri('${data.nisn}', '${data.materi}')">
+            <img src="../../assets/image/delete.png" width="20em">
             </button>
         </td>`;
   });

@@ -18,13 +18,13 @@ function taskResult() {
     mengamati_array.push(parseInt(setValue));
   });
 
-  const average = 15; //total soal
+  const average = 7; //total soal
 
-  const jawaban = [7, 5, 7, 6, 4, 5, 2, 3, 5, 5, 5, 10, 4, 5, 9]; // jawaban per soal + harus urut
+  const jawaban = [7, 5, 7, 6, 4, 5, 2]; // jawaban per soal + harus urut
   const resultArray = matchAdjacentElements(jawaban, mengamati_array);
   const resultCount = resultArray.length;
   const total = (resultCount / average) * 100;
-  localStorage.setItem("sub2_2_1", total);
+  localStorage.setItem("sub2_3_1", total);
   Swal.fire({
     icon: "success",
     text: `Silahkan lanjut ke berikutnya!`,
@@ -33,14 +33,13 @@ function taskResult() {
 }
 
 function totalPerSub() {
-  if (localStorage.getItem("sub2_2_1") && localStorage.getItem("sub2_2_2")) {
-    const mengamati = parseInt(localStorage.getItem("sub2_2_1"));
-    const berlatih = parseInt(localStorage.getItem("sub2_2_2"));
+  if (localStorage.getItem("sub2_3_1") && localStorage.getItem("sub2_2_2")) {
+    const mengamati = parseInt(localStorage.getItem("sub2_3_1"));
     const rata = (mengamati + berlatih) / 2;
 
-    localStorage.setItem("sub2_2", rata);
+    localStorage.setItem("sub2_3", rata);
     setInterval(() => {
-      localStorage.removeItem("sub2_2_1");
+      localStorage.removeItem("sub2_3_1");
       localStorage.removeItem("sub2_2_2");
     }, 1000);
   }

@@ -14,24 +14,43 @@
    <script type="module" src="/util/js/getUserName.js"></script>
    <script src="/util/js/playAudio.js"></script>
    <style>
-      /* .sub_1_ayo_mengamati {
-         } */
       .options {
          display: flex;
-         gap: 10px;
+         flex-direction: row;
+         align-items: center;
+         justify-content: center;
+         /* width: max-content; */
+         height: 220px;
       }
-
+   
       .option {
          cursor: pointer;
-         padding: 5px;
+         padding: 15px;
+         padding-left: 22px;
+         padding-right: 22px;
          border: 1px solid #ccc;
          border-radius: 5px;
+         margin-bottom: 10px; /* Add margin between each optionContainer */
+         text-align: center; /* Center text within the option */
       }
-
+   
       .option:hover {
          background-color: #f0f0f0;
       }
-
+   
+      .audio-button {
+         display: flex;
+         margin-top: 20px;
+         justify-content: center;
+         align-items: center;
+      }
+   
+      .audio-button img {
+         margin: 20px;
+         object-fit: cover;
+         cursor: pointer;
+      }
+   
       td>img {
          width: 12rem;
          height: 12rem;
@@ -39,6 +58,7 @@
          margin: 0 auto;
       }
    </style>
+   
 </head>
 
 <body>
@@ -233,6 +253,7 @@
                               <th>Nama Bilangan</th>
                               <th>Benar</th>
                               <th>Salah</th>
+                              <th>Respon</th>
                            </tr>
                            <!-- * 7 -->
                            <tr>
@@ -255,17 +276,18 @@
                                        class="w-6 h-6 cursor-pointer select-none" /></span>
                               </td>
                               <td>
-                                 <input value="benar" name="mengamati1" type="radio" id="sub_1_ayo_mengamati_7" />
+                                 <input value="benar" name="mengamati1" type="radio" id="sub_1_ayo_mengamati_7" onclick="handleRadioButtonClick(1, 'benar')"/>
                                  <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')"><img
                                        src="/assets/image/sound.png"
                                        class="w-6 h-6 cursor-pointer select-none" /></span>
                               </td>
                               <td>
-                                 <input value="salah" name="mengamati1" type="radio" id="sub_1_ayo_mengamati_7" />
+                                 <input value="salah" name="mengamati1" type="radio" id="sub_1_ayo_mengamati_7" onclick="handleRadioButtonClick(1, 'salah')"/>
                                  <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')"><img
                                        src="/assets/image/sound.png"
                                        class="w-6 h-6 cursor-pointer select-none" /></span>
                               </td>
+                              <td id="resultMessage1"></td>
                            </tr>
                            <!-- * 4 -->
                            <tr>
@@ -288,17 +310,18 @@
                                        class="w-6 h-6 cursor-pointer select-none" /></span>
                               </td>
                               <td>
-                                 <input value="benar" name="mengamati2" type="radio" id="sub_1_ayo_mengamati_4" />
+                                 <input value="benar" name="mengamati2" type="radio" id="sub_1_ayo_mengamati_4" onclick="handleRadioButtonClick(2, 'benar')"/>
                                  <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')"><img
                                        src="/assets/image/sound.png"
                                        class="w-6 h-6 cursor-pointer select-none" /></span>
                               </td>
                               <td>
-                                 <input value="salah" name="mengamati2" type="radio" id="sub_1_ayo_mengamati_4" />
+                                 <input value="salah" name="mengamati2" type="radio" id="sub_1_ayo_mengamati_4" onclick="handleRadioButtonClick(2, 'salah')"/>
                                  <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')"><img
                                        src="/assets/image/sound.png"
                                        class="w-6 h-6 cursor-pointer select-none" /></span>
                               </td>
+                               <td id="resultMessage2"></td>
                            </tr>
                            <!-- *  -->
                            <tr>
@@ -321,17 +344,18 @@
                                  </span>
                               </td>
                               <td>
-                                 <input value="benar" name="mengamati3" type="radio" id="sub_1_ayo_mengamati_4" />
+                                 <input value="benar" name="mengamati3" type="radio" id="sub_1_ayo_mengamati_4" onclick="handleRadioButtonClick(3, 'salah')"/>
                                  <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')">
                                     <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
                                  </span>
                               </td>
                               <td>
-                                 <input value="salah" name="mengamati3" type="radio" id="sub_1_ayo_mengamati_4" />
+                                 <input value="salah" name="mengamati3" type="radio" id="sub_1_ayo_mengamati_4" onclick="handleRadioButtonClick(3, 'benar')"/>
                                  <span onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')">
                                     <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
                                  </span>
                               </td>
+                              <td id="resultMessage3"></td>
                            </tr>
                         </table>
                         <p class="text-right">

@@ -21,6 +21,7 @@ const listQuestionTen = document.querySelector("#btn-kuis10");
 const btnNextQuestionTwo = document.getElementById("btn-next");
 const listButtonQuiz = document.getElementById("btn-kuis");
 const dataSiswa = document.getElementById("list-data-siswa");
+const nilaiKuis = document.getElementById("nilai-kuis1")
 // add data siswa ke dom
 const user = JSON.parse(localStorage.getItem("user"));
 dataSiswa.innerHTML = Object.keys(user)
@@ -38,6 +39,9 @@ dataSiswa.innerHTML = Object.keys(user)
     return `<li>${key}: ${user[key]}</li>`;
   })
   .join("\n");
+
+const nilai = parseInt(localStorage.getItem("kuis1"))
+nilaiKuis.innerHTML = `<p>Nilai Kuis 1 : ${nilai ? nilai : 0}</p>`
 
 let numberQuiz = 1;
 btnStart.addEventListener("click", () => {

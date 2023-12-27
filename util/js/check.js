@@ -30,14 +30,7 @@ async function insertSub() {
         waktu: new Date(),
       };
 
-      await createMateri(data).catch("error mengirim ke db!");
-
-      setInterval(() => {
-        localStorage.removeItem("sub1_1");
-        localStorage.removeItem("sub1_2");
-        localStorage.removeItem("sub1_3");
-        localStorage.removeItem("sub1_4");
-      }, 3000);
+      await createMateri(data, data.materi).catch("error mengirim ke db!");
     }
     if (sub2_1 && sub2_2 && sub2_3) {
       const materi2 = (sub2_1 + sub2_2 + sub2_3) / 3;
@@ -52,13 +45,7 @@ async function insertSub() {
         waktu: new Date(),
       };
 
-      await createMateri(data).catch("error mengirim ke db!");
-
-      setInterval(() => {
-        localStorage.removeItem("sub2_1");
-        localStorage.removeItem("sub2_2");
-        localStorage.removeItem("sub2_3");
-      }, 3000);
+      await createMateri(data, data.materi).catch("error mengirim ke db!");
     }
   } catch (error) {
     console.error();
@@ -78,11 +65,7 @@ async function insertKuis() {
         waktu: new Date(),
       };
 
-      await createKuis(data);
-
-      setInterval(() => {
-        localStorage.removeItem("kuis1");
-      }, 3000);
+      await createKuis(data, data.kuis).catch("error mengirim ke db!");
     }
 
     if (kuis2) {
@@ -96,11 +79,7 @@ async function insertKuis() {
         waktu: new Date(),
       };
 
-      await createKuis(data).catch("error mengirim ke db!");
-
-      setInterval(() => {
-        localStorage.removeItem("kuis2");
-      }, 3000);
+      await createKuis(data, data.kuis).catch("error mengirim ke db!");
     }
   } catch (error) {
     console.error();
@@ -120,11 +99,7 @@ async function insertEvaluasi() {
         waktu: new Date(),
       };
 
-      await createEvaluasi(data).catch("error mengirim ke db!");
-
-      setInterval(() => {
-        localStorage.removeItem("evaluasi1");
-      }, 3000);
+      await createEvaluasi(data, data.evaluasi).catch("error mengirim ke db!");
     }
   } catch (error) {
     console.error();

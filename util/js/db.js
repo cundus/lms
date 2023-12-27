@@ -155,15 +155,15 @@ export const getAllKKM = async () => {
 };
 
 export const createMateri = async (data) => {
-  await set(child(db, `materi/` + data.nisn), data);
+  await set(child(db, `materi/` + (data.nisn + data.materi)), data);
 };
 
 export const createKuis = async (data) => {
-  await set(child(db, `kuis/` + data.nisn), data);
+  await set(child(db, `kuis/` + (data.nisn + data.kuis)), data);
 };
 
 export const createEvaluasi = async (data) => {
-  await set(child(db, `evaluasi/` + data.nisn), data);
+  await set(child(db, `evaluasi/` + (data.nisn + data.evaluasi)), data);
 };
 
 export const getMateri = async () => {
@@ -257,9 +257,9 @@ export async function deleteUser(nisn) {
 
 window.deleteUser = deleteUser;
 
-export async function deleteMateri(nisn) {
+export async function deleteMateri(nisn, materi) {
   try {
-    const userRef = child(db, `materi/` + nisn);
+    const userRef = child(db, `materi/` + (nisn + materi));
 
     const userSnapshot = await get(userRef);
     if (userSnapshot.exists()) {
@@ -287,9 +287,9 @@ export async function deleteMateri(nisn) {
 
 window.deleteMateri = deleteMateri;
 
-export async function deleteKuis(nisn) {
+export async function deleteKuis(nisn, kuis) {
   try {
-    const userRef = child(db, `kuis/` + nisn);
+    const userRef = child(db, `kuis/` + (nisn + kuis));
 
     const userSnapshot = await get(userRef);
     if (userSnapshot.exists()) {
@@ -317,9 +317,9 @@ export async function deleteKuis(nisn) {
 
 window.deleteKuis = deleteKuis;
 
-export async function deleteEvaluasi(nisn) {
+export async function deleteEvaluasi(nisn, evaluasi) {
   try {
-    const userRef = child(db, `evaluasi/` + nisn);
+    const userRef = child(db, `evaluasi/` + (nisn + evaluasi));
 
     const userSnapshot = await get(userRef);
     if (userSnapshot.exists()) {

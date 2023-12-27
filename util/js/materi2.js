@@ -430,3 +430,14 @@ function matchAdjacentElements(arr1, arr2) {
 
   return result;
 }
+
+function handleRadioButtonClick(rowNumber, result) {
+  var messageElement = document.getElementById('resultMessage' + rowNumber);
+  if (result === 'benar') {
+      messageElement.textContent = 'Kamu Benar!';
+      messageElement.style.color = "green";
+    } else if (result === 'salah') {
+      messageElement.textContent = 'Kamu Salah!';
+      messageElement.style.color = "red";
+  }
+}

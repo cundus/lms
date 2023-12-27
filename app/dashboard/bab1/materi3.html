@@ -14,22 +14,50 @@
     <script type="module" src="/util/js/getUserName.js"></script>
     <script src="/util/js/playAudio.js"></script>
     <style>
-        /* .sub_1_ayo_mengamati {} */
-
         .options {
             display: flex;
-            gap: 10px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            /* width: max-content; */
+            height: 220px;
         }
 
         .option {
             cursor: pointer;
-            padding: 5px;
+            padding: 15px;
+            padding-left: 22px;
+            padding-right: 22px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            margin-bottom: 10px;
+            /* Add margin between each optionContainer */
+            text-align: center;
+            /* Center text within the option */
         }
 
         .option:hover {
             background-color: #f0f0f0;
+        }
+
+        .audio-button {
+            display: flex;
+            margin-top: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .audio-button img {
+            margin: 20px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        td>img {
+            width: 12rem;
+            height: 12rem;
+            object-fit: cover;
+            margin: 0 auto;
         }
 
         .sub_1_ayo_mengamati>tr>td>* {
