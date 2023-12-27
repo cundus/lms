@@ -55,6 +55,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     td2.innerHTML = `
        <div id="image-dropdown-${index}"></div>
+<div id="result-container-${index}" class="mt-2"></div>
+
        `;
     tr.appendChild(td1);
     tr.appendChild(td2);
@@ -100,7 +102,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                    <a
                                                       href="#"
                                                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                      onclick="selectOption('/assets/image/bab_1/sub_2/Ayo Mencoba/=.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                      onclick="selectOption('/assets/image/bab_1/sub_2/Ayo Mencoba/=.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'a' , ${id})"
                                                    >
                                                       <img
                                                          src="/assets/image/bab_1/sub_2/Ayo Mencoba/=.png"
@@ -112,7 +114,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                    <a
                                                       href="#"
                                                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                      onclick="selectOption('/assets/image/bab_1/sub_2/Ayo Mencoba/lebih.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                      onclick="selectOption('/assets/image/bab_1/sub_2/Ayo Mencoba/lebih.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'b' , ${id})"
                                                    >
                                                       <img
                                                          src="/assets/image/bab_1/sub_2/Ayo Mencoba/lebih.png"
@@ -124,7 +126,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                    <a
                                                       href="#"
                                                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                      onclick="selectOption('/assets/image/bab_1/sub_2/Ayo Mencoba/kurang.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                      onclick="selectOption('/assets/image/bab_1/sub_2/Ayo Mencoba/kurang.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'c' , ${id})"
                                                    >
                                                       <img
                                                          src="/assets/image/bab_1/sub_2/Ayo Mencoba/kurang.png"
@@ -157,6 +159,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     td2.innerHTML = `
         <div id="image-dropdown-menalar-${index}"></div>
+<div id="result2-container-${index}" class="mt-2"></div>
+
       `;
     td3.innerHTML = `
         <img src="${assetsMenalar[index].image2}" alt="Image 2" class="w-max h-max" />
@@ -209,7 +213,7 @@ window.addEventListener("DOMContentLoaded", () => {
               <a
                 href="#"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                onclick="selectOptionMenalar('/assets/image/bab_1/sub_2/Ayo Mencoba/=.png', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}')"
+                onclick="selectOptionMenalar('/assets/image/bab_1/sub_2/Ayo Mencoba/=.png', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', 'a' , ${id})"
               >
                 <img
                   src="/assets/image/bab_1/sub_2/Ayo Mencoba/=.png"
@@ -221,7 +225,7 @@ window.addEventListener("DOMContentLoaded", () => {
               <a
                 href="#"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                onclick="selectOptionMenalar('/assets/image/bab_1/sub_2/Ayo Mencoba/lebih.png', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}')"
+                onclick="selectOptionMenalar('/assets/image/bab_1/sub_2/Ayo Mencoba/lebih.png', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', 'b' , ${id})"
               >
                 <img
                   src="/assets/image/bab_1/sub_2/Ayo Mencoba/lebih.png"
@@ -233,7 +237,7 @@ window.addEventListener("DOMContentLoaded", () => {
               <a
                 href="#"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                onclick="selectOptionMenalar('/assets/image/bab_1/sub_2/Ayo Mencoba/kurang.png', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}')"
+                onclick="selectOptionMenalar('/assets/image/bab_1/sub_2/Ayo Mencoba/kurang.png', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', 'c' , ${id})"
               >
                 <img
                   src="/assets/image/bab_1/sub_2/Ayo Mencoba/kurang.png"
@@ -249,23 +253,100 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function selectOption(optionText, buttonId, menuId) {
+const selectedValues = [];
+
+function selectOption(optionText, buttonId, menuId, selectedValue, index) {
   var dropdownButton = document.getElementById(buttonId);
   dropdownButton.innerHTML = `
-                <img src="${optionText}" alt="Image 1" class="w-12 h-12 mr-2 " />`;
+    <img src="${optionText}" alt="Image 1" class="mr-2 " />`;
+
+  // Store the selected value in a data attribute
+  dropdownButton.setAttribute("data-selected-value", selectedValue);
+
+  // Add or update the selected value in the array based on the index
+  selectedValues[index] = selectedValue;
+
+  // Check if the selected value is correct
+  const isCorrect = checkCorrectness(selectedValues[index], index);
+
+  // Display "Kamu Benar" or "Kamu Salah" in the next row's cell
+  displayResult(isCorrect, index);
 
   var dropdownMenu = document.getElementById(menuId);
   dropdownMenu.classList.add("hidden");
 }
 
+function checkCorrectness(selectedValue, index) {
+  // Assuming the correct answers are stored in an array
+  const correctAnswers = ['b', 'c', 'c', 'b'];
+
+  // Compare the selected value with the correct answer
+  return selectedValue === correctAnswers[index];
+}
+
+function displayResult(isCorrect, index) {
+  const resultContainer = document.getElementById(`result-container-${index}`);
+
+  if (isCorrect) {
+    resultContainer.innerHTML = 'Kamu Benar';
+    resultContainer.style.color = 'green';
+  } else {
+    resultContainer.innerHTML = 'Kamu Salah';
+    resultContainer.style.color = 'red';
+  }
+}
+
 // Separate function for Menalar dropdown selection
-function selectOptionMenalar(optionText, buttonId, menuId) {
+// function selectOptionMenalar(optionText, buttonId, menuId) {
+//   var dropdownButton = document.getElementById(buttonId);
+//   dropdownButton.innerHTML = `
+//       <img src="${optionText}" alt="Image 1" class="w-12 h-12 mr-2 " />`;
+
+//   var dropdownMenu = document.getElementById(menuId);
+//   dropdownMenu.classList.add("hidden");
+// }
+
+const selectedValues2 = [];
+
+function selectOptionMenalar(optionText, buttonId, menuId, selectedValue, index) {
   var dropdownButton = document.getElementById(buttonId);
   dropdownButton.innerHTML = `
-      <img src="${optionText}" alt="Image 1" class="w-12 h-12 mr-2 " />`;
+    <img src="${optionText}" alt="Image 1" class="mr-2 " />`;
+
+  // Store the selected value in a data attribute
+  dropdownButton.setAttribute("data-selected-value", selectedValue);
+
+  // Add or update the selected value in the array based on the index
+  selectedValues[index] = selectedValue;
+
+  // Check if the selected value is correct
+  const isCorrect = checkCorrectness2(selectedValues[index], index);
+
+  // Display "Kamu Benar" or "Kamu Salah" in the next row's cell
+  displayResult2(isCorrect, index);
 
   var dropdownMenu = document.getElementById(menuId);
   dropdownMenu.classList.add("hidden");
+}
+
+function checkCorrectness2(selectedValue, index) {
+  // Assuming the correct answers are stored in an array
+  const correctAnswers = ['b', 'c', 'a'];
+
+  // Compare the selected value with the correct answer
+  return selectedValue === correctAnswers[index];
+}
+
+function displayResult2(isCorrect, index) {
+  const resultContainer = document.getElementById(`result2-container-${index}`);
+
+  if (isCorrect) {
+    resultContainer.innerHTML = 'Kamu Benar';
+    resultContainer.style.color = 'green';
+  } else {
+    resultContainer.innerHTML = 'Kamu Salah';
+    resultContainer.style.color = 'red';
+  }
 }
 
 // Mencoba Tab event listener

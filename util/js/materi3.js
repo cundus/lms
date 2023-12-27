@@ -685,3 +685,37 @@ function handleRadioButtonClick(rowNumber, result) {
     messageElement.style.color = "red";
   }
 }
+
+function displayResponse(boxId, index, isCorrect) {
+  const box = document.getElementById(boxId);
+  const responseElement = document.getElementById(`response-${boxId}-${index}`); // Updated query
+
+  if (isCorrect) {
+    responseElement.innerHTML = '<p class="text-green-500">kamu benar!</p>';
+  } else {
+    responseElement.innerHTML = '<p class="text-red-500">kamu salah!</p>';
+  }
+}
+
+
+
+function checkAnswer(boxId, correctValues) {
+  const box = document.getElementById(boxId);
+  const selects = box.querySelectorAll('select');
+
+  selects.forEach((select, index) => {
+    select.addEventListener('change', () => {
+      const selectedValue = select.value;
+      const correctValue = correctValues[index];
+
+      displayResponse(boxId, index, selectedValue === correctValue);
+    });
+  });
+}
+
+
+
+// Call the function for each box with the correct values
+checkAnswer('box1', ['3', '5', '8']);
+checkAnswer('box2', ['2', '4', '7', '8']);
+checkAnswer('box3', ['9', '7', '4', '3']);

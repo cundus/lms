@@ -70,3 +70,42 @@ function matchAdjacentElements(arr1, arr2) {
 
   return result;
 }
+
+function checkAnswer(questionNumber, setNumber) {
+  // Get selected option
+  var selectedOption = document.getElementById('berlatih' + setNumber).value;
+
+  // Convert the selected option to a number
+  var selectedOptionNumber = parseInt(selectedOption, 10);
+  console.log(selectedOptionNumber);
+
+  // Get the correct answer for the current question
+  var correctAnswer = correctAnswers1[questionNumber - 1];
+  console.log(correctAnswer);
+
+  // Get the <p> element for displaying response
+  var responseElement = document.getElementById('response' + 1 + '_' + questionNumber);
+
+  // Check if selected option is correct
+  if (selectedOptionNumber === correctAnswer) {
+      responseElement.textContent = 'Kamu benar!';
+      responseElement.style.color = 'green';
+  } else {
+      responseElement.textContent = 'Kamu salah!';
+      responseElement.style.color = 'red';
+  }
+}
+
+// Define the correct answers arrays
+var correctAnswers1 = [7, 5, 7, 6, 4, 5, 2];
+
+// Add event listeners for each select element using a loop
+for (let i = 1; i <= 7; i++) {
+  document.getElementById('berlatih' + i).addEventListener('change', (function (questionNumber) {
+      return function () {
+          // Extract the setNumber from the select element's ID
+          var setNumber = this.id.replace('berlatih', '');
+          checkAnswer(questionNumber, setNumber);
+      };
+  })(i));
+}

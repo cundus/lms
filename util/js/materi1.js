@@ -58,6 +58,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     td2.innerHTML = `
 <div id="image-dropdown-${index}"></div>
+<div id="result-container-${index}" class="mt-2"></div>
 `;
     tr.appendChild(td1);
     tr.appendChild(td2);
@@ -103,7 +104,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 1.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 1.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'a' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 1.png"
@@ -115,7 +116,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 2.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 2.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'b' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 2.png"
@@ -127,7 +128,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 3.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 3.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'c' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 3.png"
@@ -139,7 +140,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilanngan 4.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilanngan 4.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'd' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilanngan 4.png"
@@ -151,7 +152,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 5.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 5.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'e' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 5.png"
@@ -163,7 +164,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 6.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 6.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'f' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 6.png"
@@ -175,7 +176,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 7.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 7.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'g' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 7.png"
@@ -187,7 +188,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 8.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 8.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'h' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 8.png"
@@ -199,7 +200,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 9.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 9.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'i' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 9.png"
@@ -211,7 +212,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <a
                                                    href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 10.png', 'dropdownButton${id}', 'dropdownMenu${id}')"
+                                                   onclick="selectOption2('/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 10.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'j' , ${id})"
                                                 >
                                                    <img
                                                       src="/assets/image/bab_1/sub_1/ayo_mencoba/Lambang Bilangan 10.png"
@@ -227,13 +228,47 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function selectOption2(optionText, buttonId, menuId) {
+const selectedValues = [];
+
+function selectOption2(optionText, buttonId, menuId, selectedValue, index) {
   var dropdownButton = document.getElementById(buttonId);
   dropdownButton.innerHTML = `
-             <img src="${optionText}" alt="Image 1" class="w-12 h-12 mr-2 " />`;
+    <img src="${optionText}" alt="Image 1" class="mr-2 " />`;
+
+  // Store the selected value in a data attribute
+  dropdownButton.setAttribute("data-selected-value", selectedValue);
+
+  // Add or update the selected value in the array based on the index
+  selectedValues[index] = selectedValue;
+
+  // Check if the selected value is correct
+  const isCorrect = checkCorrectness(selectedValues[index], index);
+
+  // Display "Kamu Benar" or "Kamu Salah" in the next row's cell
+  displayResult(isCorrect, index);
 
   var dropdownMenu = document.getElementById(menuId);
   dropdownMenu.classList.add("hidden");
+}
+
+function checkCorrectness(selectedValue, index) {
+  // Assuming the correct answers are stored in an array
+  const correctAnswers = ['d', 'e', 'b', 'a', 'f', 'j', 'c', 'g', 'h', 'i'];
+
+  // Compare the selected value with the correct answer
+  return selectedValue === correctAnswers[index];
+}
+
+function displayResult(isCorrect, index) {
+  const resultContainer = document.getElementById(`result-container-${index}`);
+
+  if (isCorrect) {
+    resultContainer.innerHTML = 'Kamu Benar';
+    resultContainer.style.color = 'green';
+  } else {
+    resultContainer.innerHTML = 'Kamu Salah';
+    resultContainer.style.color = 'red';
+  }
 }
 
 const mencobaContainer = document.getElementById("table-mencoba");

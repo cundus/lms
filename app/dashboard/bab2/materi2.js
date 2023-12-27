@@ -109,3 +109,44 @@ function matchAdjacentElements(arr1, arr2) {
 
   return result;
 }
+
+function checkAnswer(questionNumber, setNumber) {
+  // Get selected option
+  var selectedOption = document.getElementById('berlatih' + setNumber + '_' + questionNumber).value;
+
+  // Get the correct answer for the current question
+  var correctAnswer = setNumber === 1 ? correctAnswers1[questionNumber - 1] : correctAnswers2[questionNumber - 1];
+
+  // Get the <p> element for displaying response
+  var responseElement = document.getElementById('response' + setNumber + '_' + questionNumber);
+
+  // Check if selected option is correct
+  if (selectedOption === correctAnswer.toString()) {
+      responseElement.textContent = 'Kamu benar!';
+      responseElement.style.color = 'green';
+  } else {
+      responseElement.textContent = 'Kamu salah!';
+      responseElement.style.color = 'red';
+  }
+}
+
+// Define the correct answers arrays
+var correctAnswers1 = [4, 4, 8, '6', '8', '14', '2', '3', '5', '5', '5', '10', '4', '5', '9'];
+var correctAnswers2 = ['5', '8', '2', '5', '2'];
+
+// Add event listeners for each select element using a loop
+for (var i = 1; i <= 15; i++) {
+  document.getElementById('berlatih1_' + i).addEventListener('change', (function (questionNumber) {
+      return function () {
+          checkAnswer(questionNumber, 1);
+      };
+  })(i));
+}
+
+for (var i = 1; i <= 5; i++) {
+  document.getElementById('berlatih2_' + i).addEventListener('change', (function (questionNumber) {
+      return function () {
+          checkAnswer(questionNumber, 2);
+      };
+  })(i));
+}

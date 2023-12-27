@@ -1,7 +1,7 @@
 var totals = [];
 
 function updateTotal(questionNumber) {
-  // Find the corresponding question options and total element
+  // Find the corresponding question options, total elements, and response elements
   var option1 = parseInt(
     document.getElementById("question" + questionNumber + "Option1").value
   );
@@ -9,6 +9,8 @@ function updateTotal(questionNumber) {
     document.getElementById("question" + questionNumber + "Option2").value
   );
   var totalElement = document.getElementById("totalQuestion" + questionNumber);
+  var responseElementOption1 = document.getElementById("responseOption1Question" + questionNumber);
+  var responseElementOption2 = document.getElementById("responseOption2Question" + questionNumber);
 
   // Perform the calculation
   var total = option1 + option2;
@@ -22,8 +24,42 @@ function updateTotal(questionNumber) {
   totalElement.innerText = total;
   totals[questionNumber] = total;
 
+  // Check if the selected options are correct
+  const correctAnswer1 = getCorrectAnswerOption1(questionNumber); // Implement this function
+  const correctAnswer2 = getCorrectAnswerOption2(questionNumber); // Implement this function
+
+  // Display the responses for option1 and option2 with colors
+  if (!isNaN(option1) && option1 === correctAnswer1) {
+    responseElementOption1.innerText = "Kamu benar!";
+    responseElementOption1.style.color = "green"; // Green for correct answers
+  } else {
+    responseElementOption1.innerText = "Kamu salah!";
+    responseElementOption1.style.color = "red"; // Red for incorrect answers
+  }
+
+  if (!isNaN(option2) && option2 === correctAnswer2) {
+    responseElementOption2.innerText = "Kamu benar!";
+    responseElementOption2.style.color = "green"; // Green for correct answers
+  } else {
+    responseElementOption2.innerText = "Kamu salah!";
+    responseElementOption2.style.color = "red"; // Red for incorrect answers
+  }
+
   console.log(totals);
 }
+
+// Add these functions to get the correct answers for option1 and option2
+function getCorrectAnswerOption1(questionNumber) {
+  const correctAnswersOption1 = [1, 3, 6, 6, 9, 10, 8, 4, 8, 6];
+  return correctAnswersOption1[questionNumber - 1];
+}
+
+function getCorrectAnswerOption2(questionNumber) {
+  const correctAnswersOption2 = [3, 4, 3, 3, 1, 2, 3, 2, 2, 3];
+  return correctAnswersOption2[questionNumber - 1];
+}
+
+
 
 function taskResult(type) {
   event.preventDefault();
