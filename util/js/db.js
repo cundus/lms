@@ -154,6 +154,10 @@ export const getAllKKM = async () => {
   }
 };
 
+export const createKKM = async (data) => {
+  await set(child(db, `kkm/` + data.id), data);
+};
+
 export const createMateri = async (data) => {
   await set(child(db, `materi/` + (data.nisn + data.materi)), data);
 };
@@ -347,3 +351,34 @@ export async function deleteEvaluasi(nisn, evaluasi) {
 }
 
 window.deleteEvaluasi = deleteEvaluasi;
+
+export async function deleteKKM(id) {
+  try {
+    const userRef = child(db, `kkm/` + id);
+
+    const userSnapshot = await get(userRef);
+    if (userSnapshot.exists()) {
+      await set(userRef, null);
+      Swal.fire({
+        icon: "success",
+        text: `Delete kmm Berhasil`,
+      }).then(() => {
+        window.location.href = "/app/guru/kkm.html";
+      });
+    } else {
+      console.log("no data")
+      return "kkm not found";
+    }
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+    return "Error kkm user";
+  }
+}
+
+window.deleteKKM = deleteKKM;

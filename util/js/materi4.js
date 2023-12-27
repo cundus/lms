@@ -277,3 +277,11 @@ mencobaContainer.addEventListener("click", function (event) {
     }
   }
 });
+
+function komunikasi() {
+  Swal.fire({
+    icon: "success",
+    title: "Success",  }).then(() => {
+    window.location.href = "/app/dashboard/bab1/materi4.html";
+  });
+}

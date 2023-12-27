@@ -522,3 +522,12 @@ function handleRadioButtonClick(rowNumber, result) {
       messageElement.style.color = "red";
   }
 }
+
+function komunikasi() {
+  Swal.fire({
+    icon: "success",
+    title: "Success",  
+  }).then(() => {
+    window.location.href = "/app/dashboard/bab1/materi2.html";
+  });
+}

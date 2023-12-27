@@ -53,7 +53,7 @@
                 line-height: 32px;
                 word-wrap: break-word;
               ">
-                        Data Evaluasi
+                        Data KKM
                     </p>
                 </div>
                 </h3>
@@ -84,11 +84,11 @@
                     <a href="./kuis.html">Data Kuis</a>
                 </sl-tree-item>
 
-                <sl-tree-item selected>
+                <sl-tree-item>
                     <a href="./evaluasi.html">Data Evaluasi</a>
                 </sl-tree-item>
 
-                <sl-tree-item>
+                <sl-tree-item selected>
                     <a href="./kkm.html">Data KKM</a>
                 </sl-tree-item>
 
@@ -97,18 +97,38 @@
                 </sl-tree-item>
             </sl-tree>
         </aside>
+        <div>
+            <form id="myForm">
+                <label for="id">ID</label>
+                <br/>
+                <input type="text" id="id" name="id" class="border-2">
+                <br/>
+                <label for="name">Name</label>
+                <br/>
+                <select name="name" id="name">
+                    <option value="">...</option>
+                    <option value="kuis 1">Kuis 1</option>
+                    <option value="kuis 2">Kuis 2</option>
+                    <option value="evaluasi">Evaluasi</option>
+                </select>
+                <br/>
+                <label for="kkm">KKM</label>
+                <br/>
+                <input type="number" id="kkm" name="kkm" class="border-2">
+                <br/>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
         <div class="tab-guru px-1 flex-[2]">
+            
             <div class="main-content">
-                <table style="width: 100%;" class="data_evaluasi">
+                <table style="width: 100%;" class="data_kkm">
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Id</th>
                             <th>Nama</th>
-                            <th>NISN</th>
-                            <th>Evaluasi</th>
-                            <th>Nilai</th>
-                            <th>Kelas</th>
-                            <th>Sekolah</th>
+                            <th>KKM</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -126,7 +146,7 @@
 
     <script type="module" src="/util/js/getUserName.js"></script>
     <script type="module" src="/util/js/db.js"></script>
-    <script type="module" src="./evaluasi.js"></script>
+    <script type="module" src="./kkm.js"></script>
     <!-- Script for shoelace style -->
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"></script>

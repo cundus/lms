@@ -719,3 +719,11 @@ function checkAnswer(boxId, correctValues) {
 checkAnswer('box1', ['3', '5', '8']);
 checkAnswer('box2', ['2', '4', '7', '8']);
 checkAnswer('box3', ['9', '7', '4', '3']);
+
+function komunikasi() {
+  Swal.fire({
+    icon: "success",
+    title: "Success",  }).then(() => {
+    window.location.href = "/app/dashboard/bab1/materi3.html";
+  });
+}

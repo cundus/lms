@@ -109,3 +109,11 @@ for (let i = 1; i <= 7; i++) {
       };
   })(i));
 }
+
+function komunikasi() {
+  Swal.fire({
+    icon: "success",
+    title: "Success",  }).then(() => {
+    window.location.href = "/app/dashboard/bab2/materi3.html";
+  });
+}

@@ -129,3 +129,11 @@ function matchAdjacentElements(arr1, arr2) {
 
   return result;
 }
+
+function komunikasi() {
+  Swal.fire({
+    icon: "success",
+    title: "Success",  }).then(() => {
+    window.location.href = "/app/dashboard/bab2/materi1.html";
+  });
+}

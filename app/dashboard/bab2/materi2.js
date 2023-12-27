@@ -150,3 +150,11 @@ for (var i = 1; i <= 5; i++) {
       };
   })(i));
 }
+
+function komunikasi() {
+  Swal.fire({
+    icon: "success",
+    title: "Success",  }).then(() => {
+    window.location.href = "/app/dashboard/bab2/materi2.html";
+  });
+}
