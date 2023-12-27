@@ -33,14 +33,12 @@ function taskResult() {
 }
 
 function totalPerSub() {
-  if (localStorage.getItem("sub2_3_1") && localStorage.getItem("sub2_2_2")) {
+  if (localStorage.getItem("sub2_3_1")) {
     const mengamati = parseInt(localStorage.getItem("sub2_3_1"));
-    const rata = (mengamati + berlatih) / 2;
 
-    localStorage.setItem("sub2_3", rata);
+    localStorage.setItem("sub2_3", mengamati);
     setInterval(() => {
       localStorage.removeItem("sub2_3_1");
-      localStorage.removeItem("sub2_2_2");
     }, 1000);
   }
 }
