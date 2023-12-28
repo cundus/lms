@@ -84,6 +84,7 @@ if (role === "guru") {
    nomorIndukInput.type = "text";
    nomorIndukInput.id = "nip-signIn";
    nomorIndukInput.name = "nip";
+   nomorIndukInput.autocomplete= "off"
    nomorIndukInput.required;
    nomorIndukInput.className = "bg-white bg-opacity-70 px-4 py-2 rounded-md w-full";
 
@@ -114,6 +115,7 @@ if (role === "guru") {
    nomorIndukInput.type = "text";
    nomorIndukInput.id = "nisn-signIn";
    nomorIndukInput.name = "nisn";
+   nomorIndukInput.autocomplete= "off"
    nomorIndukInput.required;
    nomorIndukInput.className = "bg-white bg-opacity-70 px-4 py-2 rounded-md w-full";
 
