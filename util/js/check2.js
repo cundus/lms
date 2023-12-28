@@ -11,17 +11,17 @@ function isUserAllowed(role) {
 }
 
 // Example of a protected route with redirection
-function protectedRoute(role, redirectUrl) {
-  if (isUserAllowed(role)) {
+function protectedRoute() {
+  if (currentUser && user.role === "guru") {
     // User has the required role, allow access
     console.log(`Access granted for "${role}" role.`);
-  } else if (user.role === "siswa") {
-    console.log(`Access denied. User must have the role "${role}". Redirecting to home...`);
+  } else if (currentUser && user.role === "siswa") {
+    // console.log(`Access denied. User must have the role "${role}". Redirecting to home...`);
     localStorage.removeItem("user");
     window.location.href = '/'; // Redirect to the home page
   }else {
     // User is not logged in or does not have the required role
-    console.log(`Access denied. User must have the role "${role}". Redirecting to home...`);
+    // console.log(`Access denied. User must have the role "${role}". Redirecting to home...`);
     localStorage.removeItem("user");
     window.location.href = '/'; // Redirect to the home page
   }
@@ -32,4 +32,4 @@ function protectedRoute(role, redirectUrl) {
 // protectedRoute('siswa', siswaRedirectUrl);
 
 const guruRedirectUrl = '/auth/login.html?role=guru'; // Replace with the actual login URL for "guru"
-protectedRoute('guru', guruRedirectUrl);
+protectedRoute();
