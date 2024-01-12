@@ -1,18 +1,22 @@
 const assets = [
   {
-    image: "/assets/image/bab_1/sub_2/Ayo Mencoba/1.png",
+    image1: "/assets/image/bab_1/sub_2/Ayo Mencoba/17_1.png",
+    image2: "/assets/image/bab_1/sub_2/Ayo Mencoba/17_2.png",
     sound: "/assets/sounds/bab_1/sub_2/Ayo Mencoba/rambutan.m4a",
   },
   {
-    image: "/assets/image/bab_1/sub_2/Ayo Mencoba/2.png",
+    image1: "/assets/image/bab_1/sub_2/Ayo Mencoba/18_1.png",
+    image2: "/assets/image/bab_1/sub_2/Ayo Mencoba/18_2.png",
     sound: "/assets/sounds/bab_1/sub_2/Ayo Mencoba/sepeda.m4a",
   },
   {
-    image: "/assets/image/bab_1/sub_2/Ayo Mencoba/3.png",
+    image1: "/assets/image/bab_1/sub_2/Ayo Mencoba/19_1.png",
+    image2: "/assets/image/bab_1/sub_2/Ayo Mencoba/19_2.png",
     sound: "/assets/sounds/bab_1/sub_2/Ayo Mencoba/gelas.m4a",
   },
   {
-    image: "/assets/image/bab_1/sub_2/Ayo Mencoba/4.png",
+    image1: "/assets/image/bab_1/sub_2/Ayo Mencoba/20_1.png",
+    image2: "/assets/image/bab_1/sub_2/Ayo Mencoba/20_2.png",
     sound: "/assets/sounds/bab_1/sub_2/Ayo Mencoba/payung.m4a",
   },
 ];
@@ -43,10 +47,11 @@ window.addEventListener("DOMContentLoaded", () => {
     const tr = document.createElement("tr");
     const td1 = document.createElement("td");
     const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
 
     td1.innerHTML = `
        <img
-           src="${assets[index].image}"
+           src="${assets[index].image1}"
            alt="Image 1"
            class="w-max h-max"
        /> <span
@@ -58,8 +63,17 @@ window.addEventListener("DOMContentLoaded", () => {
 <div id="result-container-${index}" class="mt-2"></div>
 
        `;
+    td3.innerHTML = `
+    <img
+    src="${assets[index].image2}"
+    alt="Image 1"
+    class="w-max h-max"
+/> <span
+
+       `;
     tr.appendChild(td1);
     tr.appendChild(td2);
+    tr.appendChild(td3);
 
     bodyTable.appendChild(tr);
   }
@@ -278,7 +292,7 @@ function selectOption(optionText, buttonId, menuId, selectedValue, index) {
 
 function checkCorrectness(selectedValue, index) {
   // Assuming the correct answers are stored in an array
-  const correctAnswers = ['b', 'c', 'c', 'b'];
+  const correctAnswers = ["b", "b", "c", "b"];
 
   // Compare the selected value with the correct answer
   return selectedValue === correctAnswers[index];
@@ -288,11 +302,11 @@ function displayResult(isCorrect, index) {
   const resultContainer = document.getElementById(`result-container-${index}`);
 
   if (isCorrect) {
-    resultContainer.innerHTML = 'Kamu Benar';
-    resultContainer.style.color = 'green';
+    resultContainer.innerHTML = "Kamu Benar";
+    resultContainer.style.color = "green";
   } else {
-    resultContainer.innerHTML = 'Kamu Salah';
-    resultContainer.style.color = 'red';
+    resultContainer.innerHTML = "Kamu Salah";
+    resultContainer.style.color = "red";
   }
 }
 
@@ -308,7 +322,13 @@ function displayResult(isCorrect, index) {
 
 const selectedValues2 = [];
 
-function selectOptionMenalar(optionText, buttonId, menuId, selectedValue, index) {
+function selectOptionMenalar(
+  optionText,
+  buttonId,
+  menuId,
+  selectedValue,
+  index
+) {
   var dropdownButton = document.getElementById(buttonId);
   dropdownButton.innerHTML = `
     <img src="${optionText}" alt="Image 1" class="mr-2 " />`;
@@ -331,7 +351,7 @@ function selectOptionMenalar(optionText, buttonId, menuId, selectedValue, index)
 
 function checkCorrectness2(selectedValue, index) {
   // Assuming the correct answers are stored in an array
-  const correctAnswers = ['b', 'c', 'a'];
+  const correctAnswers = ["b", "c", "a"];
 
   // Compare the selected value with the correct answer
   return selectedValue === correctAnswers[index];
@@ -341,11 +361,11 @@ function displayResult2(isCorrect, index) {
   const resultContainer = document.getElementById(`result2-container-${index}`);
 
   if (isCorrect) {
-    resultContainer.innerHTML = 'Kamu Benar';
-    resultContainer.style.color = 'green';
+    resultContainer.innerHTML = "Kamu Benar";
+    resultContainer.style.color = "green";
   } else {
-    resultContainer.innerHTML = 'Kamu Salah';
-    resultContainer.style.color = 'red';
+    resultContainer.innerHTML = "Kamu Salah";
+    resultContainer.style.color = "red";
   }
 }
 
@@ -418,7 +438,12 @@ function taskResult(type) {
   event.preventDefault();
 
   if (type === "mengamati") {
-    const mengamatiSets = ["mengamati1", "mengamati2", "mengamati3", "mengamati4"];
+    const mengamatiSets = [
+      "mengamati1",
+      "mengamati2",
+      "mengamati3",
+      "mengamati4",
+    ];
     let mengamati_array = [];
 
     mengamatiSets.forEach((setName) => {
@@ -464,7 +489,7 @@ function taskResult(type) {
   Swal.fire({
     icon: "success",
     text: `Silahkan lanjut ke berikutnya!`,
-  })
+  });
   totalPerSub();
 }
 
@@ -513,21 +538,168 @@ function matchAdjacentElements(arr1, arr2) {
 }
 
 function handleRadioButtonClick(rowNumber, result) {
-  var messageElement = document.getElementById('resultMessage' + rowNumber);
-  if (result === 'benar') {
-      messageElement.textContent = 'Kamu Benar!';
-      messageElement.style.color = "green";
-    } else if (result === 'salah') {
-      messageElement.textContent = 'Kamu Salah!';
-      messageElement.style.color = "red";
+  var messageElement = document.getElementById("resultMessage" + rowNumber);
+  if (result === "benar") {
+    messageElement.textContent = "Kamu Benar!";
+    messageElement.style.color = "green";
+  } else if (result === "salah") {
+    messageElement.textContent = "Kamu Salah!";
+    messageElement.style.color = "red";
   }
 }
 
 function komunikasi() {
   Swal.fire({
     icon: "success",
-    title: "Success",  
+    title: "Success",
   }).then(() => {
     window.location.href = "/app/dashboard/bab1/materi2.html";
+  });
+}
+
+function clearInputs() {
+  // Clear radio button selections for mengamatiSets
+  // const mengamatiSets = ["mengamati1", "mengamati2", "mengamati3"];
+  // mengamatiSets.forEach((setName) => {
+  //   let setElements = document.getElementsByName(setName);
+  //   setElements.forEach((element) => {
+  //     element.checked = false;
+  //   });
+  // });
+
+  // Clear radio button selections for berlatihSets
+  const berlatihSets = [
+    "berlatih1",
+    "berlatih2",
+    "berlatih3",
+    "berlatih4",
+    "berlatih5",
+  ];
+  berlatihSets.forEach((setName) => {
+    let setElements = document.getElementsByName(setName);
+    setElements.forEach((element) => {
+      element.checked = false;
+    });
+  });
+
+  // Clear response messages
+  const resultMessages = [
+    "resultMessage5",
+    "resultMessage6",
+    "resultMessage7",
+    "resultMessage8",
+    "resultMessage9",
+  ];
+  resultMessages.forEach((messageId) => {
+    document.getElementById(messageId).textContent = "";
+  });
+}
+
+menanyaArr = [
+  {
+    item: "image1",
+    image: "/assets/image/bab_1/sub_2/Ayo Menanya/S1.png",
+    sedikit: "benar",
+    lebih: "salah",
+    sama: "salah",
+  },
+  {
+    item: "image2",
+    image: "/assets/image/bab_1/sub_2/Ayo Menanya/S2.png",
+    sedikit: "salah",
+    lebih: "benar",
+    sama: "salah",
+  },
+  {
+    item: "image3",
+    image: "/assets/image/bab_1/sub_2/Ayo Menanya/S3.png",
+    sedikit: "salah",
+    lebih: "salah",
+    sama: "benar",
+  },
+  {
+    item: "image4",
+    image: "/assets/image/bab_1/sub_2/Ayo Menanya/S4.png",
+    sedikit: "salah",
+    lebih: "benar",
+    sama: "salah",
+  },
+  {
+    item: "image5",
+    image: "/assets/image/bab_1/sub_2/Ayo Menanya/S5.png",
+    sedikit: "salah",
+    lebih: "salah",
+    sama: "benar",
+  },
+];
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Populate the table with questions dynamically
+  const tableBody = document.getElementById("quizTableBody");
+  menanyaArr.forEach((question, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td><img src="${question.image}" alt="" class="object-contain"/></td>
+      <td><input type="radio" name="${
+        question.item
+      }" value="sedikit" data-item="${question.item}"></td>
+      <td><input type="radio" name="${
+        question.item
+      }" value="lebih" data-item="${question.item}"></td>
+      <td><input type="radio" name="${question.item}" value="sama" data-item="${
+      question.item
+    }"></td>
+      <td></td>
+    `;
+    tableBody.appendChild(row);
+  });
+});
+
+function submitForm() {
+  // Get all radio inputs
+  const radioInputs = document.querySelectorAll('input[type="radio"]:checked');
+
+  // Check if any radio input is selected
+  if (radioInputs.length === 0) {
+    alert("Please select an option for each question.");
+    return;
+  }
+
+  // Initialize the table body for results
+  const resultTableBody = document.getElementById("quizTableBody");
+
+  // Clear previous responses
+  Array.from(resultTableBody.children).forEach((row) => {
+    row.children[5].textContent = "";
+    row.children[5].style.color = ""; // Clear color styling
+  });
+
+  // Check the correctness of each selected option and update the response column
+  radioInputs.forEach((input) => {
+    const item = input.getAttribute("data-item");
+    const selectedValue = input.value;
+
+    // Find the corresponding object in menanyaArr
+    const selectedItem = menanyaArr.find((obj) => obj.item === item);
+
+    // Check if the selected value is correct
+    const isCorrect = selectedItem && selectedItem[selectedValue] === "benar";
+
+    // Find the row in the result table corresponding to the current question
+    const resultRow = Array.from(resultTableBody.children).find(
+      (row) =>
+        row.children[2].querySelector(`[data-item="${item}"]`) === input ||
+        row.children[3].querySelector(`[data-item="${item}"]`) === input ||
+        row.children[4].querySelector(`[data-item="${item}"]`) === input
+    );
+
+    // Update the response column in the result table
+    if (resultRow) {
+      const responseCell = resultRow.children[5];
+      responseCell.textContent = isCorrect ? "Kamu Benar!" : "Kamu Salah";
+      // Add color styling based on correctness
+      responseCell.style.color = isCorrect ? "green" : "red";
+    }
   });
 }
