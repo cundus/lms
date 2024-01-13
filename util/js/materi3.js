@@ -36,6 +36,21 @@ const assets = [
   },
 ];
 
+const mengamatiArr = [
+  "image1.jpg",
+  "image2.jpg",
+  "...",
+  "image4.jpg",
+  "...",
+  "image6.jpg",
+  "...",
+  "image8.jpg",
+  "image9.jpg",
+  "image10.jpg",
+  "image11.jpg",
+  "...",
+];
+
 window.addEventListener("DOMContentLoaded", () => {
   const bodyTable = document.getElementById("body-table");
 
@@ -237,7 +252,7 @@ function selectOption(optionText, buttonId, menuId, selectedValue, index) {
 
 function checkCorrectness(selectedValue, index) {
   // Assuming the correct answers are stored in an array
-  const correctAnswers = ['f', 'f', 'd', 'h', 'c', 'e', 'a'];
+  const correctAnswers = ["f", "f", "d", "h", "c", "e", "a"];
 
   // Compare the selected value with the correct answer
   return selectedValue === correctAnswers[index];
@@ -247,14 +262,13 @@ function displayResult(isCorrect, index) {
   const resultContainer = document.getElementById(`result-container-${index}`);
 
   if (isCorrect) {
-    resultContainer.innerHTML = 'Kamu Benar';
-    resultContainer.style.color = 'green';
+    resultContainer.innerHTML = "Kamu Benar";
+    resultContainer.style.color = "green";
   } else {
-    resultContainer.innerHTML = 'Kamu Salah';
-    resultContainer.style.color = 'red';
+    resultContainer.innerHTML = "Kamu Salah";
+    resultContainer.style.color = "red";
   }
 }
-
 
 const mencobaContainer = document.getElementById("table-mencoba");
 
@@ -287,8 +301,6 @@ mencobaContainer.addEventListener("click", function (event) {
   }
 });
 
-
-
 function taskResult(type) {
   event.preventDefault();
 
@@ -303,6 +315,9 @@ function taskResult(type) {
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub1_3_1", total);
   } else if (type === "berlatih") {
+    clearAllInputs("box1");
+    clearAllInputs("box2");
+    clearAllInputs("box3");
     const berlatihSets = [
       "box1select4",
       "box1select6",
@@ -322,7 +337,6 @@ function taskResult(type) {
 
     berlatihSets.forEach((setName) => {
       let setElements = document.getElementsByName(setName);
-      console.log(setElements);
       let setValue = getCheckedValue(setElements);
       berlatih_array.push(setValue);
     });
@@ -408,8 +422,8 @@ function matchAdjacentElements(arr1, arr2) {
 // Data for each question including the correct answer and sound
 var questions = [
   {
-    correctOption: "3",
-    options: ["1", "2", "3"],
+    correctOption: "salah",
+    options: ["benar", "salah"],
     soundPaths: [
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
@@ -417,8 +431,8 @@ var questions = [
     ],
   },
   {
-    correctOption: "3",
-    options: ["1", "2", "3"],
+    correctOption: "1",
+    options: ["benar", "salah"],
     soundPaths: [
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
@@ -426,8 +440,8 @@ var questions = [
     ],
   },
   {
-    correctOption: "3",
-    options: ["1", "2", "3"],
+    correctOption: "1",
+    options: ["benar", "salah"],
     soundPaths: [
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
@@ -435,8 +449,8 @@ var questions = [
     ],
   },
   {
-    correctOption: "2",
-    options: ["1", "2", "3"],
+    correctOption: "salah",
+    options: ["benar", "salah"],
     soundPaths: [
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
@@ -444,8 +458,8 @@ var questions = [
     ],
   },
   {
-    correctOption: "2",
-    options: ["1", "2", "3"],
+    correctOption: "salah",
+    options: ["benar", "salah"],
     soundPaths: [
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
       "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
@@ -534,61 +548,39 @@ for (var i = 0; i < questions.length; i++) {
   generateOptions(i + 1, questions[i]);
 }
 
-let box1data = [
-  "",
-  "1",
-  "2",
-  "",
-  "...",
-  "4",
-  "...",
-  "6",
-  "",
-  "7",
-  "...",
-  "",
-  "9",
-  "",
-  "",
-  "10",
-];
+let box1data = ["1", "2", "...", "4", "...", "6", "7", "...", "9", "10"];
 
 let box1 = document.getElementById("box1");
 
 for (i = 0; i < box1data.length; i++) {
-  if (box1data[i] === "") {
-    box1.innerHTML += `
-      <div class="" style="width:40px; height: 40px;">
-      </div>
-      `;
-  } else if (box1data[i] === "...") {
+  if (box1data[i] === "...") {
     const uniqueId = `box1select${i}`;
     const uniqueName = `box1select${i}`;
 
     box1.innerHTML += `
-      <div class="bg-red-300" style="width:40px; height: 40px;">
-        <p class="text-center">
-          <select name="${uniqueName}" id="${uniqueId}" class="bg-red-300">
-            <option value="">...</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-         </select>
-         </p>
-      </div>
+    <div class="bg-green-300 rounded-t-full" style="width:60px; height: 40px;">
+    <p class="text-center">
+    <select name="${uniqueName}" id="${uniqueId}" class="bg-green-300 rounded-t-full">
+       <option value="">...</option>
+       <option value="1">1</option>
+       <option value="2">2</option>
+       <option value="3">3</option>
+       <option value="4">4</option>
+       <option value="5">5</option>
+       <option value="6">6</option>
+       <option value="7">7</option>
+       <option value="8">8</option>
+       <option value="9">9</option>
+       <option value="10">10</option>
+    </select>
+    </p>
+ </div>
    `;
   } else {
     box1.innerHTML += `
-      <div class="bg-red-300 " style="width:40px; height: 40px;">
-         <p class="text-center">${box1data[i]}</p>
-      </div>
+      <div class="bg-green-300 rounded-t-full" style="width:60px; height: 40px;">
+          <p class="text-center">${box1data[i]}</p>
+       </div>
   `;
   }
 }
@@ -697,14 +689,24 @@ function displayResponse(boxId, index, isCorrect) {
   }
 }
 
-
-
 function checkAnswer(boxId, correctValues) {
   const box = document.getElementById(boxId);
-  const selects = box.querySelectorAll('select');
+  const selects = box.querySelectorAll("select");
 
   selects.forEach((select, index) => {
-    select.addEventListener('change', () => {
+    select.addEventListener("change", () => {
+      // Remove previous responses
+      const responseElement = document.getElementById(
+        `response-${boxId}-${index}`
+      );
+      responseElement.innerHTML = "";
+    });
+  });
+
+  const submitButton = document.getElementById("submit-button"); // Add an id to your submit button
+  submitButton.addEventListener("click", () => {
+    // Trigger response check when submit button is clicked
+    selects.forEach((select, index) => {
       const selectedValue = select.value;
       const correctValue = correctValues[index];
 
@@ -713,17 +715,131 @@ function checkAnswer(boxId, correctValues) {
   });
 }
 
+function clearAllInputs(boxId) {
+  const box = document.getElementById(boxId);
+  const selects = box.querySelectorAll("select");
+  const radios = box.querySelectorAll("input[type='radio']");
+  const responseElements = box.querySelectorAll(".response");
 
+  selects.forEach((select) => {
+    select.value = "";
+  });
+
+  radios.forEach((radio) => {
+    radio.checked = false;
+  });
+
+  responseElements.forEach((responseElement) => {
+    responseElement.innerHTML = "";
+  });
+}
+
+function clearAllInputs(boxId) {
+  const box = document.getElementById(boxId);
+  const selects = box.querySelectorAll("select");
+  const radios = box.querySelectorAll("input[type='radio']");
+  const responseElements = box.querySelectorAll(".response");
+
+  selects.forEach((select) => {
+    select.value = "";
+  });
+
+  radios.forEach((radio) => {
+    radio.checked = false;
+  });
+
+  responseElements.forEach((responseElement) => {
+    responseElement.innerHTML = "";
+  });
+}
+
+const clearAllButton = document.getElementById("clear-all-button");
+clearAllButton.addEventListener("click", () => {
+  clearAllInputs("box1");
+  clearAllInputs("box2");
+  clearAllInputs("box3");
+
+  // Clear radio inputs
+  const radioInputs = document.querySelectorAll("input[type='radio']");
+  radioInputs.forEach((radio) => {
+    radio.checked = false;
+  });
+
+  const allResponseElements = document.querySelectorAll(".response");
+  allResponseElements.forEach((responseElement) => {
+    responseElement.innerHTML = "";
+  });
+});
 
 // Call the function for each box with the correct values
-checkAnswer('box1', ['3', '5', '8']);
-checkAnswer('box2', ['2', '4', '7', '8']);
-checkAnswer('box3', ['9', '7', '4', '3']);
+checkAnswer("box1", ["3", "5", "8"]);
+checkAnswer("box2", ["2", "4", "7", "8"]);
+checkAnswer("box3", ["9", "7", "4", "3"]);
 
 function komunikasi() {
   Swal.fire({
     icon: "success",
-    title: "Success",  }).then(() => {
+    title: "Success",
+  }).then(() => {
     window.location.href = "/app/dashboard/bab1/materi3.html";
   });
+}
+
+function menalar() {
+  // Function to check if the user's input is in the correct order for a specific table
+  function checkTable(tableId, isAscending) {
+    const table = document.getElementById(tableId);
+    const rows = table.getElementsByTagName("tr");
+
+    for (let i = 1; i < rows.length; i++) {
+      const inputs = rows[i].getElementsByTagName("input");
+      const userAnswers = Array.from(inputs).map((input) =>
+        parseInt(input.value, 10)
+      );
+
+      // Checking if the user's input matches the correct order
+      const correctOrder = isAscending
+        ? [...userAnswers].sort((a, b) => a - b)
+        : [...userAnswers].sort((a, b) => b - a);
+
+      if (!userAnswers.every((value, index) => value === correctOrder[index])) {
+        // If the answers are incorrect, display "Kamu Salah!" below the respective table
+        displayResponse("Jawaban Salah!", table, "red");
+        return;
+      }
+    }
+
+    // If all answers are correct, display "Kamu Benar!" below the respective table
+    displayResponse("Jawaban Benar!", table, "green");
+  }
+
+  // Function to display or replace the response below the respective table using <p> element
+  function displayResponse(message, targetTable, color) {
+    // Check if there is an existing response paragraph
+    const existingResponse = targetTable.nextSibling;
+
+    if (existingResponse && existingResponse.tagName === "P") {
+      // If an existing response is found, replace its text content and color
+      existingResponse.textContent = message;
+      existingResponse.style.color = color;
+    } else {
+      // If no existing response, create a new response paragraph and append it
+      const responseParagraph = document.createElement("p");
+      responseParagraph.textContent = message;
+      responseParagraph.style.color = color;
+
+      // Append or replace the response below the respective table
+      targetTable.parentNode.insertBefore(
+        responseParagraph,
+        targetTable.nextSibling
+      );
+    }
+  }
+
+  // Checking answers for each table separately
+  checkTable("table1", true); // Assuming the first table is for ascending order
+  checkTable("table2", true); // Assuming the second table is for ascending order
+  checkTable("table3", true); // Assuming the third table is for ascending order
+  checkTable("table4", false); // Assuming the fourth table is for descending order
+  checkTable("table5", false); // Assuming the fifth table is for descending order
 }

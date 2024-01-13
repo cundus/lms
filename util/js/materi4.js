@@ -31,7 +31,7 @@ function taskResult(type) {
   Swal.fire({
     icon: "success",
     text: `Silahkan lanjut ke berikutnya!`,
-  })
+  });
   totalPerSub();
 }
 
@@ -77,13 +77,13 @@ function matchAdjacentElements(arr1, arr2) {
 }
 
 function handleRadioButtonClick(rowNumber, result) {
-  var messageElement = document.getElementById('resultMessage' + rowNumber);
-  if (result === 'benar') {
-      messageElement.textContent = 'Kamu Benar!';
-      messageElement.style.color = "green";
-    } else if (result === 'salah') {
-      messageElement.textContent = 'Kamu Salah!';
-      messageElement.style.color = "red";
+  var messageElement = document.getElementById("resultMessage" + rowNumber);
+  if (result === "benar") {
+    messageElement.textContent = "Kamu Benar!";
+    messageElement.style.color = "green";
+  } else if (result === "salah") {
+    messageElement.textContent = "Kamu Salah!";
+    messageElement.style.color = "red";
   }
 }
 
@@ -99,7 +99,7 @@ const assets = [
   {
     image: "/assets/image/bab_1/sub_4/Ayo Mencoba/3.png",
     sound: "",
-  }
+  },
 ];
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -230,7 +230,7 @@ function selectOption2(optionText, buttonId, menuId, selectedValue, index) {
 
 function checkCorrectness(selectedValue, index) {
   // Assuming the correct answers are stored in an array
-  const correctAnswers = ['c', 'a', 'b'];
+  const correctAnswers = ["c", "a", "b"];
 
   // Compare the selected value with the correct answer
   return selectedValue === correctAnswers[index];
@@ -240,11 +240,11 @@ function displayResult(isCorrect, index) {
   const resultContainer = document.getElementById(`result-container-${index}`);
 
   if (isCorrect) {
-    resultContainer.innerHTML = 'Kamu Benar';
-    resultContainer.style.color = 'green';
+    resultContainer.innerHTML = "Kamu Benar";
+    resultContainer.style.color = "green";
   } else {
-    resultContainer.innerHTML = 'Kamu Salah';
-    resultContainer.style.color = 'red';
+    resultContainer.innerHTML = "Kamu Salah";
+    resultContainer.style.color = "red";
   }
 }
 
@@ -281,7 +281,137 @@ mencobaContainer.addEventListener("click", function (event) {
 function komunikasi() {
   Swal.fire({
     icon: "success",
-    title: "Success",  }).then(() => {
+    title: "Success",
+  }).then(() => {
     window.location.href = "/app/dashboard/bab1/materi4.html";
   });
+}
+
+// Data for each question including the correct answer and sound
+var questions = [
+  {
+    correctOption: "benar",
+    options: ["benar", "salah"],
+    soundPaths: [
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 3.m4a",
+    ],
+  },
+  {
+    correctOption: "benar",
+    options: ["benar", "salah"],
+    soundPaths: [
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 3.m4a",
+    ],
+  },
+  {
+    correctOption: "benar",
+    options: ["benar", "salah"],
+    soundPaths: [
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 3.m4a",
+    ],
+  },
+  {
+    correctOption: "benar",
+    options: ["benar", "2"],
+    soundPaths: [
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 3.m4a",
+    ],
+  },
+  {
+    correctOption: "salah",
+    options: ["benar", "salah"],
+    soundPaths: [
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 1.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 2.m4a",
+      "/assets/sounds/bab_1/sub_3/Ayo Menalar/Jumlah 3.m4a",
+    ],
+  },
+];
+
+// Function to generate options for a given row
+function generateOptions(row, question) {
+  var optionsContainer = document.getElementById("options" + row);
+
+  question.options.forEach(function (option, index) {
+    // Create a new div for each option and sound button pair
+    var optionContainer = document.createElement("div");
+
+    // Create the option element
+    var optionElement = document.createElement("span");
+    optionElement.className = "option";
+    optionElement.textContent = option;
+    optionElement.setAttribute(
+      "data-correct",
+      option === question.correctOption
+    ); // Add data attribute for correct option
+    optionElement.onclick = function () {
+      selectOption2(row, index);
+    };
+
+    // Create the sound button using innerHTML
+    var soundButton = document.createElement("span");
+    soundButton.className = "audio-button";
+    soundButton.innerHTML = `<img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" onclick="play('${question.soundPaths[index]}')">`;
+
+    // Add classes for styling
+    optionContainer.className = "option-container";
+    optionElement.className = "option";
+    soundButton.className = "audio-button";
+
+    // Append both option and sound button to the optionContainer
+    optionContainer.appendChild(optionElement);
+    optionContainer.appendChild(soundButton);
+
+    // Append the optionContainer to the optionsContainer
+    optionsContainer.appendChild(optionContainer);
+  });
+}
+
+// Function to handle option selection
+function selectOption2(row, index) {
+  var optionsContainer = document.getElementById("options" + row);
+  var options = optionsContainer.getElementsByClassName("option");
+
+  // Remove the click event listener from all options to prevent further clicks
+  for (var i = 0; i < options.length; i++) {
+    options[i].removeAttribute("onclick");
+  }
+
+  // Reset the background color of all options
+  for (var i = 0; i < options.length; i++) {
+    options[i].style.backgroundColor = "";
+  }
+
+  // Highlight the selected option
+  options[index].style.backgroundColor = "#e0e0e0";
+
+  // Get the check span element for this row
+  var checkSpan = document.getElementById("check" + row);
+
+  // Check if the selected option is correct
+  if (options[index].getAttribute("data-correct") === "true") {
+    checkSpan.textContent = "Kamu Benar!";
+    checkSpan.style.color = "green";
+  } else {
+    checkSpan.textContent = "Kamu Salah!";
+    checkSpan.style.color = "red";
+  }
+
+  // Add click event listeners back to options for the next attempt
+  for (var i = 0; i < options.length; i++) {
+    options[i].setAttribute("onclick", "selectOption2(" + row + ", " + i + ")");
+  }
+}
+
+// Dynamically generate options for each question
+for (var i = 0; i < questions.length; i++) {
+  generateOptions(i + 1, questions[i]);
 }

@@ -253,7 +253,7 @@ function selectOption2(optionText, buttonId, menuId, selectedValue, index) {
 
 function checkCorrectness(selectedValue, index) {
   // Assuming the correct answers are stored in an array
-  const correctAnswers = ['d', 'e', 'b', 'a', 'f', 'j', 'c', 'g', 'h', 'i'];
+  const correctAnswers = ["d", "e", "b", "a", "f", "j", "c", "g", "h", "i"];
 
   // Compare the selected value with the correct answer
   return selectedValue === correctAnswers[index];
@@ -263,11 +263,11 @@ function displayResult(isCorrect, index) {
   const resultContainer = document.getElementById(`result-container-${index}`);
 
   if (isCorrect) {
-    resultContainer.innerHTML = 'Kamu Benar';
-    resultContainer.style.color = 'green';
+    resultContainer.innerHTML = "Kamu Benar";
+    resultContainer.style.color = "green";
   } else {
-    resultContainer.innerHTML = 'Kamu Salah';
-    resultContainer.style.color = 'red';
+    resultContainer.innerHTML = "Kamu Salah";
+    resultContainer.style.color = "red";
   }
 }
 
@@ -379,44 +379,43 @@ var questions = [
 ];
 
 // Function to generate options for a given row
-function generateOptions(row, question) {
-  var optionsContainer = document.getElementById("options" + row);
+// function generateOptions(row, question) {
+//   var optionsContainer = document.getElementById("options" + row);
 
-  question.options.forEach(function (option, index) {
-    // Create a new div for each option and sound button pair
-    var optionContainer = document.createElement("div");
+//   question.options.forEach(function (option, index) {
+//     // Create a new div for each option and sound button pair
+//     var optionContainer = document.createElement("div");
 
-    // Create the option element
-    var optionElement = document.createElement("span");
-    optionElement.className = "option";
-    optionElement.textContent = option;
-    optionElement.setAttribute(
-      "data-correct",
-      option === question.correctOption
-    ); // Add data attribute for correct option
-    optionElement.onclick = function () {
-      selectOption(row, index);
-    };
+//     // Create the option element
+//     var optionElement = document.createElement("span");
+//     optionElement.className = "option";
+//     optionElement.textContent = option;
+//     optionElement.setAttribute(
+//       "data-correct",
+//       option === question.correctOption
+//     ); // Add data attribute for correct option
+//     optionElement.onclick = function () {
+//       selectOption(row, index);
+//     };
 
-    // Create the sound button using innerHTML
-    var soundButton = document.createElement("span");
-    soundButton.className = "audio-button";
-    soundButton.innerHTML = `<img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" onclick="play('${question.soundPaths[index]}')">`;
+//     // Create the sound button using innerHTML
+//     var soundButton = document.createElement("span");
+//     soundButton.className = "audio-button";
+//     soundButton.innerHTML = `<img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" onclick="play('${question.soundPaths[index]}')">`;
 
-    // Add classes for styling
-    optionContainer.className = "option-container";
-    optionElement.className = "option";
-    soundButton.className = "audio-button";
+//     // Add classes for styling
+//     optionContainer.className = "option-container";
+//     optionElement.className = "option";
+//     soundButton.className = "audio-button";
 
-    // Append both option and sound button to the optionContainer
-    optionContainer.appendChild(optionElement);
-    optionContainer.appendChild(soundButton);
+//     // Append both option and sound button to the optionContainer
+//     optionContainer.appendChild(optionElement);
+//     optionContainer.appendChild(soundButton);
 
-    // Append the optionContainer to the optionsContainer
-    optionsContainer.appendChild(optionContainer);
-  });
-}
-
+//     // Append the optionContainer to the optionsContainer
+//     optionsContainer.appendChild(optionContainer);
+//   });
+// }
 
 // Function to handle option selection
 function selectOption(row, index) {
@@ -455,9 +454,9 @@ function selectOption(row, index) {
 }
 
 // Dynamically generate options for each question
-for (var i = 0; i < questions.length; i++) {
-  generateOptions(i + 1, questions[i]);
-}
+// for (var i = 0; i < questions.length; i++) {
+//   generateOptions(i + 1, questions[i]);
+// }
 
 function taskResult(type) {
   event.preventDefault();
@@ -479,7 +478,6 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub1_1_1", total);
-    
   } else if (type === "berlatih") {
     const berlatihSets = [
       "berlatih1",
@@ -510,8 +508,8 @@ function taskResult(type) {
   Swal.fire({
     icon: "success",
     text: `Silahkan lanjut ke berikutnya!`,
-  })
-  totalPerSub()
+  });
+  totalPerSub();
 }
 
 function totalPerSub() {
@@ -559,13 +557,13 @@ function matchAdjacentElements(arr1, arr2) {
 }
 
 function handleRadioButtonClick(rowNumber, result) {
-  var messageElement = document.getElementById('resultMessage' + rowNumber);
-  if (result === 'benar') {
-      messageElement.textContent = 'Kamu Benar!';
-      messageElement.style.color = "green";
-    } else if (result === 'salah') {
-      messageElement.textContent = 'Kamu Salah!';
-      messageElement.style.color = "red";
+  var messageElement = document.getElementById("resultMessage" + rowNumber);
+  if (result === "benar") {
+    messageElement.textContent = "Kamu Benar!";
+    messageElement.style.color = "green";
+  } else if (result === "salah") {
+    messageElement.textContent = "Kamu Salah!";
+    messageElement.style.color = "red";
   }
 }
 
@@ -575,5 +573,170 @@ function komunikasi() {
     title: "Success",
   }).then(() => {
     window.location.href = "/app/dashboard/bab1/materi1.html";
+  });
+}
+
+let menalarArr = [
+  {
+    answer: "mata",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/mata.png",
+  },
+  {
+    answer: "telinga",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/telinga.png",
+  },
+  {
+    answer: "hidung",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/hidung.png",
+  },
+  {
+    answer: "tangan",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/tangan.png",
+  },
+  { answer: "kaki", image: "/assets/image/bab_1/sub_1/ayo_menalar/kaki.png" },
+  {
+    answer: "mulut",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/tangan.png",
+  },
+  {
+    answer: "jari tangan",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/10 jari tangan.png",
+  },
+  {
+    answer: "jari kaki",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/10 jari kaki.png",
+  },
+];
+
+let tableBody = document.querySelector("#quizTable tbody");
+
+menalarArr.forEach((item, index) => {
+  let row = tableBody.insertRow();
+
+  // Input column
+  let inputCell = row.insertCell(0);
+  let inputField = document.createElement("input");
+  inputField.type = "text";
+  inputField.placeholder = "Enter your answer";
+  inputCell.appendChild(inputField);
+
+  // Image column
+  let imageCell = row.insertCell(1);
+  let imageElement = document.createElement("img");
+  imageElement.src = item.image;
+  imageElement.alt = "Image " + index;
+  imageElement.width = 50; // Set the width as needed
+  imageCell.appendChild(imageElement);
+
+  // Response column
+  let responseCell = row.insertCell(2);
+});
+
+function submitAnswers() {
+  for (let index = 0; index < menalarArr.length; index++) {
+    let userInput = tableBody.rows[index].cells[0]
+      .querySelector("input")
+      .value.toLowerCase();
+    let correctAnswer = menalarArr[index].answer.toLowerCase();
+    let responseElement = tableBody.rows[index].cells[2];
+
+    if (userInput === correctAnswer) {
+      responseElement.textContent = "Kamu Benar!";
+      responseElement.style.color = "green";
+    } else {
+      responseElement.textContent = "Kamu Salah!";
+      responseElement.style.color = "red";
+    }
+  }
+}
+
+function clearAll() {
+  for (let index = 0; index < menalarArr.length; index++) {
+    tableBody.rows[index].cells[0].querySelector("input").value = "";
+    tableBody.rows[index].cells[2].textContent = "";
+  }
+}
+
+function checkAnswers() {
+  // Loop through each row in the table
+  for (let i = 1; i <= 5; i++) {
+    const selectedValue = document.querySelector(
+      `input[name="menanya1_${i}"]:checked`
+    );
+
+    if (!selectedValue) {
+      // If no option is selected for a particular row
+      alert(`Pilih jawaban untuk pertanyaan nomor ${i} terlebih dahulu.`);
+      return;
+    }
+
+    // Get the correct answer (assuming it's stored elsewhere, you may need to adapt this part)
+    const correctAnswer = getCorrectAnswer(i);
+
+    // Check if the selected value matches the correct answer
+    if (selectedValue.value === correctAnswer) {
+      document.getElementById(`resultMessage1${i}`).innerText = "Kamu Benar!";
+      document.getElementById(`resultMessage1${i}`).style.color = "green";
+    } else {
+      document.getElementById(`resultMessage1${i}`).innerText = "Kamu Salah!";
+      document.getElementById(`resultMessage1${i}`).style.color = "red";
+    }
+  }
+}
+
+// Example function to get correct answers (you may need to adapt this part)
+function getCorrectAnswer(questionNumber) {
+  switch (questionNumber) {
+    case 1:
+      return "benar";
+    case 2:
+      return "benar";
+    case 3:
+      return "benar";
+    case 4:
+      return "benar";
+    case 5:
+      return "benar";
+    // Add more cases for each question
+    default:
+      return "";
+  }
+}
+
+function clearInputs() {
+  // Clear radio button selections for mengamatiSets
+  // const mengamatiSets = ["mengamati1", "mengamati2", "mengamati3"];
+  // mengamatiSets.forEach((setName) => {
+  //   let setElements = document.getElementsByName(setName);
+  //   setElements.forEach((element) => {
+  //     element.checked = false;
+  //   });
+  // });
+
+  // Clear radio button selections for berlatihSets
+  const berlatihSets = [
+    "berlatih1",
+    "berlatih2",
+    "berlatih3",
+    "berlatih4",
+    "berlatih5",
+  ];
+  berlatihSets.forEach((setName) => {
+    let setElements = document.getElementsByName(setName);
+    setElements.forEach((element) => {
+      element.checked = false;
+    });
+  });
+
+  // Clear response messages
+  const resultMessages = [
+    "resultMessage4",
+    "resultMessage5",
+    "resultMessage6",
+    "resultMessage7",
+    "resultMessage8",
+  ];
+  resultMessages.forEach((messageId) => {
+    document.getElementById(messageId).textContent = "";
   });
 }
