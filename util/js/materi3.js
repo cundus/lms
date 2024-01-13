@@ -837,9 +837,9 @@ function menalar() {
   }
 
   // Checking answers for each table separately
-  checkTable("table1", true); // Assuming the first table is for ascending order
-  checkTable("table2", true); // Assuming the second table is for ascending order
-  checkTable("table3", true); // Assuming the third table is for ascending order
-  checkTable("table4", false); // Assuming the fourth table is for descending order
-  checkTable("table5", false); // Assuming the fifth table is for descending order
+  checkTable("table1", false); // Assuming the first table is for ascending order
+  checkTable("table2", false); // Assuming the second table is for ascending order
+  checkTable("table3", false); // Assuming the third table is for ascending order
+  checkTable("table4", true); // Assuming the fourth table is for descending order
+  checkTable("table5", true); // Assuming the fifth table is for descending order
 }
