@@ -34,6 +34,7 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub2_2_1", total);
+    komunikasi("/app/dashboard/bab2/materi2.html?page=2");
   } else if (type === "berlatih2") {
     const berlatihSets = [
       "berlatih2_1",
@@ -58,14 +59,15 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub2_2_2", total);
+    komunikasi("/app/dashboard/bab2/materi2.html?page=4");
   } else {
     return null;
   }
-  Swal.fire({
-    icon: "success",
-    text: `Silahkan lanjut ke berikutnya!`,
-  });
-  totalPerSub();
+  // Swal.fire({
+  //   icon: "success",
+  //   text: `Silahkan lanjut ke berikutnya!`,
+  // });
+  // totalPerSub();
 }
 
 function totalPerSub() {
@@ -112,49 +114,160 @@ function matchAdjacentElements(arr1, arr2) {
 
 function checkAnswer(questionNumber, setNumber) {
   // Get selected option
-  var selectedOption = document.getElementById('berlatih' + setNumber + '_' + questionNumber).value;
+  var selectedOption = document.getElementById(
+    "berlatih" + setNumber + "_" + questionNumber
+  ).value;
 
   // Get the correct answer for the current question
-  var correctAnswer = setNumber === 1 ? correctAnswers1[questionNumber - 1] : correctAnswers2[questionNumber - 1];
+  var correctAnswer =
+    setNumber === 1
+      ? correctAnswers1[questionNumber - 1]
+      : correctAnswers2[questionNumber - 1];
 
   // Get the <p> element for displaying response
-  var responseElement = document.getElementById('response' + setNumber + '_' + questionNumber);
+  var responseElement = document.getElementById(
+    "response" + setNumber + "_" + questionNumber
+  );
 
   // Check if selected option is correct
   if (selectedOption === correctAnswer.toString()) {
-      responseElement.textContent = 'Kamu benar!';
-      responseElement.style.color = 'green';
+    responseElement.textContent = "Kamu benar!";
+    responseElement.style.color = "green";
   } else {
-      responseElement.textContent = 'Kamu salah!';
-      responseElement.style.color = 'red';
+    responseElement.textContent = "Kamu salah!";
+    responseElement.style.color = "red";
   }
 }
 
 // Define the correct answers arrays
-var correctAnswers1 = [4, 4, 8, '6', '8', '14', '2', '3', '5', '5', '5', '10', '4', '5', '9'];
-var correctAnswers2 = ['5', '8', '2', '5', '2'];
+var correctAnswers1 = [
+  4,
+  4,
+  8,
+  "6",
+  "8",
+  "14",
+  "2",
+  "3",
+  "5",
+  "5",
+  "5",
+  "10",
+  "4",
+  "5",
+  "9",
+];
+var correctAnswers2 = ["5", "8", "2", "5", "2"];
 
 // Add event listeners for each select element using a loop
 for (var i = 1; i <= 15; i++) {
-  document.getElementById('berlatih1_' + i).addEventListener('change', (function (questionNumber) {
+  document.getElementById("berlatih1_" + i).addEventListener(
+    "change",
+    (function (questionNumber) {
       return function () {
-          checkAnswer(questionNumber, 1);
+        checkAnswer(questionNumber, 1);
       };
-  })(i));
+    })(i)
+  );
 }
 
 for (var i = 1; i <= 5; i++) {
-  document.getElementById('berlatih2_' + i).addEventListener('change', (function (questionNumber) {
+  document.getElementById("berlatih2_" + i).addEventListener(
+    "change",
+    (function (questionNumber) {
       return function () {
-          checkAnswer(questionNumber, 2);
+        checkAnswer(questionNumber, 2);
       };
-  })(i));
+    })(i)
+  );
 }
 
-function komunikasi() {
+function komunikasi(url) {
   Swal.fire({
     icon: "success",
-    title: "Success",  }).then(() => {
-    window.location.href = "/app/dashboard/bab2/materi2.html";
+    title: "Success",
+  }).then(() => {
+    window.location.href = url;
   });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the page number from the query parameter or default to 1
+  const urlParams = new URLSearchParams(window.location.search);
+  let currentPage = parseInt(urlParams.get("page")) || 1;
+
+  // Display the current page
+  showPage(currentPage);
+
+  // Update the current page number and page numbers list in the HTML
+  updatePageNumbers(currentPage);
+});
+
+function showPage(pageNumber) {
+  // Hide all pages
+  const pages = document.querySelectorAll(".page");
+  pages.forEach((page) => {
+    page.style.display = "none";
+  });
+
+  // Show the selected page
+  const selectedPage = document.getElementById(`page${pageNumber}`);
+  if (selectedPage) {
+    selectedPage.style.display = "block";
+  }
+
+  // Update the current page number in the "currentPage" span
+  document.getElementById("currentPage").textContent = pageNumber;
+}
+
+function nextPage() {
+  const totalPages = document.querySelectorAll(".page").length;
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage < totalPages) {
+    currentPage++;
+    updatePage(currentPage);
+  }
+}
+
+function prevPage() {
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage > 1) {
+    currentPage--;
+    updatePage(currentPage);
+  }
+}
+
+function updatePage(pageNumber) {
+  // Update the query parameter
+  window.history.pushState({}, "", `?page=${pageNumber}`);
+
+  // Display the new page
+  showPage(pageNumber);
+
+  // Update the page numbers list in the HTML
+  updatePageNumbers(pageNumber);
+}
+
+function updatePageNumbers(currentPage) {
+  const totalPages = document.querySelectorAll(".page").length;
+  const pageNumbersContainer = document.getElementById("pageNumbers");
+  const pageNumbersContainer2 = document.getElementById("pageNumbers2");
+  let pageNumbersHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === currentPage) {
+      pageNumbersHTML += `<strong>${i}</strong> `;
+    } else {
+      pageNumbersHTML += `<a href="?page=${i}" onclick="updatePage(${i}); return false;">${i}</a> `;
+    }
+  }
+
+  pageNumbersContainer.innerHTML = pageNumbersHTML;
+  pageNumbersContainer2.innerHTML = pageNumbersHTML;
 }

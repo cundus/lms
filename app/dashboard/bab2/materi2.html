@@ -20,6 +20,9 @@
         .sub_1_ayo_mengamati>tr>td>* {
             margin: 0 auto;
         }
+        .page {
+        display: none;
+      }
     </style>
 </head>
 
@@ -66,85 +69,59 @@
     </header>
 
     <div class="w-full flex">
-        <aside class="sidebar min-h-screen px-1">
+        <div class="sidebar min-h-screen px-1">
             <div class="w-full flex flex-col justify-center items-center">
-                <img src="/assets/image/user.png" class="w-1/2 h-auto object-contain" />
-                <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
+              <img
+                src="../../../assets/image/user.png"
+                class="w-1/2 h-auto object-contain"
+              />
+              <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
             </div>
-            <h2 class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
-                style="font-family: Inter; word-wrap: break-word">
-                Daftar Isi
+            <h2
+              class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
+              style="font-family: Inter; word-wrap: break-word"
+            >
+              Daftar Isi
             </h2>
-            <sl-tree>
-                <sl-tree-item>
-                    <p>
-                        Ayo Membilang Bilangan 1 sampai dengan 10
-                    </p>
-                    <sl-tree-item>
-                        <a href="../../dashboard/bab1/pendahuluan1.html">Pendahuluan</a>
-                    </sl-tree-item>
-                    <sl-tree-item>
-                        <p>
-                            Materi
-                        </p>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab1/materi1.html">Menghitung,Membaca dan Menulis Bilangan</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab1/materi2.html">Membandingkan Banyak Bilangan dalam Benda</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab1/materi3.html">Menghitung Maju dan Mundur</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab1/materi4.html">Pasangan Bilangan</a>
-                        </sl-tree-item>
-                    </sl-tree-item>
-                    <sl-tree-item>
-                        <a href="../../dashboard/bab1/kuis1.html">Kuis BAB 1</a>
-                    </sl-tree-item>
-                </sl-tree-item>
-
-                <sl-tree-item expanded>
-                    <p>Penjumlahan Bilangan dan Pengurangan
-                        Bilangan 1 sampai dengan 10</p>
-                    <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
-                    <sl-tree-item expanded>
-                        <p>Materi</p>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi1.html">Mengenal Simbol +, - atau =</a>
-                        </sl-tree-item>
-                        <sl-tree-item selected>
-                            <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1
-                                s/d 10</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan
-                                Pengurangan 1 s/d
-                                10</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi4.html">
-                                Hubungan Penjumlahan dan Pengurangan
-                            </a>
-                        </sl-tree-item>
-                    </sl-tree-item>
-                    <sl-tree-item>
-                        <a href="../../dashboard/bab2/kuis2.html">
-                            Kuis Bab 2
-                        </a>
-                    </sl-tree-item>
-                </sl-tree-item>
-
-                <sl-tree-item>
-                    <a href="../../dashboard/evaluasi.html">Evaluasi</a>
-                </sl-tree-item>
-
-                <sl-tree-item>
-                    <a href="../../../auth/login.html">Exit</a>
-                </sl-tree-item>
-            </sl-tree>
-        </aside>
+            <div class="flex flex-col gap-2">
+              <a href="../../dashboard/bab1/pendahuluan1.html" class="font-bold"
+                >Bab 1</a
+              >
+              <a href="../../dashboard/bab1/materi1.html"
+                >- Menghitung,Membaca dan Menulis Bilangan</a
+              >
+              <a href="../../dashboard/bab1/materi2.html"
+                >- Membandingkan Banyak Bilangan dalam Benda</a
+              >
+              <a href="../../dashboard/bab1/materi3.html"
+                >- Menghitung Maju dan Mundur</a
+              >
+              <a href="../../dashboard/bab1/materi4.html">- Pasangan Bilangan</a>
+              <a href="../../dashboard/bab1/kuis1.html"
+                >- Kuis BAB 1</a
+              >
+              <br />
+              <a href="../../dashboard/bab2/pendahuluan2.html" class="font-bold"
+                >Bab 2</a
+              >
+              <a href="../../dashboard/bab2/materi1.html"
+                >- Mengenal Simbol +, - atau =</a
+              >
+              <a href="../../dashboard/bab2/materi2.html" class="font-semibold"
+                >- Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a
+              >
+              <a href="../../dashboard/bab2/materi3.html"
+                >- Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d 10</a
+              >
+              <a href="../../dashboard/bab2/materi4.html">
+                - Hubungan Penjumlahan dan Pengurangan
+              </a>
+              <a href="../../dashboard/bab2/kuis2.html">- Kuis Bab 2 </a>
+              <br />
+              <a href="../../dashboard/evaluasi.html">Evaluasi</a>
+              <a href="/auth/login.html">Exit</a>
+            </div>
+          </div>
         <div class="content px-1">
             <div class="main-content">
                 <div class="flex py-1 justify-center">
@@ -156,20 +133,30 @@
                 <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
                     B. Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10
                 </h3>
+                <div class="m-2 flex gap-9 content-end justify-end">
+                    <button type="button" id="prevButton" onclick="prevPage()">
+                      Previous Page
+                    </button>
+                    <span id="pageNumbers"></span>
+                    <button type="button" onclick="nextPage()">Next Page</button>
+                  </div>
+                  <span id="currentPage" style="display: none">1</span>
                 <sl-tab-group>
-                    <sl-tab slot="nav" panel="bercerita1">A. Ayo Bercerita</sl-tab>
+                    <!-- <sl-tab slot="nav" panel="bercerita1">A. Ayo Bercerita</sl-tab>
                     <sl-tab slot="nav" panel="berlatih1">A. Ayo Berlatih</sl-tab>
                     <sl-tab slot="nav" panel="bercerita2">B. Ayo Bercerita</sl-tab>
-                    <sl-tab slot="nav" panel="berlatih2">B. Ayo Berlatih</sl-tab>
+                    <sl-tab slot="nav" panel="berlatih2">B. Ayo Berlatih</sl-tab> -->
                     <!-- <sl-tab slot="nav" panel="menanya">Ayo Menanya</sl-tab> -->
                     <!-- <sl-tab slot="nav" panel="mencoba">Ayo Mencoba</sl-tab> -->
                     <!-- <sl-tab slot="nav" panel="menalar">Ayo Menalar</sl-tab> -->
-                    <sl-tab slot="nav" panel="komunikasikan">Ayo Mengkomunikasikan</sl-tab>
+                    <!-- <sl-tab slot="nav" panel="komunikasikan">Ayo Mengkomunikasikan</sl-tab> -->
 
 
                     <!-- * Tab Panel Ayo bercerita1 -->
-                    <sl-tab-panel name="bercerita1">
+                    <div id="page1" class="page">
                         <div class="text-content mx-auto ">
+                <img src="/assets/image/cerita.png" width="25%" alt="" />
+
                             <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
                                 Perhatikan cerita di bawah ini !
                             </h3>
@@ -179,10 +166,13 @@
                             <br />
                             <p class="font-bold">Bermain Lompat Tali</p>
                             <br />
-                            <p>Di taman Kamboja ada 4 anak bermain lompat tali.
-                                Kemudian datang 2 anak untuk ikut bermain.
-                                Sekarang di taman Kamboja ada 6 anak yang bermain.
-                                Dan mereka bermain bersama bergantian</p>
+                            <div class="flex">
+                                <p>Di taman Kamboja ada 4 anak bermain lompat tali.
+                                    Kemudian datang 2 anak untuk ikut bermain.
+                                    Sekarang di taman Kamboja ada 6 anak yang bermain.
+                                    Dan mereka bermain bersama bergantian</p>
+                                    <img src="/assets/image/bab_2/sub_2/penjumlahan.png" class="w-72" alt="">
+                            </div>
                             <br />
                             <p class="font-bold">a. Cerita Penjumlahan</p>
                             <div>
@@ -228,12 +218,11 @@
                                     <br />
                                 </div>
                                 <div class="flex items-center border-4 mt-3">
-                                    <p class="ml-4">
                                     <p class="font-bold">Kesimpulan</p> <br />
                                     <img src="/assets/image/bab_2/sub_2/Ayo Mengamati/Logo Penjumlahan (2).png"
-                                        width="15%" alt="">
+                                        width="15%" alt=""/>
                                     Simbol penjumlahan <br />
-                                    Menjumlahkan artinya suatu menggabungkan dua angka bersama</p>
+                                    Menjumlahkan artinya suatu menggabungkan dua angka bersama
                                     <span
                                         onclick="play('/assets/sounds/bab_2/sub_2/Ayo Bercerita Penjumlahan/Penjumlahan (Ayo Bercerita) Part 5.m4a')"><img
                                             src="/assets/image/sound.png"
@@ -242,12 +231,14 @@
                                 </div>
                             </div>
                         </div>
-                    </sl-tab-panel>
+                    </div>
                     <!-- * End Tab Panel Ayo bercerita1 -->
 
-                    <sl-tab-panel name="berlatih1">
+                    <div id="page2" class="page">
                         <form onsubmit="taskResult(`berlatih1`)">
                             <div class="text-content mx-auto">
+                <img src="/assets/image/berlatih.png" width="25%" alt="" />
+
                                 <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
                                     Petunjuk Pengerjaan :
                                 </h3>
@@ -263,8 +254,8 @@
                                     <li class="py-4">
                                         Klik tombol
                                         <span
-                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
-                                            Jawaban</span>
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">
+                                            Kirim</span>
                                         untuk mengetahui jawaban benar atau salah!
                                     </li>
                                     <li>
@@ -275,17 +266,11 @@
                                         Jika jawabanmu salah, muncul keterangan
                                         <span class="font-bold text-red-600">"Jawaban Salah"</span>
                                     </li>
-                                    <li class="py-4">
-                                        Klik tombol
-                                        <span
-                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
-                                            Lagi</span>
-                                        untuk mencoba kembali
+                                    
                                         <span
                                             onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Ayo Berlatih.m4a')"><img
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    </li>
                                 </ol>
                             </div>
                             <sl-card id="info-media"
@@ -309,17 +294,17 @@
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         <div class="flex items-center">
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Penjumlahan (2).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/1.png"
                                                 class="object-contain" width="25%" />
 
                                             <p> + </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Penjumlahan (3).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/2.png"
                                                 class="object-contain" width="25%" />
 
                                             <p> = </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Penjumlahan (1).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/3.png"
                                                 class="object-contain" width="25%" />
                                         </div>
                                         <p>Terdapat ada berapakah jumlah mobil berwarna merah
@@ -341,7 +326,7 @@
                                                 <option value="14">14</option>
                                                 <option value="15">15</option>
                                             </select>
-                                            <p id="response1_1"></p>
+                                            <span id="response1_1"></span>
                                         </p>
                                         <p>Terdapat ada berapakah jumlah mobil berwarna biru
                                             <select name="berlatih1_2" id="berlatih1_2">
@@ -362,7 +347,7 @@
                                                 <option value="14">14</option>
                                                 <option value="15">15</option>
                                             </select>
-                                            <p id="response1_2"></p>
+                                            <span id="response1_2"></span>
                                         </p>
                                         <p>Maka berapakah jumlah semua mobil merah dan biru
                                             <select name="berlatih1_3" id="berlatih1_3">
@@ -383,7 +368,7 @@
                                                 <option value="14">14</option>
                                                 <option value="15">15</option>
                                             </select>
-                                            <p id="response1_3"></p>
+                                            <span id="response1_3"></span>
                                         </p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 1 -->
@@ -396,17 +381,17 @@
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         <div class="flex items-center">
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Penjumlahan (2).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/4.png"
                                                 class="object-contain" width="25%" />
 
                                             <p> + </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Penjumlahan (3).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/5.png"
                                                 class="object-contain" width="25%" />
 
                                             <p> = </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Penjumlahan (1).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/6.png"
                                                 class="object-contain" width="25%" />
                                         </div>
                                         <p>Terdapat ada berapakah jumlah buah jeruk
@@ -428,7 +413,7 @@
                                                 <option value="14">14</option>
                                                 <option value="15">15</option>
                                             </select>
-                                            <p id="response1_4"></p>
+                                            <span id="response1_4"></span>
                                         </p>
                                         <p>Terdapat ada berapakah jumlah tomat
                                             <select name="berlatih1_5" id="berlatih1_5">
@@ -449,7 +434,7 @@
                                                 <option value="14">14</option>
                                                 <option value="15">15</option>
                                             </select>
-                                            <p id="response1_5"></p>
+                                            <span id="response1_5"></span>
                                         </p>
                                         <p>Maka ada berapakah jumlah buah jeruk dan tomat dalam keranjang semua
                                             <select name="berlatih1_6" id="berlatih1_6">
@@ -470,7 +455,7 @@
                                                 <option value="14">14</option>
                                                 <option value="15">15</option>
                                             </select>
-                                            <p id="response1_6"></p>
+                                            <span id="response1_6"></span>
                                         </p>
                                     </li>
                                     <!-- *End Soal berlatih Nomor 2 -->
@@ -483,17 +468,17 @@
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         <div class="flex items-center">
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Penjumlahan (2).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/7.png"
                                                 class="object-contain" width="30%" />
 
                                             <p> + </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Penjumlahan (1).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/8.png"
                                                 class="object-contain" width="30%" />
 
                                             <p> = </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Penjumlahan (3).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/9.png"
                                                 class="object-contain" width="30%" />
                                         </div>
 
@@ -580,17 +565,17 @@
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         <div class="flex items-center">
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Penjumlahan (3).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/10.png"
                                                 class="object-contain" width="30%" />
 
                                             <p> + </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Penjumlahan (3).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/11.png"
                                                 class="object-contain" width="30%" />
 
                                             <p> = </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Penjumlahan (1).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/12.png"
                                                 class="object-contain" width="30%" />
                                         </div>
 
@@ -676,17 +661,17 @@
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
                                         <div class="flex items-center">
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Penjumlahan (2).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/13.png"
                                                 class="object-contain" width="30%" />
 
                                             <p> + </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Penjumlahan (3).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/14.png"
                                                 class="object-contain" width="30%" />
 
                                             <p> = </p>
 
-                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Penjumlahan (1).png"
+                                            <img src="/assets/image/bab_2/sub_2/Ayo Berlatih/Penjumlahan/15.png"
                                                 class="object-contain" width="30%" />
                                         </div>
 
@@ -768,11 +753,13 @@
                                 </p>
                             </sl-card>
                         </form>
-                    </sl-tab-panel>
+                    </div>
 
-                    <sl-tab-panel name="bercerita2">
+                    <div id="page3" class="page">
 
                         <div class="text-content mx-auto ">
+                <img src="/assets/image/cerita.png" width="25%" alt="" />
+
                             <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
                                 Perhatikan cerita di bawah ini !
                             </h3>
@@ -782,13 +769,16 @@
                             <br />
                             <p class="font-bold">Bermain Petak Umpet</p>
                             <br />
+                           <div class="flex">
                             <p>Di taman Kamboja ada 6 anak bermain bersama..
                                 Permainan yang mereka mainkan adalah petak umpet.
                                 Akan tetapi, 2 anak harus pulang ke rumah.
                                 Maka anak yang tersisa bermain bersama ada 4 orang.
                                 Dan mereka bermain petak umpet</p>
+                                <img src="/assets/image/bab_2/sub_2/pengurangan.png" class="w-72" alt="">
+                           </div>
                             <br />
-                            <p class="font-bold">a. Cerita Penjumlahan</p>
+                            <p class="font-bold">b. Cerita Pengurangan</p>
                             <div>
                                 <div class="flex items-center border-4 mt-3">
                                     <img src="/assets/image/bab_2/sub_2/Ayo Mengamati/Logo Pengurangan (1).png"
@@ -848,11 +838,13 @@
                             </div>
                         </div>
 
-                    </sl-tab-panel>
+                    </div>
 
-                    <sl-tab-panel name="berlatih2">
+                    <div id="page4" class="page">
                         <form onsubmit="taskResult(`berlatih2`)">
                             <div class="text-content mx-auto">
+                <img src="/assets/image/berlatih.png" width="25%" alt="" />
+
                                 <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
                                     Petunjuk Pengerjaan :
                                 </h3>
@@ -868,8 +860,8 @@
                                     <li class="py-4">
                                         Klik tombol
                                         <span
-                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
-                                            Jawaban</span>
+                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">
+                                            Kirim</span>
                                         untuk mengetahui jawaban benar atau salah!
                                     </li>
                                     <li>
@@ -880,17 +872,10 @@
                                         Jika jawabanmu salah, muncul keterangan
                                         <span class="font-bold text-red-600">"Jawaban Salah"</span>
                                     </li>
-                                    <li class="py-4">
-                                        Klik tombol
-                                        <span
-                                            class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
-                                            Lagi</span>
-                                        untuk mencoba kembali
                                         <span
                                             onclick="play('/assets/sounds/bab_2/sub_2/Ayo Berlatih Pengurangan/Ayo Berlatih Petunjuk.m4a')"><img
                                                 src="/assets/image/sound.png"
                                                 class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    </li>
                                 </ol>
                             </div>
                             <sl-card id="info-media"
@@ -907,7 +892,7 @@
                                         <div class="flex">
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Pengurangan (3).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/16.png"
                                                     alt="">
                                                 <p>Budi mula-mula memiliki 7 kelereng.</p>
                                                 <span
@@ -917,7 +902,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Pengurangan (2).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/17.png"
                                                     alt="">
                                                 <p>Akan tetapi Halim mengajaknya
                                                     bermain kelereng, maka Budi
@@ -931,7 +916,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 1 Pengurangan (1).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/18.png"
                                                     alt="">
                                                 <p>Maka sisa berapakah
                                                     kelereng Budi yang dia
@@ -965,7 +950,7 @@
                                         <div class="flex">
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Pengurangan (2).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/19.png"
                                                     alt="">
                                                 <p>Ada sekumpulan kumbang
                                                     yang hinggap di daun
@@ -977,7 +962,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Pengurangan (1).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/20.png"
                                                     alt="">
                                                 <p>Akan tetapi 2 kumbang
                                                     terbang ke kembang
@@ -989,7 +974,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 2 Pengurangan (2).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/21.png"
                                                     alt="">
                                                 <p>Maka sisa berapakah
                                                     kumbang yang dia ada
@@ -1023,7 +1008,7 @@
                                         <div class="flex">
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Pengurangan (2).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/22.png"
                                                     alt="">
                                                 <p>Terdapat 6 anak yang
                                                     memakai baju berwarna
@@ -1035,7 +1020,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Pengurangan (3).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/23.png"
                                                     alt="">
                                                 <p>Akan tetapi ada 4 anak
                                                     yang memakai baju
@@ -1048,7 +1033,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 3 Pengurangan (1).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/24.png"
                                                     alt="">
                                                 <p>Maka sisa berapakah
                                                     anak yang tidak baju
@@ -1082,7 +1067,7 @@
                                         <div class="flex">
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Pengurangan (1).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/25.png"
                                                     alt="">
                                                 <p>Ibu membeli telur di pasar
                                                     sebanyak 9 butir.</p>
@@ -1093,7 +1078,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Pengurangan (2).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/26.png"
                                                     alt="">
                                                 <p>Akan tetapi ketika di
                                                     jalan ingin pulang 9
@@ -1107,7 +1092,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 4 Pengurangan (3).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/27.png"
                                                     alt="">
                                                 <p>Maka sisa berapakah
                                                     telur ibu saat sampai di
@@ -1141,7 +1126,7 @@
                                         <div class="flex">
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Pengurangan (1).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/29.png"
                                                     alt="">
                                                 <p>Santi memiliki kesukaan
                                                     dalam mengoleksi barang,
@@ -1154,7 +1139,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Pengurangan (2).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/30.png"
                                                     alt="">
                                                 <p>Ketika Santi ingin membuka
                                                     ketiga payungnya akan tetapi
@@ -1167,7 +1152,7 @@
                                             </div>
                                             <div>
                                                 <img width=""
-                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Soal 5 Pengurangan (3).png"
+                                                    src="/assets/image/bab_2/sub_2/Ayo Berlatih/Pengurangan/31.png"
                                                     alt="">
                                                 <p>Maka sisa berapakah
                                                     koleksi payu Santi
@@ -1201,72 +1186,17 @@
                                 <button type="submit" class="m-4 p-2 px-4 bg-blue-400 rounded-xl">Kirim</button>
                             </p>
                         </form>
-                    </sl-tab-panel>
-
-                    <sl-tab-panel name="komunikasikan">
-                        <div class="text-content mx-auto">
-                            <p>
-                                Pada akhir materi ini, siswa diminta memilih kesimpulan terkait materi yang sudah
-                                dipelajari !
-                            </p><span
-                                onclick="play('/assets/sounds/bab_2/sub_2/Ayo Mengkomunikasikan/Ayo Mengkomunikasi.m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                        </div>
-
-                        <sl-card id="info-media"
-                            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div>
-                                <form>
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <input type="radio">
-                                                    <span
-                                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Mengkomunikasikan/AyoMong 1.m4a')"><img
-                                                            src="/assets/image/sound.png"
-                                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                                </td>
-                                                <td>Suatu pengurangan yang di nyatakan berkurang bahwa
-                                                    suatu hasil penjumlahan dua angka bersama yang
-                                                    berkurang dan suatu penjumlahkan yang di nyatakan
-                                                    bertambah maka menggabungkan dua angka bersama
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="radio">
-                                                    <span
-                                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Mengkomunikasikan/AyoMong 2.m4a')"><img
-                                                            src="/assets/image/sound.png"
-                                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                                </td>
-                                                <td>Suatu upaya untuk menentukan suatu bilangan dalam
-                                                    mengurutkan dua bilangan dalam bilangan yang sama
-                                                    angkanya.</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="radio">
-                                                    <span
-                                                        onclick="play('/assets/sounds/bab_2/sub_2/Ayo Mengkomunikasikan/AyoMong 3.m4a')"><img
-                                                            src="/assets/image/sound.png"
-                                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                                </td>
-                                                <td>Suatu upaya untuk menentukan suatu bilangan dalam
-                                                    mengurutkan dua bilangan dalam bilangan yang acak.</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div>
-                                        <p class="p-3 text-right cursor-pointer" onclick="komunikasi()">Kirim</p>
-                                    </div>
-                                </form>
-                            </div>
-                        </sl-card>
-                    </sl-tab-panel>
+                    </div>
 
                 </sl-tab-group>
+                <br>
+                <div class="m-2 flex gap-9 content-end justify-end">
+                    <button type="button" id="prevButton" onclick="prevPage()">
+                      Previous Page
+                    </button>
+                    <span id="pageNumbers2"></span>
+                    <button type="button" onclick="nextPage()">Next Page</button>
+                  </div>
             </div>
         </div>
     </div>

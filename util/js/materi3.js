@@ -5,88 +5,85 @@ const assets = [
     image3: "/assets/image/bab_1/sub_3/Ayo Mengamati/Soal  (5).png",
   },
   {
-    image1: "/assets/image/bab_1/sub_3/Ayo Mengamati/enam.png",
+    image1: "/assets/image/bab_1/sub_3/Ayo Mengamati/new/tiga.png",
     image2: "/assets/image/bab_1/sub_3/Ayo Mengamati/tujuh.png",
-    image3: "/assets/image/bab_1/sub_3/Ayo Mengamati/Soal  (5).png",
+    image3: "/assets/image/bab_1/sub_3/Ayo Mengamati/new/lima.png",
   },
   {
     image1: "/assets/image/bab_1/sub_3/Ayo Mengamati/tiga.png",
-    image2: "/assets/image/bab_1/sub_3/Ayo Mengamati/Soal  (5).png",
-    image3: "/assets/image/bab_1/sub_3/Ayo Mengamati/lima.png",
+    image2: "/assets/image/bab_1/sub_3/Ayo Mengamati/new/sembilan.png",
+    image3: "/assets/image/bab_1/sub_3/Ayo Mengamati/new/delapan.png",
   },
   {
-    image1: "/assets/image/bab_1/sub_3/Ayo Mengamati/Soal  (5).png",
-    image2: "/assets/image/bab_1/sub_3/Ayo Mengamati/sembilan.png",
+    image1: "/assets/image/bab_1/sub_3/Ayo Mengamati/new/empat.png",
+    image2: "/assets/image/bab_1/sub_3/Ayo Mengamati/new/tiga.png",
     image3: "/assets/image/bab_1/sub_3/Ayo Mengamati/delapan.png",
-  },
-  {
-    image1: "/assets/image/bab_1/sub_3/Ayo Mengamati/empat.png",
-    image2: "/assets/image/bab_1/sub_3/Ayo Mengamati/tiga.png",
-    image3: "/assets/image/bab_1/sub_3/Ayo Mengamati/Soal  (5).png",
-  },
-  {
-    image1: "/assets/image/bab_1/sub_3/Ayo Mengamati/tujuh.png",
-    image2: "/assets/image/bab_1/sub_3/Ayo Mengamati/Soal  (5).png",
-    image3: "/assets/image/bab_1/sub_3/Ayo Mengamati/lima.png",
-  },
-  {
-    image1: "/assets/image/bab_1/sub_3/Ayo Mengamati/Soal  (5).png",
-    image2: "/assets/image/bab_1/sub_3/Ayo Mengamati/satu.png",
-    image3: "/assets/image/bab_1/sub_3/Ayo Mengamati/dua.png",
   },
 ];
 
-const mengamatiArr = [
-  "image1.jpg",
-  "image2.jpg",
-  "...",
-  "image4.jpg",
-  "...",
-  "image6.jpg",
-  "...",
-  "image8.jpg",
-  "image9.jpg",
-  "image10.jpg",
-  "image11.jpg",
-  "...",
-];
+function insertContent(row, col, content) {
+  var table = document.getElementById("table-mencoba");
+  var cell = table.rows[row - 1].cells[col - 1];
+  cell.innerHTML = content;
+}
 
 window.addEventListener("DOMContentLoaded", () => {
   const bodyTable = document.getElementById("body-table");
 
-  for (let index = 0; index < 7; index++) {
+  for (let index = 0; index < 4; index++) {
     const tr = document.createElement("tr");
     const td1 = document.createElement("td");
     const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
 
     td1.innerHTML = `
-   <div class="flex gap-5">
     <img
         src="${assets[index].image1}"
         alt="Image 1"
         class="w-24 h-24"
     />
-    <img
-        src="${assets[index].image2}"
-        alt="Image 2"
-        class="w-24 h-24"
-    />
-    <img
-        src="${assets[index].image3}"
-        class="w-24 h-24"
-    />
-   </div>
    `;
 
     td2.innerHTML = `
-      <div id="image-dropdown-${index}"></div>
-      <div id="result-container-${index}" class="mt-2"></div>
+    <img
+    src="${assets[index].image2}"
+    alt="Image 2"
+    class="w-24 h-24"
+/>
+    `;
+
+    td3.innerHTML = `
+    <img
+    src="${assets[index].image3}"
+    class="w-24 h-24"
+/>
     `;
     tr.appendChild(td1);
     tr.appendChild(td2);
+    tr.appendChild(td3);
 
     bodyTable.appendChild(tr);
   }
+  insertContent(
+    2,
+    3,
+    '<div><div id="image-dropdown-1"></div><div id="result-container-0" class="mt-2"></div></div>'
+  );
+  insertContent(
+    3,
+    2,
+    '<div><div id="image-dropdown-2"></div><div id="result-container-1" class="mt-2"></div></div>'
+  );
+  insertContent(
+    4,
+    1,
+    '<div><div id="image-dropdown-3"></div><div id="result-container-2" class="mt-2"></div></div>'
+  );
+  insertContent(
+    5,
+    3,
+    '<div><div id="image-dropdown-4"></div><div id="result-container-3" class="mt-2"></div></div>'
+  );
 
   const dropdownsPlaceholders = document.querySelectorAll(
     "[id^=image-dropdown]"
@@ -127,10 +124,10 @@ window.addEventListener("DOMContentLoaded", () => {
                                                <a
                                                   href="#"
                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (4).png', 'dropdownButton${id}', 'dropdownMenu${id}', 'a' , ${id})"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/nol.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'a' , ${id})"
                                                >
                                                   <img
-                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (4).png"
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/nol.png"
                                                      alt="Image 1"
                                                      class="w-12 h-12 mr-2 rounded-full"
                                                   />
@@ -139,10 +136,10 @@ window.addEventListener("DOMContentLoaded", () => {
                                                <a
                                                   href="#"
                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (3).png', 'dropdownButton${id}', 'dropdownMenu${id}', 'b' , ${id})"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/satu.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'b' , ${id})"
                                                >
                                                   <img
-                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (3).png"
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/satu.png"
                                                      alt="Image 1"
                                                      class="w-12 h-12 mr-2 rounded-full"
                                                   />
@@ -151,10 +148,10 @@ window.addEventListener("DOMContentLoaded", () => {
                                                <a
                                                   href="#"
                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (2).png', 'dropdownButton${id}', 'dropdownMenu${id}', 'c' , ${id})"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/dua.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'c' , ${id})"
                                                >
                                                   <img
-                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (2).png"
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/dua.png"
                                                      alt="Image 1"
                                                      class="w-12 h-12 mr-2 rounded-full"
                                                   />
@@ -163,10 +160,22 @@ window.addEventListener("DOMContentLoaded", () => {
                                                <a
                                                   href="#"
                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/4.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'd' , ${id})"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/tiga.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'd' , ${id})"
                                                >
                                                   <img
-                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/4.png"
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/tiga.png"
+                                                     alt="Image 1"
+                                                     class="w-12 h-12 mr-2 rounded-full"
+                                                  />
+                                                  Tiga
+                                               </a>
+                                               <a
+                                                  href="#"
+                                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/empat.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'e' , ${id})"
+                                               >
+                                                  <img
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/empat.png"
                                                      alt="Image 1"
                                                      class="w-12 h-12 mr-2 rounded-full"
                                                   />
@@ -175,10 +184,22 @@ window.addEventListener("DOMContentLoaded", () => {
                                                <a
                                                   href="#"
                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (8).png', 'dropdownButton${id}', 'dropdownMenu${id}', 'e' , ${id})"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/lima.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'f' , ${id})"
                                                >
                                                   <img
-                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (8).png"
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/lima.png"
+                                                     alt="Image 1"
+                                                     class="w-12 h-12 mr-2 rounded-full"
+                                                  />
+                                                  Lima
+                                               </a>
+                                               <a
+                                                  href="#"
+                                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/enam.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'g' , ${id})"
+                                               >
+                                                  <img
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/enam.png"
                                                      alt="Image 1"
                                                      class="w-12 h-12 mr-2 rounded-full"
                                                   />
@@ -187,10 +208,22 @@ window.addEventListener("DOMContentLoaded", () => {
                                                <a
                                                   href="#"
                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (7).png', 'dropdownButton${id}', 'dropdownMenu${id}', 'f' , ${id})"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/tujuh.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'h' , ${id})"
                                                >
                                                   <img
-                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (7).png"
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/tujuh.png"
+                                                     alt="Image 1"
+                                                     class="w-12 h-12 mr-2 rounded-full"
+                                                  />
+                                                  Tujuh
+                                               </a>
+                                               <a
+                                                  href="#"
+                                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/delapan.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'i' , ${id})"
+                                               >
+                                                  <img
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/delapan.png"
                                                      alt="Image 1"
                                                      class="w-12 h-12 mr-2 rounded-full"
                                                   />
@@ -199,10 +232,10 @@ window.addEventListener("DOMContentLoaded", () => {
                                                <a
                                                   href="#"
                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (6).png', 'dropdownButton${id}', 'dropdownMenu${id}', 'g' , ${id})"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/sembilan.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'j' , ${id})"
                                                >
                                                   <img
-                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (6).png"
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/sembilan.png"
                                                      alt="Image 1"
                                                      class="w-12 h-12 mr-2 rounded-full"
                                                   />
@@ -211,10 +244,10 @@ window.addEventListener("DOMContentLoaded", () => {
                                                <a
                                                   href="#"
                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
-                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (5).png', 'dropdownButton${id}', 'dropdownMenu${id}', 'h' , ${id})"
+                                                  onclick="selectOption('/assets/image/bab_1/sub_3/Ayo Mengamati/new/sepuluh.png', 'dropdownButton${id}', 'dropdownMenu${id}', 'k' , ${id})"
                                                >
                                                   <img
-                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/Jawaban (5).png"
+                                                     src="/assets/image/bab_1/sub_3/Ayo Mengamati/new/sepuluh.png"
                                                      alt="Image 1"
                                                      class="w-12 h-12 mr-2 rounded-full"
                                                   />
@@ -232,7 +265,7 @@ const selectedValues = [];
 function selectOption(optionText, buttonId, menuId, selectedValue, index) {
   var dropdownButton = document.getElementById(buttonId);
   dropdownButton.innerHTML = `
-    <img src="${optionText}" alt="Image 1" class="mr-2 " />`;
+    <img src="${optionText}" alt="Image 1" class="mr-2 w-24 h-24" />`;
 
   // Store the selected value in a data attribute
   dropdownButton.setAttribute("data-selected-value", selectedValue);
@@ -252,7 +285,7 @@ function selectOption(optionText, buttonId, menuId, selectedValue, index) {
 
 function checkCorrectness(selectedValue, index) {
   // Assuming the correct answers are stored in an array
-  const correctAnswers = ["f", "f", "d", "h", "c", "e", "a"];
+  const correctAnswers = ["i", "e", "k", "c"];
 
   // Compare the selected value with the correct answer
   return selectedValue === correctAnswers[index];
@@ -544,9 +577,9 @@ function selectOption2(row, index) {
 }
 
 // Dynamically generate options for each question
-for (var i = 0; i < questions.length; i++) {
-  generateOptions(i + 1, questions[i]);
-}
+// for (var i = 0; i < questions.length; i++) {
+//   generateOptions(i + 1, questions[i]);
+// }
 
 let box1data = ["1", "2", "...", "4", "...", "6", "7", "...", "9", "10"];
 
@@ -678,14 +711,18 @@ function handleRadioButtonClick(rowNumber, result) {
   }
 }
 
+let responsesArray = [];
+
 function displayResponse(boxId, index, isCorrect) {
   const box = document.getElementById(boxId);
-  const responseElement = document.getElementById(`response-${boxId}-${index}`); // Updated query
+  const responseElement = document.getElementById(`response-${boxId}-${index}`);
 
   if (isCorrect) {
     responseElement.innerHTML = '<p class="text-green-500">kamu benar!</p>';
+    responsesArray.push("Kamu Benar!");
   } else {
     responseElement.innerHTML = '<p class="text-red-500">kamu salah!</p>';
+    responsesArray.push("");
   }
 }
 
@@ -703,16 +740,16 @@ function checkAnswer(boxId, correctValues) {
     });
   });
 
-  const submitButton = document.getElementById("submit-button"); // Add an id to your submit button
-  submitButton.addEventListener("click", () => {
-    // Trigger response check when submit button is clicked
-    selects.forEach((select, index) => {
-      const selectedValue = select.value;
-      const correctValue = correctValues[index];
+  // const submitButton = document.getElementById("submit-button"); // Add an id to your submit button
+  // submitButton.addEventListener("click", () => {
+  // Trigger response check when submit button is clicked
+  selects.forEach((select, index) => {
+    const selectedValue = select.value;
+    const correctValue = correctValues[index];
 
-      displayResponse(boxId, index, selectedValue === correctValue);
-    });
+    displayResponse(boxId, index, selectedValue === correctValue);
   });
+  // });
 }
 
 function clearAllInputs(boxId) {
@@ -734,60 +771,85 @@ function clearAllInputs(boxId) {
   });
 }
 
-function clearAllInputs(boxId) {
-  const box = document.getElementById(boxId);
-  const selects = box.querySelectorAll("select");
-  const radios = box.querySelectorAll("input[type='radio']");
-  const responseElements = box.querySelectorAll(".response");
+// const clearAllButton = document.getElementById("clear-all-button");
+// clearAllButton.addEventListener("click", () => {
+//   clearAllInputs("box1");
+//   clearAllInputs("box2");
+//   clearAllInputs("box3");
 
-  selects.forEach((select) => {
-    select.value = "";
-  });
+//   // Clear radio inputs
+//   const radioInputs = document.querySelectorAll("input[type='radio']");
+//   radioInputs.forEach((radio) => {
+//     radio.checked = false;
+//   });
 
-  radios.forEach((radio) => {
-    radio.checked = false;
-  });
-
-  responseElements.forEach((responseElement) => {
-    responseElement.innerHTML = "";
-  });
-}
-
-const clearAllButton = document.getElementById("clear-all-button");
-clearAllButton.addEventListener("click", () => {
-  clearAllInputs("box1");
-  clearAllInputs("box2");
-  clearAllInputs("box3");
-
-  // Clear radio inputs
-  const radioInputs = document.querySelectorAll("input[type='radio']");
-  radioInputs.forEach((radio) => {
-    radio.checked = false;
-  });
-
-  const allResponseElements = document.querySelectorAll(".response");
-  allResponseElements.forEach((responseElement) => {
-    responseElement.innerHTML = "";
-  });
-});
+//   const allResponseElements = document.querySelectorAll(".response");
+//   allResponseElements.forEach((responseElement) => {
+//     responseElement.innerHTML = "";
+//   });
+// });
 
 // Call the function for each box with the correct values
-checkAnswer("box1", ["3", "5", "8"]);
-checkAnswer("box2", ["2", "4", "7", "8"]);
-checkAnswer("box3", ["9", "7", "4", "3"]);
+function kirimBerlatih() {
+  const res1 = document.getElementById("resultMessage1").textContent;
+  const res2 = document.getElementById("resultMessage2").textContent;
 
-function komunikasi() {
+  responsesArray = [];
+
+  checkAnswer("box1", ["3", "5", "8"]);
+  checkAnswer("box2", ["2", "4", "7", "8"]);
+  checkAnswer("box3", ["9", "7", "4", "3"]);
+
+  responsesArray.push(res1);
+  responsesArray.push(res2);
+
+  let providedArray = [
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+  ]; // Replace this with your provided array
+  let trueCount = 0;
+
+  console.log("responsesArray:", responsesArray);
+
+  // Compare mengamatiArr with providedArray and count true matches
+  for (let i = 0; i < responsesArray.length; i++) {
+    if (responsesArray[i] === providedArray[i]) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub3_berlatih", (trueCount / 13) * 100);
+
+  console.log(responsesArray);
+
+  komunikasi("/app/dashboard/bab1/materi3.html?page=2");
+}
+
+function komunikasi(url) {
   Swal.fire({
     icon: "success",
     title: "Success",
   }).then(() => {
-    window.location.href = "/app/dashboard/bab1/materi3.html";
+    window.location.href = url;
   });
 }
 
 function menalar() {
   // Function to check if the user's input is in the correct order for a specific table
-  function checkTable(tableId, isAscending) {
+  function checkTable(tableId, isAscending, id) {
     const table = document.getElementById(tableId);
     const rows = table.getElementsByTagName("tr");
 
@@ -804,27 +866,29 @@ function menalar() {
 
       if (!userAnswers.every((value, index) => value === correctOrder[index])) {
         // If the answers are incorrect, display "Kamu Salah!" below the respective table
-        displayResponse("Jawaban Salah!", table, "red");
+        displayResponse("Jawaban Salah!", table, "red", id);
         return;
       }
     }
 
     // If all answers are correct, display "Kamu Benar!" below the respective table
-    displayResponse("Jawaban Benar!", table, "green");
+    displayResponse("Jawaban Benar!", table, "green", id);
   }
 
   // Function to display or replace the response below the respective table using <p> element
-  function displayResponse(message, targetTable, color) {
+  function displayResponse(message, targetTable, color, id) {
     // Check if there is an existing response paragraph
     const existingResponse = targetTable.nextSibling;
 
     if (existingResponse && existingResponse.tagName === "P") {
       // If an existing response is found, replace its text content and color
+      existingResponse.id = id;
       existingResponse.textContent = message;
       existingResponse.style.color = color;
     } else {
       // If no existing response, create a new response paragraph and append it
       const responseParagraph = document.createElement("p");
+      responseParagraph.id = id;
       responseParagraph.textContent = message;
       responseParagraph.style.color = color;
 
@@ -837,9 +901,177 @@ function menalar() {
   }
 
   // Checking answers for each table separately
-  checkTable("table1", false); // Assuming the first table is for ascending order
-  checkTable("table2", false); // Assuming the second table is for ascending order
-  checkTable("table3", false); // Assuming the third table is for ascending order
-  checkTable("table4", true); // Assuming the fourth table is for descending order
-  checkTable("table5", true); // Assuming the fifth table is for descending order
+  checkTable("table1", false, "1"); // Assuming the first table is for ascending order
+  checkTable("table2", false, "2"); // Assuming the second table is for ascending order
+  checkTable("table3", false, "3"); // Assuming the third table is for ascending order
+  checkTable("table4", true, "4"); // Assuming the fourth table is for descending order
+  checkTable("table5", true, "5"); // Assuming the fifth table is for descending order
+
+  kirimMenalar();
+}
+
+function getMenalar() {}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the page number from the query parameter or default to 1
+  const urlParams = new URLSearchParams(window.location.search);
+  let currentPage = parseInt(urlParams.get("page")) || 1;
+
+  // Display the current page
+  showPage(currentPage);
+
+  // Update the current page number and page numbers list in the HTML
+  updatePageNumbers(currentPage);
+});
+
+function showPage(pageNumber) {
+  // Hide all pages
+  const pages = document.querySelectorAll(".page");
+  pages.forEach((page) => {
+    page.style.display = "none";
+  });
+
+  // Show the selected page
+  const selectedPage = document.getElementById(`page${pageNumber}`);
+  if (selectedPage) {
+    selectedPage.style.display = "block";
+  }
+
+  // Update the current page number in the "currentPage" span
+  document.getElementById("currentPage").textContent = pageNumber;
+}
+
+function nextPage() {
+  const totalPages = document.querySelectorAll(".page").length;
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage < totalPages) {
+    currentPage++;
+    updatePage(currentPage);
+  }
+}
+
+function prevPage() {
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage > 1) {
+    currentPage--;
+    updatePage(currentPage);
+  }
+}
+
+function updatePage(pageNumber) {
+  // Update the query parameter
+  window.history.pushState({}, "", `?page=${pageNumber}`);
+
+  // Display the new page
+  showPage(pageNumber);
+
+  // Update the page numbers list in the HTML
+  updatePageNumbers(pageNumber);
+}
+
+function updatePageNumbers(currentPage) {
+  const totalPages = document.querySelectorAll(".page").length;
+  const pageNumbersContainer = document.getElementById("pageNumbers");
+  const pageNumbersContainer2 = document.getElementById("pageNumbers2");
+  let pageNumbersHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === currentPage) {
+      pageNumbersHTML += `<strong>${i}</strong> `;
+    } else {
+      pageNumbersHTML += `<a href="?page=${i}" onclick="updatePage(${i}); return false;">${i}</a> `;
+    }
+  }
+
+  pageNumbersContainer.innerHTML = pageNumbersHTML;
+  pageNumbersContainer2.innerHTML = pageNumbersHTML;
+}
+
+let mengamatiArr = [];
+
+function kirimMengamati() {
+  let providedArray = ["Kamu Benar", "Kamu Benar", "Kamu Benar", "Kamu Benar"]; // Replace this with your provided array
+  let trueCount = 0;
+
+  for (let i = 0; i < 4; i++) {
+    let mengamati = document.getElementById(`result-container-${i}`);
+    let res = mengamati.textContent;
+
+    if (mengamati.textContent !== null && mengamati.textContent !== "") {
+      mengamati.style.display = "block";
+    }
+
+    if (mengamatiArr.length < 4) {
+      mengamatiArr.push(res);
+    } else {
+      mengamatiArr = [];
+      mengamatiArr.push(res);
+    }
+  }
+
+  console.log("mengamatiArr:", mengamatiArr);
+
+  // Compare mengamatiArr with providedArray and count true matches
+  for (let i = 0; i < mengamatiArr.length; i++) {
+    if (mengamatiArr[i] === providedArray[i]) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub3_mengamati", (trueCount / 4) * 100);
+
+  // Optionally, you can return the trueCount value
+  komunikasi("/app/dashboard/bab1/materi3.html?page=1");
+}
+
+let menalarArr = [];
+
+function kirimMenalar() {
+  let providedArray = [
+    "Jawaban Benar!",
+    "Jawaban Benar!",
+    "Jawaban Benar!",
+    "Jawaban Benar!",
+  ]; // Replace this with your provided array
+  let trueCount = 0;
+
+  for (let i = 1; i < 5; i++) {
+    let menalar = document.getElementById(`${i}`);
+    let res = menalar.textContent;
+
+    if (menalar.textContent !== null && menalar.textContent !== "") {
+      menalar.style.display = "block";
+    }
+
+    if (menalarArr.length < 4) {
+      menalarArr.push(res);
+    } else {
+      menalarArr = [];
+      menalarArr.push(res);
+    }
+  }
+
+  console.log("menalarArr:", menalarArr);
+
+  // Compare menalarArr with providedArray and count true matches
+  for (let i = 0; i < menalarArr.length; i++) {
+    if (menalarArr[i] === providedArray[i]) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub3_menalar", (trueCount / 4) * 100);
+
+  // Optionally, you can return the trueCount value
+  komunikasi("/app/dashboard/bab1/materi3.html?page=3");
 }

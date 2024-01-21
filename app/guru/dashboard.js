@@ -38,9 +38,11 @@ const populateTable = () => {
         user.name
       }</td><td>${user.nisn}</td><td>${user.password}</td><td>${
         user.sekolah
-      }</td><td>${user.kelas}</td><td><button class="p-2" onclick="deleteUser(${
+      }</td><td>${
+        user.kelas
+      }</td><td><button class="p-2" onclick="deleteUser('${
         user.nisn
-      })"><img src="../../assets/image/delete.png" width="20em">
+      }')"><img src="../../assets/image/delete.png" width="20em">
       </button></td>`;
     }
   });

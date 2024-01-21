@@ -1,830 +1,951 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.min.css" />
-        <script type="module" src="/util/js/db.js"></script>
-        <script type="module" src="/util/js/check.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.min.css"
+    />
+    <script type="module" src="/util/js/db.js"></script>
+    <script type="module" src="/util/js/check.js"></script>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/style.css" />
     <script type="module" src="/util/js/getUserName.js"></script>
     <script src="/util/js/playAudio.js"></script>
     <style>
-        /* .sub_1_ayo_mengamati {} */
+      /* .sub_1_ayo_mengamati {} */
 
-        .sub_1_ayo_mengamati>tr>td>* {
-            margin: 0 auto;
-        }
+      .sub_1_ayo_mengamati > tr > td > * {
+        margin: 0 auto;
+      }
+
+      .page {
+        display: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header id="header-dashboard" class="py-1 z-10 bg-pink-300">
-        <div class="">
-            <div class="w-full px-4">
-                <div class="mx-auto mb-1 max-w-xl text-center">
-                    <h2 class="py-1" style="
+      <div class="">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-1 max-w-xl text-center">
+            <h2
+              class="py-1"
+              style="
                 color: black;
                 font-size: 30px;
                 font-family: Inter;
                 font-weight: 600;
                 line-height: 48px;
                 word-wrap: break-word;
-              ">
-                        Welcome
-                    </h2>
-                    <p class="py-1" style="
+              "
+            >
+              Welcome
+            </h2>
+            <p
+              class="py-1"
+              style="
                 color: black;
                 font-size: 20px;
                 font-family: Inter;
                 font-weight: 600;
                 line-height: 32px;
                 word-wrap: break-word;
-              ">
-                        Hello future greats with spirit of learning
-                    </p>
-                </div>
-                <div class="w-full flex justify-between">
-                    <a href="../../beranda.html" class="text-md px-6 py-4 font-bold underline decoration-slice">Back to
-                        Beranda</a>
-                    <h3 class="px-6 py-4">
-                        Anda saat ini berada pada tab:
-                        <a href="../dashboard.html" class="font-bold underline decoration-solid">Dashboard Siswa
-                        </a>
-                        <span> > </span>
-                        <a href="./materi1.html" class="font-bold underline decoration-solid">Materi Bab 1
-                        </a>
-                    </h3>
-                </div>
-            </div>
+              "
+            >
+              Hello future greats with spirit of learning
+            </p>
+          </div>
+          <div class="w-full flex justify-between">
+            <a
+              href="../../beranda.html"
+              class="text-md px-6 py-4 font-bold underline decoration-slice"
+              >Back to Beranda</a
+            >
+            <h3 class="px-6 py-4">
+              Anda saat ini berada pada tab:
+              <a
+                href="../dashboard.html"
+                class="font-bold underline decoration-solid"
+                >Dashboard Siswa
+              </a>
+              <span> > </span>
+              <a
+                href="./materi1.html"
+                class="font-bold underline decoration-solid"
+                >Materi Bab 1
+              </a>
+            </h3>
+          </div>
         </div>
+      </div>
     </header>
 
     <div class="w-full flex">
-        <aside class="sidebar min-h-screen px-1">
-            <div class="w-full flex flex-col justify-center items-center">
-                <img src="/assets/image/user.png" class="w-1/2 h-auto object-contain" />
-                <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
-            </div>
-            <h2 class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
-                style="font-family: Inter; word-wrap: break-word">
-                Daftar Isi
-            </h2>
-            <sl-tree>
-                <sl-tree-item>
-                    <p>
-                        Ayo Membilang Bilangan 1 sampai dengan 10
-                    </p>
-                    <sl-tree-item>
-                        <a href="../../dashboard/bab1/pendahuluan1.html">Pendahuluan</a>
-                    </sl-tree-item>
-                    <sl-tree-item>
-                        <p>
-                            Materi
-                        </p>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab1/materi1.html">Menghitung,Membaca dan Menulis Bilangan</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab1/materi2.html">Membandingkan Banyak Bilangan dalam Benda</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab1/materi3.html">Menghitung Maju dan Mundur</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab1/materi4.html">Pasangan Bilangan</a>
-                        </sl-tree-item>
-                    </sl-tree-item>
-                    <sl-tree-item>
-                        <a href="../../dashboard/bab1/kuis1.html">Kuis BAB 1</a>
-                    </sl-tree-item>
-                </sl-tree-item>
-
-                <sl-tree-item expanded>
-                    <p>Penjumlahan Bilangan dan Pengurangan
-                        Bilangan 1 sampai dengan 10</p>
-                    <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
-                    <sl-tree-item expanded>
-                        <p>Materi</p>
-                        <sl-tree-item selected>
-                            <a href="../../dashboard/bab2/materi1.html">Mengenal Simbol +, - atau =</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi2.html">Cerita Penjumlahan dan Pengurangan Bilangan 1
-                                s/d 10</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi3.html">Berbagai Cara Melakukan Penjumlahan dan
-                                Pengurangan 1 s/d
-                                10</a>
-                        </sl-tree-item>
-                        <sl-tree-item>
-                            <a href="../../dashboard/bab2/materi4.html">
-                                Hubungan Penjumlahan dan Pengurangan
-                            </a>
-                        </sl-tree-item>
-                    </sl-tree-item>
-                    <sl-tree-item>
-                        <a href="../../dashboard/bab2/kuis2.html">
-                            Kuis Bab 2
-                        </a>
-                    </sl-tree-item>
-                </sl-tree-item>
-
-                <sl-tree-item>
-                    <a href="../../dashboard/evaluasi.html">Evaluasi</a>
-                </sl-tree-item>
-
-                <sl-tree-item>
-                    <a href="../../../auth/login.html">Exit</a>
-                </sl-tree-item>
-            </sl-tree>
-        </aside>
-        <div class="content px-1">
-            <div class="main-content">
-                <div class="flex py-1 justify-center">
-                    <p
-                        class="border border-solid rounded-full text-white bg-red-500 text-md px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                        Bilangan
-                    </p>
-                </div>
-                <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
-                    A. Mengenal Simbol +, - atau =
-                </h3>
-                <sl-tab-group>
-                    <sl-tab slot="nav" panel="mengamati">Ayo Mengamati</sl-tab>
-                    <sl-tab slot="nav" panel="mengingat">Ayo Mengingat</sl-tab>
-                    <sl-tab slot="nav" panel="berlatih">Ayo berlatih</sl-tab>
-                    <!-- <sl-tab slot="nav" panel="menanya">Ayo Menanya</sl-tab> -->
-                    <!-- <sl-tab slot="nav" panel="mencoba">Ayo Mencoba</sl-tab> -->
-                    <!-- <sl-tab slot="nav" panel="menalar">Ayo Menalar</sl-tab> -->
-                    <!-- <sl-tab slot="nav" panel="komunikasikan">Ayo Mengkomunikasikan</sl-tab> -->
-
-
-                    <!-- * Tab Panel Ayo Mengamati -->
-                    <sl-tab-panel name="mengamati">
-                        <div class="text-content mx-auto ">
-                            <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
-                                Ayo perhatikan contoh di bawah ini!
-                            </h3>
-                            <p class="underline">Contoh 1 : Penjumlahan</p>
-                            <span
-                                onclick="play('/assets/sounds/bab_2/sub_1/Ayo Mengamati/Ayo mengamati (Penjumlahan).m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                            <br />
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>Kakak mempunyai 4 buku tulis.</td>
-                                        <td>
-                                            <img width="40%"
-                                                src="/assets/image/bab_2/sub_1/Ayo Mengamati/Cerita Penjumlahan (2).png"
-                                                alt="">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kemudian kakak membeli lagi 2 buku tulis.</td>
-                                        <td>
-                                            <img width="40%"
-                                                src="/assets/image/bab_2/sub_1/Ayo Mengamati/Cerita Penjumlahan (3).png"
-                                                alt="">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Maka banyak buku kakak sekarang adalah ?</td>
-                                        <td>
-                                            <img width="40%"
-                                                src="/assets/image/bab_2/sub_1/Ayo Mengamati/Cerita Penjumlahan (1).png"
-                                                alt="">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <br />
-
-                            <p class="underline">Contoh 2 : Pengurangan</p>
-                            <span
-                                onclick="play('/assets/sounds/bab_2/sub_1/Ayo Mengamati/Ayo mengamati (Pengurangan).m4a')"><img
-                                    src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" /></span>
-                            <br />
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>Ibu mempunyai 8 pensil.</td>
-                                        <td>
-                                            <img width="40%"
-                                                src="/assets/image/bab_2/sub_1/Ayo Mengamati/Cerita pengurangan (2).png"
-                                                alt="">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kemudian ibu memberikan 3 pensil kepada adik.</td>
-                                        <td>
-                                            <img width="40%"
-                                                src="/assets/image/bab_2/sub_1/Ayo Mengamati/Cerita pengurangan (3).png"
-                                                alt="">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Maka sisa pensil ibu sekarang adalah ?</td>
-                                        <td>
-                                            <img width="40%"
-                                                src="/assets/image/bab_2/sub_1/Ayo Mengamati/Cerita pengurangan (1).png"
-                                                alt="">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <br />
-
-                        </div>
-                    </sl-tab-panel>
-                    <!-- * End Tab Panel Ayo Mengamati -->
-
-                    <!-- * Tab Panel Ayo Mengingat -->
-                    <sl-tab-panel name="mengingat">
-                        <div class="text-content mx-auto ">
-                            <div class="p-2 border-black">
-                                <p>
-                                    Penjumlahan menggunakan tanda tambah (+).
-                                </p>
-                                <p>
-                                    Pengurangan menggunakan anda kurang (-).
-                                </p>
-                                <p>
-                                    Hasilnya menggunakan tanda sama dengan (=).
-                                </p>
-                                <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Diingat/Ayo Diingat.m4a')"><img
-                                        src="/assets/image/sound.png"
-                                        class="w-6 h-6 cursor-pointer select-none" /></span>
-                            </div>
-                        </div>
-                    </sl-tab-panel>
-                    <!-- * End Tab Panel Ayo Mengamati -->
-
-                    <!-- * Tab Panel Ayo Berlatih -->
-                    <sl-tab-panel name="berlatih">
-                        <div class="text-content mx-auto">
-                            <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
-                                Petunjuk Pengerjaan :
-                            </h3>
-                            <ol class="black-number mx-4">
-                                <li>
-                                    Untuk memahami materi di atas, silahkan jawab pertanyaan di
-                                    bawah ini!
-                                </li>
-                                <li>
-                                    Jawablah pertanyaan dengan mengklik salah satu jawaban yang
-                                    dianggap benar!
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out">Cek
-                                        Jawaban</span>
-                                    untuk mengetahui jawaban benar atau salah!
-                                </li>
-                                <li>
-                                    Jika jawabanmu benar, muncul keterangan
-                                    <span class="font-bold text-green-600">"Jawaban Benar"</span>
-                                </li>
-                                <li>
-                                    Jika jawabanmu salah, muncul keterangan
-                                    <span class="font-bold text-red-600">"Jawaban Salah"</span>
-                                </li>
-                                <li class="py-4">
-                                    Klik tombol
-                                    <span
-                                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out">Coba
-                                        Lagi</span>
-                                    untuk mencoba kembali
-                                    <span
-                                        onclick="play('/assets/sounds/bab_1/sub_3/Ayo Berlatih/Ayo Berlatih.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                </li>
-                            </ol>
-                        </div>
-                        <sl-card id="info-media"
-                            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <div slot="header">
-                                <h3 class="font-bold text-lg underline decoration-solid px-2 py-1">
-                                    Kerjakan soal di bawah ini, isilah jawaban dengan tepat!
-                                </h3>
-                                <p class="font-bold">Contoh</p>
-                                <div class="flex">
-                                    <div class="mx-10">
-                                        <p>Dua ditambah tiga sama dengan lima</p>
-                                        <p>2 + 3 = 5</p>
-                                        <span
-                                            onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/contoh penjumlahan (ayo berlatih).m4a')"><img
-                                                src="/assets/image/sound.png"
-                                                class="w-6 h-6 cursor-pointer select-none" /></span>
-                                    </div>
-                                    <div class="mx-10">
-                                        <p>Lima dikurang dua sama dengan tiga</p>
-                                        <p>5 − 2 = 3</p>
-                                        <span
-                                            onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/contoh pengurangan (ayo berlatih).m4a')"><img
-                                                src="/assets/image/sound.png"
-                                                class="w-6 h-6 cursor-pointer select-none" /></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <ol class="soal-berlatih mx-4">
-                                <!-- *Soal berlatih Nomor 1 -->
-                                <li>Satu ditambah tiga sama dengan empat
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S1.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                        <div>
-                                            <select class="mx-10" id="question1Option1" onchange="updateTotal(1)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption1Question1"></p>
-                                        </div>
-                                        <p>+</p>
-                                        
-                                        <div>
-                                            <select class="mx-10" id="question1Option2" onchange="updateTotal(1)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question1"></p>
-
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion1">0</span></p>
-                                    </div>
-                                </li>
-                                <!-- *End soal berlatih Nomor 1 -->
-
-                                <li>Tiga ditambah empat sama dengan tujuh
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S2.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                        <div>
-                                            <select class="mx-10" id="question2Option1" onchange="updateTotal(2)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption1Question2"></p>
-                                        </div>
-
-                                        <p>+</p>
-
-                                        <div>
-                                            <select class="mx-10" id="question2Option2" onchange="updateTotal(2)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question2"></p>
-
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion2">0</span></p>
-                                    </div>
-                                </li>
-
-                                <li>Enam ditambah tiga sama dengan sembilan
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S3.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                        <div>
-                                            <select class="mx-10" id="question3Option1" onchange="updateTotal(3)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption1Question3"></p>
-                                        </div>
-
-                                        <p>+</p>
-
-                                        <div>
-                                            <select class="mx-10" id="question3Option2" onchange="updateTotal(3)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question3"></p>
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion3">0</span></p>
-                                    </div>
-                                </li>
-
-                                <li>Enam ditambah tiga sama dengan sembilan
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S4.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                        <div>
-                                            <select class="mx-10" id="question4Option1" onchange="updateTotal(4)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption1Question4"></p>
-                                        </div>
-                                       
-
-                                        <p>+</p>
-
-                                        <div>
-                                            <select class="mx-10" id="question4Option2" onchange="updateTotal(4)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question4"></p>
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion4">0</span></p>
-                                    </div>
-                                </li>
-
-                                <li>Sembilan ditambah satu sama dengan sepuluh
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S5.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                        <div>
-                                            <select class="mx-10" id="question5Option1" onchange="updateTotal(5)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption1Question5"></p>
-                                        </div>
-
-                                        <p>+</p>
-
-                                        <div>
-                                            <select class="mx-10" id="question5Option2" onchange="updateTotal(5)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question5"></p>
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion5">0</span></p>
-                                    </div>
-                                </li>
-
-                                <li>Sepuluh dikurang dua sama dengan delapan
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S6.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                        <div>
-                                            <select class="mx-10" id="question6Option1" onchange="updateTotal(6)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption1Question6"></p>
-                                        </div>
-
-                                        <p>-</p>
-
-                                        <div>
-                                            <select class="mx-10" id="question6Option2" onchange="updateTotal(6)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question6"></p>
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion6">0</span></p>
-                                    </div>
-                                </li>
-
-                                <li>Delapan dikurang tiga sama dengan lima
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S7.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                       <div>
-                                        <select class="mx-10" id="question7Option1" onchange="updateTotal(7)">
-                                            <option value=""></option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                        </select>
-                                        <p id="responseOption1Question7"></p>
-                                       </div>
-
-                                        <p>-</p>
-
-                                        <div>
-                                            <select class="mx-10" id="question7Option2" onchange="updateTotal(7)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question7"></p>
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion7">0</span></p>
-                                    </div>
-                                </li>
-
-                                <li>Empat dikurang dua sama dengan dua
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S8.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                        <div>
-                                            <select class="mx-10" id="question8Option1" onchange="updateTotal(8)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption1Question8"></p>
-                                        </div>
-
-                                        <p>-</p>
-
-                                        <div>
-                                            <select class="mx-10" id="question8Option2" onchange="updateTotal(8)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question8"></p>
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion8">0</span></p>
-                                    </div>
-                                </li>
-
-                                <li>Delapan dikurang dua sama dengan enam
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S9.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                        <div>
-                                            <select class="mx-10" id="question9Option1" onchange="updateTotal(9)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption1Question9"></p>
-                                        </div>
-
-                                        <p>-</p>
-
-                                        <div>
-                                            <select class="mx-10" id="question9Option2" onchange="updateTotal(9)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question9"></p>
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion9">0</span></p>
-                                    </div>
-                                </li>
-
-                                <li>Enam dikurang tiga sama dengan tiga
-                                    <span onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S10.m4a')"><img
-                                            src="/assets/image/sound.png"
-                                            class="w-6 h-6 cursor-pointer select-none" /></span><br />
-                                    <div class="flex flex-row">
-                                        <div>
-                                            <select class="mx-10" id="question10Option1" onchange="updateTotal(10)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption1Question10"></p>
-                                        </div>
-
-                                        <p>-</p>
-
-                                        <div>
-                                            <select class="mx-10" id="question10Option2" onchange="updateTotal(10)">
-                                                <option value=""></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <p id="responseOption2Question10"></p>
-                                        </div>
-
-                                        <p class="mx-10">= <span id="totalQuestion10">0</span></p>
-                                    </div>
-                                </li>
-                                <!-- *End Soal berlatih Nomor 5 -->
-                            </ol>
-                        </sl-card>
-                        <div class="w-full flex justify-center">
-                            <p
-                                class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                                <button onclick="taskResult(`berlatih`)">Cek Jawaban</button>
-                            </p>
-                            <p
-                                class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out">
-                                Coba Lagi
-                            </p>
-                        </div>
-                    </sl-tab-panel>
-                    <!-- * End Tab Panel Ayo Berlatih -->
-                </sl-tab-group>
-            </div>
+      <div class="sidebar min-h-screen px-1">
+        <div class="w-full flex flex-col justify-center items-center">
+          <img
+            src="../../../assets/image/user.png"
+            class="w-1/2 h-auto object-contain"
+          />
+          <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
         </div>
+        <h2
+          class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
+          style="font-family: Inter; word-wrap: break-word"
+        >
+          Daftar Isi
+        </h2>
+        <div class="flex flex-col gap-2">
+          <a href="../../dashboard/bab1/pendahuluan1.html" class="font-bold"
+            >Bab 1</a
+          >
+          <a href="../../dashboard/bab1/materi1.html"
+            >- Menghitung,Membaca dan Menulis Bilangan</a
+          >
+          <a href="../../dashboard/bab1/materi2.html"
+            >- Membandingkan Banyak Bilangan dalam Benda</a
+          >
+          <a href="../../dashboard/bab1/materi3.html"
+            >- Menghitung Maju dan Mundur</a
+          >
+          <a href="../../dashboard/bab1/materi4.html">- Pasangan Bilangan</a>
+          <a href="../../dashboard/bab1/kuis1.html">- Kuis BAB 1</a>
+          <br />
+          <a href="../../dashboard/bab2/pendahuluan2.html" class="font-bold"
+            >Bab 2</a
+          >
+          <a href="../../dashboard/bab2/materi1.html" class="font-semibold"
+            >- Mengenal Simbol +, - atau =</a
+          >
+          <a href="../../dashboard/bab2/materi2.html"
+            >- Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a
+          >
+          <a href="../../dashboard/bab2/materi3.html"
+            >- Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d 10</a
+          >
+          <a href="../../dashboard/bab2/materi4.html">
+            - Hubungan Penjumlahan dan Pengurangan
+          </a>
+          <a href="../../dashboard/bab2/kuis2.html">- Kuis Bab 2 </a>
+          <br />
+          <a href="../../dashboard/evaluasi.html">Evaluasi</a>
+          <a href="/auth/login.html">Exit</a>
+        </div>
+      </div>
+      <div class="content px-1">
+        <div class="main-content">
+          <div class="flex py-1 justify-center">
+            <p
+              class="border border-solid rounded-full text-white bg-red-500 text-md px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out"
+            >
+              Bilangan
+            </p>
+          </div>
+          <h3
+            class="font-semibold text-lg px-2 py-4 underline decoration-solid"
+          >
+            A. Mengenal Simbol +, - atau =
+          </h3>
+          <div class="m-2 flex gap-9 content-end justify-end">
+            <button type="button" id="prevButton" onclick="prevPage()">
+              Previous Page
+            </button>
+            <span id="pageNumbers"></span>
+            <button type="button" onclick="nextPage()">Next Page</button>
+          </div>
+          <span id="currentPage" style="display: none">1</span>
+          <sl-tab-group>
+            <!-- <sl-tab slot="nav" panel="mengamati">Ayo Mengamati</sl-tab>
+                    <sl-tab slot="nav" panel="mengingat">Ayo Mengingat</sl-tab>
+                    <sl-tab slot="nav" panel="berlatih">Ayo berlatih</sl-tab> -->
+            <!-- <sl-tab slot="nav" panel="menanya">Ayo Menanya</sl-tab> -->
+            <!-- <sl-tab slot="nav" panel="mencoba">Ayo Mencoba</sl-tab> -->
+            <!-- <sl-tab slot="nav" panel="menalar">Ayo Menalar</sl-tab> -->
+            <!-- <sl-tab slot="nav" panel="komunikasikan">Ayo Mengkomunikasikan</sl-tab> -->
+
+            <!-- * Tab Panel Ayo Mengamati -->
+            <div id="page1" class="page">
+              <div class="text-content mx-auto">
+                <img src="/assets/image/mengamati.png" width="25%" alt="" />
+
+                <h3 class="px-2 py-4 underline decoration-solid">
+                  Ayo perhatikan cerita di bawah ini!
+                </h3>
+                <span
+                  onclick="play('/assets/sounds/bab_2/sub_1/Ayo Mengamati/Ayo perhatikan cerita dibawah ini.m4a')"
+                  ><img
+                    src="/assets/image/sound.png"
+                    class="w-6 h-6 cursor-pointer select-none"
+                /></span>
+                <br />
+                <p class="underline">Contoh 1 : Penjumlahan</p>
+                <span
+                  onclick="play('/assets/sounds/bab_2/sub_1/Ayo Mengamati/Cth1 Penjumlahan.m4a')"
+                  ><img
+                    src="/assets/image/sound.png"
+                    class="w-6 h-6 cursor-pointer select-none"
+                /></span>
+                <br />
+                <div class="flex my-2 py-1 justify-center">
+                  <video width="640" height="480" controls>
+                    <source
+                      src="/assets/videos/Video Ayo Mengamati_Sub 1_Bab 2_Penjumlahan_Mengenal Simbol +, - atau =.mp4.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <span
+                  class="flex justify-center text-center items-center italic text-xs py-2"
+                  >Gambar 5 Video Pembelajaran Penjumlahan
+                </span>
+                <br />
+
+                <p class="underline">Contoh 2 : Pengurangan</p>
+                <span
+                  onclick="play('/assets/sounds/bab_2/sub_1/Ayo Mengamati/Cth2 pengurangan.m4a')"
+                  ><img
+                    src="/assets/image/sound.png"
+                    class="w-6 h-6 cursor-pointer select-none"
+                /></span>
+                <br />
+                <br />
+                <div class="flex my-2 py-1 justify-center">
+                  <video width="640" height="480" controls>
+                    <source
+                      src="/assets/videos/Video Ayo Mengamati_Sub 1_Bab 2_Pengurangan_Mengenal Simbol +, - atau =.mp4.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <span
+                  class="flex justify-center text-center items-center italic text-xs py-2"
+                  >Gambar 6 Pembelajaran Pengurangan
+                </span>
+                <br />
+                <p>
+                  Setelah menonton video di atas, sekarang jawablah pertanyaan
+                  dibawah ini dengan mengisi titik-titik dengan benar.
+                </p>
+                <span
+                  onclick="play('/assets/sounds/bab_2/sub_1/Ayo Mengamati/Setelah menontonn.m4a')"
+                  ><img
+                    src="/assets/image/sound.png"
+                    class="w-6 h-6 cursor-pointer select-none"
+                /></span>
+                <br />
+              </div>
+            </div>
+            <!-- * End Tab Panel Ayo Mengamati -->
+
+            <!-- * Tab Panel Ayo Mengingat -->
+            <div id="page3" class="page">
+              <div class="text-content mx-auto">
+                <img src="/assets/image/diingat.png" width="25%" alt="" />
+
+                <div class="p-2 border-black">
+                  <p>Penjumlahan menggunakan tanda tambah (+).</p>
+                  <p>Pengurangan menggunakan anda kurang (-).</p>
+                  <p>Hasilnya menggunakan tanda sama dengan (=).</p>
+                  <span
+                    onclick="play('/assets/sounds/bab_2/sub_1/Ayo Diingat/Ayo Diingat.m4a')"
+                    ><img
+                      src="/assets/image/sound.png"
+                      class="w-6 h-6 cursor-pointer select-none"
+                  /></span>
+                </div>
+              </div>
+            </div>
+            <!-- * End Tab Panel Ayo Mengamati -->
+
+            <!-- * Tab Panel Ayo Berlatih -->
+            <div id="page2" class="page">
+              <div class="text-content mx-auto">
+                <img src="/assets/image/berlatih.png" width="25%" alt="" />
+
+                <h3
+                  class="font-semibold text-lg px-2 py-4 underline decoration-solid"
+                >
+                  Petunjuk Pengerjaan :
+                </h3>
+                <p>
+                  Kamu telah membaca menonton video atas, jawablah pertanyaan
+                  dengan benar pada kolom yang tersedia. Tekan tombol
+                  <span class="bg-blue-600 text-white">Selesai</span> apabila
+                  telah menjawab seluruh pertanyaan. Jika jawabanmu
+                  <span class="font-bold">benar</span>, maka akan ditampilkan
+                  teks Jawaban
+                  <span class="text-green-600">Kamu Benar!</span>,sedangkan jika
+                  jawabanmu <span class="font-bold">salah</span>, maka akan
+                  ditampilkan teks Jawaban
+                  <span class="text-red-600">Kamu Salah!</span>
+                </p>
+              </div>
+              <sl-card
+                id="info-media"
+                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+              >
+                <div slot="header">
+                  <h3
+                    class="font-bold text-lg underline decoration-solid px-2 py-1"
+                  >
+                    Kerjakan soal di bawah ini, isilah jawaban dengan tepat!
+                  </h3>
+                  <p class="font-bold">Contoh</p>
+                  <div class="flex">
+                    <div class="mx-10">
+                      <p>Dua ditambah tiga sama dengan lima</p>
+                      <p>2 + 3 = 5</p>
+                      <span
+                        onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/contoh penjumlahan (ayo berlatih).m4a')"
+                        ><img
+                          src="/assets/image/sound.png"
+                          class="w-6 h-6 cursor-pointer select-none"
+                      /></span>
+                    </div>
+                    <div class="mx-10">
+                      <p>Lima dikurang dua sama dengan tiga</p>
+                      <p>5 − 2 = 3</p>
+                      <span
+                        onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/contoh pengurangan (ayo berlatih).m4a')"
+                        ><img
+                          src="/assets/image/sound.png"
+                          class="w-6 h-6 cursor-pointer select-none"
+                      /></span>
+                    </div>
+                  </div>
+                </div>
+
+                <ol class="soal-berlatih mx-4">
+                  <!-- *Soal berlatih Nomor 1 -->
+                  <li>
+                    Satu ditambah tiga sama dengan empat
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S1.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question1Option1"
+                          onchange="updateTotal(1)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question1"></p>
+                      </div>
+                      <p>+</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question1Option2"
+                          onchange="updateTotal(1)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question1"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion1">0</span></p>
+                    </div>
+                  </li>
+                  <!-- *End soal berlatih Nomor 1 -->
+
+                  <li>
+                    Tiga ditambah empat sama dengan tujuh
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S2.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question2Option1"
+                          onchange="updateTotal(2)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question2"></p>
+                      </div>
+
+                      <p>+</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question2Option2"
+                          onchange="updateTotal(2)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question2"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion2">0</span></p>
+                    </div>
+                  </li>
+
+                  <li>
+                    Enam ditambah tiga sama dengan sembilan
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S3.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question3Option1"
+                          onchange="updateTotal(3)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question3"></p>
+                      </div>
+
+                      <p>+</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question3Option2"
+                          onchange="updateTotal(3)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question3"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion3">0</span></p>
+                    </div>
+                  </li>
+
+                  <li>
+                    Enam ditambah tiga sama dengan sembilan
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S4.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question4Option1"
+                          onchange="updateTotal(4)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question4"></p>
+                      </div>
+
+                      <p>+</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question4Option2"
+                          onchange="updateTotal(4)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question4"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion4">0</span></p>
+                    </div>
+                  </li>
+
+                  <li>
+                    Sembilan ditambah satu sama dengan sepuluh
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S5.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question5Option1"
+                          onchange="updateTotal(5)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question5"></p>
+                      </div>
+
+                      <p>+</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question5Option2"
+                          onchange="updateTotal(5)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question5"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion5">0</span></p>
+                    </div>
+                  </li>
+
+                  <li>
+                    Sepuluh dikurang dua sama dengan delapan
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S6.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question6Option1"
+                          onchange="updateTotal(6)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question6"></p>
+                      </div>
+
+                      <p>-</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question6Option2"
+                          onchange="updateTotal(6)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question6"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion6">0</span></p>
+                    </div>
+                  </li>
+
+                  <li>
+                    Delapan dikurang tiga sama dengan lima
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S7.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question7Option1"
+                          onchange="updateTotal(7)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question7"></p>
+                      </div>
+
+                      <p>-</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question7Option2"
+                          onchange="updateTotal(7)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question7"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion7">0</span></p>
+                    </div>
+                  </li>
+
+                  <li>
+                    Empat dikurang dua sama dengan dua
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S8.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question8Option1"
+                          onchange="updateTotal(8)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question8"></p>
+                      </div>
+
+                      <p>-</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question8Option2"
+                          onchange="updateTotal(8)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question8"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion8">0</span></p>
+                    </div>
+                  </li>
+
+                  <li>
+                    Delapan dikurang dua sama dengan enam
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S9.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question9Option1"
+                          onchange="updateTotal(9)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question9"></p>
+                      </div>
+
+                      <p>-</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question9Option2"
+                          onchange="updateTotal(9)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question9"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion9">0</span></p>
+                    </div>
+                  </li>
+
+                  <li>
+                    Enam dikurang tiga sama dengan tiga
+                    <span
+                      onclick="play('/assets/sounds/bab_2/sub_1/Ayo Berlatih/S10.m4a')"
+                      ><img
+                        src="/assets/image/sound.png"
+                        class="w-6 h-6 cursor-pointer select-none" /></span
+                    ><br />
+                    <div class="flex flex-row">
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question10Option1"
+                          onchange="updateTotal(10)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption1Question10"></p>
+                      </div>
+
+                      <p>-</p>
+
+                      <div>
+                        <select
+                          class="mx-10"
+                          id="question10Option2"
+                          onchange="updateTotal(10)"
+                        >
+                          <option value=""></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                        <p id="responseOption2Question10"></p>
+                      </div>
+
+                      <p class="mx-10">= <span id="totalQuestion10">0</span></p>
+                    </div>
+                  </li>
+                  <!-- *End Soal berlatih Nomor 5 -->
+                </ol>
+              </sl-card>
+              <div class="w-full flex justify-center">
+                <p
+                  class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out"
+                >
+                  <button onclick="taskResult(`berlatih`)">Selesai</button>
+                </p>
+              </div>
+              <br />
+            </div>
+            <!-- * End Tab Panel Ayo Berlatih -->
+          </sl-tab-group>
+          <br />
+          <div class="m-2 flex gap-9 content-end justify-end">
+            <button type="button" id="prevButton" onclick="prevPage()">
+              Previous Page
+            </button>
+            <span id="pageNumbers2"></span>
+            <button type="button" onclick="nextPage()">Next Page</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Script for shoelace style -->
     <script src="./materi1.js"></script>
-    <script type="module"
-        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"></script>
-    <script defer type="module"
-        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
-    <script type="module"
-        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"></script>
-    <script type="module"
-        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"
+    ></script>
+    <script
+      defer
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"
+    ></script>
     <!-- End Script for Shoelace style -->
-   
-</body>
-
+  </body>
 </html>

@@ -89,16 +89,17 @@ function handleRadioButtonClick(rowNumber, result) {
 
 const assets = [
   {
-    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/1.png",
-    sound: "",
+    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/27.png",
+    sound:
+      "/assets/sounds/bab_1/sub_4/Ayo Mencoba/Nadia mempunyai 8 pensil.m4a",
   },
   {
-    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/2.png",
-    sound: "",
+    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/28.png",
+    sound: "/assets/sounds/bab_1/sub_4/Ayo Mencoba/Ruben mempunyai 7 bola.m4a",
   },
   {
-    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/3.png",
-    sound: "",
+    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/29.png",
+    sound: "/assets/sounds/bab_1/sub_4/Ayo Mencoba/9 kunci.m4a",
   },
 ];
 
@@ -111,11 +112,21 @@ window.addEventListener("DOMContentLoaded", () => {
     const td2 = document.createElement("td");
 
     td1.innerHTML = `
+    <span
+                  onclick="play('${assets[index].sound}')"
+                >
+                  <img
+                    src="/assets/image/sound.png"
+                    class="w-6 h-6 cursor-pointer select-none"
+                  />
+                </span>
     <img
         src="${assets[index].image}"
         alt="Image 1"
-        class=""
-    />`;
+        class="w-max"
+    />
+    
+    `;
 
     td2.innerHTML = `
 <div id="image-dropdown-${index}"></div>
@@ -278,12 +289,12 @@ mencobaContainer.addEventListener("click", function (event) {
   }
 });
 
-function komunikasi() {
+function komunikasi(url) {
   Swal.fire({
     icon: "success",
     title: "Success",
   }).then(() => {
-    window.location.href = "/app/dashboard/bab1/materi4.html";
+    window.location.href = url;
   });
 }
 
@@ -337,46 +348,46 @@ var questions = [
 ];
 
 // Function to generate options for a given row
-function generateOptions(row, question) {
-  var optionsContainer = document.getElementById("options" + row);
+// function generateOptions(row, question) {
+//   var optionsContainer = document.getElementById("options" + row);
 
-  question.options.forEach(function (option, index) {
-    // Create a new div for each option and sound button pair
-    var optionContainer = document.createElement("div");
+//   question.options.forEach(function (option, index) {
+//     // Create a new div for each option and sound button pair
+//     var optionContainer = document.createElement("div");
 
-    // Create the option element
-    var optionElement = document.createElement("span");
-    optionElement.className = "option";
-    optionElement.textContent = option;
-    optionElement.setAttribute(
-      "data-correct",
-      option === question.correctOption
-    ); // Add data attribute for correct option
-    optionElement.onclick = function () {
-      selectOption2(row, index);
-    };
+//     // Create the option element
+//     var optionElement = document.createElement("span");
+//     optionElement.className = "option";
+//     optionElement.textContent = option;
+//     optionElement.setAttribute(
+//       "data-correct",
+//       option === question.correctOption
+//     ); // Add data attribute for correct option
+//     optionElement.onclick = function () {
+//       selectOption2(row, index);
+//     };
 
-    // Create the sound button using innerHTML
-    var soundButton = document.createElement("span");
-    soundButton.className = "audio-button";
-    soundButton.innerHTML = `<img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" onclick="play('${question.soundPaths[index]}')">`;
+//     // Create the sound button using innerHTML
+//     var soundButton = document.createElement("span");
+//     soundButton.className = "audio-button";
+//     soundButton.innerHTML = `<img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" onclick="play('${question.soundPaths[index]}')">`;
 
-    // Add classes for styling
-    optionContainer.className = "option-container";
-    optionElement.className = "option";
-    soundButton.className = "audio-button";
+//     // Add classes for styling
+//     optionContainer.className = "option-container";
+//     optionElement.className = "option";
+//     soundButton.className = "audio-button";
 
-    // Append both option and sound button to the optionContainer
-    optionContainer.appendChild(optionElement);
-    optionContainer.appendChild(soundButton);
+//     // Append both option and sound button to the optionContainer
+//     optionContainer.appendChild(optionElement);
+//     optionContainer.appendChild(soundButton);
 
-    // Append the optionContainer to the optionsContainer
-    optionsContainer.appendChild(optionContainer);
-  });
-}
+//     // Append the optionContainer to the optionsContainer
+//     optionsContainer.appendChild(optionContainer);
+//   });
+// }
 
 // Function to handle option selection
-function selectOption2(row, index) {
+function selectOption(row, index) {
   var optionsContainer = document.getElementById("options" + row);
   var options = optionsContainer.getElementsByClassName("option");
 
@@ -412,6 +423,131 @@ function selectOption2(row, index) {
 }
 
 // Dynamically generate options for each question
-for (var i = 0; i < questions.length; i++) {
-  generateOptions(i + 1, questions[i]);
+// for (var i = 0; i < questions.length; i++) {
+//   generateOptions(i + 1, questions[i]);
+// }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the page number from the query parameter or default to 1
+  const urlParams = new URLSearchParams(window.location.search);
+  let currentPage = parseInt(urlParams.get("page")) || 1;
+
+  // Display the current page
+  showPage(currentPage);
+
+  // Update the current page number and page numbers list in the HTML
+  updatePageNumbers(currentPage);
+});
+
+function showPage(pageNumber) {
+  // Hide all pages
+  const pages = document.querySelectorAll(".page");
+  pages.forEach((page) => {
+    page.style.display = "none";
+  });
+
+  // Show the selected page
+  const selectedPage = document.getElementById(`page${pageNumber}`);
+  if (selectedPage) {
+    selectedPage.style.display = "block";
+  }
+
+  // Update the current page number in the "currentPage" span
+  document.getElementById("currentPage").textContent = pageNumber;
+}
+
+function nextPage() {
+  const totalPages = document.querySelectorAll(".page").length;
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage < totalPages) {
+    currentPage++;
+    updatePage(currentPage);
+  }
+}
+
+function prevPage() {
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage > 1) {
+    currentPage--;
+    updatePage(currentPage);
+  }
+}
+
+function updatePage(pageNumber) {
+  // Update the query parameter
+  window.history.pushState({}, "", `?page=${pageNumber}`);
+
+  // Display the new page
+  showPage(pageNumber);
+
+  // Update the page numbers list in the HTML
+  updatePageNumbers(pageNumber);
+}
+
+function updatePageNumbers(currentPage) {
+  const totalPages = document.querySelectorAll(".page").length;
+  const pageNumbersContainer = document.getElementById("pageNumbers");
+  const pageNumbersContainer2 = document.getElementById("pageNumbers2");
+  let pageNumbersHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === currentPage) {
+      pageNumbersHTML += `<strong>${i}</strong> `;
+    } else {
+      pageNumbersHTML += `<a href="?page=${i}" onclick="updatePage(${i}); return false;">${i}</a> `;
+    }
+  }
+
+  pageNumbersContainer.innerHTML = pageNumbersHTML;
+  pageNumbersContainer2.innerHTML = pageNumbersHTML;
+}
+
+let berlatihArr = [];
+
+function kirimBerlatih() {
+  let providedArray = [
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+  ]; // Replace this with your provided array
+  let trueCount = 0;
+
+  for (let i = 2; i < 6; i++) {
+    let berlatih = document.getElementById(`resultMessage${i}`);
+    let res = berlatih.textContent;
+
+    // if (berlatih.textContent !== null && berlatih.textContent !== "") {
+    //   berlatih.style.display = "block";
+    // }
+
+    if (berlatihArr.length < 4) {
+      berlatihArr.push(res);
+    } else {
+      berlatihArr = [];
+      berlatihArr.push(res);
+    }
+  }
+
+  console.log("berlatihArr:", berlatihArr);
+
+  // Compare berlatihArr with providedArray and count true matches
+  for (let i = 0; i < berlatihArr.length; i++) {
+    if (berlatihArr[i] === providedArray[i]) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub4_berlatih", (trueCount / 4) * 100);
+
+  // Optionally, you can return the trueCount value
+  komunikasi("/app/dashboard/bab1/materi4.html?page=1");
 }

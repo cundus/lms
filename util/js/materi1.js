@@ -1,43 +1,95 @@
 const assets = [
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Sepeda.png",
-    sound: "",
+    sound: "/assets/sounds/bab_1/sub_1/ayo_mencoba/Sepeda.m4a",
+    text: "Berapa banyaknya sepeda?",
   },
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Kursi.png",
-    sound: "",
+    sound: "/assets/sounds/bab_1/sub_1/ayo_mencoba/Kursi.m4a",
+    text: "Berapa banyaknya kursi?",
   },
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Ayunan.png",
-    sound: "",
+    sound: "/assets/sounds/bab_1/sub_1/ayo_mencoba/Ayunan.m4a",
+    text: "Berapa banyak ayunan?",
   },
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Jungatjungit.png",
-    sound: "",
+    sound: "/assets/sounds/bab_1/sub_1/ayo_mencoba/Jungkat jungkit.m4a",
+    text: "Berapa banyaknya jungkat-jungkit?",
   },
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Buku.png",
     sound: "",
+    text: "Berapa banyaknya buku?",
   },
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Bola.png",
-    sound: "",
+    sound: "/assets/sounds/bab_1/sub_1/ayo_mencoba/Bola.m4a",
+    text: "Berapa banyaknya bola?",
   },
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Perosotan.png",
-    sound: "",
+    sound: "/assets/sounds/bab_1/sub_1/ayo_mencoba/Perosotan.m4a",
+    text: "Berapa banyaknya perosotan?",
   },
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Layang-layang.png",
-    sound: "",
+    sound: "/assets/sounds/bab_1/sub_1/ayo_mencoba/Layang2.m4a",
+    text: "Berapa banyaknya layang-layang?",
   },
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Balon.png",
-    sound: "",
+    sound: "/assets/sounds/bab_1/sub_1/ayo_mencoba/Balon.m4a",
+    text: "Berapa banyaknya balon?",
   },
   {
     image: "/assets/image/bab_1/sub_1/ayo_mencoba/Benda Keleker.png",
-    sound: "",
+    sound: "/assets/sounds/bab_1/sub_1/ayo_mencoba/Kelereng.m4a",
+    text: "Berapa banyaknya kelereng?",
+  },
+];
+
+const assetsMenalar = [
+  {
+    image: "/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 7.png",
+    text: "Ini nama bilangan berapa?",
+    sound1:
+      "/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Ini nama bil berapa.m4a",
+  },
+  {
+    image: "/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 4.png",
+    text: "Ini nama bilangan berapa?",
+    sound1:
+      "/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Ini nama bil berapa.m4a",
+  },
+  {
+    image: "/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 8.png",
+    text: "Ini nama bilangan berapa?",
+    sound1:
+      "/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Ini nama bil berapa.m4a",
+  },
+];
+
+const assetsBilangan = [
+  {
+    image: "/assets/image/bab_1/sub_1/ayo_mengamati/Item Donat.png",
+    text: "Ada berapa jumlah donat ini?",
+    sound1:
+      "/assets/sounds/bab_1/sub_1/Menghitung Banyak Benda _ Bilangan/Donat.m4a",
+  },
+  {
+    image: "/assets/image/bab_1/sub_1/ayo_mengamati/Item Payung.png",
+    text: "Ada berapa jumlah payung ini?",
+    sound1:
+      "/assets/sounds/bab_1/sub_1/Menghitung Banyak Benda _ Bilangan/Payung.m4a",
+  },
+  {
+    image: "/assets/image/bab_1/sub_1/ayo_mengamati/Item Sendok.png",
+    text: "Ada berapa jumlah sendok?",
+    sound1:
+      "/assets/sounds/bab_1/sub_1/Menghitung Banyak Benda _ Bilangan/Sendok.m4a",
   },
 ];
 
@@ -54,7 +106,12 @@ window.addEventListener("DOMContentLoaded", () => {
         src="${assets[index].image}"
         alt="Image 1"
         class="w-24 h-24"
-    />`;
+    />
+    <span onclick="play('${assets[index].sound}')">
+            <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+          </span>
+          <p>${assets[index].text}</p>
+          `;
 
     td2.innerHTML = `
 <div id="image-dropdown-${index}"></div>
@@ -78,7 +135,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 type="button"
                                                 class="flex items-center justify-center w-40 px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-opacity-50"
                                              >
-                                                Pilih lambang bilangan
+                                              Pilih Simbol
                                                 <svg
                                                    class="w-4 h-4 ml-2"
                                                    fill="none"
@@ -226,6 +283,335 @@ window.addEventListener("DOMContentLoaded", () => {
                                        </div>
         `;
   });
+
+  // Menalar Tab
+  const bodyTableMenalar = document.getElementById("body-table-menalar");
+
+  for (let index = 0; index < assetsMenalar.length; index++) {
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td");
+    const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
+
+    td1.innerHTML = `
+          <img src="${assetsMenalar[index].image}" alt="Image 1" class="w-max h-max" />
+          
+          <span onclick="play('${assetsMenalar[index].sound1}')">
+            <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+          </span>
+          <p>${assetsMenalar[index].text}</p>
+          `;
+
+    td2.innerHTML = `
+          <div id="image-dropdown-menalar-${index}"></div>
+  
+        `;
+    td3.innerHTML = `
+          <div id="result2-container-${index}" class="mt-2" style="display:none"></div>
+        `;
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+
+    bodyTableMenalar.appendChild(tr);
+  }
+
+  const dropdownsPlaceholdersMenalar = document.querySelectorAll(
+    "[id^=image-dropdown-menalar]"
+  );
+  dropdownsPlaceholdersMenalar.forEach((dropdownPlaceholder, id) => {
+    dropdownPlaceholder.innerHTML = `
+          <div class="relative inline-block text-left">
+            <div>
+              <button
+                id="dropdownButtonMenalar${id}"
+                type="button"
+                class="flex items-center justify-center w-40 px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-opacity-50"
+              >
+              Pilih Nama Bilangan
+                <svg
+                  class="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+    
+            <div
+              id="dropdownMenuMenalar${id}"
+              class="hidden absolute z-10 mt-2 w-40 bg-white border border-gray-300 rounded-md shadow-lg"
+            >
+              <div class="max-h-60 overflow-y-auto">
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Satu', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '1' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Satu.m4a')"
+                >
+                  
+                  Satu
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Dua', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '2' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Dua.m4a')"
+                >
+                 
+                  Dua
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Tiga', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '3' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Tiga.m4a')"
+                >
+                  Tiga
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Empat', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '4' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Empat.m4a')"
+                >
+                  Empat
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Lima', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '5' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Lima.m4a')"
+                >
+                  Lima
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Enam', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '6' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Enam.m4a')"
+                >
+                  Enam
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Tujuh', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '7' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Tujuh.m4a')"
+                >
+                  Tujuh
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Delapan', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '8' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Delapan.m4a')"
+                >
+                  Delapan
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Sembilan', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '9' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Sembilan.m4a')"
+                >
+                  Sembilan
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionMenalar('Sepuluh', 'dropdownButtonMenalar${id}', 'dropdownMenuMenalar${id}', '10' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Sepuluh.m4a')"
+                >
+                  Sepuluh
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+  });
+
+  // Menalar Tab
+  const bodyTableBilangan = document.getElementById("body-table-bilangan");
+
+  for (let index = 0; index < assetsBilangan.length; index++) {
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td");
+    const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
+
+    td1.innerHTML = `
+          <img src="${assetsBilangan[index].image}" alt="Image 1" class="w-max h-max" />
+          
+          <span onclick="play('${assetsBilangan[index].sound1}')">
+            <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+          </span>
+          <p>${assetsBilangan[index].text}</p>
+          `;
+
+    td2.innerHTML = `
+          <div id="image-dropdown-bilangan-${index}"></div>
+  
+        `;
+    td3.innerHTML = `
+          <div id="result3-container-${index}" class="mt-2"></div>
+        `;
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+
+    bodyTableBilangan.appendChild(tr);
+  }
+
+  const dropdownsPlaceholdersBilangan = document.querySelectorAll(
+    "[id^=image-dropdown-bilangan]"
+  );
+  dropdownsPlaceholdersBilangan.forEach((dropdownPlaceholder, id) => {
+    dropdownPlaceholder.innerHTML = `
+          <div class="relative inline-block text-left">
+            <div>
+              <button
+                id="dropdownButtonBilangan${id}"
+                type="button"
+                class="flex items-center justify-center w-40 px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-opacity-50"
+              >
+              Pilih Nama Bilangan
+                <svg
+                  class="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+    
+            <div
+              id="dropdownMenuBilangan${id}"
+              class="hidden absolute z-10 mt-2 w-40 bg-white border border-gray-300 rounded-md shadow-lg"
+            >
+              <div class="max-h-60 overflow-y-auto">
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/1.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '1' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Satu.m4a')"
+                >
+                <img
+                  src="/assets/image/bab_1/sub_1/ayo_mengamati/1.png"
+                  alt="Image 1"
+                  class="w-12 h-12 mr-2 rounded-full"
+                />
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/2.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '2' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Dua.m4a')"
+                >
+                 
+                <img
+                src="/assets/image/bab_1/sub_1/ayo_mengamati/2.png"
+                alt="Image 1"
+                class="w-12 h-12 mr-2 rounded-full"
+              />
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/3.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '3' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Tiga.m4a')"
+                >
+                <img
+                src="/assets/image/bab_1/sub_1/ayo_mengamati/3.png"
+                alt="Image 1"
+                class="w-12 h-12 mr-2 rounded-full"
+              />
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/4.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '4' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Empat.m4a')"
+                >
+                <img
+                src="/assets/image/bab_1/sub_1/ayo_mengamati/4.png"
+                alt="Image 1"
+                class="w-12 h-12 mr-2 rounded-full"
+              />
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/5.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '5' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Lima.m4a')"
+                >
+                <img
+                src="/assets/image/bab_1/sub_1/ayo_mengamati/5.png"
+                alt="Image 1"
+                class="w-12 h-12 mr-2 rounded-full"
+              />
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/6.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '6' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Enam.m4a')"
+                >
+                <img
+                src="/assets/image/bab_1/sub_1/ayo_mengamati/6.png"
+                alt="Image 1"
+                class="w-12 h-12 mr-2 rounded-full"
+              />
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/7.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '7' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Tujuh.m4a')"
+                >
+                <img
+                src="/assets/image/bab_1/sub_1/ayo_mengamati/7.png"
+                alt="Image 1"
+                class="w-12 h-12 mr-2 rounded-full"
+              />
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/8.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '8' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Delapan.m4a')"
+                >
+                <img
+                src="/assets/image/bab_1/sub_1/ayo_mengamati/8.png"
+                alt="Image 1"
+                class="w-12 h-12 mr-2 rounded-full"
+              />
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/9.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '9' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Sembilan.m4a')"
+                >
+                <img
+                src="/assets/image/bab_1/sub_1/ayo_mengamati/9.png"
+                alt="Image 1"
+                class="w-12 h-12 mr-2 rounded-full"
+              />
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                  onclick="selectOptionBilangan('/assets/image/bab_1/sub_1/ayo_mengamati/10.png', 'dropdownButtonBilangan${id}', 'dropdownMenuBilangan${id}', '10' , ${id}, '/assets/sounds/bab_1/sub_1/Menulis_Nama Bilangan/Sepuluh.m4a')"
+                >
+                <img
+                src="/assets/image/bab_1/sub_1/ayo_mengamati/10.png"
+                alt="Image 1"
+                class="w-12 h-12 mr-2 rounded-full"
+              />
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+  });
 });
 
 const selectedValues = [];
@@ -233,7 +619,8 @@ const selectedValues = [];
 function selectOption2(optionText, buttonId, menuId, selectedValue, index) {
   var dropdownButton = document.getElementById(buttonId);
   dropdownButton.innerHTML = `
-    <img src="${optionText}" alt="Image 1" class="mr-2 " />`;
+    <img src="${optionText}" alt="Image 1" class="mr-2" />
+  `;
 
   // Store the selected value in a data attribute
   dropdownButton.setAttribute("data-selected-value", selectedValue);
@@ -297,6 +684,188 @@ mencobaContainer.addEventListener("click", function (event) {
       event.target !== dropdownButtons[i]
     ) {
       dropdownMenus[i].classList.add("hidden");
+    }
+  }
+});
+
+const selectedValues2 = [];
+
+function selectOptionMenalar(
+  optionText,
+  buttonId,
+  menuId,
+  selectedValue,
+  index,
+  soundUrl
+) {
+  var dropdownButton = document.getElementById(buttonId);
+  dropdownButton.innerHTML = `
+    <div class='flex flex-col items-center justify-center text-center'>
+    <p>${optionText}</p>
+    <br/>
+    <span onclick="play('${soundUrl}')" class="">
+      <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+    </span>
+    </div>
+    `;
+
+  // Store the selected value in a data attribute
+  dropdownButton.setAttribute("data-selected-value", selectedValue);
+
+  // Add or update the selected value in the array based on the index
+  selectedValues[index] = selectedValue;
+
+  // Check if the selected value is correct
+  const isCorrect = checkCorrectness2(selectedValues[index], index);
+
+  // Display "Kamu Benar" or "Kamu Salah" in the next row's cell
+  displayResult2(isCorrect, index);
+
+  var dropdownMenu = document.getElementById(menuId);
+  dropdownMenu.classList.add("hidden");
+}
+
+function checkCorrectness2(selectedValue, index) {
+  // Assuming the correct answers are stored in an array
+  const correctAnswers = ["7", "4", "8"];
+
+  // Compare the selected value with the correct answer
+  return selectedValue === correctAnswers[index];
+}
+
+function displayResult2(isCorrect, index) {
+  const resultContainer = document.getElementById(`result2-container-${index}`);
+
+  if (isCorrect) {
+    resultContainer.innerHTML = "Kamu Benar";
+    resultContainer.style.color = "green";
+  } else {
+    resultContainer.innerHTML = "Kamu Salah";
+    resultContainer.style.color = "red";
+  }
+}
+
+// Menalar Tab event listener
+const menalarContainer = document.getElementById("table-menalar");
+
+menalarContainer.addEventListener("click", function (event) {
+  event.preventDefault();
+  var dropdownMenusMenalar = document.querySelectorAll(
+    '[id^="dropdownMenuMenalar"]'
+  );
+  var dropdownButtonsMenalar = document.querySelectorAll(
+    '[id^="dropdownButtonMenalar"]'
+  );
+
+  for (let index = 0; index < dropdownButtonsMenalar.length; index++) {
+    document
+      .getElementById("dropdownButtonMenalar" + index)
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        var dropdownMenuMenalar = document.getElementById(
+          "dropdownMenuMenalar" + index
+        );
+        dropdownMenuMenalar.classList.toggle("hidden");
+      });
+  }
+
+  for (var i = 0; i < dropdownMenusMenalar.length; i++) {
+    if (
+      !dropdownMenusMenalar[i].contains(event.target) &&
+      event.target !== dropdownButtonsMenalar[i]
+    ) {
+      dropdownMenusMenalar[i].classList.add("hidden");
+    }
+  }
+});
+
+const selectedValues3 = [];
+
+function selectOptionBilangan(
+  optionText,
+  buttonId,
+  menuId,
+  selectedValue,
+  index,
+  soundUrl
+) {
+  var dropdownButton = document.getElementById(buttonId);
+  dropdownButton.innerHTML = `
+    <div class='flex flex-col items-center justify-center text-center'>
+    <img src="${optionText}" alt="Image 1" class="mr-2" />
+    <br/>
+    <span onclick="play('${soundUrl}')" class="">
+      <img src="/assets/image/sound.png" class="w-6 h-6 cursor-pointer select-none" />
+    </span>
+    </div>
+    `;
+
+  // Store the selected value in a data attribute
+  dropdownButton.setAttribute("data-selected-value", selectedValue);
+
+  // Add or update the selected value in the array based on the index
+  selectedValues3[index] = selectedValue;
+
+  // Check if the selected value is correct
+  const isCorrect = checkCorrectness3(selectedValues3[index], index);
+
+  // Display "Kamu Benar" or "Kamu Salah" in the next row's cell
+  displayResult3(isCorrect, index);
+
+  var dropdownMenu = document.getElementById(menuId);
+  dropdownMenu.classList.add("hidden");
+}
+
+function checkCorrectness3(selectedValue, index) {
+  // Assuming the correct answers are stored in an array
+  const correctAnswers = ["7", "4", "5"];
+
+  // Compare the selected value with the correct answer
+  return selectedValue === correctAnswers[index];
+}
+
+function displayResult3(isCorrect, index) {
+  const resultContainer = document.getElementById(`result3-container-${index}`);
+
+  if (isCorrect) {
+    resultContainer.innerHTML = "Kamu Benar";
+    resultContainer.style.color = "green";
+  } else {
+    resultContainer.innerHTML = "Kamu Salah";
+    resultContainer.style.color = "red";
+  }
+}
+
+// Bilangan Tab event listener
+const bilanganContainer = document.getElementById("table-bilangan");
+
+bilanganContainer.addEventListener("click", function (event) {
+  event.preventDefault();
+  var dropdownMenusBilangan = document.querySelectorAll(
+    '[id^="dropdownMenuBilangan"]'
+  );
+  var dropdownButtonsBilangan = document.querySelectorAll(
+    '[id^="dropdownButtonBilangan"]'
+  );
+
+  for (let index = 0; index < dropdownButtonsBilangan.length; index++) {
+    document
+      .getElementById("dropdownButtonBilangan" + index)
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        var dropdownMenuBilangan = document.getElementById(
+          "dropdownMenuBilangan" + index
+        );
+        dropdownMenuBilangan.classList.toggle("hidden");
+      });
+  }
+
+  for (var i = 0; i < dropdownMenusBilangan.length; i++) {
+    if (
+      !dropdownMenusBilangan[i].contains(event.target) &&
+      event.target !== dropdownButtonsBilangan[i]
+    ) {
+      dropdownMenusBilangan[i].classList.add("hidden");
     }
   }
 });
@@ -502,13 +1071,14 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub1_1_2", total);
+    komunikasi("/app/dashboard/bab1/materi1.html?page=4");
   } else {
     return null;
   }
-  Swal.fire({
-    icon: "success",
-    text: `Silahkan lanjut ke berikutnya!`,
-  });
+  // Swal.fire({
+  //   icon: "success",
+  //   text: `Silahkan lanjut ke berikutnya!`,
+  // });
   totalPerSub();
 }
 
@@ -567,43 +1137,53 @@ function handleRadioButtonClick(rowNumber, result) {
   }
 }
 
-function komunikasi() {
+function komunikasi(url) {
   Swal.fire({
     icon: "success",
     title: "Success",
   }).then(() => {
-    window.location.href = "/app/dashboard/bab1/materi1.html";
+    window.location.href = `${url}`;
   });
 }
-
 let menalarArr = [
   {
     answer: "mata",
+    angka: "2",
     image: "/assets/image/bab_1/sub_1/ayo_menalar/mata.png",
   },
   {
     answer: "telinga",
+    angka: "2",
     image: "/assets/image/bab_1/sub_1/ayo_menalar/telinga.png",
   },
   {
     answer: "hidung",
+    angka: "1",
     image: "/assets/image/bab_1/sub_1/ayo_menalar/hidung.png",
   },
   {
     answer: "tangan",
+    angka: "2",
     image: "/assets/image/bab_1/sub_1/ayo_menalar/tangan.png",
   },
-  { answer: "kaki", image: "/assets/image/bab_1/sub_1/ayo_menalar/kaki.png" },
+  {
+    answer: "kaki",
+    angka: "2",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/kaki.png",
+  },
   {
     answer: "mulut",
-    image: "/assets/image/bab_1/sub_1/ayo_menalar/tangan.png",
+    angka: "1",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/hidung.png",
   },
   {
     answer: "jari tangan",
+    angka: "2",
     image: "/assets/image/bab_1/sub_1/ayo_menalar/10 jari tangan.png",
   },
   {
     answer: "jari kaki",
+    angka: "2",
     image: "/assets/image/bab_1/sub_1/ayo_menalar/10 jari kaki.png",
   },
 ];
@@ -632,12 +1212,16 @@ menalarArr.forEach((item, index) => {
   let responseCell = row.insertCell(2);
 });
 
+let menalarJawaban = [];
+
 function submitAnswers() {
+  let trueCount = 0;
+
   for (let index = 0; index < menalarArr.length; index++) {
     let userInput = tableBody.rows[index].cells[0]
       .querySelector("input")
       .value.toLowerCase();
-    let correctAnswer = menalarArr[index].answer.toLowerCase();
+    let correctAnswer = menalarArr[index].angka.toLowerCase();
     let responseElement = tableBody.rows[index].cells[2];
 
     if (userInput === correctAnswer) {
@@ -647,7 +1231,30 @@ function submitAnswers() {
       responseElement.textContent = "Kamu Salah!";
       responseElement.style.color = "red";
     }
+
+    if (menalarJawaban.length < 8) {
+      menalarJawaban.push(userInput);
+    } else {
+      menalarJawaban = [];
+      menalarJawaban.push(userInput);
+    }
   }
+
+  console.log("menalarJawaban:", menalarJawaban);
+
+  // Compare menghitungArr with providedArray and count true matches
+  for (let i = 0; i < menalarJawaban.length; i++) {
+    if (menalarJawaban[i] === menalarArr[i].angka) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub1_menalar", (trueCount / 8) * 100);
+  localStorage.setItem("sub1_menalar_jawaban", JSON.stringify(menalarJawaban));
+
+  komunikasi("/app/dashboard/bab1/materi1.html?page=6");
 }
 
 function clearAll() {
@@ -740,3 +1347,214 @@ function clearInputs() {
     document.getElementById(messageId).textContent = "";
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the page number from the query parameter or default to 1
+  const urlParams = new URLSearchParams(window.location.search);
+  let currentPage = parseInt(urlParams.get("page")) || 1;
+
+  // Display the current page
+  showPage(currentPage);
+
+  // Update the current page number and page numbers list in the HTML
+  updatePageNumbers(currentPage);
+});
+
+function showPage(pageNumber) {
+  // Hide all pages
+  const pages = document.querySelectorAll(".page");
+  pages.forEach((page) => {
+    page.style.display = "none";
+  });
+
+  // Show the selected page
+  const selectedPage = document.getElementById(`page${pageNumber}`);
+  if (selectedPage) {
+    selectedPage.style.display = "block";
+  }
+
+  // Update the current page number in the "currentPage" span
+  document.getElementById("currentPage").textContent = pageNumber;
+}
+
+function nextPage() {
+  const totalPages = document.querySelectorAll(".page").length;
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage < totalPages) {
+    currentPage++;
+    updatePage(currentPage);
+  }
+}
+
+function prevPage() {
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage > 1) {
+    currentPage--;
+    updatePage(currentPage);
+  }
+}
+
+function updatePage(pageNumber) {
+  // Update the query parameter
+  window.history.pushState({}, "", `?page=${pageNumber}`);
+
+  // Display the new page
+  showPage(pageNumber);
+
+  // Update the page numbers list in the HTML
+  updatePageNumbers(pageNumber);
+}
+
+function updatePageNumbers(currentPage) {
+  const totalPages = document.querySelectorAll(".page").length;
+  const pageNumbersContainer = document.getElementById("pageNumbers");
+  const pageNumbersContainer2 = document.getElementById("pageNumbers2");
+  let pageNumbersHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === currentPage) {
+      pageNumbersHTML += `<strong>${i}</strong> `;
+    } else {
+      pageNumbersHTML += `<a href="?page=${i}" onclick="updatePage(${i}); return false;">${i}</a> `;
+    }
+  }
+
+  pageNumbersContainer.innerHTML = pageNumbersHTML;
+  pageNumbersContainer2.innerHTML = pageNumbersHTML;
+}
+
+let menulisArr = [];
+
+function kirimMenulis() {
+  let providedArray = ["Kamu Benar", "Kamu Benar", "Kamu Benar"]; // Replace this with your provided array
+  let trueCount = 0;
+
+  for (let i = 0; i < 3; i++) {
+    let menulis = document.getElementById(`result2-container-${i}`);
+    let res = menulis.textContent;
+
+    if (menulis.textContent !== null && menulis.textContent !== "") {
+      menulis.style.display = "block";
+    }
+
+    if (menulisArr.length < 3) {
+      menulisArr.push(res);
+    } else {
+      menulisArr = [];
+      menulisArr.push(res);
+    }
+  }
+
+  console.log("menulisArr:", menulisArr);
+
+  // Compare menulisArr with providedArray and count true matches
+  for (let i = 0; i < menulisArr.length; i++) {
+    if (menulisArr[i] === providedArray[i]) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub1_menulis", (trueCount / 3) * 100);
+
+  // Optionally, you can return the trueCount value
+  // kirimData("Bab 1", "Menulis Nama Bilangan", "sub1_menulis");
+
+  komunikasi("/app/dashboard/bab1/materi1.html?page=2");
+}
+
+let menghitungArr = [];
+
+function kirimMenghitung() {
+  let providedArray = ["Kamu Benar", "Kamu Benar", "Kamu Benar"]; // Replace this with your provided array
+  let trueCount = 0;
+
+  for (let i = 0; i < 3; i++) {
+    let menghitung = document.getElementById(`result3-container-${i}`);
+    let res = menghitung.textContent;
+
+    if (menghitung.textContent !== null && menghitung.textContent !== "") {
+      menghitung.style.display = "block";
+    }
+
+    if (menghitungArr.length < 3) {
+      menghitungArr.push(res);
+    } else {
+      menghitungArr = [];
+      menghitungArr.push(res);
+    }
+  }
+
+  console.log("menghitungArr:", menghitungArr);
+
+  // Compare menghitungArr with providedArray and count true matches
+  for (let i = 0; i < menghitungArr.length; i++) {
+    if (menghitungArr[i] === providedArray[i]) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub1_menghitung", (trueCount / 3) * 100);
+
+  // Optionally, you can return the trueCount value
+  komunikasi("/app/dashboard/bab1/materi1.html?page=3");
+}
+
+let berlatihArr = [];
+
+function selesaiBerlatih() {
+  let providedArray = [
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+    "Kamu Benar!",
+  ]; // Replace this with your provided array
+  let trueCount = 0;
+
+  for (let i = 4; i < 9; i++) {
+    let berlatih = document.getElementById(`resultMessage${i}`);
+    let res = berlatih.textContent;
+
+    if (berlatih.textContent !== null && berlatih.textContent !== "") {
+      berlatih.style.display = "block";
+    }
+
+    if (berlatihArr.length < 3) {
+      berlatihArr.push(res);
+    } else {
+      berlatihArr = [];
+      berlatihArr.push(res);
+    }
+  }
+
+  console.log("berlatihArr:", berlatihArr);
+
+  // Compare berlatihArr with providedArray and count true matches
+  for (let i = 0; i < berlatihArr.length; i++) {
+    if (berlatihArr[i] === providedArray[i]) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub1_berlatih", (trueCount / 3) * 100);
+
+  // Optionally, you can return the trueCount value
+  return trueCount;
+}
+
+// function kirimData(bab, sub, nilai) {
+//   let res = parseInt(localStorage.getItem(`${nilai}`));
+//   insertBerlatih(bab, sub, res);
+// }

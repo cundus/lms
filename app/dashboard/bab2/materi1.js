@@ -9,8 +9,12 @@ function updateTotal(questionNumber) {
     document.getElementById("question" + questionNumber + "Option2").value
   );
   var totalElement = document.getElementById("totalQuestion" + questionNumber);
-  var responseElementOption1 = document.getElementById("responseOption1Question" + questionNumber);
-  var responseElementOption2 = document.getElementById("responseOption2Question" + questionNumber);
+  var responseElementOption1 = document.getElementById(
+    "responseOption1Question" + questionNumber
+  );
+  var responseElementOption2 = document.getElementById(
+    "responseOption2Question" + questionNumber
+  );
 
   // Perform the calculation
   var total = option1 + option2;
@@ -59,8 +63,6 @@ function getCorrectAnswerOption2(questionNumber) {
   return correctAnswersOption2[questionNumber - 1];
 }
 
-
-
 function taskResult(type) {
   event.preventDefault();
 
@@ -79,13 +81,14 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub2_1", total);
+    komunikasi("/app/dashboard/bab2/materi1.html?page=2");
   } else {
     return null;
   }
-  Swal.fire({
-    icon: "success",
-    text: `Silahkan lanjut ke berikutnya!`,
-  });
+  // Swal.fire({
+  //   icon: "success",
+  //   text: `Silahkan lanjut ke berikutnya!`,
+  // });
   // totalPerSub();
 }
 
@@ -130,10 +133,92 @@ function matchAdjacentElements(arr1, arr2) {
   return result;
 }
 
-function komunikasi() {
+function komunikasi(url) {
   Swal.fire({
     icon: "success",
-    title: "Success",  }).then(() => {
-    window.location.href = "/app/dashboard/bab2/materi1.html";
+    title: "Success",
+  }).then(() => {
+    window.location.href = url;
   });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the page number from the query parameter or default to 1
+  const urlParams = new URLSearchParams(window.location.search);
+  let currentPage = parseInt(urlParams.get("page")) || 1;
+
+  // Display the current page
+  showPage(currentPage);
+
+  // Update the current page number and page numbers list in the HTML
+  updatePageNumbers(currentPage);
+});
+
+function showPage(pageNumber) {
+  // Hide all pages
+  const pages = document.querySelectorAll(".page");
+  pages.forEach((page) => {
+    page.style.display = "none";
+  });
+
+  // Show the selected page
+  const selectedPage = document.getElementById(`page${pageNumber}`);
+  if (selectedPage) {
+    selectedPage.style.display = "block";
+  }
+
+  // Update the current page number in the "currentPage" span
+  document.getElementById("currentPage").textContent = pageNumber;
+}
+
+function nextPage() {
+  const totalPages = document.querySelectorAll(".page").length;
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage < totalPages) {
+    currentPage++;
+    updatePage(currentPage);
+  }
+}
+
+function prevPage() {
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage > 1) {
+    currentPage--;
+    updatePage(currentPage);
+  }
+}
+
+function updatePage(pageNumber) {
+  // Update the query parameter
+  window.history.pushState({}, "", `?page=${pageNumber}`);
+
+  // Display the new page
+  showPage(pageNumber);
+
+  // Update the page numbers list in the HTML
+  updatePageNumbers(pageNumber);
+}
+
+function updatePageNumbers(currentPage) {
+  const totalPages = document.querySelectorAll(".page").length;
+  const pageNumbersContainer = document.getElementById("pageNumbers");
+  const pageNumbersContainer2 = document.getElementById("pageNumbers2");
+  let pageNumbersHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === currentPage) {
+      pageNumbersHTML += `<strong>${i}</strong> `;
+    } else {
+      pageNumbersHTML += `<a href="?page=${i}" onclick="updatePage(${i}); return false;">${i}</a> `;
+    }
+  }
+
+  pageNumbersContainer.innerHTML = pageNumbersHTML;
+  pageNumbersContainer2.innerHTML = pageNumbersHTML;
 }

@@ -51,7 +51,7 @@ dataSiswa.innerHTML = Object.keys(user)
   })
   .join("\n");
 
-const nilai = parseInt(localStorage.getItem("evaluasi1"));
+const nilai = parseInt(localStorage.getItem("evaluasi1_1"));
 nilaiEvaluasi.innerHTML = `<p>Nilai Evaluasi : ${nilai ? nilai : 0}</p>`;
 
 let numberQuiz = 1;
@@ -204,23 +204,36 @@ function renderQuiz() {
       listQuestionTwo.classList.remove("bg-black", "text-white");
       btnNextQuestionTwo.innerText = "Selanjutnya";
       numberQuestion.innerText =
-        "1. Suatu bilangan yang mewakili banyaknya benda yang di lambangkan melalui angka 1,2,3,4,5 disebut . . .";
+        "1. Budi mempunyai koleki e-nam topi. Lambang bilangan e-nam adalah …";
 
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E1.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S1.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span><br />
-            <input type="radio" id="a1" name="evaluasi1_1" value="a" />
-            <label for="a1">a. Lambang Bilangan.</label><br />
-            <input type="radio" id="b1" name="evaluasi1_1" value="b" />
-            <label for="b1">b. Nama Bilangan.</label><br />
-            <input type="radio" id="c1" name="evaluasi1_1" value="c" />
-            <label for="c1">c. Membandingkan Bilangan.</label><br />
+           <div class="flex">
+           <div>
+           <input type="radio" id="a1" name="evaluasi1_1" value="a" />
+           <label for="a1">a. 
+            <img src="/assets/image/evaluasi/new/6.png" />
+           </label><br />
+           </div>
+           <div>
+           <input type="radio" id="b1" name="evaluasi1_1" value="b" />
+           <label for="b1">b. 
+           <img src="/assets/image/evaluasi/new/5.png" />
+           </label><br />
+           </div>
+           <div>
+           <input type="radio" id="c1" name="evaluasi1_1" value="c" />
+           <label for="c1">c. 
+           <img src="/assets/image/evaluasi/new/4.png" />
+           </label><br />
+           </div>
+           </div>
             `;
       break;
     case 2:
-      numberQuestion.innerText =
-        "2. Suatu nama yang mewakili banyaknya suatu angka disebut . . .";
+      numberQuestion.innerText = "2. Nama lambang bilangan li-ma adalah …";
       btnPrev.classList.remove("hidden");
       listQuestionTwo.classList.add("bg-black", "text-white");
       listQuestionOne.classList.remove("bg-black", "text-white");
@@ -228,40 +241,67 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E2.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S2.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a2" name="evaluasi1_2" value="a" />
-            <label for="a2">a. Lambang Bilangan.</label><br />
-            <input type="radio" id="b2" name="evaluasi1_2" value="b" />
-            <label for="b2">b. Nama Bilangan.</label><br />
+           <div class="flex">
+           <div>
+           <input type="radio" id="a2" name="evaluasi1_2" value="a" />
+           <label for="a2">a. 
+           <img src="/assets/image/evaluasi/new/4.png" />
+           </label><br />
+           </div>
+           <div>
+           <input type="radio" id="b2" name="evaluasi1_2" value="b" />
+           <label for="b2">b. 
+           <img src="/assets/image/evaluasi/new/5.png" />
+           </label><br />
+           </div>
+            <div>
             <input type="radio" id="c2" name="evaluasi1_2" value="c" />
-            <label for="c2">c. Membandingkan Bilangan.</label><br />
+            <label for="c2">c. 
+            <img src="/assets/image/evaluasi/new/6.png" />
+            </label><br />
+            </div>
+           </div>
             `;
       break;
     case 3:
       numberQuestion.innerText =
-        "3. Wina memelihara Iguana. Iguana Wina berjumlah empat. Lambang bilangan dari empat adalah . . .";
+        "3. Wina memelihara Iguana, Iguana Wina berjumlah em-pat. Lambang bilangan em-pat adalah …";
       listQuestionTwo.classList.remove("bg-black", "text-white");
       listQuestionFour.classList.remove("bg-black", "text-white");
       listQuestionThree.classList.add("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E3.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S3.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
+         <div class="flex">
+         <div>
          <input type="radio" id="a3" name="evaluasi1_3" value="a" />
-         <label for="a3">a. 2</label><br />
+         <label for="a3">a. 
+         <img src="/assets/image/evaluasi/new/2.png" />
+         </label><br />
+         </div>
+         <div>
          <input type="radio" id="b3" name="evaluasi1_3" value="b" />
-         <label for="b3">b. 3</label><br />
-         <input type="radio" id="c3" name="evaluasi1_3" value="c" />
-         <label for="c3">c. 4</label><br />
+         <label for="b3">b. 
+         <img src="/assets/image/evaluasi/new/3.png" />
+         </label><br />
+         </div>
+        <div>
+        <input type="radio" id="c3" name="evaluasi1_3" value="c" />
+        <label for="c3">c. 
+        <img src="/assets/image/evaluasi/new/4.png" />
+        </label><br />
+        </div>
+         </div>
             `;
       break;
     case 4:
-      numberQuestion.innerText =
-        "4. Apabila di tuliskan nama bilangan 4 adalah . . .";
+      numberQuestion.innerText = "4. Lambang bilangan 4 dibaca …";
       listQuestionOne.classList.remove("bg-black", "text-white");
       listQuestionTwo.classList.remove("bg-black", "text-white");
       listQuestionThree.classList.remove("bg-black", "text-white");
@@ -270,75 +310,138 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E4.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S4.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-         <input type="radio" id="a4" name="evaluasi1_4" value="a" />
-         <label for="a4">a. Empat </label><br />
-         <input type="radio" id="b4" name="evaluasi1_4" value="b" />
-         <label for="b4">b. Tiga</label><br />
-         <input type="radio" id="c4" name="evaluasi1_4" value="c" />
-         <label for="c4">c. Dua</label><br />
+        <div class="flex gap-14">
+        <div>
+        <input type="radio" id="a4" name="evaluasi1_4" value="a" />
+        <label for="a4">a. Em-pat </label><br />
+        </div>
+        <div>
+        <input type="radio" id="b4" name="evaluasi1_4" value="b" />
+        <label for="b4">b. Ti-ga</label><br />
+        </div>
+        <div>
+        <input type="radio" id="c4" name="evaluasi1_4" value="c" />
+        <label for="c4">c. Du-a</label><br />
+        </div>
+        </div>
           `;
       break;
     case 5:
-      numberQuestion.innerText = "5. Lambang bilangan 8 adalah . . .";
+      numberQuestion.innerText = "5. Lambang bilangan delapan adalah …";
       listQuestionFour.classList.remove("bg-black", "text-white");
       listQuestionFive.classList.add("bg-black", "text-white");
       listQuestionSix.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E5.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S5.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
+         <div class="flex">
+         <div>
          <input type="radio" id="a5" name="evaluasi1_5" value="a" />
-         <label for="a5">a. 6</label><br />
+         <label for="a5">a. 
+         <img src="/assets/image/evaluasi/new/7.png" />
+         </label><br />
+         </div>
+         <div>
          <input type="radio" id="b5" name="evaluasi1_5" value="b" />
-         <label for="b5">b. 8</label><br />
+         <label for="b5">b. 
+         <img src="/assets/image/evaluasi/new/8.png" />
+         </label><br />
+         </div>
+         <div>
          <input type="radio" id="c5" name="evaluasi1_5" value="c" />
-         <label for="c5">c. 7</label><br />
+         <label for="c5">c. 
+         <img src="/assets/image/evaluasi/new/9.png" />
+         </label><br />
+         </div>
+         </div>
           `;
       break;
     case 6:
       numberQuestion.innerText =
-        "6. Suatu upaya menentukan perbedaan dengan menggunakan simbol perbandingan bilangan > lebih dari, < kurang dari, dan = sama dengan disebut ? . . .";
+        "6. Perhatikan gambar dibawah ini, berilah tanda kurang dari (<), lebih banyak (>), dan sama banyak (=).";
       listQuestionFive.classList.remove("bg-black", "text-white");
       listQuestionSix.classList.add("bg-black", "text-white");
       listQuestionSeven.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E6.m4a')"><img
+      <div class="flex flex-col ">
+          <div class="flex justify-center items-center content-center">
+          <img src="/assets/image/evaluasi/new/11.png" width="40%"/>
+          <p>. . . </p>
+          <img src="/assets/image/evaluasi/new/12.png" width="40%"/>
+          </div>
+          <div class="flex ml-44 gap-24">
+          <p>8</p>
+          <p>. . . </p>
+          <p>3</p>
+          </div>
+         </div>
+         <span onclick="play('/assets/sounds/evaluasi/S6.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
+         <p>Tanda yang cocok untuk lebih banyak diatas adalah …</p>
+          <div class="flex gap-14">
+          <div>
           <input type="radio" id="a6" name="evaluasi1_6" value="a" />
-          <label for="a6">a. Lambang Bilangan.</label><br />
+          <label for="a6">a. =</label><br />
+          </div>
+          <div>
           <input type="radio" id="b6" name="evaluasi1_6" value="b" />
-          <label for="b6">b. Nama Bilangan.</label><br />
+          <label for="b6">b. <</label><br />
+          </div>
+          <div>
           <input type="radio" id="c6" name="evaluasi1_6" value="c" />
-          <label for="c6">c. Membandingkan Bilangan.</label><br />`;
+          <label for="c6">c. ></label><br />
+          </div>
+          </div>
+          `;
       break;
     case 7:
       numberQuestion.innerText =
-        "7. Perhatikan gambar di bawah ini, berilah tanda kurang dari (<), lebih dari (>) dan sama dengan (=) .";
+        "7. Perhatikan gambar dibawah ini, berilah tanda kurang dari (<), lebih banyak (>), dan sama banyak (=).";
       listQuestionSix.classList.remove("bg-black", "text-white");
       listQuestionSeven.classList.add("bg-black", "text-white");
       listQuestionEight.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E7.m4a')"><img
+      <div class="flex flex-col ">
+      <div class="flex justify-center items-center content-center">
+      <img src="/assets/image/evaluasi/new/13.png" width="40%"/>
+      <p>. . . </p>
+      <img src="/assets/image/evaluasi/new/14.png" width="40%"/>
+      </div>
+      <div class="flex ml-44 gap-24">
+      <p>3</p>
+      <p>. . . </p>
+      <p>5</p>
+      </div>
+     </div>
+         <span onclick="play('/assets/sounds/evaluasi/S7.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> 
-         <img class="w-auto" src="/assets/image/evaluasi/Soal 7.png" /><br />
          <p>Tanda yang cocok untuk mengisi titik-titik di atas adalah . . .</p>
-          <input type="radio" id="a7" name="evaluasi1_7" value="a" />
-          <label for="a7">a. ></label><br />
+         <div class="flex gap-14">
+         <div>
+         <input type="radio" id="a7" name="evaluasi1_7" value="a" />
+         <label for="a7">a. ></label><br />
+         </div>
+          <div>
           <input type="radio" id="b7" name="evaluasi1_7" value="b" />
           <label for="b7">b. =</label><br />
+          </div>
+          <div>
           <input type="radio" id="c7" name="evaluasi1_7" value="c" />
           <label for="c7">c. <</label><br />
+          </div>
+         </div>
           `;
       break;
     case 8:
@@ -350,18 +453,37 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E8.m4a')"><img
+      <div class="flex flex-col ">
+      <div class="flex justify-center items-center content-center">
+      <img src="/assets/image/evaluasi/new/15.png" width="40%"/>
+      <p>. . . </p>
+      <img src="/assets/image/evaluasi/new/16.png" width="40%"/>
+      </div>
+      <div class="flex ml-44 gap-24">
+      <p>4</p>
+      <p>. . . </p>
+      <p>2</p>
+      </div>
+     </div>
+         <span onclick="play('/assets/sounds/evaluasi/S8.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> 
-         <img class="w-auto" src="/assets/image/evaluasi/Soal 8.png" />
          <br />
          <p>Tanda yang cocok untuk mengisi titik-titik di atas adalah . . .</p>
-          <input type="radio" id="a8" name="evaluasi1_8" value="a" />
-          <label for="a8">a. =</label><br />
-          <input type="radio" id="b8" name="evaluasi1_8" value="b" />
-          <label for="b8">b. <</label><br />
-          <input type="radio" id="c8" name="evaluasi1_8" value="c" />
-          <label for="c8">c. ></label><br />
+         <div class="flex gap-14">
+         <div>
+         <input type="radio" id="a8" name="evaluasi1_8" value="a" />
+         <label for="a8">a. =</label><br />
+         </div>
+         <div>
+         <input type="radio" id="b8" name="evaluasi1_8" value="b" />
+         <label for="b8">b. <</label><br />
+         </div>
+         <div>
+         <input type="radio" id="c8" name="evaluasi1_8" value="c" />
+         <label for="c8">c. ></label><br />
+         </div>
+         </div>
           `;
       break;
     case 9:
@@ -373,232 +495,347 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E9.m4a')"><img
+      <div class="flex flex-col ">
+      <div class="flex justify-center items-center content-center">
+      <img src="/assets/image/evaluasi/new/17.png" width="40%"/>
+      <p>. . . </p>
+      <img src="/assets/image/evaluasi/new/18.png" width="40%"/>
+      </div>
+      <div class="flex ml-44 gap-24">
+      <p>5</p>
+      <p>. . . </p>
+      <p>3</p>
+      </div>
+     </div>
+         <span onclick="play('/assets/sounds/evaluasi/S9.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> 
-         <img class="w-auto" src="/assets/image/evaluasi/Soal 9.png" />
           <br />
           <p>Tanda yang cocok untuk mengisi titik-titik di atas adalah . . .</p>
-         <input type="radio" id="a9" name="evaluasi1_9" value="a" />
-          <label for="a9">a. ></label><br />
+        <div class="flex gap-14">
+        <div>
+        <input type="radio" id="a9" name="evaluasi1_9" value="a" />
+        <label for="a9">a. ></label><br />
+        </div>
+          <div>
           <input type="radio" id="b9" name="evaluasi1_9" value="b" />
           <label for="b9">b. <</label><br />
-          <input type="radio" id="c9" name="evaluasi1_9" value="c" />
-          <label for="c9">c. =</label><br />
+          </div>
+         <div>
+         <input type="radio" id="c9" name="evaluasi1_9" value="c" />
+         <label for="c9">c. =</label><br />
+         </div>
+        </div>
           `;
       break;
     case 10:
       numberQuestion.innerText =
-        "10. Suatu bilangan yang menentukan lebih besar atau lebih kecil bilangan disebut . . .";
+        "10. . Dibawah ini urutan bilangan yang benar dari terbesar ke terkecil adalah …";
       listQuestionTen.classList.add("bg-black", "text-white");
       listQuestionNine.classList.remove("bg-black", "text-white");
       listQuestionEleven.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E10.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S10.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <br/>
+         <div class="flex flex-col">
+         <div>
          <input type="radio" id="a10" name="evaluasi1_10" value="a" />
-          <label for="a10">a. Membandingkan Bilangan.</label><br />
+          <label for="a10">a. 
+          <img src="/assets/image/evaluasi/new/19.png" class="w-80"/>
+          </label><br />
+          </div>
+          <div>
           <input type="radio" id="b10" name="evaluasi1_10" value="b" />
-          <label for="b10">b. Nama Bilangan. </label><br />
+          <label for="b10">b. 
+          <img src="/assets/image/evaluasi/new/20.png" class="w-80"/>
+          </label><br />
+          </div>
+          <div>
           <input type="radio" id="c10" name="evaluasi1_10" value="c" />
-          <label for="c10">c. Mengurutkan Bilangan.</label><br />   
+          <label for="c10">c. 
+          <img src="/assets/image/evaluasi/new/21.png" class="w-80"/>
+          </label><br />   
+          </div>
+         </div>
           `;
       break;
     case 11:
       numberQuestion.innerText =
-        "11. Perhatikan gambar di bawah ini, manakah suatu bilangan ini yang menyatakan suatu bilangan berurut dari terbesar ke terkecil . . .";
+        "11. Dibawah ini urutan bilangan yang benar dari terkecil ke terbesar adalah …";
       listQuestionTen.classList.remove("bg-black", "text-white");
       listQuestionEleven.classList.add("bg-black", "text-white");
       listQuestionTwelve.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E11.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S11.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
+            <div class="flex flex-col">
+            <div>
             <input type="radio" id="a11" name="evaluasi1_11" value="a" />
-            <label for="a11">a. <img w="50%" src="/assets/image/evaluasi/Soal 11a.png" /> </label><br />
+            <label for="a11">a. <img src="/assets/image/evaluasi/new/21.png" class="w-80"/> </label><br />
+            </div>
+            <div>
             <input type="radio" id="b11" name="evaluasi1_11" value="b" />
-            <label for="b11">b. <img w="50%" src="/assets/image/evaluasi/Soal 11b.png" /></label><br />
+            <label for="b11">b. <img src="/assets/image/evaluasi/new/24.png" class="w-80"/> </label><br />
+            </div>
+            <div>
             <input type="radio" id="c11" name="evaluasi1_11" value="c" />
-            <label for="c11">c. <img w="50%" src="/assets/image/evaluasi/Soal 11c.png" /></label><br />
+            <label for="c11">c. <img src="/assets/image/evaluasi/new/25.png" class="w-80"/> </label><br />
+            </div>
+            </div>
         `;
       break;
     case 12:
       numberQuestion.innerText =
-        "12. Perhatikan gambar di bawah ini, manakah suatu bilangan ini yang menyatakan suatu bilangan berurut dari terkecil ke terbesar . . . ";
+        "12. Dibawah ini urutan bilangan yang benar dari terbesar ke terkecil, kecuali adalah …";
       listQuestionEleven.classList.remove("bg-black", "text-white");
       listQuestionTwelve.classList.add("bg-black", "text-white");
       listQuestionThirteen.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/12.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S12.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a12" name="evaluasi1_12" value="a" />
-            <label for="a12">a. <img width="50%" src="/assets/image/evaluasi/Soal 12a.png" /></label><br />
-            <input type="radio" id="b12" name="evaluasi1_12" value="b" />
-            <label for="b12">b. <img width="50%" src="/assets/image/evaluasi/Soal 12b.png" /></label><br />
-            <input type="radio" id="c12" name="evaluasi1_12" value="c" />
-            <label for="c12">c. <img width="50%" src="/assets/image/evaluasi/Soal 12c.png" /></label><br />
+           <div class="flex flex-col">
+           <div>
+           <input type="radio" id="a12" name="evaluasi1_12" value="a" />
+           <label for="a12">a. <img src="/assets/image/evaluasi/new/24.png" class="w-80"/> </label><br />
+           </div>
+          <div>
+          <input type="radio" id="b12" name="evaluasi1_12" value="b" />
+          <label for="b12">b. <img src="/assets/image/evaluasi/new/26.png" class="w-80"/> </label><br />
+          </div>
+           <div>
+           <input type="radio" id="c12" name="evaluasi1_12" value="c" />
+           <label for="c12">c. <img src="/assets/image/evaluasi/new/27.png" class="w-80"/> </label><br />
+           </div>
+           </div>
         `;
       break;
     case 13:
       numberQuestion.innerText =
-        "13. Dua bilangan jika di pasangkan jika dijumlahkan akan menghasilkan bilangan angka baru disebut . . .";
+        "13. Dibawah ini yang pasangan bilangan yang benar jika dijumlahkan menjadi bilangan baru hasilnya menjadi 4 kecuali adalah …";
       listQuestionTwelve.classList.remove("bg-black", "text-white");
       listQuestionThirteen.classList.add("bg-black", "text-white");
       listQuestionFourteen.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E13.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S13.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a13" name="evaluasi1_13" value="a" />
-            <label for="a13">a. Membandingkan Bilangan.</label><br />
+           <div class="flex">
+           <div>
+           <input type="radio" id="a13" name="evaluasi1_13" value="a" />
+           <label for="a13">a. <img src="/assets/image/evaluasi/new/28.png" class="w-80"/> </label><br />
+           </div>
+            <div>
             <input type="radio" id="b13" name="evaluasi1_13" value="b" />
-            <label for="b13">b. Pasangkan Bilangan.</label><br />
+            <label for="b13">b. <img src="/assets/image/evaluasi/new/29.png" class="w-80"/> </label><br />
+            </div>
+            <div>
             <input type="radio" id="c13" name="evaluasi1_13" value="c" />
-            <label for="c13">c. Mengurutkan Bilangan.</label><br />
+            <label for="c13">c. <img src="/assets/image/evaluasi/new/30.png" class="w-80"/> <br />
+            </div>
+           </div>
         `;
       break;
     case 14:
       numberQuestion.innerText =
-        "14. Di bawah ini yang merupakan pasangan bilangan jika dua angka dijumlahkan menjadi angka baru yang hasilnya menjadi 10 adalah . . .";
+        "14. Dibawah ini yang pasangan bilangan yang benar jika dijumlahkan menjadi bilangan baru hasilnya menjadi 10 adalah …";
       listQuestionThirteen.classList.remove("bg-black", "text-white");
       listQuestionFourteen.classList.add("bg-black", "text-white");
       listQuestionFiveteen.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E14.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S14.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-            <input type="radio" id="a14" name="evaluasi1_14" value="a" />
-            <label for="a14">a. <img width="50%" src="/assets/image/evaluasi/Soal 14a.png" /></label><br />
+           <div class="flex">
+           <div>
+           <input type="radio" id="a14" name="evaluasi1_14" value="a" />
+           <label for="a14">a. <img src="/assets/image/evaluasi/new/31.png" class="w-80"/> </label><br />
+           </div>
+            <div>
             <input type="radio" id="b14" name="evaluasi1_14" value="b" />
-            <label for="b14">b. <img width="50%" src="/assets/image/evaluasi/Soal 14b.png" /></label><br />
+            <label for="b14">b. <img src="/assets/image/evaluasi/new/32.png" class="w-80"/> </label><br />
+            </div>
+            <div>
             <input type="radio" id="c14" name="evaluasi1_14" value="c" />
-            <label for="c14">c. <img width="50%" src="/assets/image/evaluasi/Soal 14c.png" /></label><br />
+            <label for="c14">c. <img src="/assets/image/evaluasi/new/33.png" class="w-80"/> </label><br />
+            </div>
+           </div>
         `;
       break;
     case 15:
       numberQuestion.innerText =
-        "15. Di bawah ini yang pasangan benda dan bilangannya yang sama adalah . . .";
+        "15. Dibawah ini yang pasangan benda dan bilangannya yang sama adalah ….";
       listQuestionFourteen.classList.remove("bg-black", "text-white");
       listQuestionFiveteen.classList.add("bg-black", "text-white");
       listQuestionSixteen.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E15.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S15.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
+            <div class="flex">
+            <div>
             <input type="radio" id="a15" name="evaluasi1_15" value="a" />
-            <label for="a15">a. <img width="50%" src="/assets/image/evaluasi/Soal 15a.png" /></label><br />
+            <label for="a15">a. <img src="/assets/image/evaluasi/new/34.png" class="w-80"/> </label><br />
+            </div>
+            <div>
             <input type="radio" id="b15" name="evaluasi1_15" value="b" />
-            <label for="b15">b. <img width="50%" src="/assets/image/evaluasi/Soal 15b.png" /></label><br />
-            <input type="radio" id="c15" name="evaluasi1_15" value="c" />
-            <label for="c15">c. <img width="50%" src="/assets/image/evaluasi/Soal 15c.png" /></label><br />
+            <label for="b15">b. <img src="/assets/image/evaluasi/new/35.png" class="w-80"/> </label><br />
+            </div>
+           <div>
+           <input type="radio" id="c15" name="evaluasi1_15" value="c" />
+           <label for="c15">c. <img src="/assets/image/evaluasi/new/36.png" class="w-80"/> </label><br />
+           </div>
+            </div>
         `;
       break;
     case 16:
-      numberQuestion.innerText = "16. Ayo perhatikan cerita di bawah ini";
+      numberQuestion.innerText =
+        "16. Dibawah ini yang bukan pasangan benda dn bilangan yang sama adalah …";
       listQuestionFiveteen.classList.remove("bg-black", "text-white");
       listQuestionSixteen.classList.add("bg-black", "text-white");
       listQuestionSeventeen.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E16.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S16.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-        <img width="50%" src="/assets/image/evaluasi/Soal 16.png" />
-        <p>Ibu mempunyai 4 meja makan di rumah.</p>
-        <p>Kemudian ibu membeli lagi 2 meja makan di pasar</p>
-        <p>Maka berapakah jumlah semua meja makan yang ibu miliki ? . . .</p> <br />
-        <p>Jawaban yang tepat untuk cerita penjumlahan di atas adalah . . .</p>
+            <div class="flex">
+            <div>
             <input type="radio" id="a16" name="evaluasi1_16" value="a" />
-            <label for="a16">a. 4 + 2 = 6</label><br />
+            <label for="a16">a. <img src="/assets/image/evaluasi/new/37.png" class="w-80"/> </label><br />
+            </div>
+            <div>
             <input type="radio" id="b16" name="evaluasi1_16" value="b" />
-            <label for="b16">b. 2 + 6 = 8</label><br />
+            <label for="b16">b. <img src="/assets/image/evaluasi/new/38.png" class="w-80"/> </label><br />
+            </div>
+            <div>
             <input type="radio" id="c16" name="evaluasi1_16" value="c" />
-            <label for="c16">c. 8 + 2 = 10</label><br />
+            <label for="c16">c. <img src="/assets/image/evaluasi/new/39.png" class="w-80"/> </label><br />
+            </div>
+            </div>
         `;
       break;
     case 17:
-      numberQuestion.innerText = "17. Ayo perhatikan cerita di bawah ini!";
+      numberQuestion.innerText = "17. Perhatikan cerita di bawah ini.";
       listQuestionSixteen.classList.remove("bg-black", "text-white");
       listQuestionSeventeen.classList.add("bg-black", "text-white");
       listQuestionEightteen.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-      <span onclick="play('/assets/sounds/evaluasi/E17.m4a')"><img
+      <span onclick="play('/assets/sounds/evaluasi/S17.m4a')"><img
       src="/assets/image/sound.png"
       class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-      <img width="50%" src="/assets/image/evaluasi/Soal 17.png" />
-      <p>Ibu mempunyai 2 potong semangka</p>
-      <p>Kemudian ibu memakan 1 potong semangka tersebut.</p>
-      <p>Maka sisa berapakah semangka potong ibu? . . .</p> <br />
-      <p>Jawaban yang tepat untuk cerita pengurangan di atas adalah . . .</p>
-          <input type="radio" id="a17" name="evaluasi1_17" value="a" />
-          <label for="a17">a. 2 - 1 = 1</label><br />
-          <input type="radio" id="b17" name="evaluasi1_17" value="b" />
-          <label for="b17">b. 1 - 1 = 0</label><br />
-          <input type="radio" id="c17" name="evaluasi1_17" value="c" />
-          <label for="c17">c. 1 + 1 = 2</label><br />
+      <div class="flex items-center justify-center content-center">
+            <img class="w-48" src="/assets/image/evaluasi/new/40.png" />
+            <p>+</p>
+            <img class="w-48" src="/assets/image/evaluasi/new/41.png" />
+            <p>=</p>
+            <img class="w-48" src="/assets/image/evaluasi/new/42.png" />
+         </div>
+      <p>Ibu mempunyai 4 meja dirumahnya</p>
+      <p>Kemudian ibu membeli 2 meja</p>
+      <p>Maka berapakah semua meja ibu ...</p> <br />
+      <p>Jawaban yang tepat untuk cerita diatas adalah …</p>
+         <div class="flex gap-14">
+         <div>
+         <input type="radio" id="a17" name="evaluasi1_17" value="a" />
+         <label for="a17">a. 4 + 2 = 6</label><br />
+         </div>
+         <div>
+         <input type="radio" id="b17" name="evaluasi1_17" value="b" />
+         <label for="b17">b. 2 + 4 = 8</label><br />
+         </div>
+         <div>
+         <input type="radio" id="c17" name="evaluasi1_17" value="c" />
+         <label for="c17">c. 8 + 2 = 10</label><br />
+         </div>
+         </div>
       `;
       break;
     case 18:
-      numberQuestion.innerText =
-        "18. Sepuluh di kurang dua sama dengann delapan . . .";
+      numberQuestion.innerText = "18. Perhatikan cerita di bawah ini. ";
       listQuestionSeventeen.classList.remove("bg-black", "text-white");
       listQuestionEightteen.classList.add("bg-black", "text-white");
       listQuestionNineteen.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-      <span onclick="play('/assets/sounds/evaluasi/E18.m4a')"><img
+      <span onclick="play('/assets/sounds/evaluasi/S18.m4a')"><img
       src="/assets/image/sound.png"
       class="w-6 h-6 cursor-pointer select-none" /></span> <br />
-          <input type="radio" id="a18" name="evaluasi1_18" value="a" />
-          <label for="a18">a. 10 – 2 = 8</label><br />
+      <div class="flex items-center justify-center content-center">
+            <img class="w-48" src="/assets/image/evaluasi/new/43.png" />
+            <p>+</p>
+            <img class="w-48" src="/assets/image/evaluasi/new/44.png" />
+            <p>=</p>
+            <img class="w-48" src="/assets/image/evaluasi/new/45.png" />
+         </div>
+         <p>Ibu memiliki 2 apel </p>
+      <p>Kemudian ibu memakan 1 apel</p>
+      <p>Maka sisa berapa apel ibu ...</p> <br />
+      <p>Jawaban yang tepat untuk cerita diatas adalah …</p>
+         <div class="flex gap-14">
+         <div>
+         <input type="radio" id="a18" name="evaluasi1_18" value="a" />
+         <label for="a18">a. 2 − 1 = 1</label><br />
+         </div>
+          <div>
           <input type="radio" id="b18" name="evaluasi1_18" value="b" />
-          <label for="b18">b. 6 – 3 = 3</label><br />
-          <input type="radio" id="c18" name="evaluasi1_18" value="c" />
-          <label for="c18">c. 3 – 3 = 0</label><br />
+          <label for="b18">b. 1 − 1 = 0</label><br />
+          </div>
+         <div>
+         <input type="radio" id="c18" name="evaluasi1_18" value="c" />
+         <label for="c18">c. 3 − 3 = 0</label><br />
+         </div>
+         </div>
       `;
       break;
     case 19:
-      numberQuestion.innerText =
-        "19. Enam di tambah satu sama dengan tujuh . . .";
+      numberQuestion.innerText = "19. Sepuluh dikurang dua sama dengan 8";
       listQuestionEightteen.classList.remove("bg-black", "text-white");
       listQuestionNineteen.classList.add("bg-black", "text-white");
       listQuestionTwenty.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E19.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S19.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
+        <div class="flex gap-14">
+        <div>
         <input type="radio" id="a19" name="evaluasi1_19" value="a" />
-        <label for="a19">a. 6 + 1 = 7</label><br />
+        <label for="a19">a. 10 − 2 = 8</label><br />
+        </div>
+        <div>
         <input type="radio" id="b19" name="evaluasi1_19" value="b" />
-        <label for="b19">b. 6 + 2 = 8 </label><br />
+        <label for="b19">b. 6 − 3 = 3</label><br />
+        </div>
+        <div>
         <input type="radio" id="c19" name="evaluasi1_19" value="c" />
         <label for="c19">c. 6 + 3 = 9</label><br />
+        </div>
+        </div>
         `;
       break;
     case 20:
-      numberQuestion.innerText =
-        "20. Sembilan di kurang sama dengn tiga sama dengan enam . . .";
+      numberQuestion.innerText = "20. Enam ditambah satu sama dengan tujuh";
       listQuestionNineteen.classList.remove("bg-black", "text-white");
       listQuestionTwenty.classList.add("bg-black", "text-white");
       btnPrev.classList.add("hidden");
@@ -606,16 +843,24 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E20.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S20.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <br/>
-         <input type="radio" id="a20" name="evaluasi1_20" value="a" />
-          <label for="a20">a. 9 – 3 = 6</label><br />
-          <input type="radio" id="b20" name="evaluasi1_20" value="b" />
-          <label for="b20">b. 6 – 3 = 3</label><br />
-          <input type="radio" id="c20" name="evaluasi1_20" value="c" />
-          <label for="c20">c. 3 – 3 = 0</label><br />   
+        <div class="flex gap-14">
+        <div>
+        <input type="radio" id="a20" name="evaluasi1_20" value="a" />
+         <label for="a20">a. 6 + 1 = 7</label><br />
+        </div>
+         <div>
+         <input type="radio" id="b20" name="evaluasi1_20" value="b" />
+         <label for="b20">b. 6 + 2 = 8</label><br />
+         </div>
+         <div>
+         <input type="radio" id="c20" name="evaluasi1_20" value="c" />
+         <label for="c20">c. 6 + 3 = 9</label><br />   
+         </div>
+        </div>
           `;
       break;
     default:
@@ -686,13 +931,13 @@ function taskResult(type) {
       "c",
       "c",
       "c",
+      "b",
+      "b",
+      "c",
       "c",
       "b",
       "b",
-      "b",
-      "b",
-      "b",
-      "a",
+      "c",
       "a",
       "a",
       "a",
@@ -706,7 +951,7 @@ function taskResult(type) {
   } else {
     return null;
   }
-  totalPerSub();
+  // totalPerSub();
 }
 
 function totalPerSub() {
@@ -749,3 +994,39 @@ function matchAdjacentElements(arr1, arr2) {
 
   return result;
 }
+
+const kuisData = JSON.parse(localStorage.getItem("kkm"));
+
+// Function to check and display result for a specific name
+function checkAndDisplayResultForName(name) {
+  // Find the data object for the specified name
+  const item = kuisData.find((data) => data.name === name);
+
+  if (!item) {
+    console.error(`No data found for name: ${name}`);
+    return;
+  }
+
+  // Convert kkm and nilai to numbers
+  const kkm = parseInt(item.kkm);
+  const nilai = parseInt(localStorage.getItem("evaluasi1_1"));
+
+  // Check if nilai is greater than or equal to kkm
+  if (nilai >= kkm) {
+    // If true, display "Selamat Anda Lulus Kuis"
+    document.getElementById("kkm-evaluasi1").innerText =
+      "Selamat Anda Lulus Kuis";
+    document.getElementById("kkm-evaluasi1").style.color = "green";
+  } else {
+    // If false, display "Anda Belum Lulus Kuis"
+    document.getElementById("kkm-evaluasi1").innerText =
+      "Anda Belum Lulus Kuis";
+    document.getElementById("kkm-evaluasi1").style.color = "red";
+  }
+}
+
+// Simulate updating the HTML content with nilai values
+// document.getElementById('kkm-kuis1').innerHTML = '<p id="evaluasi">80</p><p id="kuis 1">60</p><p id="kuis 2">85</p>';
+
+// Call the function to check and display results for a specific name
+checkAndDisplayResultForName("evaluasi");
