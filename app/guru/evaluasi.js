@@ -1,4 +1,9 @@
-import { getEvaluasi, getKuis } from "../../util/js/db.js";
+import {
+  getEvaluasi,
+  getKuis,
+  getMencoba,
+  getMengamati,
+} from "../../util/js/db.js";
 
 // Assuming you have a reference to the table element
 let allData = [];
@@ -23,7 +28,7 @@ const populateTable = () => {
   // Add header row
   const headerRow = table.createTHead().insertRow();
   headerRow.innerHTML =
-    "<th>No</th><th>Nama</th><th>NISN</th><th>Evaluasi</th><th>Nilai</th><th>Kelas</th><th>Sekolah</th><th>Aksi</th>";
+    "<th>No</th><th>Nama</th><th>NISN</th><th>Sekolah</th><th>Nilai</th><th>Hari</th><th>Waktu</th><th>Aksi</th>";
 
   // Add data rows
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -32,19 +37,26 @@ const populateTable = () => {
 
   const tbody = table.createTBody();
   currentPageData.forEach((data, index) => {
+    // Check if the data satisfies the selected filters
+    // const babFilter = document.getElementById("babFilter").value;
+    // const subFilter = document.getElementById("subFilter").value;
+
+    // if (
+    //   (babFilter === "" || data.bab === babFilter) &&
+    //   (subFilter === "" || data.sub === subFilter)
+    // ) {
     const row = tbody.insertRow();
-    row.innerHTML = `<td>${startIndex + index + 1}</td>
-        <td>${data.name}</td>
-        <td>${data.nisn}</td>
-        <td>${data.evaluasi}</td>
-        <td>${data.nilai}</td>
-        <td>${data.kelas}</td>
-        <td>${data.sekolah}</td>
-        <td>
-            <button class="p-2" onclick="deleteEvaluasi('${data.nisn}', '${data.evaluasi}')">
-            <img src="../../assets/image/delete.png" width="20em">
-            </button>
-        </td>`;
+    row.innerHTML = `<td>${startIndex + index + 1}</td><td>${
+      data.name
+    }</td><td>${data.nisn}</td><td>${data.sekolah}</td><td>${
+      data.nilai
+    }</td><td>${data.hari}</td><td>${
+      data.waktu
+    }</td><td><button class="p-2" onclick="deleteEvaluasi('${
+      data.nisn + data.bab + data.sub
+    }')"><img src="../../assets/image/delete.png" width="20em">
+            </button></td>`;
+    // }
   });
 };
 
@@ -109,6 +121,7 @@ const prevPage = () => {
 // Call the function to fetch all users and set up pagination
 const initializePagination = async () => {
   allData = await getEvaluasi();
+  console.log(allData);
   if (allData) {
     totalPages = Math.ceil(allData.length / itemsPerPage);
     generatePaginationLinks();
@@ -123,3 +136,7 @@ document.getElementById("nextPage").addEventListener("click", nextPage);
 
 // Initialize pagination
 initializePagination();
+
+// Add event listeners for filter options
+// document.getElementById("babFilter").addEventListener("change", populateTable);
+// document.getElementById("subFilter").addEventListener("change", populateTable);

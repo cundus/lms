@@ -66,6 +66,10 @@
         object-fit: cover;
         margin: 0 auto;
       }
+
+      .page {
+        display: none;
+      }
     </style>
   </head>
 
@@ -127,10 +131,10 @@
     </header>
 
     <div class="w-full flex">
-      <aside class="sidebar min-h-screen px-1">
+      <div class="sidebar min-h-screen px-1">
         <div class="w-full flex flex-col justify-center items-center">
           <img
-            src="/assets/image/user.png"
+            src="../../../assets/image/user.png"
             class="w-1/2 h-auto object-contain"
           />
           <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
@@ -141,83 +145,43 @@
         >
           Daftar Isi
         </h2>
-        <sl-tree>
-          <sl-tree-item expanded>
-            <p>Ayo Membilang Bilangan 1 sampai dengan 10</p>
-            <sl-tree-item>
-              <a href="../../dashboard/bab1/pendahuluan1.html">Pendahuluan</a>
-            </sl-tree-item>
-            <sl-tree-item expanded>
-              <p>Materi</p>
-              <sl-tree-item selected>
-                <a href="../../dashboard/bab1/materi1.html"
-                  >Menghitung,Membaca dan Menulis Bilangan</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab1/materi2.html"
-                  >Membandingkan Banyak Bilangan dalam Benda</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab1/materi3.html"
-                  >Menghitung Maju dan Mundur</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab1/materi4.html"
-                  >Pasangan Bilangan</a
-                >
-              </sl-tree-item>
-            </sl-tree-item>
-            <sl-tree-item>
-              <a href="../../dashboard/bab1/kuis1.html">Kuis BAB 1</a>
-            </sl-tree-item>
-          </sl-tree-item>
-
-          <sl-tree-item>
-            <p>
-              Penjumlahan Bilangan dan Pengurangan Bilangan 1 sampai dengan 10
-            </p>
-            <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
-            <sl-tree-item>
-              <p>Materi</p>
-              <sl-tree-item>
-                <a href="../../dashboard/bab2/materi1.html"
-                  >Mengenal Simbol +, - atau =</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab2/materi2.html"
-                  >Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab2/materi3.html"
-                  >Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d
-                  10</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab2/materi4.html">
-                  Hubungan Penjumlahan dan Pengurangan
-                </a>
-              </sl-tree-item>
-            </sl-tree-item>
-            <sl-tree-item>
-              <a href="../../dashboard/bab2/kuis2.html"> Kuis Bab 2 </a>
-            </sl-tree-item>
-          </sl-tree-item>
-
-          <sl-tree-item>
-            <a href="../../dashboard/evaluasi.html">Evaluasi</a>
-          </sl-tree-item>
-
-          <sl-tree-item>
-            <a href="../../../auth/login.html">Exit</a>
-          </sl-tree-item>
-        </sl-tree>
-      </aside>
+        <div class="flex flex-col gap-2">
+          <a href="../../dashboard/bab1/pendahuluan1.html" class="font-bold"
+            >Bab 1</a
+          >
+          <a href="../../dashboard/bab1/materi1.html" class="font-semibold"
+            >- Menghitung,Membaca dan Menulis Bilangan</a
+          >
+          <a href="../../dashboard/bab1/materi2.html"
+            >- Membandingkan Banyak Bilangan dalam Benda</a
+          >
+          <a href="../../dashboard/bab1/materi3.html"
+            >- Menghitung Maju dan Mundur</a
+          >
+          <a href="../../dashboard/bab1/materi4.html">- Pasangan Bilangan</a>
+          <a href="../../dashboard/bab1/kuis1.html">- Kuis BAB 1</a>
+          <br />
+          <a href="../../dashboard/bab2/pendahuluan2.html" class="font-bold"
+            >Bab 2</a
+          >
+          <a href="../../dashboard/bab2/materi1.html"
+            >- Mengenal Simbol +, - atau =</a
+          >
+          <a href="../../dashboard/bab2/materi2.html"
+            >- Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a
+          >
+          <a href="../../dashboard/bab2/materi3.html"
+            >- Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d 10</a
+          >
+          <a href="../../dashboard/bab2/materi4.html">
+            - Hubungan Penjumlahan dan Pengurangan
+          </a>
+          <a href="../../dashboard/bab2/kuis2.html">- Kuis Bab 2 </a>
+          <br />
+          <a href="../../dashboard/evaluasi.html">Evaluasi</a>
+          <a href="/auth/login.html">Exit</a>
+        </div>
+      </div>
       <div class="content px-1">
         <div class="main-content">
           <div class="flex py-1 justify-center">
@@ -232,42 +196,43 @@
           >
             A. Menghitung, Membaca dan Menulis Bilangan
           </h3>
+
+          <div class="m-2 flex gap-9 content-end justify-end">
+            <button type="button" id="prevButton" onclick="prevPage()">
+              Previous Page
+            </button>
+            <span id="pageNumbers"></span>
+            <button type="button" onclick="nextPage()">Next Page</button>
+          </div>
+          <span id="currentPage" style="display: none">1</span>
           <sl-tab-group>
-            <sl-tab slot="nav" panel="mengamati">Ayo Mengamati</sl-tab>
-            <!-- <sl-tab slot="nav" panel="berlatih">Ayo berlatih</sl-tab> -->
+            <!-- <sl-tab slot="nav" panel="mengamati">Ayo Mengamati</sl-tab>
+            <sl-tab slot="nav" panel="berlatih">Ayo berlatih</sl-tab>
             <sl-tab slot="nav" panel="menanya">Ayo Menanya</sl-tab>
             <sl-tab slot="nav" panel="mencoba">Ayo Mencoba</sl-tab>
             <sl-tab slot="nav" panel="menalar">Ayo Menalar</sl-tab>
             <sl-tab slot="nav" panel="komunikasikan"
               >Ayo Mengkomunikasikan</sl-tab
-            >
+            > -->
 
             <!-- * Tab Panel Ayo Mengamati -->
-            <sl-tab-panel name="mengamati">
+
+            <div id="page1" class="page">
               <div class="text-content mx-auto">
+                <img src="/assets/image/mengamati.png" width="25%" alt="" />
+                <br />
+                <span
+                  onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/Masih ingatkah kalian.m4a')"
+                  ><img
+                    src="/assets/image/sound.png"
+                    class="w-6 h-6 cursor-pointer select-none"
+                /></span>
                 <p>
-                  Apa yang kamu ketahui tentang lambang dan nama bilangan?
-                  <span
-                    onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/apa yang kamu ketahui.m4a')"
-                    ><img
-                      src="/assets/image/sound.png"
-                      class="w-6 h-6 cursor-pointer select-none"
-                  /></span>
+                  Masih ingatkah kalian bagaimana belajar waktu di TK mengenai
+                  apa itu lambang bilangan dan nama bilangan? Yuk kita pelajari
+                  bersama!
                 </p>
                 <br />
-                <p>
-                  Lambang bilangan adalah suatu bilangan yang mewakili banyaknya
-                  benda yang di lambangkan melalui angka 1,2,3,4,5,6,7,8,9,10
-                  sedangkan nama bilangan itu adalah sebutan untuk suatu angka.
-                  Bagaimana cara mengenal suatu lambang dan nama bilangan? Yuk
-                  kita pelajari bersama!
-                  <span
-                    onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambang bilangan adalah.m4a')"
-                    ><img
-                      src="/assets/image/sound.png"
-                      class="w-6 h-6 cursor-pointer select-none"
-                  /></span>
-                </p>
                 <div class="flex my-2 py-1 justify-center">
                   <video width="640" height="480" controls>
                     <source
@@ -282,6 +247,13 @@
                   >Gambar 1 Video Pembelajaran Menghitung, Membaca dan Menulis
                   Bilangan
                 </span>
+                <br />
+                <span
+                  onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/Setelah menonton.m4a')"
+                  ><img
+                    src="/assets/image/sound.png"
+                    class="w-6 h-6 cursor-pointer select-none"
+                /></span>
                 Setelah menonton video di atas. Sekarang, jawablah pertanyaan
                 dibawah ini dengan cara klik kotak jawaban yang ada di kolom
                 pendapatmu! Jika jawabanmu benar maka akan ditampilkan teks
@@ -290,294 +262,100 @@
                 sedangkan jika jawabanmu salah maka akan ditampilkan teks
                 jawaban
                 <span class="text-red-700 font-bold">“Kamu Salah!”</span>.
-                <span
-                  onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/setelah menonton video.m4a')"
-                  ><img
-                    src="/assets/image/sound.png"
-                    class="w-6 h-6 cursor-pointer select-none"
-                /></span>
 
                 <br />
-                <form onsubmit="taskResult(`mengamati`)">
-                  <table style="width: 100%" class="sub_1_ayo_mengamati">
-                    <tr>
-                      <th>Item</th>
-                      <th>Angka</th>
-                      <th>Nama Bilangan</th>
-                      <th>Benar</th>
-                      <th>Salah</th>
-                      <th>Respon</th>
-                    </tr>
-                    <!-- * 7 -->
-                    <tr>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Donat.png"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/item 7 donat.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 7.png"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambil 7.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 7.png"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/nambil 7.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td>
-                        <input
-                          value="benar"
-                          name="mengamati1"
-                          type="radio"
-                          id="sub_1_ayo_mengamati_7"
-                          onclick="handleRadioButtonClick(1, 'benar')"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td>
-                        <input
-                          value="salah"
-                          name="mengamati1"
-                          type="radio"
-                          id="sub_1_ayo_mengamati_7"
-                          onclick="handleRadioButtonClick(1, 'salah')"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td id="resultMessage1"></td>
-                    </tr>
-                    <!-- * 4 -->
-                    <tr>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Payung.png"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/item 4 payung.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 4.png"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambil 4.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 4.png"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/nambil 4.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td>
-                        <input
-                          value="benar"
-                          name="mengamati2"
-                          type="radio"
-                          id="sub_1_ayo_mengamati_4"
-                          onclick="handleRadioButtonClick(2, 'benar')"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td>
-                        <input
-                          value="salah"
-                          name="mengamati2"
-                          type="radio"
-                          id="sub_1_ayo_mengamati_4"
-                          onclick="handleRadioButtonClick(2, 'salah')"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td id="resultMessage2"></td>
-                    </tr>
-                    <!-- *  -->
-                    <tr>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_mengamati/Item Sendok.png"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/item 5 sendok.m4a')"
-                          ><img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                        /></span>
-                      </td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_mengamati/Lambang Bilangan 8.png"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/lambil 8.m4a')"
-                        >
-                          <img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                          />
-                        </span>
-                      </td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_mengamati/Nama Bilangan 6.png"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/nambil 6.m4a')"
-                        >
-                          <img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                          />
-                        </span>
-                      </td>
-                      <td>
-                        <input
-                          value="benar"
-                          name="mengamati3"
-                          type="radio"
-                          id="sub_1_ayo_mengamati_4"
-                          onclick="handleRadioButtonClick(3, 'salah')"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/benar.m4a')"
-                        >
-                          <img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                          />
-                        </span>
-                      </td>
-                      <td>
-                        <input
-                          value="salah"
-                          name="mengamati3"
-                          type="radio"
-                          id="sub_1_ayo_mengamati_4"
-                          onclick="handleRadioButtonClick(3, 'benar')"
-                        />
-                        <span
-                          onclick="play('/assets/sounds/bab_1/sub_1/ayo_mengamati/salah.m4a')"
-                        >
-                          <img
-                            src="/assets/image/sound.png"
-                            class="w-6 h-6 cursor-pointer select-none"
-                          />
-                        </span>
-                      </td>
-                      <td id="resultMessage3"></td>
-                    </tr>
-                  </table>
-                  <!-- <p class="text-right">
-                    <button
-                      type="submit"
-                      class="m-4 p-2 px-4 bg-blue-400 rounded-xl"
-                    >
-                      Kirim
-                    </button>
-                  </p> -->
-                </form>
               </div>
-              <!-- </sl-tab-panel> -->
-              <!-- * End Tab Panel Ayo Mengamati -->
+            </div>
 
-              <!-- * Tab Panel Ayo Berlatih -->
-              <!-- <sl-tab-panel name="berlatih"> -->
+            <div id="page2" class="page">
+              <div class="text-content mx-auto">
+                <img src="/assets/image/menulis.png" width="25%" alt="" />
+                <br />
+                <div class="m-1">
+                  <p>
+                    Pilihlah nama bilangan dibawah ini dengan memilih lambang
+                    bilangannya.
+                  </p>
+                  <div class="mt-5">
+                    <table class="w-full" id="table-menalar">
+                      <thead>
+                        <tr>
+                          <th>Lambang Bilangan</th>
+                          <th>Nama Bilangan</th>
+                          <th>Keterangan</th>
+                        </tr>
+                      </thead>
+                      <tbody id="body-table-menalar"></tbody>
+                    </table>
+                  </div>
+                </div>
+                <button
+                  class="bg-blue-600 rounded-xl right-1 fixed m-2"
+                  onclick="kirimMenulis()"
+                >
+                  <p class="p-2 text-white">Kirim</p>
+                </button>
+                <br />
+                <br />
+              </div>
+            </div>
+            <div id="page3" class="page">
+              <div class="text-content mx-auto">
+                <img src="/assets/image/menghitung.png" width="25%" alt="" />
+                <br />
+                <div class="m-1">
+                  <p>
+                    Hitunglah Item dibawah ini dengan memilih lambang
+                    bilangannya.
+                  </p>
+                  <div class="mt-5">
+                    <table class="w-full" id="table-bilangan">
+                      <thead>
+                        <tr>
+                          <th>Lambang Bilangan</th>
+                          <th>Nama Bilangan</th>
+                          <th>Keterangan</th>
+                        </tr>
+                      </thead>
+                      <tbody id="body-table-bilangan"></tbody>
+                    </table>
+                  </div>
+                </div>
+                <button
+                  class="bg-blue-600 rounded-xl right-1 fixed m-2"
+                  onclick="kirimMenghitung()"
+                >
+                  <p class="p-2 text-white">Kirim</p>
+                </button>
+                <br />
+                <br />
+              </div>
+            </div>
+            <!-- * End Tab Panel Ayo Mengamati -->
+
+            <!-- * Tab Panel Ayo Berlatih -->
+            <div id="page4" class="page">
               <form onsubmit="taskResult(`berlatih`)" class="mt-2">
                 <div class="text-content mx-auto">
+                  <img src="/assets/image/berlatih.png" width="25%" alt="" />
                   <h3
                     class="font-semibold text-lg px-2 py-4 underline decoration-solid"
                   >
                     Petunjuk Pengerjaan :
                   </h3>
-                  <ol class="black-number mx-4">
-                    <li>
-                      Untuk memahami materi di atas, silahkan jawab pertanyaan
-                      di bawah ini!
-                    </li>
-                    <li>
-                      Jawablah pertanyaan dengan mengklik salah satu jawaban
-                      yang dianggap benar!
-                    </li>
-                    <li class="py-4">
-                      Klik tombol
-                      <span
-                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-green-400 transition duration-500 ease-in-out"
-                        >Cek Jawaban</span
-                      >
-                      untuk mengetahui jawaban benar atau salah!
-                    </li>
-                    <li>
-                      Jika jawabanmu benar, muncul keterangan
-                      <span class="font-bold text-green-600"
-                        >"Jawaban Benar"</span
-                      >
-                    </li>
-                    <li>
-                      Jika jawabanmu salah, muncul keterangan
-                      <span class="font-bold text-red-600"
-                        >"Jawaban Salah"</span
-                      >
-                    </li>
-                    <li class="py-4">
-                      Klik tombol
-                      <span
-                        class="border border-solid cursor-pointer rounded-xl bg-blue-700 text-white px-4 py-2 my-4 hover:bg-red-400 transition duration-500 ease-in-out"
-                        >Coba Lagi</span
-                      >
-                      untuk mencoba kembali
-                    </li>
-                  </ol>
+                  <p>
+                    Kamu telah menonton video di atas, jawablah pertanyaan
+                    berikut ini dengan memilih salah satu jawaban yang paling
+                    tepat! Tekan tombol
+                    <span class="bg-blue-600">Selesai</span> apabila telah
+                    menjawab seluruh pertanyaan. Jika jawabanmu
+                    <span class="font-bold">benar</span>, maka akan ditampilkan
+                    teks Jawaban
+                    <span class="text-green-600">Kamu Benar!</span>,sedangkan
+                    jika jawabanmu <span class="font-bold">salah</span>, maka
+                    akan ditampilkan teks Jawaban
+                    <span class="text-red-600">Kamu Salah!</span>
+                  </p>
                   <span
                     onclick="play('/assets/sounds/bab_1/sub_1/ayo_berlatih/petunjuk pengerjaan.m4a')"
                   >
@@ -890,217 +668,57 @@
                   <p
                     class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out cursor-pointer"
                   >
-                    <button type="submit">Cek Jawaban</button>
+                    <button type="submit">Selesai</button>
                   </p>
-                  <p
+                  <!-- <p
                     class="border cursor-pointer border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out"
                     onclick="clearInputs()"
                   >
                     Coba Lagi
-                  </p>
+                  </p> -->
                 </div>
               </form>
-            </sl-tab-panel>
+              <br />
+            </div>
             <!-- * End Tab Panel Ayo Berlatih -->
 
             <!-- * Tab Panel Ayo Menanya -->
-            <sl-tab-panel name="menanya">
-              <div class="text-content mx-auto">
-                <h3
-                  class="font-semibold text-lg px-2 py-2 underline decoration-solid"
-                >
-                  Petunjuk Pengerjaan :
-                </h3>
-                <p>
-                  1. Pada tabel berikut ini silahkan beri tanda [ V ] pada kotak
-                  kecil di dalam kolom Lambang Bilangan dan kolom Nama Bilangan
-                </p>
-                <p>
-                  2. Klik tombol Selesai jika sudah mengisi seluruh kotak
-                  jawaban
-                </p>
-                <p>3. Jika muncul jawaba, maka muncul tulisan benar.</p>
-                <p>4. Jika muncul jawaban salah, maka muncul tulisan salah.</p>
-              </div>
-              <sl-card
-                id="info-media"
-                class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-              >
-                <table class="w-full quizTable2">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Item</th>
-                      <th>Lambang Bilangan</th>
-                      <th>Nama Bilangan</th>
-                      <th>Respon</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_menanya/kunci.png"
-                          class="object-contain"
-                          alt=""
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_1"
-                          id="menanya1_1"
-                          value="benar"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_1"
-                          id="menanya1_1"
-                          value="salah"
-                        />
-                      </td>
-                      <td><p id="resultMessage11"></p></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_menanya/gembok.png"
-                          class="object-contain"
-                          alt=""
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_2"
-                          id="menanya1_2"
-                          value="benar"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_2"
-                          id="menanya1_2"
-                          value="salah"
-                        />
-                      </td>
-                      <td><p id="resultMessage12"></p></td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_menanya/1,2.png"
-                          class="object-contain"
-                          alt=""
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_3"
-                          id="menanya1_3"
-                          value="salah"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_3"
-                          id="menanya1_3"
-                          value="benar"
-                        />
-                      </td>
-                      <td><p id="resultMessage13"></p></td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_menanya/4,5.png"
-                          class="object-contain"
-                          alt=""
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_4"
-                          id="menanya1_4"
-                          value="salah"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_4"
-                          id="menanya1_4"
-                          value="benar"
-                        />
-                      </td>
-                      <td><p id="resultMessage14"></p></td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>
-                        <img
-                          src="/assets/image/bab_1/sub_1/ayo_menanya/bantal.png"
-                          class="object-contain"
-                          alt=""
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_5"
-                          id="menanya1_5"
-                          value="benar"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="radio"
-                          name="menanya1_5"
-                          id="menanya1_5"
-                          value="salah"
-                        />
-                      </td>
-                      <td><p id="resultMessage15"></p></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <button
-                  class="bg-blue-500 mt-4 rounded-xl w-min"
-                  onclick="checkAnswers()"
-                >
-                  <p class="p-3 text-right cursor-pointer">Selesai</p>
-                </button>
-              </sl-card>
-            </sl-tab-panel>
+
             <!-- * End Tab Panel Ayo Menanya -->
 
             <!-- * Tab Panel Ayo Mencoba -->
-            <sl-tab-panel name="mencoba">
+            <div id="page5" class="page">
               <div class="text-content mx-auto">
+                <img src="/assets/image/mencoba.png" width="25%" alt="" />
                 <h3
                   class="font-semibold text-lg px-2 py-2 underline decoration-solid"
                 >
                   Petunjuk Pengerjaan :
                 </h3>
-                <p>
-                  Kamu sudah menonton video mengenai lambang bilangan dan nama
-                  bilangan.<br />
-                  Sekarang pasangkanlah benda dengan lammbang bilangan di bawah
-                  ini. Pilih jawaban di kotak kanan, jika jawabanmu benar maka
-                  kotak akan berubah menjadi hijau
-                  <span class="font-bold text-green-600">Hijau</span>, sedangkan
-                  jika salah maka tidak akan terjadi perubahan warna apapun.
-                </p>
+                <span
+                  onclick="play('/assets/sounds/bab_1/sub_1/ayo_mencoba/Petunjuk Pengerjan.m4a')"
+                  ><img
+                    src="/assets/image/sound.png"
+                    class="w-6 h-6 cursor-pointer select-none"
+                /></span>
+                <ol class="ml-3">
+                  <li>
+                    Kamu sudah menonton video mengenai lambang bilangan dan nama
+                    bilangan. Sekarang pasangkanlah banyak benda dengan lambang
+                    bilangan di bawah ini
+                  </li>
+                  <li>
+                    Jika muncul jawaban <span class="font-bold">benar</span>,
+                    maka muncul tulisan
+                    <span class="text-green-600">Kamu Benar</span>.
+                  </li>
+                  <li>
+                    Jika jawabanmu <span class="font-bold">salah</span>, maka
+                    muncul tulisan <span class="text-red-600">Kamu Salah</span>
+                    Hitunglah banyak benda pada sebelah kiri kemudian pilih
+                    lambang bilangan yang sesuai disebalah kanan.
+                  </li>
+                </ol>
               </div>
 
               <div class="my-2 bg-white p-3 rounded-md min-h-screen">
@@ -1119,10 +737,12 @@
                   </table>
                 </div>
               </div>
-            </sl-tab-panel>
+            </div>
             <!-- * End Tab Panel Ayo Mencoba -->
-            <sl-tab-panel name="menalar">
+            <div id="page6" class="page">
               <div class="text-content mx-auto">
+                <img src="/assets/image/menalar.png" width="25%" alt="" />
+
                 <p class="text-center my-2">
                   Perhatikan kembali video organ tubuh manusia
                 </p>
@@ -1173,7 +793,7 @@
                   <table id="quizTable" class="w-full">
                     <thead>
                       <tr>
-                        <th>Input</th>
+                        <th>Banyak organ tubuh</th>
                         <th>Image</th>
                         <th>Response</th>
                       </tr>
@@ -1196,9 +816,9 @@
                   </button>
                 </div>
               </div>
-            </sl-tab-panel>
+            </div>
 
-            <sl-tab-panel name="komunikasikan">
+            <!-- <sl-tab-panel name="komunikasikan">
               <sl-card
                 id="info-media"
                 class="card-header mb-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
@@ -1302,29 +922,35 @@
                       id="komunikasi1_1"
                       placeholder="Isi dengan jawaban"
                     />
-                    <!-- <div>
+                    <div>
                       <p
                         class="p-3 text-right cursor-pointer"
                         onclick="komunikasi()"
                       >
                         Kirim
                       </p>
-                    </div> -->
+                    </div>
                     <div class="bg-blue-500 mt-4 rounded-xl w-min">
                       <p class="p-3 text-right cursor-pointer">Kirim</p>
                     </div>
                   </form>
                 </div>
               </sl-card>
-            </sl-tab-panel>
+            </sl-tab-panel> -->
           </sl-tab-group>
+          <br />
+          <div class="m-2 flex gap-9 content-end justify-end">
+            <button type="button" id="prevButton" onclick="prevPage()">
+              Previous Page
+            </button>
+            <span id="pageNumbers2"></span>
+            <button type="button" onclick="nextPage()">Next Page</button>
+          </div>
         </div>
       </div>
     </div>
+    <script src="/util/js/materi1.js"></script>
 
-    <script src="/util/js/materi1.js">
-      // JavaScript code to toggle dropdown visibility and update selected option
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Script for shoelace style -->
     <script

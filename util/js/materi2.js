@@ -459,6 +459,7 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub1_2_1", total);
+    komunikasi("/app/dashboard/bab1/materi2.html?page=1");
   } else if (type === "berlatih") {
     const berlatihSets = [
       "berlatih1",
@@ -483,14 +484,15 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub1_2_2", total);
+    komunikasi("/app/dashboard/bab1/materi2.html?page=2");
   } else {
     return null;
   }
-  Swal.fire({
-    icon: "success",
-    text: `Silahkan lanjut ke berikutnya!`,
-  });
-  totalPerSub();
+  // Swal.fire({
+  //   icon: "success",
+  //   text: `Silahkan lanjut ke berikutnya!`,
+  // });
+  // totalPerSub();
 }
 
 function totalPerSub() {
@@ -548,12 +550,12 @@ function handleRadioButtonClick(rowNumber, result) {
   }
 }
 
-function komunikasi() {
+function komunikasi(url) {
   Swal.fire({
     icon: "success",
     title: "Success",
   }).then(() => {
-    window.location.href = "/app/dashboard/bab1/materi2.html";
+    window.location.href = `${url}`;
   });
 }
 
@@ -633,28 +635,28 @@ menanyaArr = [
   },
 ];
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Populate the table with questions dynamically
-  const tableBody = document.getElementById("quizTableBody");
-  menanyaArr.forEach((question, index) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td><img src="${question.image}" alt="" class="object-contain"/></td>
-      <td><input type="radio" name="${
-        question.item
-      }" value="sedikit" data-item="${question.item}"></td>
-      <td><input type="radio" name="${
-        question.item
-      }" value="lebih" data-item="${question.item}"></td>
-      <td><input type="radio" name="${question.item}" value="sama" data-item="${
-      question.item
-    }"></td>
-      <td></td>
-    `;
-    tableBody.appendChild(row);
-  });
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Populate the table with questions dynamically
+//   const tableBody = document.getElementById("quizTableBody");
+//   menanyaArr.forEach((question, index) => {
+//     const row = document.createElement("tr");
+//     row.innerHTML = `
+//       <td>${index + 1}</td>
+//       <td><img src="${question.image}" alt="" class="object-contain"/></td>
+//       <td><input type="radio" name="${
+//         question.item
+//       }" value="sedikit" data-item="${question.item}"></td>
+//       <td><input type="radio" name="${
+//         question.item
+//       }" value="lebih" data-item="${question.item}"></td>
+//       <td><input type="radio" name="${question.item}" value="sama" data-item="${
+//       question.item
+//     }"></td>
+//       <td></td>
+//     `;
+//     tableBody.appendChild(row);
+//   });
+// });
 
 function submitForm() {
   // Get all radio inputs
@@ -702,4 +704,194 @@ function submitForm() {
       responseCell.style.color = isCorrect ? "green" : "red";
     }
   });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the page number from the query parameter or default to 1
+  const urlParams = new URLSearchParams(window.location.search);
+  let currentPage = parseInt(urlParams.get("page")) || 1;
+
+  // Display the current page
+  showPage(currentPage);
+
+  // Update the current page number and page numbers list in the HTML
+  updatePageNumbers(currentPage);
+});
+
+function showPage(pageNumber) {
+  // Hide all pages
+  const pages = document.querySelectorAll(".page");
+  pages.forEach((page) => {
+    page.style.display = "none";
+  });
+
+  // Show the selected page
+  const selectedPage = document.getElementById(`page${pageNumber}`);
+  if (selectedPage) {
+    selectedPage.style.display = "block";
+  }
+
+  // Update the current page number in the "currentPage" span
+  document.getElementById("currentPage").textContent = pageNumber;
+}
+
+function nextPage() {
+  const totalPages = document.querySelectorAll(".page").length;
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage < totalPages) {
+    currentPage++;
+    updatePage(currentPage);
+  }
+}
+
+function prevPage() {
+  let currentPage = parseInt(
+    document.getElementById("currentPage").textContent
+  );
+
+  if (currentPage > 1) {
+    currentPage--;
+    updatePage(currentPage);
+  }
+}
+
+function updatePage(pageNumber) {
+  // Update the query parameter
+  window.history.pushState({}, "", `?page=${pageNumber}`);
+
+  // Display the new page
+  showPage(pageNumber);
+
+  // Update the page numbers list in the HTML
+  updatePageNumbers(pageNumber);
+}
+
+function updatePageNumbers(currentPage) {
+  const totalPages = document.querySelectorAll(".page").length;
+  const pageNumbersContainer = document.getElementById("pageNumbers");
+  const pageNumbersContainer2 = document.getElementById("pageNumbers2");
+  let pageNumbersHTML = "";
+
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === currentPage) {
+      pageNumbersHTML += `<strong>${i}</strong> `;
+    } else {
+      pageNumbersHTML += `<a href="?page=${i}" onclick="updatePage(${i}); return false;">${i}</a> `;
+    }
+  }
+
+  pageNumbersContainer.innerHTML = pageNumbersHTML;
+  pageNumbersContainer2.innerHTML = pageNumbersHTML;
+}
+
+let mencobaArr = [];
+
+function kirimMencoba() {
+  let providedArray = ["Kamu Benar", "Kamu Benar", "Kamu Benar", "Kamu Benar"]; // Replace this with your provided array
+  let trueCount = 0;
+
+  for (let i = 0; i < 4; i++) {
+    let mencoba = document.getElementById(`result-container-${i}`);
+    let res = mencoba.textContent;
+
+    if (mencoba.textContent !== null && mencoba.textContent !== "") {
+      mencoba.style.display = "block";
+    }
+
+    if (mencobaArr.length < 4) {
+      mencobaArr.push(res);
+    } else {
+      mencobaArr = [];
+      mencobaArr.push(res);
+    }
+  }
+
+  console.log("mencobaArr:", mencobaArr);
+
+  // Compare mencobaArr with providedArray and count true matches
+  for (let i = 0; i < mencobaArr.length; i++) {
+    if (mencobaArr[i] === providedArray[i]) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub2_mencoba", (trueCount / 4) * 100);
+
+  // Optionally, you can return the trueCount value
+  komunikasi("/app/dashboard/bab1/materi2.html?page=3");
+}
+
+let menalarArr = [];
+
+function kirimMenalar() {
+  let providedArray = ["Kamu Benar", "Kamu Benar", "Kamu Benar", "Kamu Benar"]; // Replace this with your provided array
+  let trueCount = 0;
+
+  for (let i = 0; i < 3; i++) {
+    let menalar = document.getElementById(`result2-container-${i}`);
+    let res = menalar.textContent;
+
+    if (menalar.textContent !== null && menalar.textContent !== "") {
+      menalar.style.display = "block";
+    }
+
+    if (menalarArr.length < 3) {
+      menalarArr.push(res);
+    } else {
+      menalarArr = [];
+      menalarArr.push(res);
+    }
+  }
+
+  console.log("menalarArr:", menalarArr);
+
+  // Compare menalarArr with providedArray and count true matches
+  for (let i = 0; i < menalarArr.length; i++) {
+    if (menalarArr[i] === providedArray[i]) {
+      trueCount++;
+    }
+  }
+
+  console.log("Count of true matches:", trueCount);
+
+  localStorage.setItem("sub2_menalar", (trueCount / 3) * 100);
+
+  // Optionally, you can return the trueCount value
+  komunikasi("/app/dashboard/bab1/materi2.html?page=4");
+}
+
+function clearAll() {
+  const dropdownButtonsMenalar = document.querySelectorAll(
+    '[id^="dropdownButtonMenalar"]'
+  );
+  const dropdownMenusMenalar = document.querySelectorAll(
+    '[id^="dropdownMenuMenalar"]'
+  );
+
+  // Iterate through each dropdown
+  for (let index = 0; index < dropdownButtonsMenalar.length; index++) {
+    // Clear the selected option
+    const dropdownButton = document.getElementById(
+      "dropdownButtonMenalar" + index
+    );
+    dropdownButton.dataset.selectedOption = ""; // Set or remove any specific attribute that tracks the selected option
+
+    // Reset the dropdown UI
+    const dropdownMenu = document.getElementById("dropdownMenuMenalar" + index);
+    dropdownMenu.classList.add("hidden");
+
+    // Remove content inside the result container
+    const resultContainer = document.getElementById(
+      "result2-container-" + index
+    );
+    resultContainer.innerHTML = "";
+
+    // Update the dropdown button text (if needed)
+    dropdownButton.innerText = "Pilih Simbol";
+  }
 }

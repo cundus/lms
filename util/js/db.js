@@ -155,19 +155,113 @@ export const getAllKKM = async () => {
 };
 
 export const createKKM = async (data) => {
-  await set(child(db, `kkm/` + data.id), data);
+  await set(child(db, `kkm/` + data.name), data);
 };
 
 export const createMateri = async (data) => {
-  await set(child(db, `materi/` + (data.nisn + data.materi)), data);
-};
-
-export const createKuis = async (data) => {
-  await set(child(db, `kuis/` + (data.nisn + data.kuis)), data);
+  await set(child(db, `materi/` + (data.nisn + data.bab + data.sub)), data);
 };
 
 export const createEvaluasi = async (data) => {
-  await set(child(db, `evaluasi/` + (data.nisn + data.evaluasi)), data);
+  await set(child(db, `evaluasi/` + (data.nisn + data.bab + data.sub)), data);
+};
+
+export const createBerlatih = async (data) => {
+  await set(child(db, `berlatih/` + (data.nisn + data.bab + data.sub)), data);
+};
+
+export const createMenalar = async (data) => {
+  await set(child(db, `menalar/` + (data.nisn + data.bab + data.sub)), data);
+};
+
+export const createMengamati = async (data) => {
+  await set(child(db, `mengamati/` + (data.nisn + data.bab + data.sub)), data);
+};
+
+export const createMencoba = async (data) => {
+  await set(child(db, `mencoba/` + (data.nisn + data.bab + data.sub)), data);
+};
+
+export const createKuis = async (data) => {
+  await set(child(db, `kuis/` + (data.nisn + data.bab + data.sub)), data);
+};
+
+export const getMencoba = async () => {
+  try {
+    const snapshot = await get(child(db, `mencoba/`));
+
+    if (snapshot.exists()) {
+      return Object.values(snapshot.val());
+    }
+
+    return null;
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+  }
+};
+
+export const getMengamati = async () => {
+  try {
+    const snapshot = await get(child(db, `mengamati/`));
+
+    if (snapshot.exists()) {
+      return Object.values(snapshot.val());
+    }
+
+    return null;
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+  }
+};
+export const getBerlatih = async () => {
+  try {
+    const snapshot = await get(child(db, `berlatih/`));
+
+    if (snapshot.exists()) {
+      return Object.values(snapshot.val());
+    }
+
+    return null;
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+  }
+};
+export const getMenalar = async () => {
+  try {
+    const snapshot = await get(child(db, `menalar/`));
+
+    if (snapshot.exists()) {
+      return Object.values(snapshot.val());
+    }
+
+    return null;
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+  }
 };
 
 export const getMateri = async () => {
@@ -291,9 +385,9 @@ export async function deleteMateri(nisn, materi) {
 
 window.deleteMateri = deleteMateri;
 
-export async function deleteKuis(nisn, kuis) {
+export async function deleteKuis(uri) {
   try {
-    const userRef = child(db, `kuis/` + (nisn + kuis));
+    const userRef = child(db, `kuis/` + uri);
 
     const userSnapshot = await get(userRef);
     if (userSnapshot.exists()) {
@@ -321,9 +415,9 @@ export async function deleteKuis(nisn, kuis) {
 
 window.deleteKuis = deleteKuis;
 
-export async function deleteEvaluasi(nisn, evaluasi) {
+export async function deleteEvaluasi(uri) {
   try {
-    const userRef = child(db, `evaluasi/` + (nisn + evaluasi));
+    const userRef = child(db, `evaluasi/` + uri);
 
     const userSnapshot = await get(userRef);
     if (userSnapshot.exists()) {
@@ -335,7 +429,7 @@ export async function deleteEvaluasi(nisn, evaluasi) {
         window.location.href = "/app/guru/evaluasi.html";
       });
     } else {
-      console.log("no data")
+      console.log("no data");
       return "User not found";
     }
   } catch (error) {
@@ -366,7 +460,7 @@ export async function deleteKKM(id) {
         window.location.href = "/app/guru/kkm.html";
       });
     } else {
-      console.log("no data")
+      console.log("no data");
       return "kkm not found";
     }
   } catch (error) {
@@ -382,3 +476,123 @@ export async function deleteKKM(id) {
 }
 
 window.deleteKKM = deleteKKM;
+
+export async function deleteBerlatih(uri) {
+  try {
+    const userRef = child(db, `berlatih/` + uri);
+
+    const userSnapshot = await get(userRef);
+    if (userSnapshot.exists()) {
+      await set(userRef, null);
+      Swal.fire({
+        icon: "success",
+        text: `Delete Berlatih Berhasil`,
+      }).then(() => {
+        window.location.href = "/app/guru/berlatih.html";
+      });
+    } else {
+      return "berlatih not found";
+    }
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+    return "Error deleting berlatih";
+  }
+}
+
+window.deleteBerlatih = deleteBerlatih;
+
+export async function deleteMencoba(uri) {
+  try {
+    const userRef = child(db, `mencoba/` + uri);
+
+    const userSnapshot = await get(userRef);
+    if (userSnapshot.exists()) {
+      await set(userRef, null);
+      Swal.fire({
+        icon: "success",
+        text: `Delete Mencoba Berhasil`,
+      }).then(() => {
+        window.location.href = "/app/guru/mencoba.html";
+      });
+    } else {
+      return "mencoba not found";
+    }
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+    return "Error deleting mencoba";
+  }
+}
+
+window.deleteMencoba = deleteMencoba;
+
+export async function deleteMengamati(uri) {
+  try {
+    const userRef = child(db, `mengamati/` + uri);
+
+    const userSnapshot = await get(userRef);
+    if (userSnapshot.exists()) {
+      await set(userRef, null);
+      Swal.fire({
+        icon: "success",
+        text: `Delete Mengamati Berhasil`,
+      }).then(() => {
+        window.location.href = "/app/guru/mengamati.html";
+      });
+    } else {
+      return "mengamati not found";
+    }
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+    return "Error deleting mengamati";
+  }
+}
+
+window.deleteMengamati = deleteMengamati;
+
+export async function deleteMenalar(uri) {
+  try {
+    const userRef = child(db, `menalar/` + uri);
+
+    const userSnapshot = await get(userRef);
+    if (userSnapshot.exists()) {
+      await set(userRef, null);
+      Swal.fire({
+        icon: "success",
+        text: `Delete Menalar Berhasil`,
+      }).then(() => {
+        window.location.href = "/app/guru/menalar.html";
+      });
+    } else {
+      return "menalar not found";
+    }
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+    return "Error deleting menalar";
+  }
+}
+
+window.deleteMenalar = deleteMenalar;

@@ -71,6 +71,10 @@
       .sub_1_ayo_mengamati > tr > td > * {
         margin: 0 auto;
       }
+
+      .page {
+        display: none;
+      }
     </style>
   </head>
 
@@ -132,10 +136,10 @@
     </header>
 
     <div class="w-full flex">
-      <aside class="sidebar min-h-screen px-1">
+      <div class="sidebar min-h-screen px-1">
         <div class="w-full flex flex-col justify-center items-center">
           <img
-            src="/assets/image/user.png"
+            src="../../../assets/image/user.png"
             class="w-1/2 h-auto object-contain"
           />
           <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
@@ -146,83 +150,46 @@
         >
           Daftar Isi
         </h2>
-        <sl-tree>
-          <sl-tree-item expanded>
-            <p>Ayo Membilang Bilangan 1 sampai dengan 10</p>
-            <sl-tree-item>
-              <a href="../../dashboard/bab1/pendahuluan1.html">Pendahuluan</a>
-            </sl-tree-item>
-            <sl-tree-item expanded>
-              <p>Materi</p>
-              <sl-tree-item>
-                <a href="../../dashboard/bab1/materi1.html"
-                  >Menghitung,Membaca dan Menulis Bilangan</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab1/materi2.html"
-                  >Membandingkan Banyak Bilangan dalam Benda</a
-                >
-              </sl-tree-item>
-              <sl-tree-item selected>
-                <a href="../../dashboard/bab1/materi3.html"
-                  >Menghitung Maju dan Mundur</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab1/materi4.html"
-                  >Pasangan Bilangan</a
-                >
-              </sl-tree-item>
-            </sl-tree-item>
-            <sl-tree-item>
-              <a href="../../dashboard/bab1/kuis1.html">Kuis BAB 1</a>
-            </sl-tree-item>
-          </sl-tree-item>
-
-          <sl-tree-item>
-            <p>
-              Penjumlahan Bilangan dan Pengurangan Bilangan 1 sampai dengan 10
-            </p>
-            <!-- <sl-tree-item>Pendahuluan</sl-tree-item> -->
-            <sl-tree-item>
-              <p>Materi</p>
-              <sl-tree-item>
-                <a href="../../dashboard/bab2/materi1.html"
-                  >Mengenal Simbol +, - atau =</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab2/materi2.html"
-                  >Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab2/materi3.html"
-                  >Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d
-                  10</a
-                >
-              </sl-tree-item>
-              <sl-tree-item>
-                <a href="../../dashboard/bab2/materi4.html">
-                  Hubungan Penjumlahan dan Pengurangan
-                </a>
-              </sl-tree-item>
-            </sl-tree-item>
-            <sl-tree-item>
-              <a href="../../dashboard/bab2/kuis2.html"> Kuis Bab 2 </a>
-            </sl-tree-item>
-          </sl-tree-item>
-
-          <sl-tree-item>
-            <a href="../../dashboard/evaluasi.html">Evaluasi</a>
-          </sl-tree-item>
-
-          <sl-tree-item>
-            <a href="../../../auth/login.html">Exit</a>
-          </sl-tree-item>
-        </sl-tree>
-      </aside>
+        <div class="flex flex-col gap-2">
+          <a href="../../dashboard/bab1/pendahuluan1.html" class="font-bold"
+            >Bab 1</a
+          >
+          <a href="../../dashboard/bab1/materi1.html"
+            >- Menghitung,Membaca dan Menulis Bilangan</a
+          >
+          <a href="../../dashboard/bab1/materi2.html"
+            >- Membandingkan Banyak Bilangan dalam Benda</a
+          >
+          <a href="../../dashboard/bab1/materi3.html" class="font-semibold"
+            >- Menghitung Maju dan Mundur</a
+          >
+          <a href="../../dashboard/bab1/materi4.html">- Pasangan Bilangan</a>
+          <a href="../../dashboard/bab1/kuis1.html">- Kuis BAB 1</a>
+          <br />
+          <a href="../../dashboard/bab2/pendahuluan2.html" class="font-bold"
+            >Bab 2</a
+          >
+          <a href="../../dashboard/bab2/materi1.html"
+            >- Mengenal Simbol +, - atau =</a
+          >
+          <a href="../../dashboard/bab2/materi1.html"
+            >- Mengenal Simbol +, - atau =</a
+          >
+          <a href="../../dashboard/bab2/materi2.html"
+            >- Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a
+          >
+          <a href="../../dashboard/bab2/materi3.html"
+            >- Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d 10</a
+          >
+          <a href="../../dashboard/bab2/materi4.html">
+            - Hubungan Penjumlahan dan Pengurangan
+          </a>
+          <a href="../../dashboard/bab2/kuis2.html">- Kuis Bab 2 </a>
+          <br />
+          <a href="../../dashboard/evaluasi.html">Evaluasi</a>
+          <a href="/auth/login.html">Exit</a>
+        </div>
+      </div>
       <div class="content px-1">
         <div class="main-content">
           <div class="flex py-1 justify-center">
@@ -237,19 +204,21 @@
           >
             C. Menghitung Maju dan Mundur Bilangan
           </h3>
-          <sl-tab-group>
-            <sl-tab slot="nav" panel="mengamati">Ayo Mengamati</sl-tab>
-            <sl-tab slot="nav" panel="berlatih">Ayo berlatih</sl-tab>
-            <sl-tab slot="nav" panel="menanya">Ayo Menanya</sl-tab>
-            <!-- <sl-tab slot="nav" panel="mencoba">Ayo Mencoba</sl-tab> -->
-            <sl-tab slot="nav" panel="menalar">Ayo Menalar</sl-tab>
-            <!-- <sl-tab slot="nav" panel="komunikasikan"
-              >Ayo Mengkomunikasikan</sl-tab
-            > -->
 
+          <div class="m-2 flex gap-9 content-end justify-end">
+            <button type="button" id="prevButton" onclick="prevPage()">
+              Previous Page
+            </button>
+            <span id="pageNumbers"></span>
+            <button type="button" onclick="nextPage()">Next Page</button>
+          </div>
+          <span id="currentPage" style="display: none">1</span>
+          <sl-tab-group>
             <!-- * Tab Panel Ayo Mengamati -->
-            <sl-tab-panel name="mengamati">
+            <div id="page1" class="page">
               <div class="text-content mx-auto">
+                <img src="/assets/image/mengamati.png" width="25%" alt="" />
+
                 <p>
                   Apa yang kamu ketahui tentang menghitung maju dan mundur
                   bilangan ?
@@ -269,12 +238,13 @@
                 </p>
                 <br />
                 <div class="flex my-2 py-1 justify-center">
-                  <!-- <video width="640" height="480" controls>
-                                    <source
-                                        src="/assets/sounds/bab_1/sub_3/Video Ayo Mengamati/Menghitung Maju dan Mundur Bilangan.mp4"
-                                        type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video> -->
+                  <video width="640" height="480" controls>
+                    <source
+                      src="/assets/sounds/bab_1/sub_3/Video Ayo Mengamati/Menghitung Maju dan Mundur Bilangan.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
                 <span
                   class="flex justify-center text-center items-center italic text-xs py-2"
@@ -294,12 +264,11 @@
                     class="w-6 h-6 cursor-pointer select-none" /></span
                 ><br />
                 <div>
-                  <form onsubmit="taskResult(`mengamati`)">
+                  <form onsubmit="kirimMengamati(); return false">
                     <table class="w-full" id="table-mencoba">
                       <thead>
                         <tr>
-                          <th>Benda</th>
-                          <th>Bilangan</th>
+                          <th colspan="3">Urutkan bilangan</th>
                         </tr>
                       </thead>
                       <tbody id="body-table"></tbody>
@@ -315,13 +284,15 @@
                   </form>
                 </div>
               </div>
-            </sl-tab-panel>
+            </div>
             <!-- * End Tab Panel Ayo Mengamati -->
 
             <!-- * Tab Panel Ayo Berlatih -->
-            <sl-tab-panel name="berlatih">
+            <div id="page2" class="page">
               <form onsubmit="taskResult(`berlatih`)">
                 <div class="text-content mx-auto">
+                  <img src="/assets/image/berlatih.png" width="25%" alt="" />
+
                   <h3
                     class="font-semibold text-lg px-2 py-4 underline decoration-solid"
                   >
@@ -475,7 +446,7 @@
                       <div class="flex">
                         <div>
                           <img
-                            src="/assets/image/bab_1/sub_3/Ayo Berlatih/4.png"
+                            src="/assets/image/bab_1/sub_3/Ayo Berlatih/12345.png"
                             class="w-1/2 h-auto object-contain"
                           />
                           <input
@@ -489,7 +460,7 @@
                         </div>
                         <div>
                           <img
-                            src="/assets/image/bab_1/sub_3/Ayo Berlatih/5.png"
+                            src="/assets/image/bab_1/sub_3/Ayo Berlatih/109876.png"
                             class="w-1/2 h-auto object-contain"
                           />
                           <input
@@ -522,7 +493,7 @@
                       <div class="flex">
                         <div>
                           <img
-                            src="/assets/image/bab_1/sub_3/Ayo Berlatih/5.png"
+                            src="/assets/image/bab_1/sub_3/Ayo Berlatih/12345.png"
                             class="w-1/2 h-auto object-contain"
                           />
                           <input
@@ -536,7 +507,7 @@
                         </div>
                         <div>
                           <img
-                            src="/assets/image/bab_1/sub_3/Ayo Berlatih/4.png"
+                            src="/assets/image/bab_1/sub_3/Ayo Berlatih/109876.png"
                             class="w-1/2 h-auto object-contain"
                           />
                           <input
@@ -558,24 +529,25 @@
                   <p
                     class="border border-solid rounded-full text-white bg-blue-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out"
                   >
-                    <button id="submit-button" type="button">
-                      Cek Jawaban
+                    <button
+                      id="submit-button"
+                      onclick="kirimBerlatih()"
+                      type="button"
+                    >
+                      Selesai
                     </button>
-                  </p>
-                  <p
-                    id="clear-all-button"
-                    class="border border-solid rounded-full text-white bg-red-500 text-md mx-auto px-28 py-2 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out"
-                  >
-                    Coba Lagi
                   </p>
                 </div>
               </form>
-            </sl-tab-panel>
+              <br />
+            </div>
             <!-- * End Tab Panel Ayo Berlatih -->
 
             <!-- * Tab Panel Ayo Menanya -->
-            <sl-tab-panel name="menalar">
+            <div id="page3" class="page">
               <div class="text-content mx-auto">
+                <img src="/assets/image/menalar.png" width="25%" alt="" />
+
                 <h3
                   class="font-semibold text-lg px-2 py-2 underline decoration-solid"
                 >
@@ -724,7 +696,7 @@
                 </p>
                 <table id="table3" class="m-4">
                   <tr>
-                    <td>6</td>
+                    <td>7</td>
                     <td>8</td>
                     <td>10</td>
                     <td>6</td>
@@ -913,12 +885,13 @@
               </ol>
             </sl-card> -->
               <!-- * End Kunci Jawaban -->
-            </sl-tab-panel>
+            </div>
             <!-- * End Tab Panel Ayo Menanya -->
 
             <!-- * End Tab Panel Ayo Mencoba -->
-            <sl-tab-panel name="menanya">
+            <!-- <div id="page4" class="page">
               <div class="text-content mx-auto">
+                <img src="/assets/image/menalar.png" width="25%" alt="" />
                 <h3
                   class="font-semibold text-lg px-2 py-2 underline decoration-solid"
                 >
@@ -1087,7 +1060,7 @@
                   </div>
                 </div>
               </sl-card>
-            </sl-tab-panel>
+            </div> -->
 
             <!-- <sl-tab-panel name="komunikasikan">
               <div class="text-content mx-auto">
@@ -1178,6 +1151,14 @@
               </sl-card>
             </sl-tab-panel> -->
           </sl-tab-group>
+          <br />
+          <div class="m-2 flex gap-9 content-end justify-end">
+            <button type="button" id="prevButton" onclick="prevPage()">
+              Previous Page
+            </button>
+            <span id="pageNumbers2"></span>
+            <button type="button" onclick="nextPage()">Next Page</button>
+          </div>
         </div>
       </div>
     </div>

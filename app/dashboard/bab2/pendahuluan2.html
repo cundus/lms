@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.min.css"
+    />
+    <script type="module" src="/util/js/check.js"></script>
+    <script type="module" src="/util/js/db.js"></script>
+
+    <title>Dashboard</title>
+    <script type="module" src="/util/js/getUserName.js"></script>
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+
+  <body>
+    <header id="header-dashboard" class="py-1 z-10 bg-pink-300">
+      <div class="">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-1 max-w-xl text-center">
+            <h2
+              class="py-1"
+              style="
+                color: black;
+                font-size: 30px;
+                font-family: Inter;
+                font-weight: 600;
+                line-height: 48px;
+                word-wrap: break-word;
+              "
+            >
+              Welcome
+            </h2>
+            <p
+              class="py-1"
+              style="
+                color: black;
+                font-size: 20px;
+                font-family: Inter;
+                font-weight: 600;
+                line-height: 32px;
+                word-wrap: break-word;
+              "
+            >
+              Hello future greats with spirit of learning
+            </p>
+          </div>
+          <div class="w-full flex justify-between">
+            <a
+              href="../../beranda.html"
+              class="text-md px-6 py-4 font-bold underline decoration-slice"
+              >Back to Beranda</a
+            >
+            <h3 class="px-6 py-4">
+              Anda saat ini berada pada tab:
+              <a
+                href="../dashboard.html"
+                class="font-bold underline decoration-solid"
+                >Dashboard Siswa
+              </a>
+              <span> > </span>
+              <a
+                href="./pendahuluan1.html"
+                class="font-bold underline decoration-solid"
+                >Pendahuluan Bab 1
+              </a>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="w-full flex">
+      <div class="sidebar min-h-screen px-1">
+        <div class="w-full flex flex-col justify-center items-center">
+          <img
+            src="../../../assets/image/user.png"
+            class="w-1/2 h-auto object-contain"
+          />
+          <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
+        </div>
+        <h2
+          class="py-4 text-lg text-center font-bold leading-tight text-slate-950"
+          style="font-family: Inter; word-wrap: break-word"
+        >
+          Daftar Isi
+        </h2>
+        <div class="flex flex-col gap-2">
+          <a href="../../dashboard/bab1/pendahuluan1.html" class="font-bold"
+            >Bab 1</a
+          >
+          <a href="../../dashboard/bab1/materi1.html"
+            >- Menghitung,Membaca dan Menulis Bilangan</a
+          >
+          <a href="../../dashboard/bab1/materi2.html"
+            >- Membandingkan Banyak Bilangan dalam Benda</a
+          >
+          <a href="../../dashboard/bab1/materi3.html"
+            >- Menghitung Maju dan Mundur</a
+          >
+          <a href="../../dashboard/bab1/materi4.html">- Pasangan Bilangan</a>
+          <a href="../../dashboard/bab1/kuis1.html">- Kuis BAB 1</a>
+          <br />
+          <a href="../../dashboard/bab2/pendahuluan2.html" class="font-bold"
+            >Bab 2</a
+          >
+          <a href="../../dashboard/bab2/materi1.html"
+            >- Mengenal Simbol +, - atau =</a
+          >
+          <a href="../../dashboard/bab2/materi2.html"
+            >- Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a
+          >
+          <a href="../../dashboard/bab2/materi3.html"
+            >- Berbagai Cara Melakukan Penjumlahan dan Pengurangan 1 s/d 10</a
+          >
+          <a href="../../dashboard/bab2/materi4.html">
+            - Hubungan Penjumlahan dan Pengurangan
+          </a>
+          <a href="../../dashboard/bab2/kuis2.html">- Kuis Bab 2 </a>
+          <br />
+          <a href="../../dashboard/evaluasi.html">Evaluasi</a>
+          <a href="/auth/login.html">Exit</a>
+        </div>
+      </div>
+      <div class="content px-1">
+        <div class="main-content">
+          <h1 class="font-bold text-2xl px-4 py-2">Bilangan</h1>
+          <h3
+            class="font-semibold text-lg px-2 py-2 underline decoration-solid"
+          >
+            2. PENJUMLAHAN BILANGAN DAN PENGURANGAN BILANGAN 1 SAMPAI DENGAN 10
+          </h3>
+          <sl-card
+            id="info-media"
+            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div slot="header">
+              <img src="/assets/image/tujuan.png" width="25%" alt="" />
+            </div>
+
+            <!-- <div slot="header">Bilangan</div> -->
+            <ol class="black-bullet m-1">
+              <li>
+                Peserta didik mampu menunjukkan konsep penjumlahan dan
+                pengurangan sampai dengan 20 dengan benda konkret, gambar,
+                cerita, atau cara manipulatif lainnya.
+              </li>
+              <li>
+                Peserta didik mampu menggunakan berbagai strategi penjumlahan
+                (menghitung maju, pasangan bilangan (number bond), penjumlahan
+                ganda, dan penjumlahan yang hasilnya 10).
+              </li>
+              <li>
+                Peserta didik mampu menggunakan berbagai strategi pengurangan
+                (menghitung mundur, pasangan bilangan (number bond), dan
+                pengurangan dengan 10).
+              </li>
+              <li>
+                Peserta didik mampu menyelesaikan masalah terkait dengan
+                penjumlahan dan pengurangan dengan satu langkah penyelesaian.
+              </li>
+              <li>
+                Peserta didik mampu menunjukkkan fakta hubungan antara operasi
+                penjumlahan dan pengurangan.
+              </li>
+            </ol>
+          </sl-card>
+
+          <!-- Button Next Step to Materi-->
+          <div class="flex my-4 py-4 justify-center">
+            <a
+              href="./materi2.html"
+              class="border border-solid rounded-full text-white bg-red-500 text-md px-12 py-4 font-bold hover:bg-white hover:text-black transition duration-700 ease-in-out"
+              >Next to Materi</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script for shoelace style -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"
+    ></script>
+    <script
+      defer
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"
+    ></script>
+    <!-- End Script for Shoelace style -->
+  </body>
+</html>

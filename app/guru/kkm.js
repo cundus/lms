@@ -22,8 +22,7 @@ const populateTable = () => {
 
   // Add header row
   const headerRow = table.createTHead().insertRow();
-  headerRow.innerHTML =
-    "<th>No</th><th>Id</th><th>Nama</th><th>KKM</th><th>Aksi</th>";
+  headerRow.innerHTML = "<th>No</th><th>Nama</th><th>KKM</th>";
 
   // Add data rows
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -32,13 +31,10 @@ const populateTable = () => {
 
   const tbody = table.createTBody();
   currentPageData.forEach((data, index) => {
-      const row = tbody.insertRow();
-      row.innerHTML = `<td>${startIndex + index + 1}</td><td>${
-        data.id
-      }</td><td>${data.name}</td><td>${data.kkm}</td><td><button class="p-2" onclick="deleteKKM(${
-        data.id
-      })"><img src="../../assets/image/delete.png" width="20em">
-      </button></td>`;
+    const row = tbody.insertRow();
+    row.innerHTML = `<td>${startIndex + index + 1}</td><td>${
+      data.name
+    }</td><td>${data.kkm}</td>`;
   });
 };
 
@@ -120,30 +116,30 @@ document.getElementById("nextPage").addEventListener("click", nextPage);
 initializePagination();
 
 async function createdKKM(event) {
-    console.log('Function called');
-    event.preventDefault();
-    console.log('Prevent Default executed');
-    
-    const id = document.getElementById("id").value
-    const name = document.getElementById("name").value
-    const kkm = document.getElementById("kkm").value
+  console.log("Function called");
+  event.preventDefault();
+  console.log("Prevent Default executed");
 
-    const data = {
-        id: String(id),
-        name: name,
-        kkm: kkm
-    }
-    await createKKM(data)
-    Swal.fire({
-        icon: "success",
-        title: "success",
-      }).then(() => {
-        window.location.href = "/app/guru/kkm.html";
-      });
+  const name = document.getElementById("name").value;
+  const kkm = document.getElementById("kkm").value;
+
+  const data = {
+    name: name,
+    kkm: kkm,
+  };
+  await createKKM(data);
+  Swal.fire({
+    icon: "success",
+    title: "success",
+  }).then(() => {
+    window.location.href = "/app/guru/kkm.html";
+  });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('myForm').addEventListener('submit', function(event) {
-        createdKKM(event);
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("myForm")
+    .addEventListener("submit", function (event) {
+      createdKKM(event);
     });
 });

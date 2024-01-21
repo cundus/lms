@@ -42,7 +42,7 @@ dataSiswa.innerHTML = Object.keys(user)
   .join("\n");
 
 const nilai = parseInt(localStorage.getItem("kuis2"));
-nilaiKuis.innerHTML = `<p>Nilai Kuis 1 : ${nilai ? nilai : 0}</p>`;
+nilaiKuis.innerHTML = `<p>Nilai Kuis 2 : ${nilai ? nilai : 0}</p>`;
 
 let numberQuiz = 1;
 btnStart.addEventListener("click", () => {
@@ -203,15 +203,15 @@ function renderQuiz() {
             <tbody>
                 <tr>
                     <td><p>Ibu membeli 8 pisang di pasar</p></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 1 (3).png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/1.png"/></td>
                 </tr>
                 <tr>
                     <td><p>Saat sampai di rumah 1 pisang di makan oleh adik.</p></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 1 (1).png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/2.png"/></td>
                 </tr>
                 <tr>
                     <td><p>Maka sisa pisang yang d miliki ibu sekarang adalah ?</p></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 1 (2).png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/3.png"/></td>
                 </tr>
             </tbody>
          </table>
@@ -243,17 +243,17 @@ function renderQuiz() {
                 <tr>
                     <td><p>Dini memiliki banyak koleksi boneka beruang.
                     Salah satu boneka beruang berwarna cokelat Dini ada 5.</p></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 2 (1).png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/4.png"/></td>
                 </tr>
                 <tr>
                     <td><p>Lalu Dini ke mal bersama ibunya membeli lagi boneka
                     beruang berwarna pink sebanyak 5.</p></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 2 (2).png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/5.png"/></td>
                 </tr>
                 <tr>
                     <td><p>Maka berapa banyak koleksi boneka beruang
                     berwarna pink di miliki Dini sekarang ?</p></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 2 (3).png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/6.png"/></td>
                 </tr>
             </tbody>
          </table>
@@ -323,34 +323,43 @@ function renderQuiz() {
          <span onclick="play('/assets/sounds/bab_2/Kuis 2/K5.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
-         <div class="flex flex-col items-center">
-            <img class="w-auto" src="/assets/image/bab_2/Kuis 2/No 5.png" />
+         <div class="flex items-center justify-center content-center">
+            <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/7.png" />
             <p>+</p>
-            <img class="w-auto" src="/assets/image/bab_2/Kuis 2/No 5 (2).png" />
+            <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/8.png" />
             <p>=</p>
-            <img class="w-auto" src="/assets/image/bab_2/Kuis 2/No 5 (3).png" />
+            <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/9.png" />
          </div>
          <p>Terdapat ada berapakah jumlah kucing berwarna orange . . . . .</p>
          <p>Terdapat ada berapakah jumlah kucing berwarna abu-abu . . . . .</p>
          <p>Maka berapakah jumlah semua kucing orange dan abu-abu . . . . .</p>
+         <br/>
+            <div class="flex gap-36">
             <div>
             <input type="radio" id="a5" name="kuis2_5" value="a" />
+            <label for="a5">
             <p>a. Orange : 3</p>  
             <p>Abu-abu : 4</p>  
             <p>3 + 4 = 7</p>  
+            </label>
             </div>
             <div>
             <input type="radio" id="b5" name="kuis2_5" value="b" />
+            <label for="b5">
             <p>b. Orange : 3</p>  
             <p>Abu-abu : 3</p>  
             <p>3 + 3 = 6</p>  
+            </label>
             </div>
             <div>
             <input type="radio" id="c5" name="kuis2_5" value="c" />
+            <label for="c5">
             <p>c. Orange : 3</p>  
             <p>Abu-abu : 5</p>  
             <p>3 + 5 = 8</p>  
+            </label>
          </div>
+            </div>
           `;
       break;
     case 6:
@@ -362,12 +371,12 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <div class="flex flex-col items-center">
-            <img class="w-auto" src="/assets/image/bab_2/Kuis 2/No 6.png" />
+         <div class="flex justify-center content-center items-center">
+            <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/12.png" />
             <p>+</p>
-            <img class="w-auto" src="/assets/image/bab_2/Kuis 2/No 6 (2).png" />
+            <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/11.png" />
             <p>=</p>
-            <img class="w-auto" src="/assets/image/bab_2/Kuis 2/No 6 (3).png" />
+            <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/10.png" />
          </div>
          <span onclick="play('/assets/sounds/bab_2/Kuis 2/K6.m4a')"><img
          src="/assets/image/sound.png"
@@ -389,12 +398,12 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <div class="flex flex-col items-center">
-            <img class="w-auto" src="/assets/image/bab_2/Kuis 2/Soal 7 (3).png" />
+         <div class="flex justify-center content-center items-center">
+            <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/13.png" />
             <p>+</p>
-            <img class="w-auto" src="/assets/image/bab_2/Kuis 2/Soal 7 (1).png" />
+            <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/14.png" />
             <p>=</p>
-            <img class="w-auto" src="/assets/image/bab_2/Kuis 2/Soal 7 (2).png" />
+            <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/15.png" />
          </div>
          <span onclick="play('/assets/sounds/bab_2/Kuis 2/K7.m4a')"><img
          src="/assets/image/sound.png"
@@ -417,13 +426,13 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <div class="flex flex-col items-center">
-         <img class="w-auto" src="/assets/image/bab_2/Kuis 2/Soal 8 (3).png" />
-         <p>+</p>
-         <img class="w-auto" src="/assets/image/bab_2/Kuis 2/Soal 8 (1).png" />
-         <p>=</p>
-         <img class="w-auto" src="/assets/image/bab_2/Kuis 2/Soal 8 (2).png" />
-         </div>
+      <div class="flex justify-center content-center items-center">
+      <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/16.png" />
+      <p>+</p>
+      <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/17.png" />
+      <p>=</p>
+      <img class="w-48" src="/assets/image/bab_2/Kuis 2/new/18.png" />
+   </div>
          <span onclick="play('/assets/sounds/bab_2/Kuis 2/K8.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
@@ -451,28 +460,24 @@ function renderQuiz() {
          <table>
             <tbody>
                 <tr>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 9 (2).png"/></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 9 (3).png"/></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 9 (1).png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/19.png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/20.png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/21.png"/></td>
                 </tr>
                 <tr>
-                    <td>Ibu membeli telur di pasar
-                    sebanyak 9 butir
+                    <td>Dina memiliki 5 donat
                     <span onclick="play('/assets/sounds/bab_2/Kuis 2/K9 part 1.m4a')"><img
                         src="/assets/image/sound.png"
                         class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
-                    <td>Akan tetapi ketika di
-                    jalan ingin pulang 9
-                    telur ibu 4 pecah di
-                    jalan.
+                    <td>Diberikannya 1 donat
+                    untuk Zaki 
                     <span onclick="play('/assets/sounds/bab_2/Kuis 2/K9 part 2.m4a')"><img
                         src="/assets/image/sound.png"
                         class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
                     <td>Maka sisa berapakah
-                    telur ibu saat sampai di
-                    rumah . . . . .
+                    donat Dina? …
                     <span onclick="play('/assets/sounds/bab_2/Kuis 2/K9 part 3.m4a')"><img
                         src="/assets/image/sound.png"
                         class="w-6 h-6 cursor-pointer select-none" /></span>
@@ -505,29 +510,26 @@ function renderQuiz() {
          <table>
             <tbody>
                 <tr>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 10 (1).png"/></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 10 (2).png"/></td>
-                    <td><img src="/assets/image/bab_2/Kuis 2/No 10 (3).png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/22.png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/24.png"/></td>
+                    <td><img src="/assets/image/bab_2/Kuis 2/new/23.png"/></td>
                 </tr>
                 <tr>
-                    <td>Santi memiliki kesukaan
-                    dalam mengoleksi barang,
-                    salah satunya santi
-                    mengoleksi 3 payung.
+                    <td>Ibu mengkoleksi 3 gelas
+                    cantik 
                     <span onclick="play('/assets/sounds/bab_2/Kuis 2/K10 part 1.m4a')"><img
                         src="/assets/image/sound.png"
                         class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
-                    <td>Ketika Santi ingin membuka
-                    ketiga payungnya akan tetapi
-                    1 koleksi payung Santi rusak.
+                    <td>Akan tetapi 1 gelas
+                    koleksi ibu pecah                    
                     <span onclick="play('/assets/sounds/bab_2/Kuis 2/K10 part 2.m4a')"><img
                         src="/assets/image/sound.png"
                         class="w-6 h-6 cursor-pointer select-none" /></span>
                     </td>
                     <td>Maka sisa berapakah
-                    koleksi payung Santi
-                    sekarang di miliki . . . . .
+                    koleksi gelas ibu yang
+                    tidak pecah …                    
                     <span onclick="play('/assets/sounds/bab_2/Kuis 2/K10 part 3.m4a')"><img
                         src="/assets/image/sound.png"
                         class="w-6 h-6 cursor-pointer select-none" /></span>
@@ -602,7 +604,7 @@ function taskResult(type) {
 
     const average = 10; //total soal
 
-    const jawaban = ["b", "a", "a", "a", "a", "a", "c", "a", "a", "b"]; // jawaban per soal + harus urut
+    const jawaban = ["b", "a", "a", "a", "a", "a", "b", "a", "b", "b"]; // jawaban per soal + harus urut
 
     const resultArray = matchAdjacentElements(jawaban, kuis_array);
     const resultCount = resultArray.length;
@@ -611,7 +613,7 @@ function taskResult(type) {
   } else {
     return null;
   }
-  totalPerSub();
+  // totalPerSub();
 }
 
 function totalPerSub() {
