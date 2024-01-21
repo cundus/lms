@@ -40,7 +40,7 @@ dataSiswa.innerHTML = Object.keys(user)
   })
   .join("\n");
 
-const nilai = parseInt(localStorage.getItem("kuis1"));
+const nilai = parseInt(localStorage.getItem("kuis1_1"));
 nilaiKuis.innerHTML = `<p>Nilai Kuis 1 : ${nilai ? nilai : 0}</p>`;
 
 let numberQuiz = 1;
@@ -199,7 +199,7 @@ function renderQuiz() {
         "1. Beben mempunyai sepuluh sepeda. Lambang bilangan sepuluh adalah …";
 
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K1.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S1.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
            <div class="flex">
@@ -234,7 +234,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K2.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S2.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <div class="flex">
@@ -262,7 +262,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K3.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S3.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <div class="flex">
@@ -304,9 +304,11 @@ function renderQuiz() {
           <p>3</p>
           </div>
          </div>
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K4.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S4.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
+         <p>Tanda yang cocok untuk lebih banyak diatas adalah …</p>
+         <br/>
           <input type="radio" id="a4" name="kuis1_4" value="a" />
           a. <label for="a4">></label><br />
           <input type="radio" id="b4" name="kuis1_4" value="b" />
@@ -335,9 +337,11 @@ function renderQuiz() {
           <p>6</p>
           </div>
          </div>
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K5.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S5.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
+         <p>Tanda yang cocok untuk kurang diatas adalah …</p>
+         <br/>
             <div>
             <input type="radio" id="a5" name="kuis1_5" value="a" />
             a. <label for="a5">></label><br />
@@ -374,9 +378,11 @@ function renderQuiz() {
       <p>10</p>
       </div>
      </div>
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K6.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S6.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
+         <p>Tanda yang cocok untuk sama banyak diatas adalah …</p>
+         <br/>
           <input type="radio" id="a6" name="kuis1_6" value="a" />
           a. <label for="a6">></label><br />
           <input type="radio" id="b6" name="kuis1_6" value="b" />
@@ -394,7 +400,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K7.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S7.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
           <div class="flex">
@@ -428,7 +434,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K8.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S8.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <div class="flex">
@@ -461,7 +467,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K9.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S9.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <div class="flex">
@@ -487,7 +493,7 @@ function renderQuiz() {
       break;
     case 10:
       numberQuestion.innerText =
-        "10. Di bawah ini yang dimaksud pengertian dari pasangkan bilangan adalah?";
+        "10. Di bawah ini yang bukan pasangan item dan bilangannya sama adalah …";
       listQuestionTen.classList.add("bg-black", "text-white");
       listQuestionNine.classList.remove("bg-black", "text-white");
       btnPrev.classList.add("hidden");
@@ -495,7 +501,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/bab_1/Kuis 1/K10.m4a')"><img
+         <span onclick="play('/assets/sounds/bab_1/Kuis 1/S10.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <div class="flex">
@@ -628,3 +634,37 @@ function matchAdjacentElements(arr1, arr2) {
 
   return result;
 }
+
+const kuisData = JSON.parse(localStorage.getItem("kkm"));
+
+// Function to check and display result for a specific name
+function checkAndDisplayResultForName(name) {
+  // Find the data object for the specified name
+  const item = kuisData.find((data) => data.name === name);
+
+  if (!item) {
+    console.error(`No data found for name: ${name}`);
+    return;
+  }
+
+  // Convert kkm and nilai to numbers
+  const kkm = parseInt(item.kkm);
+  const nilai = parseInt(localStorage.getItem("kuis1_1"));
+
+  // Check if nilai is greater than or equal to kkm
+  if (nilai >= kkm) {
+    // If true, display "Selamat Anda Lulus Kuis"
+    document.getElementById("kkm-kuis1").innerText = "Selamat Anda Lulus Kuis";
+    document.getElementById("kkm-kuis1").style.color = "green";
+  } else {
+    // If false, display "Anda Belum Lulus Kuis"
+    document.getElementById("kkm-kuis1").innerText = "Anda Belum Lulus Kuis";
+    document.getElementById("kkm-kuis1").style.color = "red";
+  }
+}
+
+// Simulate updating the HTML content with nilai values
+// document.getElementById('kkm-kuis1').innerHTML = '<p id="evaluasi">80</p><p id="kuis 1">60</p><p id="kuis 2">85</p>';
+
+// Call the function to check and display results for a specific name
+checkAndDisplayResultForName("kuis 1");

@@ -186,6 +186,30 @@ export const createKuis = async (data) => {
   await set(child(db, `kuis/` + (data.nisn + data.bab + data.sub)), data);
 };
 
+export const kkmKuis1 = async () => {
+  try {
+    const snapshot = await get(child(db, `kkm/`));
+
+    if (snapshot.exists()) {
+      return Object.values(snapshot.val());
+    }
+
+    return null;
+  } catch (error) {
+    console.log(error);
+
+    Swal.fire({
+      icon: "error",
+      message: "Error",
+      text: error.message,
+    });
+  }
+};
+
+localStorage.setItem("kkm", JSON.stringify(await kkmKuis1()));
+
+console.log(await kkmKuis1());
+
 export const getMencoba = async () => {
   try {
     const snapshot = await get(child(db, `mencoba/`));

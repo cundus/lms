@@ -89,16 +89,17 @@ function handleRadioButtonClick(rowNumber, result) {
 
 const assets = [
   {
-    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/1.png",
-    sound: "",
+    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/27.png",
+    sound:
+      "/assets/sounds/bab_1/sub_4/Ayo Mencoba/Nadia mempunyai 8 pensil.m4a",
   },
   {
-    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/2.png",
-    sound: "",
+    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/28.png",
+    sound: "/assets/sounds/bab_1/sub_4/Ayo Mencoba/Ruben mempunyai 7 bola.m4a",
   },
   {
-    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/3.png",
-    sound: "",
+    image: "/assets/image/bab_1/sub_4/Ayo Mencoba/29.png",
+    sound: "/assets/sounds/bab_1/sub_4/Ayo Mencoba/9 kunci.m4a",
   },
 ];
 
@@ -111,11 +112,21 @@ window.addEventListener("DOMContentLoaded", () => {
     const td2 = document.createElement("td");
 
     td1.innerHTML = `
+    <span
+                  onclick="play('${assets[index].sound}')"
+                >
+                  <img
+                    src="/assets/image/sound.png"
+                    class="w-6 h-6 cursor-pointer select-none"
+                  />
+                </span>
     <img
         src="${assets[index].image}"
         alt="Image 1"
-        class=""
-    />`;
+        class="w-max"
+    />
+    
+    `;
 
     td2.innerHTML = `
 <div id="image-dropdown-${index}"></div>

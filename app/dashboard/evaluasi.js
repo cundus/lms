@@ -51,7 +51,7 @@ dataSiswa.innerHTML = Object.keys(user)
   })
   .join("\n");
 
-const nilai = parseInt(localStorage.getItem("evaluasi1"));
+const nilai = parseInt(localStorage.getItem("evaluasi1_1"));
 nilaiEvaluasi.innerHTML = `<p>Nilai Evaluasi : ${nilai ? nilai : 0}</p>`;
 
 let numberQuiz = 1;
@@ -207,7 +207,7 @@ function renderQuiz() {
         "1. Budi mempunyai koleki e-nam topi. Lambang bilangan e-nam adalah …";
 
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E1.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S1.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span><br />
            <div class="flex">
@@ -241,7 +241,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E2.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S2.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
            <div class="flex">
@@ -275,7 +275,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E3.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S3.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
          <div class="flex">
@@ -310,7 +310,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E4.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S4.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
         <div class="flex gap-14">
@@ -337,7 +337,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E5.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S5.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
          <div class="flex">
@@ -383,7 +383,7 @@ function renderQuiz() {
           <p>3</p>
           </div>
          </div>
-         <span onclick="play('/assets/sounds/evaluasi/E6.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S6.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> <br />
          <p>Tanda yang cocok untuk lebih banyak diatas adalah …</p>
@@ -424,7 +424,7 @@ function renderQuiz() {
       <p>5</p>
       </div>
      </div>
-         <span onclick="play('/assets/sounds/evaluasi/E7.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S7.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> 
          <p>Tanda yang cocok untuk mengisi titik-titik di atas adalah . . .</p>
@@ -465,7 +465,7 @@ function renderQuiz() {
       <p>2</p>
       </div>
      </div>
-         <span onclick="play('/assets/sounds/evaluasi/E8.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S8.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> 
          <br />
@@ -507,7 +507,7 @@ function renderQuiz() {
       <p>3</p>
       </div>
      </div>
-         <span onclick="play('/assets/sounds/evaluasi/E9.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S9.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span> 
           <br />
@@ -537,7 +537,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E10.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S10.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <br/>
@@ -572,7 +572,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E11.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S11.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
             <div class="flex flex-col">
@@ -600,7 +600,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/12.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S12.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
            <div class="flex flex-col">
@@ -628,7 +628,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E13.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S13.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
            <div class="flex">
@@ -656,7 +656,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E14.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S14.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
            <div class="flex">
@@ -684,7 +684,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E15.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S15.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
             <div class="flex">
@@ -712,7 +712,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E16.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S16.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
             <div class="flex">
@@ -739,7 +739,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-      <span onclick="play('/assets/sounds/evaluasi/E17.m4a')"><img
+      <span onclick="play('/assets/sounds/evaluasi/S17.m4a')"><img
       src="/assets/image/sound.png"
       class="w-6 h-6 cursor-pointer select-none" /></span> <br />
       <div class="flex items-center justify-center content-center">
@@ -777,7 +777,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-      <span onclick="play('/assets/sounds/evaluasi/E18.m4a')"><img
+      <span onclick="play('/assets/sounds/evaluasi/S18.m4a')"><img
       src="/assets/image/sound.png"
       class="w-6 h-6 cursor-pointer select-none" /></span> <br />
       <div class="flex items-center justify-center content-center">
@@ -815,7 +815,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-        <span onclick="play('/assets/sounds/evaluasi/E19.m4a')"><img
+        <span onclick="play('/assets/sounds/evaluasi/S19.m4a')"><img
         src="/assets/image/sound.png"
         class="w-6 h-6 cursor-pointer select-none" /></span> <br />
         <div class="flex gap-14">
@@ -843,7 +843,7 @@ function renderQuiz() {
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
-         <span onclick="play('/assets/sounds/evaluasi/E20.m4a')"><img
+         <span onclick="play('/assets/sounds/evaluasi/S20.m4a')"><img
          src="/assets/image/sound.png"
          class="w-6 h-6 cursor-pointer select-none" /></span>
          <br/>
@@ -994,3 +994,39 @@ function matchAdjacentElements(arr1, arr2) {
 
   return result;
 }
+
+const kuisData = JSON.parse(localStorage.getItem("kkm"));
+
+// Function to check and display result for a specific name
+function checkAndDisplayResultForName(name) {
+  // Find the data object for the specified name
+  const item = kuisData.find((data) => data.name === name);
+
+  if (!item) {
+    console.error(`No data found for name: ${name}`);
+    return;
+  }
+
+  // Convert kkm and nilai to numbers
+  const kkm = parseInt(item.kkm);
+  const nilai = parseInt(localStorage.getItem("evaluasi1_1"));
+
+  // Check if nilai is greater than or equal to kkm
+  if (nilai >= kkm) {
+    // If true, display "Selamat Anda Lulus Kuis"
+    document.getElementById("kkm-evaluasi1").innerText =
+      "Selamat Anda Lulus Kuis";
+    document.getElementById("kkm-evaluasi1").style.color = "green";
+  } else {
+    // If false, display "Anda Belum Lulus Kuis"
+    document.getElementById("kkm-evaluasi1").innerText =
+      "Anda Belum Lulus Kuis";
+    document.getElementById("kkm-evaluasi1").style.color = "red";
+  }
+}
+
+// Simulate updating the HTML content with nilai values
+// document.getElementById('kkm-kuis1').innerHTML = '<p id="evaluasi">80</p><p id="kuis 1">60</p><p id="kuis 2">85</p>';
+
+// Call the function to check and display results for a specific name
+checkAndDisplayResultForName("evaluasi");
