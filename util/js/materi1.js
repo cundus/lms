@@ -1174,16 +1174,16 @@ let menalarArr = [
   {
     answer: "mulut",
     angka: "1",
-    image: "/assets/image/bab_1/sub_1/ayo_menalar/hidung.png",
+    image: "/assets/image/bab_1/sub_1/ayo_menalar/mulut.png",
   },
   {
     answer: "jari tangan",
-    angka: "2",
+    angka: "10",
     image: "/assets/image/bab_1/sub_1/ayo_menalar/10 jari tangan.png",
   },
   {
     answer: "jari kaki",
-    angka: "2",
+    angka: "10",
     image: "/assets/image/bab_1/sub_1/ayo_menalar/10 jari kaki.png",
   },
 ];
@@ -1196,7 +1196,7 @@ menalarArr.forEach((item, index) => {
   // Input column
   let inputCell = row.insertCell(0);
   let inputField = document.createElement("input");
-  inputField.type = "text";
+  inputField.type = "number";
   inputField.placeholder = "Enter your answer";
   inputCell.appendChild(inputField);
 
@@ -1215,8 +1215,6 @@ menalarArr.forEach((item, index) => {
 let menalarJawaban = [];
 
 function submitAnswers() {
-  let trueCount = 0;
-
   for (let index = 0; index < menalarArr.length; index++) {
     let userInput = tableBody.rows[index].cells[0]
       .querySelector("input")
@@ -1243,6 +1241,7 @@ function submitAnswers() {
   console.log("menalarJawaban:", menalarJawaban);
 
   // Compare menghitungArr with providedArray and count true matches
+  let trueCount = 0;
   for (let i = 0; i < menalarJawaban.length; i++) {
     if (menalarJawaban[i] === menalarArr[i].angka) {
       trueCount++;
@@ -1256,6 +1255,23 @@ function submitAnswers() {
 
   komunikasi("/app/dashboard/bab1/materi1.html?page=6");
 }
+
+// Attach the input event listener to each input field to update response immediately
+tableBody.querySelectorAll("input").forEach((input, index) => {
+  input.addEventListener("input", function () {
+    let userInput = input.value.toLowerCase();
+    let correctAnswer = menalarArr[index].angka.toLowerCase();
+    let responseElement = tableBody.rows[index].cells[2];
+
+    if (userInput === correctAnswer) {
+      responseElement.textContent = "Kamu Benar!";
+      responseElement.style.color = "green";
+    } else {
+      responseElement.textContent = "Kamu Salah!";
+      responseElement.style.color = "red";
+    }
+  });
+});
 
 function clearAll() {
   for (let index = 0; index < menalarArr.length; index++) {
