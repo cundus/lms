@@ -29,7 +29,7 @@ function taskResult(type) {
 
     const average = 15; //total soal
 
-    const jawaban = [4, 4, 8, 6, 8, 14, 2, 3, 5, 5, 5, 10, 4, 5, 9]; // jawaban per soal + harus urut
+    const jawaban = [4, 4, 8, 6, 4, 10, 2, 3, 5, 5, 5, 10, 4, 5, 9]; // jawaban per soal + harus urut
     const resultArray = matchAdjacentElements(jawaban, mengamati_array);
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
@@ -145,8 +145,8 @@ var correctAnswers1 = [
   4,
   8,
   "6",
-  "8",
-  "14",
+  "4",
+  "10",
   "2",
   "3",
   "5",

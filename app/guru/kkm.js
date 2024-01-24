@@ -120,26 +120,32 @@ async function createdKKM(event) {
   event.preventDefault();
   console.log("Prevent Default executed");
 
-  const name = document.getElementById("name").value;
-  const kkm = document.getElementById("kkm").value;
+  const name = document.getElementById("subjectSelect").value;
+  const kkm = document.getElementById("kkmInput").value;
 
   const data = {
     name: name,
     kkm: kkm,
   };
-  await createKKM(data);
-  Swal.fire({
-    icon: "success",
-    title: "success",
-  }).then(() => {
-    window.location.href = "/app/guru/kkm.html";
-  });
+
+  console.log("Data:", data); // Add this line for debugging
+
+  try {
+    await createKKM(data);
+    console.log("createKKM success"); // Add this line for debugging
+
+    Swal.fire({
+      icon: "success",
+      title: "success",
+    }).then(() => {
+      window.location.href = "/app/guru/kkm.html";
+    });
+  } catch (error) {
+    console.error("createKKM error:", error); // Add this line for debugging
+    // Handle the error as needed
+  }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  document
-    .getElementById("myForm")
-    .addEventListener("submit", function (event) {
-      createdKKM(event);
-    });
+document.getElementById("myForm").addEventListener("submit", function (event) {
+  createdKKM(event);
 });
