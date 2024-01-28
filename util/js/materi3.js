@@ -67,22 +67,22 @@ window.addEventListener("DOMContentLoaded", () => {
   insertContent(
     2,
     3,
-    '<div><div id="image-dropdown-1"></div><div id="result-container-0" class="mt-2"></div></div>'
+    '<div><div id="image-dropdown-1"></div><div id="result-container-0" style="display:none" class="mt-2"></div></div>'
   );
   insertContent(
     3,
     2,
-    '<div><div id="image-dropdown-2"></div><div id="result-container-1" class="mt-2"></div></div>'
+    '<div><div id="image-dropdown-2"></div><div id="result-container-1" style="display:none" class="mt-2"></div></div>'
   );
   insertContent(
     4,
     1,
-    '<div><div id="image-dropdown-3"></div><div id="result-container-2" class="mt-2"></div></div>'
+    '<div><div id="image-dropdown-3"></div><div id="result-container-2" style="display:none" class="mt-2"></div></div>'
   );
   insertContent(
     5,
     3,
-    '<div><div id="image-dropdown-4"></div><div id="result-container-3" class="mt-2"></div></div>'
+    '<div><div id="image-dropdown-4"></div><div id="result-container-3" style="display:none" class="mt-2"></div></div>'
   );
 
   const dropdownsPlaceholders = document.querySelectorAll(
@@ -834,8 +834,10 @@ function kirimBerlatih() {
   localStorage.setItem("sub3_berlatih", (trueCount / 13) * 100);
 
   console.log(responsesArray);
+  resultMessage1.style.display = "block";
+  resultMessage2.style.display = "block";
 
-  komunikasi("/app/dashboard/bab1/materi3.html?page=2");
+  // komunikasi("/app/dashboard/bab1/materi3.html?page=2");
 }
 
 function komunikasi(url) {
@@ -1029,7 +1031,7 @@ function kirimMengamati() {
   localStorage.setItem("sub3_mengamati", (trueCount / 4) * 100);
 
   // Optionally, you can return the trueCount value
-  komunikasi("/app/dashboard/bab1/materi3.html?page=1");
+  // komunikasi("/app/dashboard/bab1/materi3.html?page=1");
 }
 
 let menalarArr = [];
@@ -1073,5 +1075,8 @@ function kirimMenalar() {
   localStorage.setItem("sub3_menalar", (trueCount / 4) * 100);
 
   // Optionally, you can return the trueCount value
-  komunikasi("/app/dashboard/bab1/materi3.html?page=3");
+  // komunikasi("/app/dashboard/bab1/materi3.html?page=3");
 }
+
+let resultMessage1 = document.getElementById("resultMessage1");
+let resultMessage2 = document.getElementById("resultMessage2");

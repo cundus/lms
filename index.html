@@ -1,48 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
-      <title>Module Pembelajaran</title>
-      <script src="https://cdn.tailwindcss.com"></script>
-      <script
-         type="module"
-         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
-      ></script>
-   </head>
-   <body class="bg-gradient-to-r from-pink-300 via-white to-blue-500">
-      <!-- Section Home Page -->
-      <section id="homepage" class="pt-36 pb-16 h-screen flex items-center justify-center">
-         <div class="container">
-            <div class="w-full">
-               <div class="mx-auto mb-16 max-w-full text-center">
-                  <h1 class="text-8xl text-center font-bold my-16 text-slate-900">Selamat Datang</h1>
-                  <p class="text-2xl my-10 text-slate-900">
-                     Bilangan adalah sebuah website pembelajaran daring yang menarik dan interaktif, belajar terus agar
-                     pintar
-                  </p>
-               </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css"
+    />
+    <title>Module Pembelajaran</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
+    ></script>
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+  <body class="bg-gradient-to-r from-pink-300 via-white to-blue-500">
+    <!-- Section Home Page -->
+    <section
+      id="homepage"
+      class="pt-36 pb-16 h-screen flex items-center justify-center"
+    >
+      <div class="container">
+        <div class="w-full">
+          <div class="mx-auto mb-16 max-w-full text-center">
+            <h1 class="text-8xl text-center font-bold my-16 text-slate-900">
+              Selamat Datang
+            </h1>
+            <p class="text-2xl my-10 text-slate-900">
+              Bilangan adalah sebuah website pembelajaran daring yang menarik
+              dan interaktif, belajar terus agar pintar
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12"
+        >
+          <div class="mb-12 p-4 text-center md:w-1/2">
+            <h2 class="text-xl font-semibold mb-10">Masuk Sebagai Siswa</h2>
+            <button
+              id="siswa"
+              class="bg-violet-500 text-white mt-5 px-4 py-2 rounded-md hover:bg-blue-600"
+            >
+              <a href="#">Masuk</a>
+            </button>
+          </div>
+
+          <div class="mb-12 p-4 text-center md:w-1/2">
+            <h2 class="text-xl font-semibold mb-10">Masuk Sebagai Guru</h2>
+            <button
+              id="guru"
+              class="bg-red-400 text-white mt-5 px-4 py-2 rounded-md hover:bg-blue-600"
+            >
+              <a href="#">Masuk</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="flex flex-col gap-6">
+      <sl-card
+        id="info-media"
+        class="card-header my-4 m-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      >
+        <h1 class="font-bold text-2xl px-4 py-2">Kurikulum</h1>
+        <div class="main-content">
+          <h1 class="font-bold text-xl px-4 py-2">Capaian Pembelajaran</h1>
+          <sl-card
+            id="info-media"
+            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
+            <p class="">
+              Pada akhir fase A ini peserta didik menunjukkan pemahaman dan
+              memiliki intuisi bilangan (number sense) pada bilangan cacah
+              sampai 20, mereka dapat membaca, menulis, menentukan nilai tempat,
+              membandingkan, mengurutkan, serta melakukan komposisi (menyusun)
+              dan dekomposisi (mengurai) bilangan. Peserta didik dapat melakukan
+              operasi penjumlahan dan pengurangan menggunakan benda-benda
+              konkret yang banyaknya sampai 20.
+            </p>
+          </sl-card>
+          <h1 class="font-bold text-xl px-4 py-2">Tujuan Pembelajaran</h1>
+          <sl-card
+            id="info-media"
+            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div slot="header">
+              <h3
+                class="font-bold text-lg underline decoration-solid px-2 py-1"
+              >
+                Bilangan
+              </h3>
             </div>
 
-            <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
-               <div class="mb-12 p-4 text-center md:w-1/2">
-                  <h2 class="text-xl font-semibold mb-10">Masuk Sebagai Siswa</h2>
-                  <button id="siswa" class="bg-violet-500 text-white mt-5 px-4 py-2 rounded-md hover:bg-blue-600">
-                     <a href="#">Masuk</a>
-                  </button>
-               </div>
-               <div class="mb-12 p-4 text-center md:w-1/2">
-                  <h2 class="text-xl font-semibold mb-10">Masuk Sebagai Guru</h2>
-                  <button id="guru" class="bg-red-400 text-white mt-5 px-4 py-2 rounded-md hover:bg-blue-600">
-                     <a href="#">Masuk</a>
-                  </button>
-               </div>
+            <!-- <div slot="header">Bilangan</div> -->
+            <ol class="black-number mx-4">
+              <li>
+                Peserta didik mampu menghitung banyaknya benda sampai dengan 20.
+              </li>
+              <li>
+                Peserta didik mampu mengenal bilangan 0 dengan menunjukkan model
+                konkret.
+              </li>
+              <li>
+                Peserta didik mampu membaca, menghitung & menuliskan lambang
+                bilangan dari 0 sampai dengan 20.
+              </li>
+              <li>
+                Peserta didik mampu memperkirakan banyak benda (estimasi) sampai
+                dengan 20.
+              </li>
+              <li>
+                Peserta didik mampu menunjukkkan konsep sama banyak, lebih
+                banyak, dan lebih sedikit dari dua kelompok benda menggunakan
+                benda konkret.
+              </li>
+              <li>
+                Peserta didik mampu menghitung maju dan mundur sampai dengan 20.
+              </li>
+              <li>
+                Peserta didik mampu menyusun, mengurai dan menunjukkan suatu
+                bilangan dengan menggunakan model konkret.
+              </li>
+            </ol>
+          </sl-card>
+          <sl-card
+            id="info-media"
+            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div slot="header">
+              <h3
+                class="font-bold text-lg underline decoration-solid px-2 py-1"
+              >
+                Penjumlahan dan Pengurangan Bilangan
+              </h3>
             </div>
-         </div>
-      </section>
-      <!-- End Section Home Page -->
 
-      <script src="./util/js/script.js"></script>
-   </body>
+            <!-- <div slot="header">Bilangan</div> -->
+            <ol class="black-number mx-4">
+              <li>
+                Peserta didik mampu menunjukkan konsep penjumlahan dan
+                pengurangan sampai dengan 20 dengan benda konkret, gambar,
+                cerita, atau cara manipulatif lainnya.
+              </li>
+              <li>
+                Peserta didik mampu menggunakan berbagai strategi penjumlahan
+                (menghitung maju, pasangan bilangan (number bond), penjumlahan
+                ganda, dan penjumlahan yang hasilnya 10).
+              </li>
+              <li>
+                Peserta didik mampu menggunakan berbagai strategi pengurangan
+                (menghitung mundur, pasangan bilangan (number bond), dan
+                pengurangan dengan 10).
+              </li>
+              <li>
+                Peserta didik mampu menyelesaikan masalah terkait dengan
+                penjumlahan dan pengurangan dengan satu langkah penyelesaian.
+              </li>
+              <li>
+                Peserta didik mampu menunjukkkan fakta hubungan antara operasi
+                penjumlahan dan pengurangan.
+              </li>
+            </ol>
+          </sl-card>
+          <sl-card
+            id="info-media"
+            class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div slot="header">
+              <h3
+                class="font-bold text-lg underline decoration-solid px-2 py-1"
+              >
+                Daftar Pustaka
+              </h3>
+            </div>
+
+            <!-- <div slot="header">Bilangan</div> -->
+            <ol class="black-number mx-4">
+              <li>
+                Dara, R., & Rasfaniwaty. (2022). MATEMATIA SD/MI KELAS 1. (U.
+                Amalia, Ed.) Kompleks Kemdikbudristek Jalan RS. Fatmawati,
+                Cipete, Jakarta Selatan: Pusat Perbukuan, Badan Standar,
+                Kurikulum, dan Asesmen Pendidikan.
+              </li>
+              <li>
+                Tosho, T. G. (2021). Buku Bersama Temanmu Matematika untuk
+                Sekolah Dasar. (M. Isoda, Ed.) Kementerian Pendidikan,
+                Kebudayaan, Riset dan Teknologi, Jalan Gunung Sahari Raya No. 4,
+                Jakarta Pusat: Pusat Kurikulum dan Perbukuan, Badan Penelitian
+                dan Pengembangan dan Perbukuan.
+              </li>
+            </ol>
+          </sl-card>
+        </div>
+      </sl-card>
+      <sl-card
+        id="info-media"
+        class="card-header my-4 m-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      >
+        <h1 class="font-bold text-2xl px-4 py-2">Informasi</h1>
+        <sl-card
+          id="info-media"
+          class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        >
+          <div slot="header">
+            <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+            Perihal
+          </div>
+          Media Pembelajaran ini dibuat untuk memenuhi persyaratan dalam
+          menyelesaikan Program Strata-1 Pendidikan Komputer dengan judul tugas
+          akhir “Pengembangan Media Pembelajaran Interaktif Berbasis Web Pada
+          Materi Bilangan Kelas I SD Dengan Pendekatan Saintif
+        </sl-card>
+        <!-- End Info Media -->
+
+        <!-- Info Author -->
+        <sl-card
+          id="info-author"
+          class="card-header w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        >
+          <div slot="header">
+            <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+            Info Author
+          </div>
+          <!-- List angka hitam -->
+          <ul class="">
+            <li>Nama: Maria Manurung</li>
+            <li>NIM: 1910131120004</li>
+            <li>Dosen Pembimbing 1: Dr. R. Ati Sukmawati, M.Kom.</li>
+            <li>Dosen Pembimbing 2: Delsika Pramata Sari, M.Pd.</li>
+            <li>Program Studi: Pendidikan Komputer</li>
+            <li>Fakultas: Keguruan dan Ilmu Pendidikan</li>
+            <li>Universitas : Lambung Mangkurat</li>
+            <li>Email: itsmariamanurung@gmail.com</li>
+          </ul>
+        </sl-card>
+        <!-- End Info Author -->
+
+        <!-- Info Petunjuk Aplikasi -->
+        <!-- <sl-card
+          id="petunjuk-aplikasi"
+          class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        >
+          <div slot="header">
+            <sl-icon-button name="gear" label="Settings"></sl-icon-button>
+            Petunjuk Aplikasi
+          </div> -->
+
+        <!-- Card Petunjuk Aplikasi -->
+        <!-- <div class="flex w-full flex-wrap justify-center xl:mx-auto">
+            <div class="mb-12 p-4 md:w-1/2">
+              <div class="overflow-hidden my-4 rounded-md shadow-md"> -->
+        <!-- <img
+                  src="dist/img/portfolio/1.png"
+                  alt="Landing Page"
+                  width="w-full"
+                /> -->
+        <!-- </div>
+              <h3 class="my-6 text-md font-semibold text-dark dark:text-white">
+                Keterangan
+              </h3>
+              <ul class="my-4">
+                <li>
+                  Nomor 1 adalah tombol pilihan untuk melihat kurikulum dan
+                  daftar pustaka
+                </li>
+                <li>
+                  Nomor 2 adalah tempat untuk menampilkan kurikulum, capaian
+                  pembelajaran dan daftar pustaka
+                </li>
+              </ul>
+            </div>
+            <div class="mb-12 p-4 md:w-1/2">
+              <div class="overflow-hidden my-4 rounded-md shadow-md"> -->
+        <!-- <img
+                  src="dist/img/portfolio/1.png"
+                  alt="Landing Page"
+                  width="w-full"
+                /> -->
+        <!-- </div>
+              <h3 class="my-6 text-md font-semibold text-dark dark:text-white">
+                Keterangan
+              </h3>
+              <ul class="my-4">
+                <li>
+                  Nomor 1 adalah tombol home untuk kembali ke halaman awal
+                  (beranda).
+                </li>
+                <li>
+                  Nomor 2 adalah tab bar yang dapat digunakan untuk berpindah ke
+                  materi yang ingin dipelajari
+                </li>
+                <li>
+                  Nomor 3 adalah tab navigasi untuk berpindah pada kegiatan
+                  pembelajaran pendekatan santifik (5M)
+                </li>
+                <li>Nomor 4 adalah video mengenai materi pembelajaran.</li>
+              </ul>
+            </div> -->
+        <!-- </div> -->
+        <!-- End Card Petunjuk Aplikasi -->
+        <!-- </sl-card> -->
+      </sl-card>
+    </div>
+    <!-- <!-- End Section Home Page -->
+
+    <!-- Script for shoelace style -->
+    <script src="./materi1.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tree/tree.js"
+    ></script>
+    <script
+      defer
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/tab-group/tab-group.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"
+    ></script>
+    <!-- End Script for Shoelace style -->
+
+    <script src="./util/js/script.js"></script>
+  </body>
 </html>

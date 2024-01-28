@@ -1,101 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-      <title>Register Form</title>
-      <script src="https://cdn.tailwindcss.com"></script>
-      <script
-         type="module"
-         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
-      ></script>
-   </head>
-   <body class="bg-gradient-to-r from-blue-500 to-purple-500">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Register Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"
+    ></script>
+  </head>
+  <body class="bg-gradient-to-r from-blue-500 to-purple-500">
+    <div class="flex gap-64 ml-24">
+      <img src="/assets/image/home.png" class="object-contain" alt="" />
       <section id="register" class="h-screen flex items-center justify-center">
-         <div class="bg-white bg-opacity-30 p-8 rounded-md shadow-md backdrop-filter backdrop-blur-lg">
-            <h2 id="textTitle" class="text-3xl font-bold text-white mb-4">Register</h2>
+        <div
+          class="bg-white bg-opacity-30 p-8 rounded-md shadow-md backdrop-filter backdrop-blur-lg"
+        >
+          <h2 id="textTitle" class="text-3xl font-bold text-white mb-4">
+            Register
+          </h2>
 
-            <form id="registerForm" name="registerForm" class="mb-4" autocomplete="off">
-               <!-- add input field if have role as guru -->
-               <div id="nisnRegisterContainer" class="mb-4">
-                  <label for="nisn" class="text-white">NISN:</label>
-                  <input
-                     type="text"
-                     id="nisn-signUp"
-                     name="nisn"
-                     class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
-                     required
-                  />
-               </div>
-
-               <div id="emailRegisterContainer" class="mb-4">
-                  <label for="email" class="text-white">Email:</label>
-                  <input
-                     type="email"
-                     id="email-signUp"
-                     name="email"
-                     class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
-                     required
-                  />
-               </div>
-               <div id="passwordLoginContainer" class="mb-4">
-                  <label for="password" class="text-white">Password:</label>
-                  <input
-                     type="password"
-                     id="password-signUp"
-                     name="password"
-                     class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
-                     required
-                  />
-               </div>
-               <div id="namaRegisterContainer" class="mb-4">
-                  <label for="name" class="text-white">Nama:</label>
-                  <input
-                     type="text"
-                     id="name-signUp"
-                     name="name"
-                     class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
-                     required
-                  />
-               </div>
-               <div id="sekolahDropdown" class="mb-4">
-                  <label for="sekolah" class="text-white">Pilih Sekolah:</label>
-                  <input
-                     id="sekolah-signUp"
-                     name="sekolah"
-                     class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
-                     required
-                  />
-               </div>
-
-               <div id="kelasDropdown" class="mb-4">
-                  <label for="kelas" class="text-white">Pilih Kelas:</label>
-                  <input
-                     id="kelas-signUp"
-                     name="kelas"
-                     class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
-                     required
-                  />
-               </div>
-
-               <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                  Daftar
-               </button>
-            </form>
-            <div class="flex items-center justify-center">
-               <span class="text-white mr-2">Sudah memiliki akun?</span>
-               <button class="bg-red-500 text-white px-4 py-2 rounded-md flex items-center hover:bg-red-600">
-                  <a href="../index.html">Masuk</a>
-               </button>
+          <form
+            id="registerForm"
+            name="registerForm"
+            class="mb-4"
+            autocomplete="off"
+          >
+            <!-- add input field if have role as guru -->
+            <div id="nisnRegisterContainer" class="mb-4">
+              <label for="nisn" class="text-white">NISN:</label>
+              <input
+                type="text"
+                id="nisn-signUp"
+                name="nisn"
+                class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
+                required
+              />
             </div>
-         </div>
-      </section>
 
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-      <script type="module" src="/util/js/db.js"></script>
-      <script type="module" src="./register.js"></script>
-   </body>
+            <div id="emailRegisterContainer" class="mb-4">
+              <label for="email" class="text-white">Email:</label>
+              <input
+                type="email"
+                id="email-signUp"
+                name="email"
+                class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
+                required
+              />
+            </div>
+            <div id="passwordLoginContainer" class="mb-4">
+              <label for="password" class="text-white">Password:</label>
+              <input
+                type="password"
+                id="password-signUp"
+                name="password"
+                class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
+                required
+              />
+            </div>
+            <div id="namaRegisterContainer" class="mb-4">
+              <label for="name" class="text-white">Nama:</label>
+              <input
+                type="text"
+                id="name-signUp"
+                name="name"
+                class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
+                required
+              />
+            </div>
+            <div id="sekolahDropdown" class="mb-4">
+              <label for="sekolah" class="text-white">Pilih Sekolah:</label>
+              <input
+                id="sekolah-signUp"
+                name="sekolah"
+                class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
+                required
+              />
+            </div>
+
+            <div id="kelasDropdown" class="mb-4">
+              <label for="kelas" class="text-white">Pilih Kelas:</label>
+              <input
+                id="kelas-signUp"
+                name="kelas"
+                class="bg-white bg-opacity-70 px-4 py-2 rounded-md w-full"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+            >
+              Daftar
+            </button>
+          </form>
+          <div class="flex items-center justify-center">
+            <span class="text-white mr-2">Sudah memiliki akun?</span>
+            <button
+              class="bg-red-500 text-white px-4 py-2 rounded-md flex items-center hover:bg-red-600"
+            >
+              <a href="../index.html">Masuk</a>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script type="module" src="/util/js/db.js"></script>
+    <script type="module" src="./register.js"></script>
+  </body>
 </html>

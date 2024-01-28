@@ -22,8 +22,14 @@ const btnNextQuestionTwo = document.getElementById("btn-next");
 const listButtonQuiz = document.getElementById("btn-kuis");
 const dataSiswa = document.getElementById("list-data-siswa");
 const nilaiKuis = document.getElementById("nilai-kuis1");
+let hasilkuis = document.getElementById("hasil-kuis");
+const dataSiswa2 = document.getElementById("list-data-siswa2");
+let sidebar = document.getElementById("sidebar");
+
 // add data siswa ke dom
+const nilai = parseInt(localStorage.getItem("kuis1_1"));
 const user = JSON.parse(localStorage.getItem("user"));
+
 dataSiswa.innerHTML = Object.keys(user)
   .filter((key) => {
     if (
@@ -40,8 +46,28 @@ dataSiswa.innerHTML = Object.keys(user)
   })
   .join("\n");
 
-const nilai = parseInt(localStorage.getItem("kuis1_1"));
-nilaiKuis.innerHTML = `<p>Nilai Kuis 1 : ${nilai ? nilai : 0}</p>`;
+// Customizable keys and their display names
+const customKeys = [
+  { key: "email", displayName: "Email" },
+  { key: "name", displayName: "Nama" },
+  { key: "sekolah", displayName: "Sekolah" },
+  { key: "kelas", displayName: "Kelas" },
+  { key: "nilaiKuis", displayName: "Nilai Kuis 1" }, // Add the new key-value pair for nilaiKuis
+];
+
+// Insert nilaiKuis into user object
+user.nilaiKuis = nilai ? nilai : 0;
+
+// Display nilaiKuis
+nilaiKuis.innerHTML = `<p>Nilai Kuis 1 : ${user.nilaiKuis}</p>`;
+
+// Display user data
+dataSiswa2.innerHTML = customKeys
+  .map(({ key, displayName }) => {
+    // Map custom keys and values to HTML list items
+    return `<li>${displayName} : ${user[key]}</li>`;
+  })
+  .join("\n");
 
 let numberQuiz = 1;
 btnStart.addEventListener("click", () => {
@@ -90,6 +116,8 @@ function startQuiz() {
           numbQuiz.classList.remove("hidden");
           startCountdown();
           renderQuiz();
+          sidebar.remove();
+          hasilkuis.remove();
         },
       }).then((result) => {
         /* Read more about handling dismissals below */
@@ -103,6 +131,59 @@ function startQuiz() {
   selectedAnswers.fill(undefined);
 }
 
+// Find the "Selesai" button by its id
+const selesaiButton = document.querySelector("#selesai-button");
+
+// Add an event listener to the button
+selesaiButton.addEventListener("click", function () {
+  // Execute the else block directly
+  Swal.fire({
+    title: "Apakah kamu yakin ingin menyelesaikan kuis ini?",
+    text: "Kamu tidak bisa mengubahnya kembali!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Ya, Saya yakin ingin menyelesaikan kuis ini",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      taskResult(`kuis`);
+      console.log(selectedAnswers);
+      Swal.fire({
+        title: "Akan tertutup otomatis",
+        html: "Proses menyelesaikan dalam waktu <b></b> milidetik.",
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
+        },
+        willClose: () => {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Terima kasih telah mengerjakan kuis ini",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          clearInterval(timerInterval);
+          window.setTimeout(function () {
+            window.location.href = "./kuis2.html";
+          }, 1500);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+      });
+    }
+  });
+});
+
 function nextQuestion() {
   if (numberQuiz < 10) {
     const selectedOption = document.querySelector(
@@ -114,6 +195,8 @@ function nextQuestion() {
 
     numberQuiz++;
     renderQuiz();
+
+    restoreSelectedAnswer();
   } else {
     Swal.fire({
       title: "Apakah kamu yakin ingin menyelesaikan kuis ini?",
@@ -173,6 +256,8 @@ function previousQuestion() {
 
   numberQuiz--;
   renderQuiz();
+
+  restoreSelectedAnswer();
 }
 
 function renderQuiz() {
@@ -188,12 +273,26 @@ function renderQuiz() {
     }
   }
 
+  for (let i = 1; i <= 10; i++) {
+    const questionButton = document.querySelector(`#btn-kuis${i}`);
+    if (questionButton) {
+      questionButton.classList.remove("bg-black", "text-white");
+    }
+  }
+
+  // Highlight the active question button
+  const activeQuestionButton = document.querySelector(`#btn-kuis${numberQuiz}`);
+  if (activeQuestionButton) {
+    activeQuestionButton.classList.add("bg-black", "text-white");
+  }
+
   // console.log("running quiz no ", numberQuiz);
   switch (numberQuiz) {
     case 1:
       btnPrev.classList.add("hidden");
       listQuestionOne.classList.add("bg-black", "text-white");
       listQuestionTwo.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
       btnNextQuestionTwo.innerText = "Selanjutnya";
       numberQuestion.innerText =
         "1. Beben mempunyai sepuluh sepeda. Lambang bilangan sepuluh adalah …";
@@ -230,6 +329,8 @@ function renderQuiz() {
       btnPrev.classList.remove("hidden");
       listQuestionTwo.classList.add("bg-black", "text-white");
       listQuestionOne.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
       listQuestionThree.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
@@ -258,6 +359,8 @@ function renderQuiz() {
         "3. Dibawah ini termasuk dalam lambang bilangan adalah …";
       listQuestionTwo.classList.remove("bg-black", "text-white");
       listQuestionFour.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
       listQuestionThree.classList.add("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
@@ -288,6 +391,8 @@ function renderQuiz() {
       listQuestionTwo.classList.remove("bg-black", "text-white");
       listQuestionThree.classList.remove("bg-black", "text-white");
       listQuestionFour.classList.add("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
       listQuestionFive.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
@@ -321,6 +426,8 @@ function renderQuiz() {
         "5. Berilah tanda kurang dari (<), lebih banyak (>), dan sama banyak (=)";
       listQuestionFour.classList.remove("bg-black", "text-white");
       listQuestionFive.classList.add("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
       listQuestionSix.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
@@ -362,6 +469,8 @@ function renderQuiz() {
         "6. Berilah tanda kurang dari (<), lebih banyak (>), dan sama banyak (=)";
       listQuestionFive.classList.remove("bg-black", "text-white");
       listQuestionSix.classList.add("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
       listQuestionSeven.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
@@ -396,6 +505,8 @@ function renderQuiz() {
         "7. Urutan bilangan dibawah ini yang benar dari urutan terkecil ke terbesar adalah …";
       listQuestionSix.classList.remove("bg-black", "text-white");
       listQuestionSeven.classList.add("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
       listQuestionEight.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
@@ -430,6 +541,8 @@ function renderQuiz() {
         "8. Urutan bilangan dibawah ini yang benar dari urutan terbesar ke terkecil adalah …";
       listQuestionSeven.classList.remove("bg-black", "text-white");
       listQuestionEight.classList.add("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
       listQuestionNine.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
@@ -463,6 +576,8 @@ function renderQuiz() {
         "9. Di bawah ini yang pasangan item dan bilangannya sama adalah …";
       listQuestionEight.classList.remove("bg-black", "text-white");
       listQuestionNine.classList.add("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
       listQuestionTen.classList.remove("bg-black", "text-white");
 
       // Output kode HTML yang diberikan
@@ -496,8 +611,9 @@ function renderQuiz() {
         "10. Di bawah ini yang bukan pasangan item dan bilangannya sama adalah …";
       listQuestionTen.classList.add("bg-black", "text-white");
       listQuestionNine.classList.remove("bg-black", "text-white");
-      btnPrev.classList.add("hidden");
+      // btnPrev.classList.add("hidden");
       btnNextQuestionTwo.innerText = "Selesaikan Kuis";
+      btnNextQuestionTwo.style.backgroundColor = "green";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -528,6 +644,18 @@ function renderQuiz() {
       break;
   }
 }
+
+// Add event listeners to track changes in the selected answer
+document.querySelectorAll("button[id^='btn-kuis']").forEach((button) => {
+  button.addEventListener("click", function () {
+    // Remove styling from all buttons
+    document.querySelectorAll("button[id^='btn-kuis']").forEach((btn) => {
+      btn.classList.remove("bg-black", "text-white");
+    });
+    // Add styling to the clicked button
+    this.classList.add("bg-black", "text-white");
+  });
+});
 
 /**
  * & Function to count down
@@ -652,13 +780,15 @@ function checkAndDisplayResultForName(name) {
   const nilai = parseInt(localStorage.getItem("kuis1_1"));
 
   // Check if nilai is greater than or equal to kkm
-  if (nilai >= kkm) {
+  if (nilai >= kkm && nilai !== null) {
     // If true, display "Selamat Anda Lulus Kuis"
-    document.getElementById("kkm-kuis1").innerText = "Selamat Anda Lulus Kuis";
+    document.getElementById("kkm-kuis1").innerText =
+      "Selamat, anda lulus Kuis 1, silahkan melanjutkan ke materi berikutnya";
     document.getElementById("kkm-kuis1").style.color = "green";
   } else {
     // If false, display "Anda Belum Lulus Kuis"
-    document.getElementById("kkm-kuis1").innerText = "Anda Belum Lulus Kuis";
+    document.getElementById("kkm-kuis1").innerText =
+      "Nilai dari hasil kuis anda di bawah KKM, silahkan tekan 'Kembali ke Materi' untuk mengulang materi kembali. Lalu coba kembali kuis dengan menekan 'Mulai Kuis'";
     document.getElementById("kkm-kuis1").style.color = "red";
   }
 }
@@ -668,3 +798,97 @@ function checkAndDisplayResultForName(name) {
 
 // Call the function to check and display results for a specific name
 checkAndDisplayResultForName("kuis 1");
+
+listQuestionOne.addEventListener("click", () => {
+  switchQuestion(1);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionTwo.addEventListener("click", () => {
+  switchQuestion(2);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionThree.addEventListener("click", () => {
+  switchQuestion(3);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionFour.addEventListener("click", () => {
+  switchQuestion(4);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionFive.addEventListener("click", () => {
+  switchQuestion(5);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionSix.addEventListener("click", () => {
+  switchQuestion(6);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionSeven.addEventListener("click", () => {
+  switchQuestion(7);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionEight.addEventListener("click", () => {
+  switchQuestion(8);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionNine.addEventListener("click", () => {
+  switchQuestion(9);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionTen.addEventListener("click", () => {
+  switchQuestion(10);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+
+// Function to switch to a specific question
+function switchQuestion(questionNumber) {
+  // Save the current answer before switching
+  saveCurrentAnswer();
+
+  // Set the new question number
+  numberQuiz = questionNumber;
+
+  // Render the new question
+  renderQuiz();
+
+  restoreSelectedAnswer();
+}
+
+function saveCurrentAnswer() {
+  const selectedOption = document.querySelector(
+    `input[name="kuis1_${numberQuiz}"]:checked`
+  );
+  if (selectedOption) {
+    selectedAnswers[numberQuiz - 1] = selectedOption.value;
+  }
+}
+
+function restoreSelectedAnswer() {
+  const selectedAnswer = selectedAnswers[numberQuiz - 1];
+  if (selectedAnswer !== undefined) {
+    const selectedOption = document.querySelector(
+      `input[name="kuis1_${numberQuiz}"][value="${selectedAnswer}"]`
+    );
+    if (selectedOption) {
+      selectedOption.checked = true;
+    }
+  } else {
+    // If there is no stored answer, uncheck all radio buttons for this question
+    const options = document.querySelectorAll(
+      `input[name="kuis1_${numberQuiz}"]`
+    );
+    options.forEach((option) => {
+      option.checked = false;
+    });
+  }
+}
