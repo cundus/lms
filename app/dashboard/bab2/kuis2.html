@@ -60,7 +60,7 @@
     </header>
 
     <div class="w-full flex">
-      <div class="sidebar min-h-screen px-1">
+      <div id="sidebar" class="sidebar min-h-screen px-1">
         <div class="w-full flex flex-col justify-center items-center">
           <img
             src="../../../assets/image/user.png"
@@ -186,8 +186,12 @@
                 </button>
               </div>
               <br />
-              <div class="m-3 mt-8" id="nilai-kuis2"></div>
-              <div class="m-3 mt-8" id="kkm-kuis2"></div>
+              <div
+                class="m-3 mt-8"
+                id="nilai-kuis2"
+                style="display: none"
+              ></div>
+              <!-- <div class="m-3 mt-8" id="kkm-kuis2"></div> -->
             </sl-card>
           </div>
           <!-- * End Right Side Preparation Before Start Question -->
@@ -221,14 +225,14 @@
               <button
                 id="btn-previous"
                 type="button"
-                class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
+                class="w-2/5 mx-auto my-48 rounded-full bg-yellow-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
               >
                 Sebelumnya
               </button>
               <button
                 id="btn-next"
                 type="button"
-                class="w-2/5 mx-auto my-48 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
+                class="w-2/5 mx-auto my-48 rounded-full bg-blue-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
               ></button>
             </div>
             <!-- * End Button Next and Previous -->
@@ -327,18 +331,41 @@
                 </button>
               </div>
               <!-- Button Bottom List Quiz -->
-
+              <button
+                type="button"
+                id="selesai-button"
+                style="background-color: green"
+                class="w-1/2 mb-2 rounded-full p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
+              >
+                <a href="#">Selesai</a>
+              </button>
               <button
                 type="button"
                 class="w-1/2 rounded-full bg-red-600 p-2 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
               >
-                <a href="./materi1.html">Kembali ke Materi</a>
+                <a href="./kuis2.html">Kembali ke Materi</a>
               </button>
             </div>
           </div>
           <!-- * Button List Question Number -->
 
           <!-- * End Soal Kuis -->
+        </div>
+        <div
+          class="flex content-center justify-center items-center"
+          id="hasil-kuis"
+        >
+          <sl-card
+            id="info-media"
+            class="card-header my-4 m-5 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            style="width: 80%"
+          >
+            <div class="">
+              <p class="text-3xl text-center">Hasil Kuis 2</p>
+              <ul class="py-4 mx-4" id="list-data-siswa2"></ul>
+              <div class="m-3 mt-8" id="kkm-kuis2"></div>
+            </div>
+          </sl-card>
         </div>
       </div>
     </div>

@@ -548,6 +548,16 @@ function kirimBerlatih() {
 
   localStorage.setItem("sub4_berlatih", (trueCount / 4) * 100);
 
+  resultMessage2.style.display = "";
+  resultMessage3.style.display = "";
+  resultMessage4.style.display = "";
+  resultMessage5.style.display = "";
+
   // Optionally, you can return the trueCount value
-  komunikasi("/app/dashboard/bab1/materi4.html?page=1");
+  // komunikasi("/app/dashboard/bab1/materi4.html?page=1");
 }
+
+let resultMessage2 = document.getElementById("resultMessage2");
+let resultMessage3 = document.getElementById("resultMessage3");
+let resultMessage4 = document.getElementById("resultMessage4");
+let resultMessage5 = document.getElementById("resultMessage5");

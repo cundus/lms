@@ -93,6 +93,8 @@ function checkAnswer(questionNumber, setNumber) {
     "response" + 1 + "_" + questionNumber
   );
 
+  responseElement.style.display = "none";
+
   // Check if selected option is correct
   if (selectedOptionNumber === correctAnswer) {
     responseElement.textContent = "Kamu benar!";
@@ -254,5 +256,20 @@ function selesaiBerlatih() {
   localStorage.setItem("sub2_3", (trueCount / 7) * 100);
 
   // Optionally, you can return the trueCount value
-  komunikasi("/app/dashboard/bab2/materi3.html?page=3");
+  let response1_1 = document.getElementById("response1_1");
+  let response1_2 = document.getElementById("response1_2");
+  let response1_3 = document.getElementById("response1_3");
+  let response1_4 = document.getElementById("response1_4");
+  let response1_5 = document.getElementById("response1_5");
+  let response1_6 = document.getElementById("response1_6");
+  let response1_7 = document.getElementById("response1_7");
+
+  response1_1.style.display = "";
+  response1_2.style.display = "";
+  response1_3.style.display = "";
+  response1_4.style.display = "";
+  response1_5.style.display = "";
+  response1_6.style.display = "";
+  response1_7.style.display = "";
+  // komunikasi("/app/dashboard/bab2/materi3.html?page=3");
 }

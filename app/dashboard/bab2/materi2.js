@@ -34,7 +34,40 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub2_2_1", total);
-    komunikasi("/app/dashboard/bab2/materi2.html?page=2");
+
+    let response1_1 = document.getElementById("response1_1");
+    let response1_2 = document.getElementById("response1_2");
+    let response1_3 = document.getElementById("response1_3");
+    let response1_4 = document.getElementById("response1_4");
+    let response1_5 = document.getElementById("response1_5");
+    let response1_6 = document.getElementById("response1_6");
+    let response1_7 = document.getElementById("response1_7");
+    let response1_8 = document.getElementById("response1_8");
+    let response1_9 = document.getElementById("response1_9");
+    let response1_10 = document.getElementById("response1_10");
+    let response1_11 = document.getElementById("response1_11");
+    let response1_12 = document.getElementById("response1_12");
+    let response1_13 = document.getElementById("response1_13");
+    let response1_14 = document.getElementById("response1_14");
+    let response1_15 = document.getElementById("response1_15");
+
+    response1_1.style.display = "";
+    response1_2.style.display = "";
+    response1_3.style.display = "";
+    response1_4.style.display = "";
+    response1_5.style.display = "";
+    response1_6.style.display = "";
+    response1_7.style.display = "";
+    response1_8.style.display = "";
+    response1_9.style.display = "";
+    response1_10.style.display = "";
+    response1_11.style.display = "";
+    response1_12.style.display = "";
+    response1_13.style.display = "";
+    response1_14.style.display = "";
+    response1_15.style.display = "";
+
+    // komunikasi("/app/dashboard/bab2/materi2.html?page=2");
   } else if (type === "berlatih2") {
     const berlatihSets = [
       "berlatih2_1",
@@ -59,7 +92,20 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub2_2_2", total);
-    komunikasi("/app/dashboard/bab2/materi2.html?page=4");
+
+    let response2_1 = document.getElementById("response2_1");
+    let response2_2 = document.getElementById("response2_2");
+    let response2_3 = document.getElementById("response2_3");
+    let response2_4 = document.getElementById("response2_4");
+    let response2_5 = document.getElementById("response2_5");
+
+    response2_1.style.display = "";
+    response2_2.style.display = "";
+    response2_3.style.display = "";
+    response2_4.style.display = "";
+    response2_5.style.display = "";
+
+    // komunikasi("/app/dashboard/bab2/materi2.html?page=4");
   } else {
     return null;
   }
@@ -128,6 +174,8 @@ function checkAnswer(questionNumber, setNumber) {
   var responseElement = document.getElementById(
     "response" + setNumber + "_" + questionNumber
   );
+
+  responseElement.style.display = "none";
 
   // Check if selected option is correct
   if (selectedOption === correctAnswer.toString()) {

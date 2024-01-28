@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     td2.innerHTML = `
        <div id="image-dropdown-${index}"></div>
-<div id="result-container-${index}" class="mt-2"></div>
+<div id="result-container-${index}" class="mt-2" style="display:none"></div>
 
        `;
     td3.innerHTML = `
@@ -173,7 +173,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     td2.innerHTML = `
         <div id="image-dropdown-menalar-${index}"></div>
-<div id="result2-container-${index}" class="mt-2"></div>
+<div id="result2-container-${index}" class="mt-2" style="display:none"></div>
 
       `;
     td3.innerHTML = `
@@ -436,6 +436,7 @@ menalarContainer.addEventListener("click", function (event) {
 
 function taskResult(type) {
   event.preventDefault();
+  respon1.style.display = "";
 
   if (type === "mengamati") {
     const mengamatiSets = [
@@ -459,7 +460,13 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub1_2_1", total);
-    komunikasi("/app/dashboard/bab1/materi2.html?page=1");
+
+    resultMessage1.style.display = "";
+    resultMessage2.style.display = "";
+    resultMessage3.style.display = "";
+    resultMessage4.style.display = "";
+
+    // komunikasi("/app/dashboard/bab1/materi2.html?page=1");
   } else if (type === "berlatih") {
     const berlatihSets = [
       "berlatih1",
@@ -484,7 +491,13 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub1_2_2", total);
-    komunikasi("/app/dashboard/bab1/materi2.html?page=2");
+
+    resultMessage5.style.display = "";
+    resultMessage6.style.display = "";
+    resultMessage7.style.display = "";
+    resultMessage8.style.display = "";
+    resultMessage9.style.display = "";
+    // komunikasi("/app/dashboard/bab1/materi2.html?page=2");
   } else {
     return null;
   }
@@ -823,7 +836,7 @@ function kirimMencoba() {
   localStorage.setItem("sub2_mencoba", (trueCount / 4) * 100);
 
   // Optionally, you can return the trueCount value
-  komunikasi("/app/dashboard/bab1/materi2.html?page=3");
+  // komunikasi("/app/dashboard/bab1/materi2.html?page=3");
 }
 
 let menalarArr = [];
@@ -862,7 +875,7 @@ function kirimMenalar() {
   localStorage.setItem("sub2_menalar", (trueCount / 3) * 100);
 
   // Optionally, you can return the trueCount value
-  komunikasi("/app/dashboard/bab1/materi2.html?page=4");
+  // komunikasi("/app/dashboard/bab1/materi2.html?page=4");
 }
 
 function clearAll() {
@@ -895,3 +908,16 @@ function clearAll() {
     dropdownButton.innerText = "Pilih Simbol";
   }
 }
+
+let respon1 = document.getElementById("respon1");
+
+let resultMessage1 = document.getElementById("resultMessage1");
+let resultMessage2 = document.getElementById("resultMessage2");
+let resultMessage3 = document.getElementById("resultMessage3");
+let resultMessage4 = document.getElementById("resultMessage4");
+
+let resultMessage5 = document.getElementById("resultMessage5");
+let resultMessage6 = document.getElementById("resultMessage6");
+let resultMessage7 = document.getElementById("resultMessage7");
+let resultMessage8 = document.getElementById("resultMessage8");
+let resultMessage9 = document.getElementById("resultMessage9");

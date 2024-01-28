@@ -135,3 +135,51 @@ initializePagination();
 // Add event listeners for filter options
 document.getElementById("babFilter").addEventListener("change", populateTable);
 document.getElementById("subFilter").addEventListener("change", populateTable);
+
+// Function to convert table data to Excel and trigger download
+const downloadExcel = () => {
+  // Select the table element
+  const table = document.querySelector(".data_kuis");
+
+  // Convert the table to a worksheet
+  const ws = XLSX.utils.table_to_sheet(table);
+
+  // Create a workbook with the worksheet
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Data");
+
+  // Generate a binary string from the workbook
+  const wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
+
+  // Convert binary string to Blob
+  const blob = new Blob([s2ab(wbout)], { type: "application/octet-stream" });
+
+  // Create a download link
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "data_kuis.xlsx";
+
+  // Append the link to the document and trigger the download
+  document.body.appendChild(a);
+  a.click();
+
+  // Cleanup
+  setTimeout(() => {
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }, 0);
+};
+
+// Function to convert string to ArrayBuffer
+const s2ab = (s) => {
+  const buf = new ArrayBuffer(s.length);
+  const view = new Uint8Array(buf);
+  for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
+  return buf;
+};
+
+// Attach event listener to the download button
+document
+  .getElementById("downloadExcelBtn")
+  .addEventListener("click", downloadExcel);

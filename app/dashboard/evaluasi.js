@@ -32,9 +32,14 @@ const btnNextQuestionTwo = document.getElementById("btn-next");
 const listButtonQuiz = document.getElementById("btn-kuis");
 const dataSiswa = document.getElementById("list-data-siswa");
 const nilaiEvaluasi = document.getElementById("nilai-evaluasi1");
+let hasilkuis = document.getElementById("hasil-kuis");
+const dataSiswa2 = document.getElementById("list-data-siswa2");
+let sidebar = document.getElementById("sidebar");
 
 // add data siswa ke dom
+const nilai = parseInt(localStorage.getItem("evaluasi1_1"));
 const user = JSON.parse(localStorage.getItem("user"));
+
 dataSiswa.innerHTML = Object.keys(user)
   .filter((key) => {
     if (
@@ -51,8 +56,28 @@ dataSiswa.innerHTML = Object.keys(user)
   })
   .join("\n");
 
-const nilai = parseInt(localStorage.getItem("evaluasi1_1"));
-nilaiEvaluasi.innerHTML = `<p>Nilai Evaluasi : ${nilai ? nilai : 0}</p>`;
+// Customizable keys and their display names
+const customKeys = [
+  { key: "email", displayName: "Email" },
+  { key: "name", displayName: "Nama" },
+  { key: "sekolah", displayName: "Sekolah" },
+  { key: "kelas", displayName: "Kelas" },
+  { key: "nilaiEvaluasi", displayName: "Nilai Evaluasi" }, // Add the new key-value pair for nilaiEvaluasi
+];
+
+// Insert nilaiEvaluasi into user object
+user.nilaiEvaluasi = nilai ? nilai : 0;
+
+// Display nilaiEvaluasi
+nilaiEvaluasi.innerHTML = `<p>Nilai Evaluasi : ${user.nilaiEvaluasi}</p>`;
+
+// Display user data
+dataSiswa2.innerHTML = customKeys
+  .map(({ key, displayName }) => {
+    // Map custom keys and values to HTML list items
+    return `<li>${displayName} : ${user[key]}</li>`;
+  })
+  .join("\n");
 
 let numberQuiz = 1;
 btnStart.addEventListener("click", () => {
@@ -101,6 +126,8 @@ function startQuiz() {
           numbQuiz.classList.remove("hidden");
           startCountdown();
           renderQuiz();
+          sidebar.remove();
+          hasilkuis.remove();
         },
       }).then((result) => {
         /* Read more about handling dismissals below */
@@ -111,6 +138,59 @@ function startQuiz() {
     }
   });
 }
+
+// Find the "Selesai" button by its id
+const selesaiButton = document.querySelector("#selesai-button");
+
+// Add an event listener to the button
+selesaiButton.addEventListener("click", function () {
+  // Execute the else block directly
+  Swal.fire({
+    title: "Apakah kamu yakin ingin menyelesaikan kuis ini?",
+    text: "Kamu tidak bisa mengubahnya kembali!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Ya, Saya yakin ingin menyelesaikan kuis ini",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      taskResult(`kuis`);
+      console.log(selectedAnswers);
+      Swal.fire({
+        title: "Akan tertutup otomatis",
+        html: "Proses menyelesaikan dalam waktu <b></b> milidetik.",
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
+        },
+        willClose: () => {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Terima kasih telah mengerjakan kuis ini",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          clearInterval(timerInterval);
+          window.setTimeout(function () {
+            window.location.href = "./evaluasi.html";
+          }, 1500);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+      });
+    }
+  });
+});
 
 function nextQuestion() {
   if (numberQuiz < 20) {
@@ -123,6 +203,8 @@ function nextQuestion() {
 
     numberQuiz++;
     renderQuiz();
+
+    restoreSelectedAnswer();
   } else {
     Swal.fire({
       title: "Apakah kamu yakin ingin menyelesaikan kuis ini?",
@@ -181,6 +263,8 @@ function previousQuestion() {
 
   numberQuiz--;
   renderQuiz();
+
+  restoreSelectedAnswer();
 }
 
 function renderQuiz() {
@@ -196,6 +280,19 @@ function renderQuiz() {
     }
   }
 
+  for (let i = 1; i <= 10; i++) {
+    const questionButton = document.querySelector(`#btn-kuis${i}`);
+    if (questionButton) {
+      questionButton.classList.remove("bg-black", "text-white");
+    }
+  }
+
+  // Highlight the active question button
+  const activeQuestionButton = document.querySelector(`#btn-kuis${numberQuiz}`);
+  if (activeQuestionButton) {
+    activeQuestionButton.classList.add("bg-black", "text-white");
+  }
+
   // console.log("running quiz no ", numberQuiz);
   switch (numberQuiz) {
     case 1:
@@ -203,6 +300,7 @@ function renderQuiz() {
       listQuestionOne.classList.add("bg-black", "text-white");
       listQuestionTwo.classList.remove("bg-black", "text-white");
       btnNextQuestionTwo.innerText = "Selanjutnya";
+      btnNextQuestionTwo.style.backgroundColor = "blue";
       numberQuestion.innerText =
         "1. Budi mempunyai koleki e-nam topi. Lambang bilangan e-nam adalah …";
 
@@ -238,6 +336,8 @@ function renderQuiz() {
       listQuestionTwo.classList.add("bg-black", "text-white");
       listQuestionOne.classList.remove("bg-black", "text-white");
       listQuestionThree.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -272,6 +372,8 @@ function renderQuiz() {
       listQuestionTwo.classList.remove("bg-black", "text-white");
       listQuestionFour.classList.remove("bg-black", "text-white");
       listQuestionThree.classList.add("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -307,6 +409,8 @@ function renderQuiz() {
       listQuestionThree.classList.remove("bg-black", "text-white");
       listQuestionFour.classList.add("bg-black", "text-white");
       listQuestionFive.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -334,6 +438,8 @@ function renderQuiz() {
       listQuestionFour.classList.remove("bg-black", "text-white");
       listQuestionFive.classList.add("bg-black", "text-white");
       listQuestionSix.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -368,6 +474,8 @@ function renderQuiz() {
       listQuestionFive.classList.remove("bg-black", "text-white");
       listQuestionSix.classList.add("bg-black", "text-white");
       listQuestionSeven.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -409,6 +517,8 @@ function renderQuiz() {
       listQuestionSix.classList.remove("bg-black", "text-white");
       listQuestionSeven.classList.add("bg-black", "text-white");
       listQuestionEight.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -450,6 +560,8 @@ function renderQuiz() {
       listQuestionSeven.classList.remove("bg-black", "text-white");
       listQuestionEight.classList.add("bg-black", "text-white");
       listQuestionNine.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -492,6 +604,8 @@ function renderQuiz() {
       listQuestionEight.classList.remove("bg-black", "text-white");
       listQuestionNine.classList.add("bg-black", "text-white");
       listQuestionTen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -534,6 +648,8 @@ function renderQuiz() {
       listQuestionTen.classList.add("bg-black", "text-white");
       listQuestionNine.classList.remove("bg-black", "text-white");
       listQuestionEleven.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -569,6 +685,8 @@ function renderQuiz() {
       listQuestionTen.classList.remove("bg-black", "text-white");
       listQuestionEleven.classList.add("bg-black", "text-white");
       listQuestionTwelve.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -597,6 +715,8 @@ function renderQuiz() {
       listQuestionEleven.classList.remove("bg-black", "text-white");
       listQuestionTwelve.classList.add("bg-black", "text-white");
       listQuestionThirteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -625,6 +745,8 @@ function renderQuiz() {
       listQuestionTwelve.classList.remove("bg-black", "text-white");
       listQuestionThirteen.classList.add("bg-black", "text-white");
       listQuestionFourteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -653,6 +775,8 @@ function renderQuiz() {
       listQuestionThirteen.classList.remove("bg-black", "text-white");
       listQuestionFourteen.classList.add("bg-black", "text-white");
       listQuestionFiveteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -681,6 +805,8 @@ function renderQuiz() {
       listQuestionFourteen.classList.remove("bg-black", "text-white");
       listQuestionFiveteen.classList.add("bg-black", "text-white");
       listQuestionSixteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -709,6 +835,8 @@ function renderQuiz() {
       listQuestionFiveteen.classList.remove("bg-black", "text-white");
       listQuestionSixteen.classList.add("bg-black", "text-white");
       listQuestionSeventeen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -736,6 +864,8 @@ function renderQuiz() {
       listQuestionSixteen.classList.remove("bg-black", "text-white");
       listQuestionSeventeen.classList.add("bg-black", "text-white");
       listQuestionEightteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -774,6 +904,8 @@ function renderQuiz() {
       listQuestionSeventeen.classList.remove("bg-black", "text-white");
       listQuestionEightteen.classList.add("bg-black", "text-white");
       listQuestionNineteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -812,6 +944,8 @@ function renderQuiz() {
       listQuestionEightteen.classList.remove("bg-black", "text-white");
       listQuestionNineteen.classList.add("bg-black", "text-white");
       listQuestionTwenty.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -838,8 +972,9 @@ function renderQuiz() {
       numberQuestion.innerText = "20. Enam ditambah satu sama dengan tujuh";
       listQuestionNineteen.classList.remove("bg-black", "text-white");
       listQuestionTwenty.classList.add("bg-black", "text-white");
-      btnPrev.classList.add("hidden");
+      // btnPrev.classList.add("hidden");
       btnNextQuestionTwo.innerText = "Selesaikan Evaluasi";
+      btnNextQuestionTwo.style.backgroundColor = "green";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -868,6 +1003,17 @@ function renderQuiz() {
   }
 }
 
+// Add event listeners to track changes in the selected answer
+document.querySelectorAll("button[id^='btn-kuis']").forEach((button) => {
+  button.addEventListener("click", function () {
+    // Remove styling from all buttons
+    document.querySelectorAll("button[id^='btn-kuis']").forEach((btn) => {
+      btn.classList.remove("bg-black", "text-white");
+    });
+    // Add styling to the clicked button
+    this.classList.add("bg-black", "text-white");
+  });
+});
 /**
  * & Function to count down
  */
@@ -1015,12 +1161,12 @@ function checkAndDisplayResultForName(name) {
   if (nilai >= kkm) {
     // If true, display "Selamat Anda Lulus Kuis"
     document.getElementById("kkm-evaluasi1").innerText =
-      "Selamat Anda Lulus Kuis";
+      "Selamat, anda lulus Evaluasi, silahkan melanjutkan ke materi berikutnya";
     document.getElementById("kkm-evaluasi1").style.color = "green";
   } else {
     // If false, display "Anda Belum Lulus Kuis"
     document.getElementById("kkm-evaluasi1").innerText =
-      "Anda Belum Lulus Kuis";
+      "Nilai dari hasil kuis anda di bawah KKM, silahkan tekan 'Kembali ke Materi' untuk mengulang materi kembali. Lalu coba kembali kuis dengan menekan 'Mulai Kuis'";
     document.getElementById("kkm-evaluasi1").style.color = "red";
   }
 }
@@ -1030,3 +1176,147 @@ function checkAndDisplayResultForName(name) {
 
 // Call the function to check and display results for a specific name
 checkAndDisplayResultForName("evaluasi");
+
+listQuestionOne.addEventListener("click", () => {
+  switchQuestion(1);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionTwo.addEventListener("click", () => {
+  switchQuestion(2);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionThree.addEventListener("click", () => {
+  switchQuestion(3);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionFour.addEventListener("click", () => {
+  switchQuestion(4);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionFive.addEventListener("click", () => {
+  switchQuestion(5);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionSix.addEventListener("click", () => {
+  switchQuestion(6);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionSeven.addEventListener("click", () => {
+  switchQuestion(7);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionEight.addEventListener("click", () => {
+  switchQuestion(8);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionNine.addEventListener("click", () => {
+  switchQuestion(9);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionTen.addEventListener("click", () => {
+  switchQuestion(10);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionEleven.addEventListener("click", () => {
+  switchQuestion(11);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionTwelve.addEventListener("click", () => {
+  switchQuestion(12);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionThirteen.addEventListener("click", () => {
+  switchQuestion(13);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionFourteen.addEventListener("click", () => {
+  switchQuestion(14);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionFiveteen.addEventListener("click", () => {
+  switchQuestion(15);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionSixteen.addEventListener("click", () => {
+  switchQuestion(16);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionSeventeen.addEventListener("click", () => {
+  switchQuestion(17);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionEightteen.addEventListener("click", () => {
+  switchQuestion(18);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionNineteen.addEventListener("click", () => {
+  switchQuestion(19);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+listQuestionTwenty.addEventListener("click", () => {
+  switchQuestion(20);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+});
+
+// Function to switch to a specific question
+function switchQuestion(questionNumber) {
+  // Save the current answer before switching
+  saveCurrentAnswer();
+
+  // Set the new question number
+  numberQuiz = questionNumber;
+
+  // Render the new question
+  renderQuiz();
+
+  restoreSelectedAnswer();
+}
+
+function saveCurrentAnswer() {
+  const selectedOption = document.querySelector(
+    `input[name="evaluasi1_${numberQuiz}"]:checked`
+  );
+  if (selectedOption) {
+    selectedAnswers[numberQuiz - 1] = selectedOption.value;
+  }
+}
+
+function restoreSelectedAnswer() {
+  const selectedAnswer = selectedAnswers[numberQuiz - 1];
+  if (selectedAnswer !== undefined) {
+    const selectedOption = document.querySelector(
+      `input[name="evaluasi1_${numberQuiz}"][value="${selectedAnswer}"]`
+    );
+    if (selectedOption) {
+      selectedOption.checked = true;
+    }
+  } else {
+    // If there is no stored answer, uncheck all radio buttons for this question
+    const options = document.querySelectorAll(
+      `input[name="evaluasi1_${numberQuiz}"]`
+    );
+    options.forEach((option) => {
+      option.checked = false;
+    });
+  }
+}

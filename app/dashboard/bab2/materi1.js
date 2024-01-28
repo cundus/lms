@@ -16,6 +16,9 @@ function updateTotal(questionNumber) {
     "responseOption2Question" + questionNumber
   );
 
+  responseElementOption1.style.display = "none";
+  responseElementOption2.style.display = "none";
+
   // Perform the calculation
   var total = option1 + option2;
 
@@ -81,7 +84,89 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub2_1", total);
-    komunikasi("/app/dashboard/bab2/materi1.html?page=2");
+
+    let responseOption1Question1 = document.getElementById(
+      "responseOption1Question1"
+    );
+    let responseOption1Question2 = document.getElementById(
+      "responseOption1Question2"
+    );
+    let responseOption1Question3 = document.getElementById(
+      "responseOption1Question3"
+    );
+    let responseOption1Question4 = document.getElementById(
+      "responseOption1Question4"
+    );
+    let responseOption1Question5 = document.getElementById(
+      "responseOption1Question5"
+    );
+    let responseOption1Question6 = document.getElementById(
+      "responseOption1Question6"
+    );
+    let responseOption1Question7 = document.getElementById(
+      "responseOption1Question7"
+    );
+    let responseOption1Question8 = document.getElementById(
+      "responseOption1Question8"
+    );
+    let responseOption1Question9 = document.getElementById(
+      "responseOption1Question9"
+    );
+    let responseOption1Question10 = document.getElementById(
+      "responseOption1Question10"
+    );
+    let responseOption2Question1 = document.getElementById(
+      "responseOption2Question1"
+    );
+    let responseOption2Question2 = document.getElementById(
+      "responseOption2Question2"
+    );
+    let responseOption2Question3 = document.getElementById(
+      "responseOption2Question3"
+    );
+    let responseOption2Question4 = document.getElementById(
+      "responseOption2Question4"
+    );
+    let responseOption2Question5 = document.getElementById(
+      "responseOption2Question5"
+    );
+    let responseOption2Question6 = document.getElementById(
+      "responseOption2Question7"
+    );
+    let responseOption2Question7 = document.getElementById(
+      "responseOption2Question7"
+    );
+    let responseOption2Question8 = document.getElementById(
+      "responseOption2Question8"
+    );
+    let responseOption2Question9 = document.getElementById(
+      "responseOption2Question9"
+    );
+    let responseOption2Question10 = document.getElementById(
+      "responseOption2Question10"
+    );
+
+    responseOption1Question1.style.display = "";
+    responseOption1Question2.style.display = "";
+    responseOption1Question3.style.display = "";
+    responseOption1Question4.style.display = "";
+    responseOption1Question5.style.display = "";
+    responseOption1Question6.style.display = "";
+    responseOption1Question7.style.display = "";
+    responseOption1Question8.style.display = "";
+    responseOption1Question9.style.display = "";
+    responseOption1Question10.style.display = "";
+    responseOption2Question1.style.display = "";
+    responseOption2Question2.style.display = "";
+    responseOption2Question3.style.display = "";
+    responseOption2Question4.style.display = "";
+    responseOption2Question5.style.display = "";
+    responseOption2Question6.style.display = "";
+    responseOption2Question7.style.display = "";
+    responseOption2Question8.style.display = "";
+    responseOption2Question9.style.display = "";
+    responseOption2Question10.style.display = "";
+    // komunikasi("/app/dashboard/bab2/materi1.html?page=2");
   } else {
     return null;
   }

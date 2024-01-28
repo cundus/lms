@@ -452,7 +452,7 @@ window.addEventListener("DOMContentLoaded", () => {
   
         `;
     td3.innerHTML = `
-          <div id="result3-container-${index}" class="mt-2"></div>
+          <div id="result3-container-${index}" class="mt-2" style="display:none"></div>
         `;
     tr.appendChild(td1);
     tr.appendChild(td2);
@@ -1071,7 +1071,13 @@ function taskResult(type) {
     const resultCount = resultArray.length;
     const total = (resultCount / average) * 100;
     localStorage.setItem("sub1_1_2", total);
-    komunikasi("/app/dashboard/bab1/materi1.html?page=4");
+
+    resultMessage4.style.display = "block";
+    resultMessage5.style.display = "block";
+    resultMessage6.style.display = "block";
+    resultMessage7.style.display = "block";
+    resultMessage8.style.display = "block";
+    // komunikasi("/app/dashboard/bab1/materi1.html?page=4");
   } else {
     return null;
   }
@@ -1253,25 +1259,8 @@ function submitAnswers() {
   localStorage.setItem("sub1_menalar", (trueCount / 8) * 100);
   localStorage.setItem("sub1_menalar_jawaban", JSON.stringify(menalarJawaban));
 
-  komunikasi("/app/dashboard/bab1/materi1.html?page=6");
+  // komunikasi("/app/dashboard/bab1/materi1.html?page=6");
 }
-
-// Attach the input event listener to each input field to update response immediately
-tableBody.querySelectorAll("input").forEach((input, index) => {
-  input.addEventListener("input", function () {
-    let userInput = input.value.toLowerCase();
-    let correctAnswer = menalarArr[index].angka.toLowerCase();
-    let responseElement = tableBody.rows[index].cells[2];
-
-    if (userInput === correctAnswer) {
-      responseElement.textContent = "Kamu Benar!";
-      responseElement.style.color = "green";
-    } else {
-      responseElement.textContent = "Kamu Salah!";
-      responseElement.style.color = "red";
-    }
-  });
-});
 
 function clearAll() {
   for (let index = 0; index < menalarArr.length; index++) {
@@ -1483,7 +1472,7 @@ function kirimMenulis() {
   // Optionally, you can return the trueCount value
   // kirimData("Bab 1", "Menulis Nama Bilangan", "sub1_menulis");
 
-  komunikasi("/app/dashboard/bab1/materi1.html?page=2");
+  // komunikasi("/app/dashboard/bab1/materi1.html?page=2");
 }
 
 let menghitungArr = [];
@@ -1522,7 +1511,7 @@ function kirimMenghitung() {
   localStorage.setItem("sub1_menghitung", (trueCount / 3) * 100);
 
   // Optionally, you can return the trueCount value
-  komunikasi("/app/dashboard/bab1/materi1.html?page=3");
+  // komunikasi("/app/dashboard/bab1/materi1.html?page=3");
 }
 
 let berlatihArr = [];
@@ -1574,3 +1563,23 @@ function selesaiBerlatih() {
 //   let res = parseInt(localStorage.getItem(`${nilai}`));
 //   insertBerlatih(bab, sub, res);
 // }
+
+let resultMessage4 = document.getElementById("resultMessage4");
+let resultMessage5 = document.getElementById("resultMessage5");
+let resultMessage6 = document.getElementById("resultMessage6");
+let resultMessage7 = document.getElementById("resultMessage7");
+let resultMessage8 = document.getElementById("resultMessage8");
+
+resultMessage4.style.display = "none";
+resultMessage5.style.display = "none";
+resultMessage6.style.display = "none";
+resultMessage7.style.display = "none";
+resultMessage8.style.display = "none";
+
+// let result3container0 = document.getElementById("result3-container-0");
+// let result3container1 = document.getElementById("result3-container-1");
+// let result3container2 = document.getElementById("result3-container-2");
+
+// result3container0.style.display = "hidden";
+// result3container1.style.display = "hidden";
+// result3container2.style.display = "hidden";
