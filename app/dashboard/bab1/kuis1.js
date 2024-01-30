@@ -171,7 +171,7 @@ selesaiButton.addEventListener("click", function () {
           });
           clearInterval(timerInterval);
           window.setTimeout(function () {
-            window.location.href = "./kuis2.html";
+            window.location.href = "./kuis1.html";
           }, 1500);
         },
       }).then((result) => {
