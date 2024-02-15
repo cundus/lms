@@ -86,7 +86,7 @@ btnStart.addEventListener("click", () => {
 btnNextQuestionTwo.addEventListener("click", nextQuestion);
 btnPrev.addEventListener("click", previousQuestion);
 
-const selectedAnswers = Array.from({ length: 10 }, () => undefined); // To store selected answers for each question
+const selectedAnswers = Array.from({ length: 20 }, () => undefined); // To store selected answers for each question
 
 function startQuiz() {
   Swal.fire({
@@ -155,7 +155,7 @@ selesaiButton.addEventListener("click", function () {
     confirmButtonText: "Ya, Saya yakin ingin menyelesaikan kuis ini",
   }).then((result) => {
     if (result.isConfirmed) {
-      taskResult(`kuis`);
+      taskResult(`evaluasi`);
       console.log(selectedAnswers);
       Swal.fire({
         title: "Akan tertutup otomatis",
@@ -1166,7 +1166,7 @@ function checkAndDisplayResultForName(name) {
   } else {
     // If false, display "Anda Belum Lulus Kuis"
     document.getElementById("kkm-evaluasi1").innerText =
-      "Nilai dari hasil kuis anda di bawah KKM, silahkan tekan 'Kembali ke Materi' untuk mengulang materi kembali. Lalu coba kembali kuis dengan menekan 'Mulai Kuis'";
+      "Nilai dari hasil evaluasi anda di bawah KKM, silahkan tekan 'Kembali ke Materi' untuk mengulang materi kembali. Lalu coba kembali evaluasi dengan menekan 'Mulai Evaluasi'";
     document.getElementById("kkm-evaluasi1").style.color = "red";
   }
 }
@@ -1320,3 +1320,19 @@ function restoreSelectedAnswer() {
     });
   }
 }
+
+document.addEventListener("click", function (event) {
+  const clickedElement = event.target;
+  if (clickedElement.type === "radio") {
+    const questionNumber = clickedElement.name.split("_")[1];
+    console.log("Clicked radio button for question:", questionNumber);
+
+    const selectedOption = document.querySelector(
+      `input[name="evaluasi1_${questionNumber}"]:checked`
+    );
+    if (selectedOption) {
+      selectedAnswers[questionNumber - 1] = selectedOption.value;
+    }
+    console.log(selectedAnswers);
+  }
+});

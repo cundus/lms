@@ -169,7 +169,7 @@ selesaiButton.addEventListener("click", function () {
           });
           clearInterval(timerInterval);
           window.setTimeout(function () {
-            window.location.href = "./kuis1.html";
+            window.location.href = "./kuis2.html";
           }, 1500);
         },
       }).then((result) => {
@@ -896,3 +896,19 @@ function restoreSelectedAnswer() {
     });
   }
 }
+
+document.addEventListener("click", function (event) {
+  const clickedElement = event.target;
+  if (clickedElement.type === "radio") {
+    const questionNumber = clickedElement.name.split("_")[1];
+    console.log("Clicked radio button for question:", questionNumber);
+
+    const selectedOption = document.querySelector(
+      `input[name="kuis2_${questionNumber}"]:checked`
+    );
+    if (selectedOption) {
+      selectedAnswers[questionNumber - 1] = selectedOption.value;
+    }
+    console.log(selectedAnswers);
+  }
+});

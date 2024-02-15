@@ -131,7 +131,10 @@
     </header>
 
     <div class="w-full flex">
-      <div class="sidebar min-h-screen px-1">
+      <div class="sidebar min-h-screen px-1" id="sidebar">
+        <div class="flex justify-end items-end">
+          <i class="fa-solid fa-bars cursor-pointer" id="sidebarToggle"></i>
+        </div>
         <div class="w-full flex flex-col justify-center items-center">
           <img
             src="../../../assets/image/user.png"
@@ -183,6 +186,9 @@
         </div>
       </div>
       <div class="content px-1">
+        <div class="cursor-pointer hidden" id="sidebarToggleMain">
+          <i class="fa-solid fa-bars"></i>
+        </div>
         <div class="main-content">
           <div class="flex py-1 justify-center">
             <p
@@ -979,5 +985,38 @@
       src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/components/card/card.js"
     ></script>
     <!-- End Script for Shoelace style -->
+
+    <script>
+      let sidebar = document.getElementById("sidebar");
+      let sidebarToggle = document.getElementById("sidebarToggle");
+      let sidebarToggleMain = document.getElementById("sidebarToggleMain");
+
+      // Check if the sidebar element is successfully retrieved
+      if (sidebar && sidebarToggle && sidebarToggleMain) {
+        console.log("Sidebar element found:", sidebar);
+
+        let hidden = false;
+
+        function hideSidebar() {
+          if (hidden === true) {
+            sidebar.classList.remove("hidden");
+            sidebarToggleMain.classList.add("hidden"); // Hide the main toggle button
+            sidebarToggle.classList.remove("hidden");
+            hidden = false;
+          } else {
+            sidebar.classList.add("hidden");
+            sidebarToggleMain.classList.remove("hidden"); // Show the main toggle button
+            sidebarToggle.classList.remove("hidden");
+            hidden = true;
+          }
+        }
+
+        // Attach click event listener to the sidebar toggle buttons
+        sidebarToggle.addEventListener("click", hideSidebar);
+        sidebarToggleMain.addEventListener("click", hideSidebar);
+      } else {
+        console.log("Sidebar element or toggle buttons not found.");
+      }
+    </script>
   </body>
 </html>
