@@ -61,6 +61,9 @@
 
     <div class="w-full flex">
       <div id="sidebar" class="sidebar min-h-screen px-1">
+        <div class="flex justify-end items-end">
+          <i class="fa-solid fa-bars cursor-pointer" id="sidebarToggle"></i>
+        </div>
         <div class="w-full flex flex-col justify-center items-center">
           <img
             src="../../../assets/image/user.png"
@@ -114,6 +117,9 @@
         </div>
       </div>
       <div class="content w-full px-1">
+        <div class="cursor-pointer hidden" id="sidebarToggleMain">
+          <i class="fa-solid fa-bars"></i>
+        </div>
         <div class="main-content flex flex-wrap">
           <!-- * Preparation Before Start Quiz -->
 
@@ -421,5 +427,37 @@
     <script src="./kuis2.js"></script>
     <!-- End Script for Shoelace style -->
     <script type="module" src="/util/js/db.js"></script>
+
+    <script>
+      let sidebarToggle = document.getElementById("sidebarToggle");
+      let sidebarToggleMain = document.getElementById("sidebarToggleMain");
+
+      // Check if the sidebar element is successfully retrieved
+      if (sidebar && sidebarToggle && sidebarToggleMain) {
+        console.log("Sidebar element found:", sidebar);
+
+        let hidden = false;
+
+        function hideSidebar() {
+          if (hidden === true) {
+            sidebar.classList.remove("hidden");
+            sidebarToggleMain.classList.add("hidden"); // Hide the main toggle button
+            sidebarToggle.classList.remove("hidden");
+            hidden = false;
+          } else {
+            sidebar.classList.add("hidden");
+            sidebarToggleMain.classList.remove("hidden"); // Show the main toggle button
+            sidebarToggle.classList.remove("hidden");
+            hidden = true;
+          }
+        }
+
+        // Attach click event listener to the sidebar toggle buttons
+        sidebarToggle.addEventListener("click", hideSidebar);
+        sidebarToggleMain.addEventListener("click", hideSidebar);
+      } else {
+        console.log("Sidebar element or toggle buttons not found.");
+      }
+    </script>
   </body>
 </html>

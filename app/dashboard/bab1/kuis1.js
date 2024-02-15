@@ -185,6 +185,7 @@ selesaiButton.addEventListener("click", function () {
 });
 
 function nextQuestion() {
+  console.log(selectedAnswers);
   if (numberQuiz < 10) {
     const selectedOption = document.querySelector(
       `input[name="kuis1_${numberQuiz}"]:checked`
@@ -800,53 +801,53 @@ function checkAndDisplayResultForName(name) {
 checkAndDisplayResultForName("kuis 1");
 
 listQuestionOne.addEventListener("click", () => {
-  switchQuestion(1);
   saveCurrentAnswer();
+  switchQuestion(1);
   restoreSelectedAnswer();
 });
 listQuestionTwo.addEventListener("click", () => {
-  switchQuestion(2);
   saveCurrentAnswer();
+  switchQuestion(2);
   restoreSelectedAnswer();
 });
 listQuestionThree.addEventListener("click", () => {
-  switchQuestion(3);
   saveCurrentAnswer();
+  switchQuestion(3);
   restoreSelectedAnswer();
 });
 listQuestionFour.addEventListener("click", () => {
-  switchQuestion(4);
   saveCurrentAnswer();
+  switchQuestion(4);
   restoreSelectedAnswer();
 });
 listQuestionFive.addEventListener("click", () => {
-  switchQuestion(5);
   saveCurrentAnswer();
+  switchQuestion(5);
   restoreSelectedAnswer();
 });
 listQuestionSix.addEventListener("click", () => {
-  switchQuestion(6);
   saveCurrentAnswer();
+  switchQuestion(6);
   restoreSelectedAnswer();
 });
 listQuestionSeven.addEventListener("click", () => {
-  switchQuestion(7);
   saveCurrentAnswer();
+  switchQuestion(7);
   restoreSelectedAnswer();
 });
 listQuestionEight.addEventListener("click", () => {
-  switchQuestion(8);
   saveCurrentAnswer();
+  switchQuestion(8);
   restoreSelectedAnswer();
 });
 listQuestionNine.addEventListener("click", () => {
-  switchQuestion(9);
   saveCurrentAnswer();
+  switchQuestion(9);
   restoreSelectedAnswer();
 });
 listQuestionTen.addEventListener("click", () => {
-  switchQuestion(10);
   saveCurrentAnswer();
+  switchQuestion(10);
   restoreSelectedAnswer();
 });
 
@@ -892,3 +893,19 @@ function restoreSelectedAnswer() {
     });
   }
 }
+
+document.addEventListener("click", function (event) {
+  const clickedElement = event.target;
+  if (clickedElement.type === "radio") {
+    const questionNumber = clickedElement.name.split("_")[1];
+    console.log("Clicked radio button for question:", questionNumber);
+
+    const selectedOption = document.querySelector(
+      `input[name="kuis1_${questionNumber}"]:checked`
+    );
+    if (selectedOption) {
+      selectedAnswers[questionNumber - 1] = selectedOption.value;
+    }
+    console.log(selectedAnswers);
+  }
+});
