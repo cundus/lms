@@ -711,7 +711,7 @@ function taskResult(type) {
 
     const average = 10; //total soal
 
-    const jawaban = ["a", "c", "b", "a", "c", "b", "a", "c", "b", "a"]; // jawaban per soal + harus urut
+    const jawaban = ["a", "b", "c", "a", "b", "c", "a", "b", "c", "a"]; // jawaban per soal + harus urut
 
     const resultArray = matchAdjacentElements(jawaban, kuis_array);
     const resultCount = resultArray.length;
