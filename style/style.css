@@ -1,13 +1,12 @@
 .sidebar {
-  /* background: rgba(255, 200, 246, 0.5); */
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 0.5rem;
-  margin: 0.5rem;
+  /* margin: 0.5rem; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  background-color: #fff;
   padding: 1rem;
-  width: 24%;
-  max-width: 40%;
 }
 
 .content {
@@ -20,6 +19,11 @@
   backdrop-filter: blur(10px);
   color: black;
   width: 100%;
+  /* margin-top: -57rem; */
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
 }
 
 .text-content {
@@ -31,24 +35,27 @@
   padding: 1rem;
   color: black;
 }
+
 table,
 th,
 td {
   border: 1px solid black;
 }
+
 tr {
   text-align: center;
 }
 
 ol {
-  list-style-type: decimal; /* Pilih jenis angka yang diinginkan */
+  list-style-type: decimal;
+  /* Pilih jenis angka yang diinginkan */
 }
 
 .soal-berlatih li {
   padding: 1rem;
 }
 
-sl-tree-item > * {
+sl-tree-item>* {
   cursor: pointer;
   backdrop-filter: blur(10px);
   color: black;
@@ -56,17 +63,17 @@ sl-tree-item > * {
   font-weight: "bold";
 }
 
-sl-tree-item:hover > * {
+sl-tree-item:hover>* {
   color: rgb(222, 121, 205);
   font-weight: 600;
 }
 
-sl-tree-item[selected] > * {
+sl-tree-item[selected]>* {
   color: rgb(222, 121, 205);
   font-weight: 600;
 }
 
-sl-tree-item[expanded] > * {
+sl-tree-item[expanded]>* {
   font-weight: 600 !important;
   color: black;
 }
@@ -104,7 +111,7 @@ sl-tab-group {
   flex-direction: column;
   gap: 1rem;
   min-height: 100vh;
-  /* padding: 1rem; */
+  padding: 1rem;
   width: 100%;
   /* background: linear-gradient(to right, #36d1dc, #5b86e5); */
   /* border-radius: 1rem; */
@@ -116,7 +123,8 @@ sl-tab-group {
 }
 
 .main-content {
-  margin: 20px; /* Adjust margin as needed */
+  margin: 20px;
+  /* Adjust margin as needed */
 }
 
 .data_siswa,
@@ -163,4 +171,39 @@ sl-tab-group {
   margin-top: 10px;
   padding: 5px;
   cursor: pointer;
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 455px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    padding-bottom: 2rem;
+    z-index: 999;
+    overflow-y: scroll;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    padding-bottom: 2rem;
+    z-index: 999;
+    overflow-y: scroll;
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .sidebar {
+    width: 30%;
+  }
+
+  #sidebarToggle{
+    display: none;
+  }
 }

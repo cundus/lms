@@ -110,25 +110,28 @@
               Hello future greats with spirit of learning
             </p>
           </div>
-          <div class="w-full flex justify-between">
+          <div class="w-full lg:flex lg:justify-between">
             <a
-              href="../../beranda.html"
-              class="text-md px-6 py-4 font-bold underline decoration-slice"
+              href="/app/beranda.html"
+              class="text-sm md:text-md px-6 py-4 font-bold underline decoration-slice"
               >Back to Beranda</a
             >
-            <h3 class="px-6 py-4">
+
+            <h3 class="px-6 py-4 text-sm text:md">
               Anda saat ini berada pada tab:
-              <a
-                href="../dashboard.html"
-                class="font-bold underline decoration-solid"
-                >Dashboard Siswa
-              </a>
-              <span> > </span>
-              <a
-                href="./materi1.html"
-                class="font-bold underline decoration-solid"
-                >Materi Bab 1
-              </a>
+              <div class="flex-col">
+                <a
+                  href="/app/dashboard/dashboard.html"
+                  class="font-bold underline decoration-solid"
+                  >Dashboard Siswa
+                </a>
+                <span> > </span>
+                <a
+                  href="/app/dashboard/bab1/materi1.html"
+                  class="font-bold underline decoration-solid"
+                  >Materi Bab 1
+                </a>
+              </div>
             </h3>
           </div>
         </div>
@@ -136,16 +139,14 @@
     </header>
 
     <div class="w-full flex">
-      <div class="sidebar min-h-screen px-1" id="sidebar">
+       <!-- sidebar -->
+       <div id="sidebar" class="sidebar min-h-screen px-1 w-5/6">
         <div class="flex justify-end items-end">
           <i class="fa-solid fa-bars cursor-pointer" id="sidebarToggle"></i>
         </div>
 
         <div class="w-full flex flex-col justify-center items-center">
-          <img
-            src="../../../assets/image/user.png"
-            class="w-1/2 h-auto object-contain"
-          />
+          <img src="../../../assets/image/user.png" class="w-1/2 h-auto object-contain" />
           <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
         </div>
         <h2
@@ -155,30 +156,19 @@
           Daftar Isi
         </h2>
         <div class="flex flex-col gap-2">
-          <a href="../../dashboard/bab1/pendahuluan1.html" class="font-bold"
-            >Bab 1</a
-          >
+          <a href="../../dashboard/bab1/pendahuluan1.html" class="font-bold">Bab 1</a>
           <a href="../../dashboard/bab1/materi1.html"
             >- Menghitung,Membaca dan Menulis Bilangan</a
           >
           <a href="../../dashboard/bab1/materi2.html"
             >- Membandingkan Banyak Bilangan dalam Benda</a
           >
-          <a href="../../dashboard/bab1/materi3.html" class="font-semibold"
-            >- Menghitung Maju dan Mundur</a
-          >
+          <a href="../../dashboard/bab1/materi3.html">- Menghitung Maju dan Mundur</a>
           <a href="../../dashboard/bab1/materi4.html">- Pasangan Bilangan</a>
-          <a href="../../dashboard/bab1/kuis1.html">- Kuis BAB 1</a>
+          <a href="../../dashboard/bab1/kuis1.html" class="font-semibold">- Kuis BAB 1</a>
           <br />
-          <a href="../../dashboard/bab2/pendahuluan2.html" class="font-bold"
-            >Bab 2</a
-          >
-          <a href="../../dashboard/bab2/materi1.html"
-            >- Mengenal Simbol +, - atau =</a
-          >
-          <a href="../../dashboard/bab2/materi1.html"
-            >- Mengenal Simbol +, - atau =</a
-          >
+          <a href="../../dashboard/bab2/pendahuluan2.html" class="font-bold">Bab 2</a>
+          <a href="../../dashboard/bab2/materi1.html">- Mengenal Simbol +, - atau =</a>
           <a href="../../dashboard/bab2/materi2.html"
             >- Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a
           >
@@ -191,9 +181,9 @@
           <a href="../../dashboard/bab2/kuis2.html">- Kuis Bab 2 </a>
           <br />
           <a href="../../dashboard/evaluasi.html">Evaluasi</a>
-          <a href="/auth/login.html">Exit</a>
         </div>
       </div>
+      <!-- end sidebar -->
       <div class="content px-1">
         <div class="cursor-pointer hidden" id="sidebarToggleMain">
           <i class="fa-solid fa-bars"></i>

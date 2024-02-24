@@ -18,25 +18,21 @@
   </head>
   <body class="bg-gradient-to-r from-blue-500 to-purple-500">
     <!-- Login Belum Jalan -->
+    <div
+      class="flex justify-center flex-col md:items-center md:mt-20 md:gap-6 md:flex md:px-6 lg:flex-row lg:justify-center lg:items-center lg:mt-52 lg:gap-24"
+    >
+      <div class="mt-14 md:mt-0 md:flex items-center justify-center">
+        <img src="/assets/image/home.png" class="object-contain" alt="" />
+      </div>
 
-    <div class="flex gap-64 ml-24">
-      <img src="/assets/image/home.png" class="object-contain" alt="" />
-
-      <section
-        id="login"
-        class="h-screen w-max flex items-center justify-center"
-      >
+      <section id="login" class="flex items-center justify-center">
         <div
-          class="bg-white bg-opacity-30 p-8 rounded-md shadow-md backdrop-filter backdrop-blur-lg"
+          class="bg-white bg-opacity-30 p-5 max-w-5xl rounded-md shadow-md backdrop-filter backdrop-blur-lg"
         >
-          <h2 id="textTitle" class="text-3xl font-bold text-white mb-4"></h2>
-          <form
-            id="loginForm"
-            method="post"
-            action="#"
-            class="mb-4"
-            autocomplete="off"
-          >
+          <h2 id="textTitle" class="text-3xl font-bold text-white mb-4 text-center">
+            Login
+          </h2>
+          <form id="loginForm" method="post" action="#" class="mb-4" autocomplete="off">
             <!-- add input field if have role as guru -->
             <div id="nomorInduk" class="mb-4"></div>
 
@@ -54,22 +50,22 @@
 
             <button
               type="submit"
-              class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+              class="bg-blue-500 w-full mt-1 duration-500 font-semibold text-white px-4 py-2 rounded-md hover:bg-blue-600"
             >
               Login
             </button>
           </form>
-          <div class="flex items-center justify-center">
+          <div class="flex items-center justify-center font-semibold">
             <span class="text-white mr-2">don't have account?</span>
-            <button
-              class="bg-red-500 text-white px-4 py-2 rounded-md flex items-center hover:bg-red-600"
+            <div
+              class="text-green-300 hover:text-green-400 duration-300 flex items-center underline font-bold"
             >
               <a href="../auth/register.html">Register</a>
-            </button>
+            </div>
           </div>
           <div class="flex items-center justify-center">
             <span id="roleLogin" class="text-white mr-2">
-              <!-- <a id="roleLogin" href="./login.html?role=guru"></a> -->
+              <a id="roleLogin" href="./login.html?role=guru"></a>
             </span>
           </div>
         </div>

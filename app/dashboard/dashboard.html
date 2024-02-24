@@ -53,7 +53,12 @@
   </header>
 
   <div class="w-full flex">
-    <div class="sidebar min-h-screen px-1">
+
+    <!-- Sidebar -->
+    <div class="sidebar min-h-screen px-1 w-5/6">
+      <div class="flex justify-end items-end ">
+        <i class="fa-solid fa-bars cursor-pointer" id="sidebarToggle"></i>
+      </div>
       <div class="w-full flex flex-col justify-center items-center">
         <img
           src="../../../assets/image/user.png"
@@ -104,6 +109,8 @@
         <a href="/auth/login.html">Exit</a>
       </div>
     </div>
+    <!-- End Sidebar -->
+
     <div class="content px-1 flex-[2]">
       <div class="main-content">
         <h1 class="font-bold text-xl px-4 py-2">Capaian Pembelajaran</h1>

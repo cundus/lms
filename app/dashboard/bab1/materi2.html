@@ -66,25 +66,28 @@
               Hello future greats with spirit of learning
             </p>
           </div>
-          <div class="w-full flex justify-between">
+          <div class="w-full lg:flex lg:justify-between">
             <a
-              href="../../beranda.html"
-              class="text-md px-6 py-4 font-bold underline decoration-slice"
+              href="/app/beranda.html"
+              class="text-sm md:text-md px-6 py-4 font-bold underline decoration-slice"
               >Back to Beranda</a
             >
-            <h3 class="px-6 py-4">
+
+            <h3 class="px-6 py-4 text-sm text:md">
               Anda saat ini berada pada tab:
-              <a
-                href="../dashboard.html"
-                class="font-bold underline decoration-solid"
-                >Dashboard Siswa
-              </a>
-              <span> > </span>
-              <a
-                href="./materi1.html"
-                class="font-bold underline decoration-solid"
-                >Materi Bab 1
-              </a>
+              <div class="flex-col">
+                <a
+                  href="/app/dashboard/dashboard.html"
+                  class="font-bold underline decoration-solid"
+                  >Dashboard Siswa
+                </a>
+                <span> > </span>
+                <a
+                  href="/app/dashboard/bab1/materi1.html"
+                  class="font-bold underline decoration-solid"
+                  >Materi Bab 1
+                </a>
+              </div>
             </h3>
           </div>
         </div>
@@ -92,16 +95,14 @@
     </header>
 
     <div class="w-full flex">
-      <div class="sidebar min-h-screen px-1" id="sidebar">
+      <!-- sidebar -->
+      <div id="sidebar" class="sidebar min-h-screen px-1 w-5/6">
         <div class="flex justify-end items-end">
           <i class="fa-solid fa-bars cursor-pointer" id="sidebarToggle"></i>
         </div>
 
         <div class="w-full flex flex-col justify-center items-center">
-          <img
-            src="../../../assets/image/user.png"
-            class="w-1/2 h-auto object-contain"
-          />
+          <img src="../../../assets/image/user.png" class="w-1/2 h-auto object-contain" />
           <h3 class="px-6 py-4 font-semibold" id="nama-siswa"></h3>
         </div>
         <h2
@@ -111,27 +112,19 @@
           Daftar Isi
         </h2>
         <div class="flex flex-col gap-2">
-          <a href="../../dashboard/bab1/pendahuluan1.html" class="font-bold"
-            >Bab 1</a
-          >
+          <a href="../../dashboard/bab1/pendahuluan1.html" class="font-bold">Bab 1</a>
           <a href="../../dashboard/bab1/materi1.html"
             >- Menghitung,Membaca dan Menulis Bilangan</a
           >
-          <a href="../../dashboard/bab1/materi2.html" class="font-semibold"
+          <a href="../../dashboard/bab1/materi2.html"
             >- Membandingkan Banyak Bilangan dalam Benda</a
           >
-          <a href="../../dashboard/bab1/materi3.html"
-            >- Menghitung Maju dan Mundur</a
-          >
+          <a href="../../dashboard/bab1/materi3.html">- Menghitung Maju dan Mundur</a>
           <a href="../../dashboard/bab1/materi4.html">- Pasangan Bilangan</a>
-          <a href="../../dashboard/bab1/kuis1.html">- Kuis BAB 1</a>
+          <a href="../../dashboard/bab1/kuis1.html" class="font-semibold">- Kuis BAB 1</a>
           <br />
-          <a href="../../dashboard/bab2/pendahuluan2.html" class="font-bold"
-            >Bab 2</a
-          >
-          <a href="../../dashboard/bab2/materi1.html"
-            >- Mengenal Simbol +, - atau =</a
-          >
+          <a href="../../dashboard/bab2/pendahuluan2.html" class="font-bold">Bab 2</a>
+          <a href="../../dashboard/bab2/materi1.html">- Mengenal Simbol +, - atau =</a>
           <a href="../../dashboard/bab2/materi2.html"
             >- Cerita Penjumlahan dan Pengurangan Bilangan 1 s/d 10</a
           >
@@ -144,9 +137,9 @@
           <a href="../../dashboard/bab2/kuis2.html">- Kuis Bab 2 </a>
           <br />
           <a href="../../dashboard/evaluasi.html">Evaluasi</a>
-          <a href="/auth/login.html">Exit</a>
         </div>
       </div>
+      <!-- end sidebar -->
       <div class="content px-1">
         <div class="cursor-pointer hidden" id="sidebarToggleMain">
           <i class="fa-solid fa-bars"></i>
@@ -159,9 +152,7 @@
               Bilangan
             </p>
           </div>
-          <h3
-            class="font-semibold text-lg px-2 py-4 underline decoration-solid"
-          >
+          <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
             B. Membandingkan Banyak Benda Dalam Bilangan
           </h3>
 
@@ -195,12 +186,11 @@
                     class="w-6 h-6 cursor-pointer select-none"
                 /></span>
                 <p>
-                  Membandingkan bilangan adalah upaya untuk menemukan perbedaan
-                  atau persamaan jumlah antara dua buah bilangan, benda, dan
-                  lain sebagainya, simbol perbandingan bilangan > lebih dari, <
-                  kurang dari,=sama dengan.<br />
-                  Bagaimana cara membandingkan suatu bilangan? Yuk kita pelajari
-                  bersama!
+                  Membandingkan bilangan adalah upaya untuk menemukan perbedaan atau
+                  persamaan jumlah antara dua buah bilangan, benda, dan lain sebagainya,
+                  simbol perbandingan bilangan > lebih dari, < kurang dari,=sama
+                  dengan.<br />
+                  Bagaimana cara membandingkan suatu bilangan? Yuk kita pelajari bersama!
                 </p>
                 <br />
                 <div class="flex my-2 py-1 justify-center">
@@ -216,13 +206,11 @@
                   class="flex justify-center text-center items-center italic text-xs py-2"
                   >Gambar 2 Video Pembelajaran Membandingkan bilangan
                 </span>
-                Setelah menonton video di atas. Sekarang jawablah pertanyaan
-                dibawah ini dengan cara klik kotak jawaban yang ada di kolom
-                pendapatmu! Jika jawabanmu benar maka akan ditampilkan teks
-                jawaban
-                <span class="text-green-700 font-bold">“Kamu Benar!”</span>,
-                sedangkan jika jawabanmu salah maka akan ditampilkan teks
-                jawaban
+                Setelah menonton video di atas. Sekarang jawablah pertanyaan dibawah ini
+                dengan cara klik kotak jawaban yang ada di kolom pendapatmu! Jika
+                jawabanmu benar maka akan ditampilkan teks jawaban
+                <span class="text-green-700 font-bold">“Kamu Benar!”</span>, sedangkan
+                jika jawabanmu salah maka akan ditampilkan teks jawaban
                 <span class="text-red-700 font-bold">“Kamu Salah!”</span>.<br />
                 <span
                   onclick="play('/assets/sounds/bab_1/sub_2/Ayo_Mengamati/setelah menonton.m4a')"
@@ -451,10 +439,7 @@
                     <!-- * End Row Table 4 -->
                   </table>
                   <p class="text-right">
-                    <button
-                      type="submit"
-                      class="m-4 p-2 px-4 bg-blue-400 rounded-xl"
-                    >
+                    <button type="submit" class="m-4 p-2 px-4 bg-blue-400 rounded-xl">
                       Kirim
                     </button>
                   </p>
@@ -468,9 +453,7 @@
               <form onsubmit="taskResult(`berlatih`)" class="mt-3">
                 <div class="text-content mx-auto">
                   <img src="/assets/image/berlatih.png" width="25%" alt="" />
-                  <h3
-                    class="font-semibold text-lg px-2 py-4 underline decoration-solid"
-                  >
+                  <h3 class="font-semibold text-lg px-2 py-4 underline decoration-solid">
                     Petunjuk Pengerjaan :
                   </h3>
                   <span
@@ -480,17 +463,14 @@
                       class="w-6 h-6 cursor-pointer select-none" /></span
                   ><br />
                   <p>
-                    Kamu telah menonton video di atas, jawablah pertanyaan
-                    berikut ini dengan memilih salah satu jawaban yang paling
-                    tepat! Tekan tombol
-                    <span class="bg-blue-600 text-white">Selesai</span> apabila
-                    telah menjawab seluruh pertanyaan. Jika jawabanmu
-                    <span class="font-bold">benar</span>, maka akan ditampilkan
-                    teks Jawaban
-                    <span class="text-green-600">Kamu Benar!</span>,sedangkan
-                    jika jawabanmu <span class="font-bold">salah</span>, maka
-                    akan ditampilkan teks Jawaban
-                    <span class="text-red-600">Kamu Salah</span>!
+                    Kamu telah menonton video di atas, jawablah pertanyaan berikut ini
+                    dengan memilih salah satu jawaban yang paling tepat! Tekan tombol
+                    <span class="bg-blue-600 text-white">Selesai</span> apabila telah
+                    menjawab seluruh pertanyaan. Jika jawabanmu
+                    <span class="font-bold">benar</span>, maka akan ditampilkan teks
+                    Jawaban <span class="text-green-600">Kamu Benar!</span>,sedangkan jika
+                    jawabanmu <span class="font-bold">salah</span>, maka akan ditampilkan
+                    teks Jawaban <span class="text-red-600">Kamu Salah</span>!
                   </p>
                 </div>
                 <sl-card
@@ -498,9 +478,7 @@
                   class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                 >
                   <div slot="header">
-                    <h3
-                      class="font-bold text-lg underline decoration-solid px-2 py-1"
-                    >
+                    <h3 class="font-bold text-lg underline decoration-solid px-2 py-1">
                       Pilihlah Jawaban dibawah ini dengan benar !
                     </h3>
                   </div>
@@ -508,8 +486,8 @@
                   <ol class="soal-berlatih mx-4">
                     <!-- *Soal berlatih Nomor 1 -->
                     <li>
-                      Perhatikan gambar dibawah ini berilah tanda kurang dari
-                      (<) lebih dari (>) dan sama dengan (=).
+                      Perhatikan gambar dibawah ini berilah tanda kurang dari (<) lebih
+                      dari (>) dan sama dengan (=).
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/Perhatikan gambar di bawah ini berilah tanda.m4a')"
                         ><img
@@ -525,8 +503,7 @@
                         <p class="font-bold">lebih banyak dari</p>
                         <p>7</p>
                       </div>
-                      Tanda yang cocok untuk mengisi titik - titik diatas
-                      adalah...
+                      Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 1.m4a')"
                         ><img
@@ -542,9 +519,7 @@
                       />
                       <label class="mr-10" for="html1"
                         >a.
-                        <span class="font-bold text-6xl text-orange-600"
-                          >=</span
-                        ></label
+                        <span class="font-bold text-6xl text-orange-600">=</span></label
                       >
                       <input
                         type="radio"
@@ -555,9 +530,7 @@
                       />
                       <label class="mr-10" for="css1"
                         >b.
-                        <span class="font-bold text-6xl text-purple-800"
-                          >></span
-                        ></label
+                        <span class="font-bold text-6xl text-purple-800">></span></label
                       >
                       <input
                         type="radio"
@@ -576,8 +549,8 @@
 
                     <!-- *Soal berlatih Nomor 2 -->
                     <li>
-                      Perhatikan gambar dibawah ini berilah tanda kurang dari
-                      (<) lebih dari (>) dan sama dengan (=).
+                      Perhatikan gambar dibawah ini berilah tanda kurang dari (<) lebih
+                      dari (>) dan sama dengan (=).
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/Perhatikan gambar di bawah ini berilah tanda.m4a')"
                         ><img
@@ -593,8 +566,7 @@
                         <p class="font-bold">lebih banyak dari</p>
                         <p>4</p>
                       </div>
-                      Tanda yang cocok untuk mengisi titik - titik diatas
-                      adalah...
+                      Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 2.m4a')"
                         ><img
@@ -610,9 +582,7 @@
                       />
                       <label class="mr-10" for="html1"
                         >a.
-                        <span class="font-bold text-6xl text-orange-600"
-                          >=</span
-                        ></label
+                        <span class="font-bold text-6xl text-orange-600">=</span></label
                       >
                       <input
                         type="radio"
@@ -623,9 +593,7 @@
                       />
                       <label class="mr-10" for="css1"
                         >b.
-                        <span class="font-bold text-6xl text-purple-800">
-                          <</span
-                        ></label
+                        <span class="font-bold text-6xl text-purple-800"> <</span></label
                       >
                       <input
                         type="radio"
@@ -635,10 +603,7 @@
                         onclick="handleRadioButtonClick(6, 'benar')"
                       />
                       <label class="mr-10" for="javascript1"
-                        >c.
-                        <span class="font-bold text-6xl text-red-700"
-                          >></span
-                        ></label
+                        >c. <span class="font-bold text-6xl text-red-700">></span></label
                       >
                       <p id="resultMessage6" style="display: none"></p>
                     </li>
@@ -646,8 +611,8 @@
 
                     <!-- *Soal berlatih Nomor 3 -->
                     <li>
-                      Perhatikan gambar dibawah ini berilah tanda kurang dari
-                      (<) lebih dari (>) dan sama dengan (=).
+                      Perhatikan gambar dibawah ini berilah tanda kurang dari (<) lebih
+                      dari (>) dan sama dengan (=).
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/Perhatikan gambar di bawah ini berilah tanda.m4a')"
                         ><img
@@ -663,8 +628,7 @@
                         <p class="font-bold">sama banyak dari</p>
                         <p>10</p>
                       </div>
-                      Tanda yang cocok untuk mengisi titik - titik diatas
-                      adalah...
+                      Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 3.m4a')"
                         ><img
@@ -680,9 +644,7 @@
                       />
                       <label class="mr-10" for="html1"
                         >a.
-                        <span class="font-bold text-6xl text-orange-600"
-                          >=</span
-                        ></label
+                        <span class="font-bold text-6xl text-orange-600">=</span></label
                       >
                       <input
                         type="radio"
@@ -693,9 +655,7 @@
                       />
                       <label class="mr-10" for="css1"
                         >b.
-                        <span class="font-bold text-6xl text-purple-800"
-                          >></span
-                        ></label
+                        <span class="font-bold text-6xl text-purple-800">></span></label
                       >
                       <input
                         type="radio"
@@ -705,10 +665,7 @@
                         onclick="handleRadioButtonClick(7, 'salah')"
                       />
                       <label class="mr-10" for="javascript1"
-                        >c.
-                        <span class="font-bold text-6xl text-red-700">
-                          <</span
-                        ></label
+                        >c. <span class="font-bold text-6xl text-red-700"> <</span></label
                       >
                       <p id="resultMessage7" style="display: none"></p>
                     </li>
@@ -716,8 +673,8 @@
 
                     <!-- *Soal berlatih Nomor 4 -->
                     <li>
-                      Perhatikan gambar dibawah ini berilah tanda kurang dari
-                      (<) lebih dari (>) dan sama dengan (=).
+                      Perhatikan gambar dibawah ini berilah tanda kurang dari (<) lebih
+                      dari (>) dan sama dengan (=).
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/Perhatikan gambar di bawah ini berilah tanda.m4a')"
                         ><img
@@ -733,8 +690,7 @@
                         <p class="font-bold">lebih sedikit dari</p>
                         <p>3</p>
                       </div>
-                      Tanda yang cocok untuk mengisi titik - titik diatas
-                      adalah...
+                      Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 4.m4a')"
                         ><img
@@ -761,9 +717,7 @@
                       />
                       <label class="mr-10" for="css1"
                         >b.
-                        <span class="font-bold text-6xl text-purple-800"
-                          >></span
-                        ></label
+                        <span class="font-bold text-6xl text-purple-800">></span></label
                       >
                       <input
                         type="radio"
@@ -773,10 +727,7 @@
                         onclick="handleRadioButtonClick(8, 'salah')"
                       />
                       <label class="mr-10" for="javascript1"
-                        >c.
-                        <span class="font-bold text-6xl text-red-700"
-                          >=</span
-                        ></label
+                        >c. <span class="font-bold text-6xl text-red-700">=</span></label
                       >
                       <p id="resultMessage8" style="display: none"></p>
                     </li>
@@ -784,8 +735,8 @@
 
                     <!-- *Soal berlatih Nomor 5 -->
                     <li>
-                      Perhatikan gambar dibawah ini berilah tanda kurang dari
-                      (<) lebih dari (>) dan sama dengan (=).
+                      Perhatikan gambar dibawah ini berilah tanda kurang dari (<) lebih
+                      dari (>) dan sama dengan (=).
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/Perhatikan gambar di bawah ini berilah tanda.m4a')"
                         ><img
@@ -801,8 +752,7 @@
                         <p class="font-bold">lebih sedikit dari</p>
                         <p>6</p>
                       </div>
-                      Tanda yang cocok untuk mengisi titik - titik diatas
-                      adalah...
+                      Tanda yang cocok untuk mengisi titik - titik diatas adalah...
                       <span
                         onclick="play('/assets/sounds/bab_1/sub_2/Ayo Berlatih/soal 5.m4a')"
                         ><img
@@ -818,9 +768,7 @@
                       />
                       <label class="mr-10" for="html1"
                         >a.
-                        <span class="font-bold text-6xl text-orange-600"
-                          >=</span
-                        ></label
+                        <span class="font-bold text-6xl text-orange-600">=</span></label
                       >
                       <input
                         type="radio"
@@ -831,9 +779,7 @@
                       />
                       <label class="mr-10" for="css1"
                         >b.
-                        <span class="font-bold text-6xl text-purple-800"
-                          >></span
-                        ></label
+                        <span class="font-bold text-6xl text-purple-800">></span></label
                       >
                       <input
                         type="radio"
@@ -843,10 +789,7 @@
                         onclick="handleRadioButtonClick(9, 'benar')"
                       />
                       <label class="mr-10" for="javascript1"
-                        >c.
-                        <span class="font-bold text-6xl text-red-700">
-                          <</span
-                        ></label
+                        >c. <span class="font-bold text-6xl text-red-700"> <</span></label
                       >
                       <p id="resultMessage9" style="display: none"></p>
                     </li>
@@ -872,9 +815,7 @@
             <div id="page3" class="page">
               <div class="text-content mx-auto">
                 <img src="/assets/image/mencoba.png" width="25%" alt="" />
-                <h3
-                  class="font-semibold text-lg px-2 py-2 underline decoration-solid"
-                >
+                <h3 class="font-semibold text-lg px-2 py-2 underline decoration-solid">
                   Petunjuk Pengerjaan :
                 </h3>
                 <span
@@ -884,11 +825,10 @@
                     class="w-6 h-6 cursor-pointer select-none" /></span
                 ><br />
                 <p>
-                  1. Kamu sudah menonton video mengenai membandingkan bilangan .
-                  Sekarang pasangkanlah simbol
+                  1. Kamu sudah menonton video mengenai membandingkan bilangan . Sekarang
+                  pasangkanlah simbol
                   <span class="font-bold"
-                    >lebih sedikit (<), lebih banyak (>) dan sama banyak
-                    (=)</span
+                    >lebih sedikit (<), lebih banyak (>) dan sama banyak (=)</span
                   >
                   bilangan di bawah ini.
                 </p>
@@ -899,8 +839,8 @@
                   <span class="text-green-600">benar</span>.
                 </p>
                 <p>
-                  3. Jika jawabanmu <span class="text-red-600">salah</span>,
-                  maka muncul tulisan <span class="text-red-600">salah</span>.
+                  3. Jika jawabanmu <span class="text-red-600">salah</span>, maka muncul
+                  tulisan <span class="text-red-600">salah</span>.
                 </p>
               </div>
               <sl-card
@@ -908,8 +848,8 @@
                 class="card-header my-4 w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
               >
                 <p>
-                  Pasangkanlah buah dan benda dengan simbol kurang dari (<),
-                  lebih dari (>) dan sama dengan (=) di bawah ini!
+                  Pasangkanlah buah dan benda dengan simbol kurang dari (<), lebih dari
+                  (>) dan sama dengan (=) di bawah ini!
                   <span
                     onclick="play('/assets/sounds/bab_1/sub_2/Ayo Mencoba/Ayo Mencoba2.m4a')"
                     ><img
@@ -918,9 +858,7 @@
                   ><br />
                 </p>
                 <div class="my-2 bg-white p-3 rounded-md min-h-screen">
-                  <h1>
-                    Pasangkanlah benda dengan lambang bilangan di bawah ini!
-                  </h1>
+                  <h1>Pasangkanlah benda dengan lambang bilangan di bawah ini!</h1>
                   <div>
                     <table class="w-full" id="table-mencoba">
                       <thead>
@@ -946,32 +884,29 @@
             <div id="page4" class="page">
               <div class="text-content mx-auto">
                 <img src="/assets/image/menalar.png" width="25%" alt="" />
-                <h3
-                  class="font-semibold text-lg px-2 py-2 underline decoration-solid"
-                >
+                <h3 class="font-semibold text-lg px-2 py-2 underline decoration-solid">
                   Petunjuk Pengerjaan :
                 </h3>
                 <ol class="ml-3">
                   <li>
-                    Setelah membaca cerita diatas sekarang pasangkanlah
-                    pertanyaan dengan memasangkan kolom jawaban dengan memilih
-                    simbol lebih sedikit (<), lebih banyak (>) dan sama banyak
-                    (=) dengan perbandingan bando milik Meisya
+                    Setelah membaca cerita diatas sekarang pasangkanlah pertanyaan dengan
+                    memasangkan kolom jawaban dengan memilih simbol lebih sedikit (<),
+                    lebih banyak (>) dan sama banyak (=) dengan perbandingan bando milik
+                    Meisya
                   </li>
                   <li>
                     Klik tombol
-                    <span class="bg-blue-600 text-white">Cek Jawaban</span> jika
-                    muncul jawaban benar, maka pada kolom keterangan akan muncul
-                    tulisan <span class="text-green-600">kamu benar</span>
+                    <span class="bg-blue-600 text-white">Cek Jawaban</span> jika muncul
+                    jawaban benar, maka pada kolom keterangan akan muncul tulisan
+                    <span class="text-green-600">kamu benar</span>
                   </li>
                   <li>
-                    Jika jawabanmu salah, maka pada kolom keterangan akan muncul
-                    tulisan <span class="text-red-600">kamu salah</span>.
+                    Jika jawabanmu salah, maka pada kolom keterangan akan muncul tulisan
+                    <span class="text-red-600">kamu salah</span>.
                   </li>
                   <li>
                     Jika jawaban masih salah, silahkan klik tombol
-                    <span class="font-bold">Ulang</span> untuk menulis jawaban
-                    kembali.
+                    <span class="font-bold">Ulang</span> untuk menulis jawaban kembali.
                   </li>
                 </ol>
                 <span
@@ -989,8 +924,8 @@
                 <br />
                 <div class="p-6 bg-blue-500 rounded-2xl">
                   <p>
-                    Meisya memiliki 6 buah bando, Rara memiliki 9 buah bando,
-                    Carla memiliki 4 buah bando, dan Ani memiliki 6 buah bando.
+                    Meisya memiliki 6 buah bando, Rara memiliki 9 buah bando, Carla
+                    memiliki 4 buah bando, dan Ani memiliki 6 buah bando.
                   </p>
                   <span
                     onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menalar/cerita.m4a')"
@@ -1007,9 +942,9 @@
                 />
                 <p>
                   Urutkan jumlah bando yang sesuai dengan gambar di atas dengan
-                  perbandingannya adalah bando milik Meisya dengan memilih lebih
-                  sedikit (<) , lebih banyak (>) , atau sama banyak (=) dalam
-                  setiap masing-masing bando.
+                  perbandingannya adalah bando milik Meisya dengan memilih lebih sedikit
+                  (<) , lebih banyak (>) , atau sama banyak (=) dalam setiap masing-masing
+                  bando.
                 </p>
                 <span
                   onclick="play('/assets/sounds/bab_1/sub_2/Ayo Menalar/urutkan jumlah.m4a')"
@@ -1081,35 +1016,35 @@
     <script type="module" src="/util/js/db.js"></script>
 
     <script>
-      let sidebar = document.getElementById("sidebar");
-      let sidebarToggle = document.getElementById("sidebarToggle");
-      let sidebarToggleMain = document.getElementById("sidebarToggleMain");
+      let sidebar = document.getElementById("sidebar")
+      let sidebarToggle = document.getElementById("sidebarToggle")
+      let sidebarToggleMain = document.getElementById("sidebarToggleMain")
 
       // Check if the sidebar element is successfully retrieved
       if (sidebar && sidebarToggle && sidebarToggleMain) {
-        console.log("Sidebar element found:", sidebar);
+        console.log("Sidebar element found:", sidebar)
 
-        let hidden = false;
+        let hidden = false
 
         function hideSidebar() {
           if (hidden === true) {
-            sidebar.classList.remove("hidden");
-            sidebarToggleMain.classList.add("hidden"); // Hide the main toggle button
-            sidebarToggle.classList.remove("hidden");
-            hidden = false;
+            sidebar.classList.remove("hidden")
+            sidebarToggleMain.classList.add("hidden") // Hide the main toggle button
+            sidebarToggle.classList.remove("hidden")
+            hidden = false
           } else {
-            sidebar.classList.add("hidden");
-            sidebarToggleMain.classList.remove("hidden"); // Show the main toggle button
-            sidebarToggle.classList.remove("hidden");
-            hidden = true;
+            sidebar.classList.add("hidden")
+            sidebarToggleMain.classList.remove("hidden") // Show the main toggle button
+            sidebarToggle.classList.remove("hidden")
+            hidden = true
           }
         }
 
         // Attach click event listener to the sidebar toggle buttons
-        sidebarToggle.addEventListener("click", hideSidebar);
-        sidebarToggleMain.addEventListener("click", hideSidebar);
+        sidebarToggle.addEventListener("click", hideSidebar)
+        sidebarToggleMain.addEventListener("click", hideSidebar)
       } else {
-        console.log("Sidebar element or toggle buttons not found.");
+        console.log("Sidebar element or toggle buttons not found.")
       }
     </script>
   </body>
