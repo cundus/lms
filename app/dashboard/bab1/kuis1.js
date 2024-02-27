@@ -78,6 +78,23 @@ btnPrev.addEventListener("click", previousQuestion);
 
 const selectedAnswers = Array.from({ length: 10 }, () => undefined); // To store selected answers for each question
 
+function updateButtonStyles() {
+  selectedAnswers.forEach((answer, index) => {
+    const buttonId = `btn-kuis${index + 1}`;
+    const button = document.getElementById(buttonId);
+
+    if (answer !== undefined) {
+      // Set styles for answered buttons
+      button.classList.add("bg-black", "text-white");
+    } else {
+      // Remove styles for unanswered buttons
+      button.classList.remove("bg-black", "text-white");
+    }
+  });
+}
+
+// Call the function to initially set button styles
+
 function startQuiz() {
   Swal.fire({
     title: "Apakah kamu yakin ingin memulai kuis ini?",
@@ -196,7 +213,7 @@ function nextQuestion() {
 
     numberQuiz++;
     renderQuiz();
-
+    updateButtonStyles();
     restoreSelectedAnswer();
   } else {
     Swal.fire({
@@ -257,7 +274,7 @@ function previousQuestion() {
 
   numberQuiz--;
   renderQuiz();
-
+  updateButtonStyles();
   restoreSelectedAnswer();
 }
 
@@ -804,51 +821,61 @@ listQuestionOne.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(1);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionTwo.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(2);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionThree.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(3);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionFour.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(4);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionFive.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(5);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionSix.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(6);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionSeven.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(7);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionEight.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(8);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionNine.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(9);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionTen.addEventListener("click", () => {
   saveCurrentAnswer();
   switchQuestion(10);
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 
 // Function to switch to a specific question
@@ -907,5 +934,6 @@ document.addEventListener("click", function (event) {
       selectedAnswers[questionNumber - 1] = selectedOption.value;
     }
     console.log(selectedAnswers);
+    updateButtonStyles();
   }
 });

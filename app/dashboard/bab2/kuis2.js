@@ -193,7 +193,7 @@ function nextQuestion() {
 
     numberQuiz++;
     renderQuiz();
-
+    updateButtonStyles();
     restoreSelectedAnswer();
   } else {
     Swal.fire({
@@ -253,7 +253,7 @@ function previousQuestion() {
 
   numberQuiz--;
   renderQuiz();
-
+  updateButtonStyles();
   restoreSelectedAnswer();
 }
 
@@ -708,7 +708,7 @@ function taskResult(type) {
     let setElements = document.getElementsByName(kuisSets);
     let setValue = getCheckedValue(setElements);
     console.log(setValue);
-    kuis_array.splice(9, 1, setValue);
+    // kuis_array.splice(9, 1, setValue);
     console.log(kuis_array);
 
     const average = 10; //total soal
@@ -807,51 +807,61 @@ listQuestionOne.addEventListener("click", () => {
   switchQuestion(1);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionTwo.addEventListener("click", () => {
   switchQuestion(2);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionThree.addEventListener("click", () => {
   switchQuestion(3);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionFour.addEventListener("click", () => {
   switchQuestion(4);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionFive.addEventListener("click", () => {
   switchQuestion(5);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionSix.addEventListener("click", () => {
   switchQuestion(6);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionSeven.addEventListener("click", () => {
   switchQuestion(7);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionEight.addEventListener("click", () => {
   switchQuestion(8);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionNine.addEventListener("click", () => {
   switchQuestion(9);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 listQuestionTen.addEventListener("click", () => {
   switchQuestion(10);
   saveCurrentAnswer();
   restoreSelectedAnswer();
+  updateButtonStyles();
 });
 
 // Function to switch to a specific question
@@ -910,5 +920,21 @@ document.addEventListener("click", function (event) {
       selectedAnswers[questionNumber - 1] = selectedOption.value;
     }
     console.log(selectedAnswers);
+    updateButtonStyles();
   }
 });
+
+function updateButtonStyles() {
+  selectedAnswers.forEach((answer, index) => {
+    const buttonId = `btn-kuis${index + 1}`;
+    const button = document.getElementById(buttonId);
+
+    if (answer !== undefined) {
+      // Set styles for answered buttons
+      button.classList.add("bg-black", "text-white");
+    } else {
+      // Remove styles for unanswered buttons
+      button.classList.remove("bg-black", "text-white");
+    }
+  });
+}

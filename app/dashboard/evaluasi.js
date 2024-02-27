@@ -2,54 +2,59 @@
  * ! DOM for Show or Hidden
  * & Function for Button Start DOM Show or Hide Question
  */
-const btnStart = document.querySelector("#btn-start") // ^ Button For Trigger Class Show or Hide Element this below
-const showQuiz = document.querySelector("#soal-kuis") // ^ Default Hide Element
-const numbQuiz = document.querySelector("#nomor-soal") // ^ Default Hide Element
-const rulesQuiz = document.querySelector("#petunjuk-kuis") // ^ Default Show Element
-const dataStudent = document.querySelector("#data-siswa") // ^ Default Show Element
-const btnPrev = document.querySelector("#btn-previous") // ^ DOM Button Previous Question
-const listQuestionOne = document.querySelector("#btn-kuis1")
-const listQuestionTwo = document.querySelector("#btn-kuis2")
-const listQuestionThree = document.querySelector("#btn-kuis3")
-const listQuestionFour = document.querySelector("#btn-kuis4")
-const listQuestionFive = document.querySelector("#btn-kuis5")
-const listQuestionSix = document.querySelector("#btn-kuis6")
-const listQuestionSeven = document.querySelector("#btn-kuis7")
-const listQuestionEight = document.querySelector("#btn-kuis8")
-const listQuestionNine = document.querySelector("#btn-kuis9")
-const listQuestionTen = document.querySelector("#btn-kuis10")
-const listQuestionEleven = document.querySelector("#btn-kuis11")
-const listQuestionTwelve = document.querySelector("#btn-kuis12")
-const listQuestionThirteen = document.querySelector("#btn-kuis13")
-const listQuestionFourteen = document.querySelector("#btn-kuis14")
-const listQuestionFiveteen = document.querySelector("#btn-kuis15")
-const listQuestionSixteen = document.querySelector("#btn-kuis16")
-const listQuestionSeventeen = document.querySelector("#btn-kuis17")
-const listQuestionEightteen = document.querySelector("#btn-kuis18")
-const listQuestionNineteen = document.querySelector("#btn-kuis19")
-const listQuestionTwenty = document.querySelector("#btn-kuis20")
-const btnNextQuestionTwo = document.getElementById("btn-next")
-const listButtonQuiz = document.getElementById("btn-kuis")
-const dataSiswa = document.getElementById("list-data-siswa")
-const nilaiEvaluasi = document.getElementById("nilai-evaluasi1")
-let hasilkuis = document.getElementById("hasil-kuis")
-const dataSiswa2 = document.getElementById("list-data-siswa2")
-let sidebar = document.getElementById("sidebar")
+const btnStart = document.querySelector("#btn-start"); // ^ Button For Trigger Class Show or Hide Element this below
+const showQuiz = document.querySelector("#soal-kuis"); // ^ Default Hide Element
+const numbQuiz = document.querySelector("#nomor-soal"); // ^ Default Hide Element
+const rulesQuiz = document.querySelector("#petunjuk-kuis"); // ^ Default Show Element
+const dataStudent = document.querySelector("#data-siswa"); // ^ Default Show Element
+const btnPrev = document.querySelector("#btn-previous"); // ^ DOM Button Previous Question
+const listQuestionOne = document.querySelector("#btn-kuis1");
+const listQuestionTwo = document.querySelector("#btn-kuis2");
+const listQuestionThree = document.querySelector("#btn-kuis3");
+const listQuestionFour = document.querySelector("#btn-kuis4");
+const listQuestionFive = document.querySelector("#btn-kuis5");
+const listQuestionSix = document.querySelector("#btn-kuis6");
+const listQuestionSeven = document.querySelector("#btn-kuis7");
+const listQuestionEight = document.querySelector("#btn-kuis8");
+const listQuestionNine = document.querySelector("#btn-kuis9");
+const listQuestionTen = document.querySelector("#btn-kuis10");
+const listQuestionEleven = document.querySelector("#btn-kuis11");
+const listQuestionTwelve = document.querySelector("#btn-kuis12");
+const listQuestionThirteen = document.querySelector("#btn-kuis13");
+const listQuestionFourteen = document.querySelector("#btn-kuis14");
+const listQuestionFiveteen = document.querySelector("#btn-kuis15");
+const listQuestionSixteen = document.querySelector("#btn-kuis16");
+const listQuestionSeventeen = document.querySelector("#btn-kuis17");
+const listQuestionEightteen = document.querySelector("#btn-kuis18");
+const listQuestionNineteen = document.querySelector("#btn-kuis19");
+const listQuestionTwenty = document.querySelector("#btn-kuis20");
+const btnNextQuestionTwo = document.getElementById("btn-next");
+const listButtonQuiz = document.getElementById("btn-kuis");
+const dataSiswa = document.getElementById("list-data-siswa");
+const nilaiEvaluasi = document.getElementById("nilai-evaluasi1");
+let hasilkuis = document.getElementById("hasil-kuis");
+const dataSiswa2 = document.getElementById("list-data-siswa2");
+let sidebar = document.getElementById("sidebar");
 
 // add data siswa ke dom
-const nilai = parseInt(localStorage.getItem("evaluasi1_1"))
-const user = JSON.parse(localStorage.getItem("user"))
+const nilai = parseInt(localStorage.getItem("evaluasi1_1"));
+const user = JSON.parse(localStorage.getItem("user"));
 
 dataSiswa.innerHTML = Object.keys(user)
   .filter((key) => {
-    if (key === "email" || key === "name" || key === "sekolah" || key === "kelas") {
-      return key
+    if (
+      key === "email" ||
+      key === "name" ||
+      key === "sekolah" ||
+      key === "kelas"
+    ) {
+      return key;
     }
   })
   .map((key) => {
-    return `<li>${key}: ${user[key]}</li>`
+    return `<li>${key}: ${user[key]}</li>`;
   })
-  .join("\n")
+  .join("\n");
 
 // Customizable keys and their display names
 const customKeys = [
@@ -58,30 +63,30 @@ const customKeys = [
   { key: "sekolah", displayName: "Sekolah" },
   { key: "kelas", displayName: "Kelas" },
   { key: "nilaiEvaluasi", displayName: "Nilai Evaluasi" }, // Add the new key-value pair for nilaiEvaluasi
-]
+];
 
 // Insert nilaiEvaluasi into user object
-user.nilaiEvaluasi = nilai ? nilai : 0
+user.nilaiEvaluasi = nilai ? nilai : 0;
 
 // Display nilaiEvaluasi
-nilaiEvaluasi.innerHTML = `<p>Nilai Evaluasi : ${user.nilaiEvaluasi}</p>`
+nilaiEvaluasi.innerHTML = `<p>Nilai Evaluasi : ${user.nilaiEvaluasi}</p>`;
 
 // Display user data
 dataSiswa2.innerHTML = customKeys
   .map(({ key, displayName }) => {
     // Map custom keys and values to HTML list items
-    return `<li>${displayName} : ${user[key]}</li>`
+    return `<li>${displayName} : ${user[key]}</li>`;
   })
-  .join("\n")
+  .join("\n");
 
-let numberQuiz = 1
+let numberQuiz = 1;
 btnStart.addEventListener("click", () => {
-  startQuiz()
-})
-btnNextQuestionTwo.addEventListener("click", nextQuestion)
-btnPrev.addEventListener("click", previousQuestion)
+  startQuiz();
+});
+btnNextQuestionTwo.addEventListener("click", nextQuestion);
+btnPrev.addEventListener("click", previousQuestion);
 
-const selectedAnswers = Array.from({ length: 20 }, () => undefined) // To store selected answers for each question
+const selectedAnswers = Array.from({ length: 20 }, () => undefined); // To store selected answers for each question
 
 function startQuiz() {
   Swal.fire({
@@ -100,42 +105,42 @@ function startQuiz() {
         timer: 2000,
         timerProgressBar: true,
         didOpen: () => {
-          Swal.showLoading()
-          const timer = Swal.getPopup().querySelector("b")
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
           timerInterval = setInterval(() => {
-            timer.textContent = `${Swal.getTimerLeft()}`
-          }, 5)
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 5);
         },
         willClose: () => {
-          clearInterval(timerInterval)
+          clearInterval(timerInterval);
           Swal.fire({
             position: "center",
             icon: "success",
             title: "Selamat Mengerjakan",
             showConfirmButton: false,
             timer: 1500,
-          })
-          rulesQuiz.classList.add("hidden")
-          dataStudent.classList.add("hidden")
-          showQuiz.classList.remove("hidden")
-          numbQuiz.classList.remove("hidden")
-          startCountdown()
-          renderQuiz()
-          sidebar.remove()
-          hasilkuis.remove()
+          });
+          rulesQuiz.classList.add("hidden");
+          dataStudent.classList.add("hidden");
+          showQuiz.classList.remove("hidden");
+          numbQuiz.classList.remove("hidden");
+          startCountdown();
+          renderQuiz();
+          sidebar.remove();
+          hasilkuis.remove();
         },
       }).then((result) => {
         /* Read more about handling dismissals below */
         if (result.dismiss === Swal.DismissReason.timer) {
-          console.log("I was closed by the timer")
+          console.log("I was closed by the timer");
         }
-      })
+      });
     }
-  })
+  });
 }
 
 // Find the "Selesai" button by its id
-const selesaiButton = document.querySelector("#selesai-button")
+const selesaiButton = document.querySelector("#selesai-button");
 
 // Add an event listener to the button
 selesaiButton.addEventListener("click", function () {
@@ -150,19 +155,19 @@ selesaiButton.addEventListener("click", function () {
     confirmButtonText: "Ya, Saya yakin ingin menyelesaikan kuis ini",
   }).then((result) => {
     if (result.isConfirmed) {
-      taskResult(`evaluasi`)
-      console.log(selectedAnswers)
+      taskResult(`evaluasi`);
+      console.log(selectedAnswers);
       Swal.fire({
         title: "Akan tertutup otomatis",
         html: "Proses menyelesaikan dalam waktu <b></b> milidetik.",
         timer: 3000,
         timerProgressBar: true,
         didOpen: () => {
-          Swal.showLoading()
-          const timer = Swal.getPopup().querySelector("b")
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
           timerInterval = setInterval(() => {
-            timer.textContent = `${Swal.getTimerLeft()}`
-          }, 100)
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
         },
         willClose: () => {
           Swal.fire({
@@ -171,35 +176,35 @@ selesaiButton.addEventListener("click", function () {
             title: "Terima kasih telah mengerjakan kuis ini",
             showConfirmButton: false,
             timer: 1500,
-          })
-          clearInterval(timerInterval)
+          });
+          clearInterval(timerInterval);
           window.setTimeout(function () {
-            window.location.href = "./evaluasi.html"
-          }, 1500)
+            window.location.href = "./evaluasi.html";
+          }, 1500);
         },
       }).then((result) => {
         /* Read more about handling dismissals below */
         if (result.dismiss === Swal.DismissReason.timer) {
-          console.log("I was closed by the timer")
+          console.log("I was closed by the timer");
         }
-      })
+      });
     }
-  })
-})
+  });
+});
 
 function nextQuestion() {
   if (numberQuiz < 20) {
     const selectedOption = document.querySelector(
-      `input[name="evaluasi1_${numberQuiz}"]:checked`,
-    )
+      `input[name="evaluasi1_${numberQuiz}"]:checked`
+    );
     if (selectedOption) {
-      selectedAnswers[numberQuiz - 1] = selectedOption.value
+      selectedAnswers[numberQuiz - 1] = selectedOption.value;
     }
 
-    numberQuiz++
-    renderQuiz()
-
-    restoreSelectedAnswer()
+    numberQuiz++;
+    renderQuiz();
+    updateButtonStyles();
+    restoreSelectedAnswer();
   } else {
     Swal.fire({
       title: "Apakah kamu yakin ingin menyelesaikan kuis ini?",
@@ -211,18 +216,18 @@ function nextQuestion() {
       confirmButtonText: "Ya, Saya yakin ingin menyelesaikan kuis ini",
     }).then((result) => {
       if (result.isConfirmed) {
-        taskResult(`evaluasi`)
+        taskResult(`evaluasi`);
         Swal.fire({
           title: "Akan tertutup otomatis",
           html: "Proses menyelesaikan dalam waktu <b></b> milidetik.",
           timer: 3000,
           timerProgressBar: true,
           didOpen: () => {
-            Swal.showLoading()
-            const timer = Swal.getPopup().querySelector("b")
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
             timerInterval = setInterval(() => {
-              timer.textContent = `${Swal.getTimerLeft()}`
-            }, 100)
+              timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
           },
           willClose: () => {
             Swal.fire({
@@ -231,73 +236,73 @@ function nextQuestion() {
               title: "Terima kasih telah mengerjakan kuis ini",
               showConfirmButton: false,
               timer: 1500,
-            })
-            clearInterval(timerInterval)
+            });
+            clearInterval(timerInterval);
             window.setTimeout(function () {
-              window.location.href = "./evaluasi.html"
-            }, 1500)
+              window.location.href = "./evaluasi.html";
+            }, 1500);
           },
         }).then((result) => {
           /* Read more about handling dismissals below */
           if (result.dismiss === Swal.DismissReason.timer) {
-            console.log("I was closed by the timer")
+            console.log("I was closed by the timer");
           }
-        })
+        });
       }
-    })
+    });
   }
 }
 
 function previousQuestion() {
   const selectedOption = document.querySelector(
-    `input[name="evaluasi1_${numberQuiz}"]:checked`,
-  )
+    `input[name="evaluasi1_${numberQuiz}"]:checked`
+  );
   if (selectedOption) {
-    selectedAnswers[numberQuiz - 1] = selectedOption.value
+    selectedAnswers[numberQuiz - 1] = selectedOption.value;
   }
 
-  numberQuiz--
-  renderQuiz()
-
-  restoreSelectedAnswer()
+  numberQuiz--;
+  renderQuiz();
+  updateButtonStyles();
+  restoreSelectedAnswer();
 }
 
 function renderQuiz() {
-  let additionalHTML = ""
-  const numberQuestion = document.querySelector("#nomor-kuis")
-  const answerQuestion = document.getElementById("jawaban-kuis")
+  let additionalHTML = "";
+  const numberQuestion = document.querySelector("#nomor-kuis");
+  const answerQuestion = document.getElementById("jawaban-kuis");
 
-  const selectedAnswer = selectedAnswers[numberQuiz - 1]
+  const selectedAnswer = selectedAnswers[numberQuiz - 1];
   if (selectedAnswer) {
-    const selectedOption = document.getElementById(selectedAnswer)
+    const selectedOption = document.getElementById(selectedAnswer);
     if (selectedOption) {
-      selectedOption.checked = true
+      selectedOption.checked = true;
     }
   }
 
   for (let i = 1; i <= 10; i++) {
-    const questionButton = document.querySelector(`#btn-kuis${i}`)
+    const questionButton = document.querySelector(`#btn-kuis${i}`);
     if (questionButton) {
-      questionButton.classList.remove("bg-black", "text-white")
+      questionButton.classList.remove("bg-black", "text-white");
     }
   }
 
   // Highlight the active question button
-  const activeQuestionButton = document.querySelector(`#btn-kuis${numberQuiz}`)
+  const activeQuestionButton = document.querySelector(`#btn-kuis${numberQuiz}`);
   if (activeQuestionButton) {
-    activeQuestionButton.classList.add("bg-black", "text-white")
+    activeQuestionButton.classList.add("bg-black", "text-white");
   }
 
   // console.log("running quiz no ", numberQuiz);
   switch (numberQuiz) {
     case 1:
-      btnPrev.classList.add("hidden")
-      listQuestionOne.classList.add("bg-black", "text-white")
-      listQuestionTwo.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.innerText = "Selanjutnya"
-      btnNextQuestionTwo.style.backgroundColor = "blue"
+      btnPrev.classList.add("hidden");
+      listQuestionOne.classList.add("bg-black", "text-white");
+      listQuestionTwo.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.innerText = "Selanjutnya";
+      btnNextQuestionTwo.style.backgroundColor = "blue";
       numberQuestion.innerText =
-        "1. Budi mempunyai koleki e-nam topi. Lambang bilangan e-nam adalah …"
+        "1. Budi mempunyai koleki e-nam topi. Lambang bilangan e-nam adalah …";
 
       answerQuestion.innerHTML = `
          <span onclick="play('/assets/sounds/evaluasi/S1.m4a')"><img
@@ -323,16 +328,16 @@ function renderQuiz() {
            </label><br />
            </div>
            </div>
-            `
-      break
+            `;
+      break;
     case 2:
-      numberQuestion.innerText = "2. Nama lambang bilangan li-ma adalah …"
-      btnPrev.classList.remove("hidden")
-      listQuestionTwo.classList.add("bg-black", "text-white")
-      listQuestionOne.classList.remove("bg-black", "text-white")
-      listQuestionThree.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+      numberQuestion.innerText = "2. Nama lambang bilangan li-ma adalah …";
+      btnPrev.classList.remove("hidden");
+      listQuestionTwo.classList.add("bg-black", "text-white");
+      listQuestionOne.classList.remove("bg-black", "text-white");
+      listQuestionThree.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -359,16 +364,16 @@ function renderQuiz() {
             </label><br />
             </div>
            </div>
-            `
-      break
+            `;
+      break;
     case 3:
       numberQuestion.innerText =
-        "3. Wina memelihara Iguana, Iguana Wina berjumlah em-pat. Lambang bilangan em-pat adalah …"
-      listQuestionTwo.classList.remove("bg-black", "text-white")
-      listQuestionFour.classList.remove("bg-black", "text-white")
-      listQuestionThree.classList.add("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "3. Wina memelihara Iguana, Iguana Wina berjumlah em-pat. Lambang bilangan em-pat adalah …";
+      listQuestionTwo.classList.remove("bg-black", "text-white");
+      listQuestionFour.classList.remove("bg-black", "text-white");
+      listQuestionThree.classList.add("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -395,17 +400,17 @@ function renderQuiz() {
         </label><br />
         </div>
          </div>
-            `
-      break
+            `;
+      break;
     case 4:
-      numberQuestion.innerText = "4. Lambang bilangan 4 dibaca …"
-      listQuestionOne.classList.remove("bg-black", "text-white")
-      listQuestionTwo.classList.remove("bg-black", "text-white")
-      listQuestionThree.classList.remove("bg-black", "text-white")
-      listQuestionFour.classList.add("bg-black", "text-white")
-      listQuestionFive.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+      numberQuestion.innerText = "4. Lambang bilangan 4 dibaca …";
+      listQuestionOne.classList.remove("bg-black", "text-white");
+      listQuestionTwo.classList.remove("bg-black", "text-white");
+      listQuestionThree.classList.remove("bg-black", "text-white");
+      listQuestionFour.classList.add("bg-black", "text-white");
+      listQuestionFive.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -426,15 +431,15 @@ function renderQuiz() {
         <label for="c4">c. Du-a</label><br />
         </div>
         </div>
-          `
-      break
+          `;
+      break;
     case 5:
-      numberQuestion.innerText = "5. Lambang bilangan delapan adalah …"
-      listQuestionFour.classList.remove("bg-black", "text-white")
-      listQuestionFive.classList.add("bg-black", "text-white")
-      listQuestionSix.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+      numberQuestion.innerText = "5. Lambang bilangan delapan adalah …";
+      listQuestionFour.classList.remove("bg-black", "text-white");
+      listQuestionFive.classList.add("bg-black", "text-white");
+      listQuestionSix.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -461,16 +466,16 @@ function renderQuiz() {
          </label><br />
          </div>
          </div>
-          `
-      break
+          `;
+      break;
     case 6:
       numberQuestion.innerText =
-        "6. Perhatikan gambar dibawah ini, berilah tanda kurang dari (<), lebih banyak (>), dan sama banyak (=)."
-      listQuestionFive.classList.remove("bg-black", "text-white")
-      listQuestionSix.classList.add("bg-black", "text-white")
-      listQuestionSeven.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "6. Perhatikan gambar dibawah ini, berilah tanda kurang dari (<), lebih banyak (>), dan sama banyak (=).";
+      listQuestionFive.classList.remove("bg-black", "text-white");
+      listQuestionSix.classList.add("bg-black", "text-white");
+      listQuestionSeven.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -504,16 +509,16 @@ function renderQuiz() {
           <label for="c6">c. ></label><br />
           </div>
           </div>
-          `
-      break
+          `;
+      break;
     case 7:
       numberQuestion.innerText =
-        "7. Perhatikan gambar dibawah ini, berilah tanda kurang dari (<), lebih banyak (>), dan sama banyak (=)."
-      listQuestionSix.classList.remove("bg-black", "text-white")
-      listQuestionSeven.classList.add("bg-black", "text-white")
-      listQuestionEight.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "7. Perhatikan gambar dibawah ini, berilah tanda kurang dari (<), lebih banyak (>), dan sama banyak (=).";
+      listQuestionSix.classList.remove("bg-black", "text-white");
+      listQuestionSeven.classList.add("bg-black", "text-white");
+      listQuestionEight.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -547,16 +552,16 @@ function renderQuiz() {
           <label for="c7">c. <</label><br />
           </div>
          </div>
-          `
-      break
+          `;
+      break;
     case 8:
       numberQuestion.innerText =
-        "8. Perhatikan gambar di bawah ini, berilah tanda kurang dari (<), lebih dari (>) dan sama dengan (=) ."
-      listQuestionSeven.classList.remove("bg-black", "text-white")
-      listQuestionEight.classList.add("bg-black", "text-white")
-      listQuestionNine.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "8. Perhatikan gambar di bawah ini, berilah tanda kurang dari (<), lebih dari (>) dan sama dengan (=) .";
+      listQuestionSeven.classList.remove("bg-black", "text-white");
+      listQuestionEight.classList.add("bg-black", "text-white");
+      listQuestionNine.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -591,16 +596,16 @@ function renderQuiz() {
          <label for="c8">c. ></label><br />
          </div>
          </div>
-          `
-      break
+          `;
+      break;
     case 9:
       numberQuestion.innerText =
-        "9. Perhatikan gambar di bawah ini, berilah tanda kurang dari (<), lebih dari (>) dan sama dengan (=) ."
-      listQuestionEight.classList.remove("bg-black", "text-white")
-      listQuestionNine.classList.add("bg-black", "text-white")
-      listQuestionTen.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "9. Perhatikan gambar di bawah ini, berilah tanda kurang dari (<), lebih dari (>) dan sama dengan (=) .";
+      listQuestionEight.classList.remove("bg-black", "text-white");
+      listQuestionNine.classList.add("bg-black", "text-white");
+      listQuestionTen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -635,16 +640,16 @@ function renderQuiz() {
          <label for="c9">c. =</label><br />
          </div>
         </div>
-          `
-      break
+          `;
+      break;
     case 10:
       numberQuestion.innerText =
-        "10. . Dibawah ini urutan bilangan yang benar dari terbesar ke terkecil adalah …"
-      listQuestionTen.classList.add("bg-black", "text-white")
-      listQuestionNine.classList.remove("bg-black", "text-white")
-      listQuestionEleven.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "10. . Dibawah ini urutan bilangan yang benar dari terbesar ke terkecil adalah …";
+      listQuestionTen.classList.add("bg-black", "text-white");
+      listQuestionNine.classList.remove("bg-black", "text-white");
+      listQuestionEleven.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -672,16 +677,16 @@ function renderQuiz() {
           </label><br />   
           </div>
          </div>
-          `
-      break
+          `;
+      break;
     case 11:
       numberQuestion.innerText =
-        "11. Dibawah ini urutan bilangan yang benar dari terkecil ke terbesar adalah …"
-      listQuestionTen.classList.remove("bg-black", "text-white")
-      listQuestionEleven.classList.add("bg-black", "text-white")
-      listQuestionTwelve.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "11. Dibawah ini urutan bilangan yang benar dari terkecil ke terbesar adalah …";
+      listQuestionTen.classList.remove("bg-black", "text-white");
+      listQuestionEleven.classList.add("bg-black", "text-white");
+      listQuestionTwelve.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -702,16 +707,16 @@ function renderQuiz() {
             <label for="c11">c. <img src="/assets/image/evaluasi/new/25.png" class="w-80"/> </label><br />
             </div>
             </div>
-        `
-      break
+        `;
+      break;
     case 12:
       numberQuestion.innerText =
-        "12. Dibawah ini urutan bilangan yang benar dari terbesar ke terkecil, kecuali adalah …"
-      listQuestionEleven.classList.remove("bg-black", "text-white")
-      listQuestionTwelve.classList.add("bg-black", "text-white")
-      listQuestionThirteen.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "12. Dibawah ini urutan bilangan yang benar dari terbesar ke terkecil, kecuali adalah …";
+      listQuestionEleven.classList.remove("bg-black", "text-white");
+      listQuestionTwelve.classList.add("bg-black", "text-white");
+      listQuestionThirteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -732,16 +737,16 @@ function renderQuiz() {
            <label for="c12">c. <img src="/assets/image/evaluasi/new/27.png" class="w-80"/> </label><br />
            </div>
            </div>
-        `
-      break
+        `;
+      break;
     case 13:
       numberQuestion.innerText =
-        "13. Dibawah ini yang pasangan bilangan yang benar jika dijumlahkan menjadi bilangan baru hasilnya menjadi 4 kecuali adalah …"
-      listQuestionTwelve.classList.remove("bg-black", "text-white")
-      listQuestionThirteen.classList.add("bg-black", "text-white")
-      listQuestionFourteen.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "13. Dibawah ini yang pasangan bilangan yang benar jika dijumlahkan menjadi bilangan baru hasilnya menjadi 4 kecuali adalah …";
+      listQuestionTwelve.classList.remove("bg-black", "text-white");
+      listQuestionThirteen.classList.add("bg-black", "text-white");
+      listQuestionFourteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -762,16 +767,16 @@ function renderQuiz() {
             <label for="c13">c. <img src="/assets/image/evaluasi/new/30.png" class="w-80"/> <br />
             </div>
            </div>
-        `
-      break
+        `;
+      break;
     case 14:
       numberQuestion.innerText =
-        "14. Dibawah ini yang pasangan bilangan yang benar jika dijumlahkan menjadi bilangan baru hasilnya menjadi 10 adalah …"
-      listQuestionThirteen.classList.remove("bg-black", "text-white")
-      listQuestionFourteen.classList.add("bg-black", "text-white")
-      listQuestionFiveteen.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "14. Dibawah ini yang pasangan bilangan yang benar jika dijumlahkan menjadi bilangan baru hasilnya menjadi 10 adalah …";
+      listQuestionThirteen.classList.remove("bg-black", "text-white");
+      listQuestionFourteen.classList.add("bg-black", "text-white");
+      listQuestionFiveteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -792,16 +797,16 @@ function renderQuiz() {
             <label for="c14">c. <img src="/assets/image/evaluasi/new/33.png" class="w-80"/> </label><br />
             </div>
            </div>
-        `
-      break
+        `;
+      break;
     case 15:
       numberQuestion.innerText =
-        "15. Dibawah ini yang pasangan benda dan bilangannya yang sama adalah …."
-      listQuestionFourteen.classList.remove("bg-black", "text-white")
-      listQuestionFiveteen.classList.add("bg-black", "text-white")
-      listQuestionSixteen.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "15. Dibawah ini yang pasangan benda dan bilangannya yang sama adalah ….";
+      listQuestionFourteen.classList.remove("bg-black", "text-white");
+      listQuestionFiveteen.classList.add("bg-black", "text-white");
+      listQuestionSixteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -822,16 +827,16 @@ function renderQuiz() {
            <label for="c15">c. <img src="/assets/image/evaluasi/new/36.png" class="w-80"/> </label><br />
            </div>
             </div>
-        `
-      break
+        `;
+      break;
     case 16:
       numberQuestion.innerText =
-        "16. Dibawah ini yang bukan pasangan benda dn bilangan yang sama adalah …"
-      listQuestionFiveteen.classList.remove("bg-black", "text-white")
-      listQuestionSixteen.classList.add("bg-black", "text-white")
-      listQuestionSeventeen.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+        "16. Dibawah ini yang bukan pasangan benda dn bilangan yang sama adalah …";
+      listQuestionFiveteen.classList.remove("bg-black", "text-white");
+      listQuestionSixteen.classList.add("bg-black", "text-white");
+      listQuestionSeventeen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -852,15 +857,15 @@ function renderQuiz() {
             <label for="c16">c. <img src="/assets/image/evaluasi/new/39.png" class="w-80"/> </label><br />
             </div>
             </div>
-        `
-      break
+        `;
+      break;
     case 17:
-      numberQuestion.innerText = "17. Perhatikan cerita di bawah ini."
-      listQuestionSixteen.classList.remove("bg-black", "text-white")
-      listQuestionSeventeen.classList.add("bg-black", "text-white")
-      listQuestionEightteen.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+      numberQuestion.innerText = "17. Perhatikan cerita di bawah ini.";
+      listQuestionSixteen.classList.remove("bg-black", "text-white");
+      listQuestionSeventeen.classList.add("bg-black", "text-white");
+      listQuestionEightteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -892,15 +897,15 @@ function renderQuiz() {
          <label for="c17">c. 8 + 2 = 10</label><br />
          </div>
          </div>
-      `
-      break
+      `;
+      break;
     case 18:
-      numberQuestion.innerText = "18. Perhatikan cerita di bawah ini. "
-      listQuestionSeventeen.classList.remove("bg-black", "text-white")
-      listQuestionEightteen.classList.add("bg-black", "text-white")
-      listQuestionNineteen.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+      numberQuestion.innerText = "18. Perhatikan cerita di bawah ini. ";
+      listQuestionSeventeen.classList.remove("bg-black", "text-white");
+      listQuestionEightteen.classList.add("bg-black", "text-white");
+      listQuestionNineteen.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -932,15 +937,15 @@ function renderQuiz() {
          <label for="c18">c. 3 − 3 = 0</label><br />
          </div>
          </div>
-      `
-      break
+      `;
+      break;
     case 19:
-      numberQuestion.innerText = "19. Sepuluh dikurang dua sama dengan 8"
-      listQuestionEightteen.classList.remove("bg-black", "text-white")
-      listQuestionNineteen.classList.add("bg-black", "text-white")
-      listQuestionTwenty.classList.remove("bg-black", "text-white")
-      btnNextQuestionTwo.style.backgroundColor = "blue"
-      btnNextQuestionTwo.innerText = "Selanjutnya"
+      numberQuestion.innerText = "19. Sepuluh dikurang dua sama dengan 8";
+      listQuestionEightteen.classList.remove("bg-black", "text-white");
+      listQuestionNineteen.classList.add("bg-black", "text-white");
+      listQuestionTwenty.classList.remove("bg-black", "text-white");
+      btnNextQuestionTwo.style.backgroundColor = "blue";
+      btnNextQuestionTwo.innerText = "Selanjutnya";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -961,15 +966,15 @@ function renderQuiz() {
         <label for="c19">c. 6 + 3 = 9</label><br />
         </div>
         </div>
-        `
-      break
+        `;
+      break;
     case 20:
-      numberQuestion.innerText = "20. Enam ditambah satu sama dengan tujuh"
-      listQuestionNineteen.classList.remove("bg-black", "text-white")
-      listQuestionTwenty.classList.add("bg-black", "text-white")
+      numberQuestion.innerText = "20. Enam ditambah satu sama dengan tujuh";
+      listQuestionNineteen.classList.remove("bg-black", "text-white");
+      listQuestionTwenty.classList.add("bg-black", "text-white");
       // btnPrev.classList.add("hidden");
-      btnNextQuestionTwo.innerText = "Selesaikan Evaluasi"
-      btnNextQuestionTwo.style.backgroundColor = "green"
+      btnNextQuestionTwo.innerText = "Selesaikan Evaluasi";
+      btnNextQuestionTwo.style.backgroundColor = "green";
 
       // Output kode HTML yang diberikan
       answerQuestion.innerHTML = `
@@ -991,10 +996,10 @@ function renderQuiz() {
          <label for="c20">c. 6 + 3 = 9</label><br />   
          </div>
         </div>
-          `
-      break
+          `;
+      break;
     default:
-      break
+      break;
   }
 }
 
@@ -1003,65 +1008,64 @@ document.querySelectorAll("button[id^='btn-kuis']").forEach((button) => {
   button.addEventListener("click", function () {
     // Remove styling from all buttons
     document.querySelectorAll("button[id^='btn-kuis']").forEach((btn) => {
-      btn.classList.remove("bg-black", "text-white")
-    })
+      btn.classList.remove("bg-black", "text-white");
+    });
     // Add styling to the clicked button
-    this.classList.add("bg-black", "text-white")
-  })
-})
+    this.classList.add("bg-black", "text-white");
+  });
+});
 /**
  * & Function to count down
  */
 function startCountdown() {
-  let countdownElement = document.getElementById("countdown")
-  let countdownTime = 30 * 60 // 30 menit dalam detik
+  let countdownElement = document.getElementById("countdown");
+  let countdownTime = 30 * 60; // 30 menit dalam detik
 
   // * Start Count down
   let countdownInterval = setInterval(function () {
-    let minutes = Math.floor(countdownTime / 60)
-    let seconds = countdownTime % 60
+    let minutes = Math.floor(countdownTime / 60);
+    let seconds = countdownTime % 60;
 
     // * Format waktu ke dalam jam:menit:detik
-    let formattedTime = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
-      2,
-      "0",
-    )}`
+    let formattedTime = `${String(minutes).padStart(2, "0")}:${String(
+      seconds
+    ).padStart(2, "0")}`;
 
     // * Tampilkan waktu pada elemen countdown
-    countdownElement.innerText = formattedTime
+    countdownElement.innerText = formattedTime;
 
     // * Kurangi waktu
-    countdownTime--
+    countdownTime--;
 
     // * Hentikan countdown jika waktu habis
     if (countdownTime < 0) {
-      clearInterval(countdownInterval)
-      countdownElement.innerText = "Waktu Habis!"
+      clearInterval(countdownInterval);
+      countdownElement.innerText = "Waktu Habis!";
     }
-  }, 1000)
+  }, 1000);
 }
 
 // * Tambahkan event listener untuk tombol Start
 // document.getElementById("btn-start").addEventListener("click", startCountdown);
-document.getElementById("btn-start").addEventListener("click", startQuiz)
+document.getElementById("btn-start").addEventListener("click", startQuiz);
 /**
  * & End Function to count down
  */
 
 function taskResult(type) {
-  event.preventDefault()
+  event.preventDefault();
 
   if (type === "evaluasi") {
-    const kuisSets = "evaluasi1_20"
-    let kuis_array = selectedAnswers
+    const kuisSets = "evaluasi1_20";
+    let kuis_array = selectedAnswers;
 
-    let setElements = document.getElementsByName(kuisSets)
-    let setValue = getCheckedValue(setElements)
-    console.log(setValue)
-    kuis_array.splice(19, 1, setValue)
-    console.log(kuis_array)
+    let setElements = document.getElementsByName(kuisSets);
+    let setValue = getCheckedValue(setElements);
+    console.log(setValue);
+    kuis_array.splice(19, 1, setValue);
+    console.log(kuis_array);
 
-    const average = 20 //total soal
+    const average = 20; //total soal
 
     const jawaban = [
       "a",
@@ -1084,86 +1088,86 @@ function taskResult(type) {
       "a",
       "a",
       "a",
-    ] // jawaban per soal + harus urut
+    ]; // jawaban per soal + harus urut
 
-    const resultArray = matchAdjacentElements(jawaban, kuis_array)
-    const resultCount = resultArray.length
-    const total = (resultCount / average) * 100
-    localStorage.setItem("evaluasi1_1", total)
+    const resultArray = matchAdjacentElements(jawaban, kuis_array);
+    const resultCount = resultArray.length;
+    const total = (resultCount / average) * 100;
+    localStorage.setItem("evaluasi1_1", total);
   } else {
-    return null
+    return null;
   }
   // totalPerSub();
 }
 
 function totalPerSub() {
   if (localStorage.getItem("evaluasi1_1")) {
-    const evaluasi = parseInt(localStorage.getItem("evaluasi1_1"))
+    const evaluasi = parseInt(localStorage.getItem("evaluasi1_1"));
 
-    localStorage.setItem("evaluasi1", evaluasi)
+    localStorage.setItem("evaluasi1", evaluasi);
     setInterval(() => {
-      localStorage.removeItem("evaluasi1_1")
-    }, 1000)
+      localStorage.removeItem("evaluasi1_1");
+    }, 1000);
   }
 }
 
 function getCheckedValue(elements) {
   for (let i = 0; i < elements.length; i++) {
     if (elements[i].checked) {
-      return elements[i].value
+      return elements[i].value;
     }
   }
-  return undefined // Return undefined if no radio button is checked
+  return undefined; // Return undefined if no radio button is checked
 }
 
 function matchAdjacentElements(arr1, arr2) {
   // Check the length of arrays to ensure they are of the same length
   if (arr1.length !== arr2.length) {
-    throw new Error("Arrays must have the same length")
+    throw new Error("Arrays must have the same length");
   }
 
   // Array to store matching values
-  const result = []
+  const result = [];
 
   // Iterate through the arrays
   for (let i = 0; i < arr1.length; i++) {
     // Compare values at the current index
     if (arr1[i] === arr2[i]) {
       // If they match, add to the result array
-      result.push(arr1[i])
+      result.push(arr1[i]);
     }
   }
 
-  return result
+  return result;
 }
 
-const kuisData = JSON.parse(localStorage.getItem("kkm"))
+const kuisData = JSON.parse(localStorage.getItem("kkm"));
 
 // Function to check and display result for a specific name
 function checkAndDisplayResultForName(name) {
   // Find the data object for the specified name
-  const item = kuisData.find((data) => data.name === name)
+  const item = kuisData.find((data) => data.name === name);
 
   if (!item) {
-    console.error(`No data found for name: ${name}`)
-    return
+    console.error(`No data found for name: ${name}`);
+    return;
   }
 
   // Convert kkm and nilai to numbers
-  const kkm = parseInt(item.kkm)
-  const nilai = parseInt(localStorage.getItem("evaluasi1_1"))
+  const kkm = parseInt(item.kkm);
+  const nilai = parseInt(localStorage.getItem("evaluasi1_1"));
 
   // Check if nilai is greater than or equal to kkm
   if (nilai >= kkm) {
     // If true, display "Selamat Anda Lulus Kuis"
     document.getElementById("kkm-evaluasi1").innerText =
-      "Selamat, anda lulus Evaluasi, silahkan melanjutkan ke materi berikutnya"
-    document.getElementById("kkm-evaluasi1").style.color = "green"
+      "Selamat, anda lulus Evaluasi, silahkan melanjutkan ke materi berikutnya";
+    document.getElementById("kkm-evaluasi1").style.color = "green";
   } else {
     // If false, display "Anda Belum Lulus Kuis"
     document.getElementById("kkm-evaluasi1").innerText =
-      "Nilai dari hasil evaluasi anda di bawah KKM, silahkan tekan 'Kembali ke Materi' untuk mengulang materi kembali. Lalu coba kembali evaluasi dengan menekan 'Mulai Evaluasi'"
-    document.getElementById("kkm-evaluasi1").style.color = "red"
+      "Nilai dari hasil evaluasi anda di bawah KKM, silahkan tekan 'Kembali ke Materi' untuk mengulang materi kembali. Lalu coba kembali evaluasi dengan menekan 'Mulai Evaluasi'";
+    document.getElementById("kkm-evaluasi1").style.color = "red";
   }
 }
 
@@ -1171,162 +1175,200 @@ function checkAndDisplayResultForName(name) {
 // document.getElementById('kkm-kuis1').innerHTML = '<p id="evaluasi">80</p><p id="kuis 1">60</p><p id="kuis 2">85</p>';
 
 // Call the function to check and display results for a specific name
-checkAndDisplayResultForName("evaluasi")
+checkAndDisplayResultForName("evaluasi");
 
 listQuestionOne.addEventListener("click", () => {
-  switchQuestion(1)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(1);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionTwo.addEventListener("click", () => {
-  switchQuestion(2)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(2);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionThree.addEventListener("click", () => {
-  switchQuestion(3)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(3);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionFour.addEventListener("click", () => {
-  switchQuestion(4)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(4);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionFive.addEventListener("click", () => {
-  switchQuestion(5)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(5);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionSix.addEventListener("click", () => {
-  switchQuestion(6)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(6);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionSeven.addEventListener("click", () => {
-  switchQuestion(7)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(7);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionEight.addEventListener("click", () => {
-  switchQuestion(8)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(8);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionNine.addEventListener("click", () => {
-  switchQuestion(9)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(9);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionTen.addEventListener("click", () => {
-  switchQuestion(10)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(10);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionEleven.addEventListener("click", () => {
-  switchQuestion(11)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(11);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionTwelve.addEventListener("click", () => {
-  switchQuestion(12)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(12);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionThirteen.addEventListener("click", () => {
-  switchQuestion(13)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(13);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionFourteen.addEventListener("click", () => {
-  switchQuestion(14)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(14);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionFiveteen.addEventListener("click", () => {
-  switchQuestion(15)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(15);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionSixteen.addEventListener("click", () => {
-  switchQuestion(16)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(16);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionSeventeen.addEventListener("click", () => {
-  switchQuestion(17)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(17);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionEightteen.addEventListener("click", () => {
-  switchQuestion(18)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(18);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionNineteen.addEventListener("click", () => {
-  switchQuestion(19)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(19);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 listQuestionTwenty.addEventListener("click", () => {
-  switchQuestion(20)
-  saveCurrentAnswer()
-  restoreSelectedAnswer()
-})
+  switchQuestion(20);
+  saveCurrentAnswer();
+  restoreSelectedAnswer();
+  updateButtonStyles();
+});
 
 // Function to switch to a specific question
 function switchQuestion(questionNumber) {
   // Save the current answer before switching
-  saveCurrentAnswer()
+  saveCurrentAnswer();
 
   // Set the new question number
-  numberQuiz = questionNumber
+  numberQuiz = questionNumber;
 
   // Render the new question
-  renderQuiz()
+  renderQuiz();
 
-  restoreSelectedAnswer()
+  restoreSelectedAnswer();
 }
 
 function saveCurrentAnswer() {
   const selectedOption = document.querySelector(
-    `input[name="evaluasi1_${numberQuiz}"]:checked`,
-  )
+    `input[name="evaluasi1_${numberQuiz}"]:checked`
+  );
   if (selectedOption) {
-    selectedAnswers[numberQuiz - 1] = selectedOption.value
+    selectedAnswers[numberQuiz - 1] = selectedOption.value;
   }
 }
 
 function restoreSelectedAnswer() {
-  const selectedAnswer = selectedAnswers[numberQuiz - 1]
+  const selectedAnswer = selectedAnswers[numberQuiz - 1];
   if (selectedAnswer !== undefined) {
     const selectedOption = document.querySelector(
-      `input[name="evaluasi1_${numberQuiz}"][value="${selectedAnswer}"]`,
-    )
+      `input[name="evaluasi1_${numberQuiz}"][value="${selectedAnswer}"]`
+    );
     if (selectedOption) {
-      selectedOption.checked = true
+      selectedOption.checked = true;
     }
   } else {
     // If there is no stored answer, uncheck all radio buttons for this question
-    const options = document.querySelectorAll(`input[name="evaluasi1_${numberQuiz}"]`)
+    const options = document.querySelectorAll(
+      `input[name="evaluasi1_${numberQuiz}"]`
+    );
     options.forEach((option) => {
-      option.checked = false
-    })
+      option.checked = false;
+    });
   }
 }
 
 document.addEventListener("click", function (event) {
-  const clickedElement = event.target
+  const clickedElement = event.target;
   if (clickedElement.type === "radio") {
-    const questionNumber = clickedElement.name.split("_")[1]
-    console.log("Clicked radio button for question:", questionNumber)
+    const questionNumber = clickedElement.name.split("_")[1];
+    console.log("Clicked radio button for question:", questionNumber);
 
     const selectedOption = document.querySelector(
-      `input[name="evaluasi1_${questionNumber}"]:checked`,
-    )
+      `input[name="evaluasi1_${questionNumber}"]:checked`
+    );
     if (selectedOption) {
-      selectedAnswers[questionNumber - 1] = selectedOption.value
+      selectedAnswers[questionNumber - 1] = selectedOption.value;
     }
-    console.log(selectedAnswers)
+    console.log(selectedAnswers);
+    updateButtonStyles();
   }
-})
+});
+
+function updateButtonStyles() {
+  selectedAnswers.forEach((answer, index) => {
+    const buttonId = `btn-kuis${index + 1}`;
+    const button = document.getElementById(buttonId);
+
+    if (answer !== undefined) {
+      // Set styles for answered buttons
+      button.classList.add("bg-black", "text-white");
+    } else {
+      // Remove styles for unanswered buttons
+      button.classList.remove("bg-black", "text-white");
+    }
+  });
+}
